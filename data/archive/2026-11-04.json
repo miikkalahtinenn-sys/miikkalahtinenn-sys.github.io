@@ -17,8 +17,8 @@
      "who": "Peyton Krebs",
      "tag": "",
      "ast": [
-      "T. Thompson",
-      "Z. Benson"
+      "Tage Thompson",
+      "Zach Benson"
      ],
      "fin": false
     },
@@ -29,8 +29,8 @@
      "who": "Shane Pinto",
      "tag": "",
      "ast": [
-      "P. Tomasino",
-      "T. Chabot"
+      "Philip Tomasino",
+      "Thomas Chabot"
      ],
      "fin": false
     },
@@ -41,17 +41,17 @@
      "who": "Michael Amadio",
      "tag": "",
      "ast": [
-      "T. Stützle",
-      "F. Zetterlund"
+      "Tim Stützle",
+      "Fabian Zetterlund"
      ],
      "fin": false
     }
    ],
-   "goalies": "S. Ersson (OTT) 23 torjuntaa · C. Ellis (BUF) 28 torjuntaa",
+   "goalies": "Samuel Ersson (OTT) 23 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
    "threeStars": [
     {
      "star": 1,
-     "name": "S. Ersson",
+     "name": "Samuel Ersson",
      "team": "OTT",
      "pos": "G",
      "goals": null,
@@ -61,7 +61,7 @@
     },
     {
      "star": 2,
-     "name": "M. Amadio",
+     "name": "Michael Amadio",
      "team": "OTT",
      "pos": "R",
      "goals": 1,
@@ -71,7 +71,7 @@
     },
     {
      "star": 3,
-     "name": "C. Ellis",
+     "name": "Colten Ellis",
      "team": "BUF",
      "pos": "G",
      "goals": null,
@@ -85,11 +85,11 @@
    "recapUrl": "https://www.nhl.com/video/ott-at-buf-recap-6407936357112",
    "videoId": "",
    "details": {
-    "goalies": "S. Ersson (OTT) 23 torjuntaa · C. Ellis (BUF) 28 torjuntaa",
+    "goalies": "Samuel Ersson (OTT) 23 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
     "threeStars": [
      {
       "star": 1,
-      "name": "S. Ersson",
+      "name": "Samuel Ersson",
       "team": "OTT",
       "pos": "G",
       "goals": null,
@@ -99,7 +99,7 @@
      },
      {
       "star": 2,
-      "name": "M. Amadio",
+      "name": "Michael Amadio",
       "team": "OTT",
       "pos": "R",
       "goals": 1,
@@ -109,7 +109,7 @@
      },
      {
       "star": 3,
-      "name": "C. Ellis",
+      "name": "Colten Ellis",
       "team": "BUF",
       "pos": "G",
       "goals": null,
@@ -137,8 +137,8 @@
      "who": "Sandis Vilmanis",
      "tag": "",
      "ast": [
-      "S. Reinhart",
-      "C. Verhaeghe"
+      "Sam Reinhart",
+      "Carter Verhaeghe"
      ],
      "fin": false
     },
@@ -149,8 +149,8 @@
      "who": "Carter Verhaeghe",
      "tag": "YV",
      "ast": [
-      "B. Tkachuk",
-      "M. Tkachuk"
+      "Brady Tkachuk",
+      "Matthew Tkachuk"
      ],
      "fin": false
     },
@@ -161,8 +161,8 @@
      "who": "Seth Jones",
      "tag": "",
      "ast": [
-      "S. Vilmanis",
-      "S. Reinhart"
+      "Sandis Vilmanis",
+      "Sam Reinhart"
      ],
      "fin": false
     },
@@ -173,8 +173,8 @@
      "who": "Roman Kantserov",
      "tag": "",
      "ast": [
-      "E. Del Mastro",
-      "C. Bedard"
+      "Ethan Del Mastro",
+      "Connor Bedard"
      ],
      "fin": false
     },
@@ -185,8 +185,8 @@
      "who": "Frank Nazar",
      "tag": "AV",
      "ast": [
-      "C. Smith",
-      "E. Del Mastro"
+      "Cole Smith",
+      "Ethan Del Mastro"
      ],
      "fin": false
     },
@@ -206,8 +206,8 @@
      "who": "Frank Nazar",
      "tag": "",
      "ast": [
-      "S. Rinzel",
-      "C. Bedard"
+      "Sam Rinzel",
+      "Connor Bedard"
      ],
      "fin": false
     },
@@ -218,16 +218,16 @@
      "who": "Sam Reinhart",
      "tag": "TM",
      "ast": [
-      "S. Vilmanis"
+      "Sandis Vilmanis"
      ],
      "fin": false
     }
    ],
-   "goalies": "S. Knight (CHI) 25 torjuntaa · J. Markstrom (FLA) 17 torjuntaa",
+   "goalies": "Spencer Knight (CHI) 25 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
    "threeStars": [
     {
      "star": 1,
-     "name": "S. Vilmanis",
+     "name": "Sandis Vilmanis",
      "team": "FLA",
      "pos": "L",
      "goals": 2,
@@ -237,7 +237,7 @@
     },
     {
      "star": 2,
-     "name": "C. Verhaeghe",
+     "name": "Carter Verhaeghe",
      "team": "FLA",
      "pos": "C",
      "goals": 1,
@@ -247,7 +247,7 @@
     },
     {
      "star": 3,
-     "name": "S. Reinhart",
+     "name": "Sam Reinhart",
      "team": "FLA",
      "pos": "C",
      "goals": 1,
@@ -261,11 +261,11 @@
    "recapUrl": "https://www.nhl.com/video/chi-at-fla-recap-6407937129112",
    "videoId": "",
    "details": {
-    "goalies": "S. Knight (CHI) 25 torjuntaa · J. Markstrom (FLA) 17 torjuntaa",
+    "goalies": "Spencer Knight (CHI) 25 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
     "threeStars": [
      {
       "star": 1,
-      "name": "S. Vilmanis",
+      "name": "Sandis Vilmanis",
       "team": "FLA",
       "pos": "L",
       "goals": 2,
@@ -275,7 +275,7 @@
      },
      {
       "star": 2,
-      "name": "C. Verhaeghe",
+      "name": "Carter Verhaeghe",
       "team": "FLA",
       "pos": "C",
       "goals": 1,
@@ -285,7 +285,7 @@
      },
      {
       "star": 3,
-      "name": "S. Reinhart",
+      "name": "Sam Reinhart",
       "team": "FLA",
       "pos": "C",
       "goals": 1,
@@ -313,7 +313,7 @@
      "who": "Adrian Kempe",
      "tag": "",
      "ast": [
-      "A. Panarin"
+      "Artemi Panarin"
      ],
      "fin": false
     },
@@ -324,8 +324,8 @@
      "who": "Adrian Kempe",
      "tag": "",
      "ast": [
-      "E. Gustafsson",
-      "B. Clarke"
+      "Erik Gustafsson",
+      "Brandt Clarke"
      ],
      "fin": false
     },
@@ -336,8 +336,8 @@
      "who": "Quinton Byfield",
      "tag": "YV",
      "ast": [
-      "A. Panarin",
-      "A. Kempe"
+      "Artemi Panarin",
+      "Adrian Kempe"
      ],
      "fin": false
     },
@@ -348,8 +348,8 @@
      "who": "Macklin Celebrini",
      "tag": "YV",
      "ast": [
-      "D. Orlov",
-      "M. Misa"
+      "Dmitry Orlov",
+      "Michael Misa"
      ],
      "fin": false
     },
@@ -360,8 +360,8 @@
      "who": "Erik Haula",
      "tag": "",
      "ast": [
-      "K. Connors",
-      "B. Dumoulin"
+      "Kenny Connors",
+      "Brian Dumoulin"
      ],
      "fin": true
     },
@@ -372,8 +372,8 @@
      "who": "Adrian Kempe",
      "tag": "YV",
      "ast": [
-      "A. Laferriere",
-      "A. Panarin"
+      "Alex Laferriere",
+      "Artemi Panarin"
      ],
      "fin": false
     },
@@ -384,7 +384,7 @@
      "who": "Joel Armia",
      "tag": "",
      "ast": [
-      "E. Haula"
+      "Erik Haula"
      ],
      "fin": true
     },
@@ -395,8 +395,8 @@
      "who": "Ivar Stenberg",
      "tag": "YV",
      "ast": [
-      "D. Orlov",
-      "M. Misa"
+      "Dmitry Orlov",
+      "Michael Misa"
      ],
      "fin": false
     },
@@ -407,17 +407,17 @@
      "who": "Quinton Byfield",
      "tag": "YV",
      "ast": [
-      "A. Panarin",
-      "E. Gustafsson"
+      "Artemi Panarin",
+      "Erik Gustafsson"
      ],
      "fin": false
     }
    ],
-   "goalies": "Y. Askarov (SJS) 20 torjuntaa · D. Kuemper (LAK) 30 torjuntaa",
+   "goalies": "Yaroslav Askarov (SJS) 20 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
    "threeStars": [
     {
      "star": 1,
-     "name": "A. Kempe",
+     "name": "Adrian Kempe",
      "team": "LAK",
      "pos": "R",
      "goals": 3,
@@ -427,7 +427,7 @@
     },
     {
      "star": 2,
-     "name": "A. Panarin",
+     "name": "Artemi Panarin",
      "team": "LAK",
      "pos": "L",
      "goals": 0,
@@ -437,7 +437,7 @@
     },
     {
      "star": 3,
-     "name": "Q. Byfield",
+     "name": "Quinton Byfield",
      "team": "LAK",
      "pos": "R",
      "goals": 2,
@@ -447,15 +447,15 @@
     }
    ],
    "venue": "Crypto.com Arena",
-   "note": "Adrian Kempe hattutemppu · Suomalaiset: Haula 1+0, Armia 1+0",
+   "note": "Adrian Kempe hattutemppu · Suomalaiset: Haula 1+1, Armia 1+0",
    "recapUrl": "https://www.nhl.com/video/sjs-at-lak-recap-6407941444112",
    "videoId": "",
    "details": {
-    "goalies": "Y. Askarov (SJS) 20 torjuntaa · D. Kuemper (LAK) 30 torjuntaa",
+    "goalies": "Yaroslav Askarov (SJS) 20 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
     "threeStars": [
      {
       "star": 1,
-      "name": "A. Kempe",
+      "name": "Adrian Kempe",
       "team": "LAK",
       "pos": "R",
       "goals": 3,
@@ -465,7 +465,7 @@
      },
      {
       "star": 2,
-      "name": "A. Panarin",
+      "name": "Artemi Panarin",
       "team": "LAK",
       "pos": "L",
       "goals": 0,
@@ -475,7 +475,7 @@
      },
      {
       "star": 3,
-      "name": "Q. Byfield",
+      "name": "Quinton Byfield",
       "team": "LAK",
       "pos": "R",
       "goals": 2,
@@ -503,8 +503,8 @@
      "who": "Yegor Sharangovich",
      "tag": "",
      "ast": [
-      "Z. Whitecloud",
-      "M. Frost"
+      "Zach Whitecloud",
+      "Morgan Frost"
      ],
      "fin": false
     },
@@ -515,8 +515,8 @@
      "who": "Berkly Catton",
      "tag": "",
      "ast": [
-      "M. Samoskevich",
-      "K. Kakko"
+      "Mackie Samoskevich",
+      "Kaapo Kakko"
      ],
      "fin": false
     },
@@ -527,16 +527,16 @@
      "who": "Matty Beniers",
      "tag": "",
      "ast": [
-      "B. Montour"
+      "Brandon Montour"
      ],
      "fin": false
     }
    ],
-   "goalies": "D. Wolf (CGY) 27 torjuntaa · J. Daccord (SEA) 25 torjuntaa",
+   "goalies": "Dustin Wolf (CGY) 27 torjuntaa · Joey Daccord (SEA) 25 torjuntaa",
    "threeStars": [
     {
      "star": 1,
-     "name": "M. Beniers",
+     "name": "Matty Beniers",
      "team": "SEA",
      "pos": "C",
      "goals": 1,
@@ -546,7 +546,7 @@
     },
     {
      "star": 2,
-     "name": "B. Catton",
+     "name": "Berkly Catton",
      "team": "SEA",
      "pos": "C",
      "goals": 1,
@@ -556,7 +556,7 @@
     },
     {
      "star": 3,
-     "name": "J. Daccord",
+     "name": "Joey Daccord",
      "team": "SEA",
      "pos": "G",
      "goals": null,
@@ -566,15 +566,15 @@
     }
    ],
    "venue": "Climate Pledge Arena",
-   "note": "",
+   "note": "Suomalaiset: Kakko 0+1",
    "recapUrl": "https://www.nhl.com/video/cgy-at-sea-recap-6407942016112",
    "videoId": "",
    "details": {
-    "goalies": "D. Wolf (CGY) 27 torjuntaa · J. Daccord (SEA) 25 torjuntaa",
+    "goalies": "Dustin Wolf (CGY) 27 torjuntaa · Joey Daccord (SEA) 25 torjuntaa",
     "threeStars": [
      {
       "star": 1,
-      "name": "M. Beniers",
+      "name": "Matty Beniers",
       "team": "SEA",
       "pos": "C",
       "goals": 1,
@@ -584,7 +584,7 @@
      },
      {
       "star": 2,
-      "name": "B. Catton",
+      "name": "Berkly Catton",
       "team": "SEA",
       "pos": "C",
       "goals": 1,
@@ -594,7 +594,7 @@
      },
      {
       "star": 3,
-      "name": "J. Daccord",
+      "name": "Joey Daccord",
       "team": "SEA",
       "pos": "G",
       "goals": null,

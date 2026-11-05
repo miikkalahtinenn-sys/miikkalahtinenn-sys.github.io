@@ -7,13 +7,14 @@
 <meta name="description" content="{{DESC}}">
 <link rel="canonical" href="{{CANONICAL}}">
 <meta property="og:title" content="{{SITE}} – NHL-tulokset suomeksi"><meta property="og:description" content="{{DESC}}"><meta property="og:type" content="website"><meta property="og:url" content="{{CANONICAL}}"><meta property="og:locale" content="fi_FI">
-<meta name="theme-color" content="#0b1118">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118">
+<meta property="og:image" content="{{CANONICAL}}og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{JSONLD}}</script>
 <link rel="stylesheet" href="/fonts.css">
 <style>
 :root{
   --bg:#0b1118; --panel:#121b25; --panel2:#17222e; --line:#223040;
-  --ink:#eef3f8; --mute:#8a9bb0; --ice:#7fd3ff; --accent:#ff4d5e; --fi:#2f6fe0; --fi2:#173a78;
+  --ink:#eef3f8; --mute:#8a9bb0; --ice:#7fd3ff; --accent:#e8262e; --lamp:#f0282e; --fi:#2f6fe0; --fi2:#173a78;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -21,14 +22,15 @@ body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-seri
 a{color:inherit}
 .wrap{max-width:780px;margin:0 auto;padding:0 14px 60px}
 header{padding:22px 0 10px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:34px;letter-spacing:.5px;line-height:1;text-transform:uppercase}
-.brand span{color:var(--ice)}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:31px;letter-spacing:.6px;line-height:1}
+.brand img{filter:drop-shadow(0 0 10px rgba(240,40,46,.45))}
+.brand b{color:var(--lamp);font-weight:800}
 .sub{color:var(--mute);font-size:13px;margin-top:4px}
 .upd{color:var(--mute);font-size:12px;text-align:right;white-space:nowrap}
 nav{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 80%,transparent);padding:8px 0 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav a{flex:0 0 auto;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:16.5px;letter-spacing:.4px;text-transform:uppercase;padding:7px 13px;border-radius:999px;background:var(--panel);color:var(--mute);border:1px solid var(--line)}
-nav a.on{background:var(--ice);color:#06202e;border-color:var(--ice)}
+nav a.on{background:var(--lamp);color:#fff;border-color:var(--lamp)}
 nav a.fi-tab.on{background:#fff;color:var(--fi);border-color:#fff}
 .notice{background:linear-gradient(135deg,#0f2a52,#123a6b);border:1px solid #2a5596;border-radius:14px;padding:12px 14px;margin-bottom:14px;display:flex;gap:12px;align-items:center}
 .flag{width:30px;height:20px;flex:0 0 auto;border-radius:3px;background:#fff;position:relative;overflow:hidden;display:inline-block;vertical-align:middle}
@@ -156,7 +158,7 @@ tr.fav td{background:rgba(255,210,122,.09)}
 <div class="wrap">
   <header>
     <div>
-      <a class="brand" href="/" style="text-decoration:none">{{SITE}}</a>
+      <a class="brand" href="/" aria-label="Kiekkotulokset – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>KIEKKO<b>TULOKSET</b></span></a>
       <h1 class="sub">{{TAGLINE}}</h1>
     </div>
     <div class="upd" id="upd"></div>
@@ -326,7 +328,7 @@ function renderFinns(){
      <div class="fistat"><b>${tot.g}</b><small>maalia yhteensä</small></div>
      <div class="fistat"><b>${tot.p}</b><small>pistettä yhteensä</small></div>
    </div>
-   <div class="card"><div class="dayh"><b>Yön suomalaismaalit</b><small>${esc(nightLabel())}</small></div><div class="night">${
+   <div class="card"><div class="dayh"><b><img src="/logo-mark.svg" alt="" width="18" height="18" style="vertical-align:-3px;margin-right:6px">Yön suomalaismaalit</b><small>${esc(nightLabel())}</small></div><div class="night">${
      Object.values(agg).length?Object.values(agg).map(n=>`<div class="row">${mini(n.team)}<b>${esc(n.who)}</b><span>${n.n>1?n.n+" maalia":"maali"}</span><em>vs ${esc(n.opp)}</em></div>`).join(""):'<div class="row na">Ei suomalaisten maaleja yöllä.</div>'
    }</div></div>
    ${trendChart()}

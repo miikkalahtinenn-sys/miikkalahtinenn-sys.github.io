@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kiekkoaamu – hakee NHL:n julkiset tulos- ja tilastotiedot ja rakentaa staattisen sivuston kansioon _site/.
+"""Kiekkotulokset – hakee NHL:n julkiset tulos- ja tilastotiedot ja rakentaa staattisen sivuston kansioon _site/.
 
 Ajetaan GitHub Actionsissa (.github/workflows/update.yml). Käyttää vain Pythonin vakiokirjastoa.
 
@@ -528,8 +528,9 @@ def page(title, desc, path, body, jsonld=None):
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{base}{path}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
-<link rel="stylesheet" href="/static.css">{ld}</head>
-<body><div class="wrap"><header><a class="brand" href="/">{esc(CFG['siteName'])}</a></header>
+<meta property="og:image" content="{base}/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
+<body><div class="wrap"><header><a class="brand" href="/" aria-label="Kiekkotulokset – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>KIEKKO<b>TULOKSET</b></span></a></header>
 <nav class="crumbs"><a href="/">Tulokset</a> · <a href="/otteluohjelma/">Otteluohjelma</a> · <a href="/suomalaiset/">Suomalaiset</a> · <a href="/pisteporssi/">Pistepörssi</a> · <a href="/sarjataulukko/">Sarjataulukko</a> · <a href="/ottelut/">Arkisto</a></nav>
 <main>{body}</main>{footer()}</div></body></html>"""
 

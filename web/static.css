@@ -1,8 +1,8 @@
 @import url(/fonts.css);
-:root{--bg:#0b1118;--panel:#121b25;--line:#223040;--ink:#eef3f8;--mute:#8a9bb0;--ice:#7fd3ff;--accent:#ff4d5e;--fi:#2f6fe0}
+:root{--bg:#0b1118;--panel:#121b25;--line:#223040;--ink:#eef3f8;--mute:#8a9bb0;--ice:#7fd3ff;--accent:#e8262e;--lamp:#f0282e;--fi:#2f6fe0}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
 a{color:var(--ice)}.wrap{max-width:780px;margin:0 auto;padding:18px 14px 50px}
-.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.brand{display:inline-flex;align-items:center;gap:9px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:29px;letter-spacing:.6px;color:var(--ink);text-decoration:none;line-height:1}.brand img{filter:drop-shadow(0 0 10px rgba(240,40,46,.45))}.brand b{color:var(--lamp)}
 .crumbs{font-size:13px;color:var(--mute);margin:6px 0 18px}.crumbs a{color:var(--mute)}
 h1{font-family:"Barlow Condensed",sans-serif;font-size:30px;line-height:1.15;margin:.2em 0}
 h2{font-family:"Barlow Condensed",sans-serif;font-size:21px;text-transform:uppercase;letter-spacing:.3px;margin:1.4em 0 .4em;color:var(--ice)}

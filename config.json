@@ -1,10 +1,10 @@
 {
-  "siteName": "Kiekkoaamu",
-  "tagline": "Yön NHL-tulokset, tilastot ja suomalaiset – suomeksi",
+  "siteName": "Kiekkotulokset",
+  "tagline": "Yön NHL-tulokset, maalikoosteet ja suomalaiset – suomeksi",
   "baseUrl": "https://miikkalahtinenn-sys.github.io",
   "contactEmail": "(poistettu)",
   "ownerName": "Punalampun ylläpitäjä",
-  "userAgent": "Kiekkoaamu/1.0 (harrastussivusto; https://miikkalahtinenn-sys.github.io)",
+  "userAgent": "Kiekkotulokset/1.0 (harrastussivusto; https://miikkalahtinenn-sys.github.io)",
   "notices": [
     {
       "from": "2026-11-05",

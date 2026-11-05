@@ -2,7 +2,6 @@
   "siteName": "Punalamppu",
   "tagline": "Yön NHL-tulokset, maalikoosteet ja suomalaiset – suomeksi",
   "baseUrl": "https://punalamppu.com",
-  "ownerName": "Punalampun ylläpitäjä",
   "userAgent": "Punalamppu/1.0 (harrastussivusto; https://punalamppu.com)",
   "notices": [
     {

@@ -47,7 +47,7 @@
      "fin": false
     }
    ],
-   "goalies": "Samuel Ersson (OTT) 23 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
+   "goalies": "Samuel Ersson (OTT) 24 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
    "threeStars": [
     {
      "star": 1,
@@ -57,7 +57,7 @@
      "goals": null,
      "assists": null,
      "points": null,
-     "svp": 0.958
+     "svp": 0.96
     },
     {
      "star": 2,
@@ -81,11 +81,25 @@
     }
    ],
    "venue": "KeyBank Center",
+   "finStats": [
+    {
+     "name": "Nikolas Matinpalo",
+     "team": "OTT",
+     "opp": "BUF",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 0,
+     "toi": "12:15"
+    }
+   ],
    "note": "",
    "recapUrl": "https://www.nhl.com/video/ott-at-buf-recap-6407936357112",
    "videoId": "",
    "details": {
-    "goalies": "Samuel Ersson (OTT) 23 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
+    "goalies": "Samuel Ersson (OTT) 24 torjuntaa · Colten Ellis (BUF) 28 torjuntaa",
     "threeStars": [
      {
       "star": 1,
@@ -95,7 +109,7 @@
       "goals": null,
       "assists": null,
       "points": null,
-      "svp": 0.958
+      "svp": 0.96
      },
      {
       "star": 2,
@@ -118,7 +132,21 @@
       "svp": 0.933
      }
     ],
-    "venue": "KeyBank Center"
+    "venue": "KeyBank Center",
+    "finStats": [
+     {
+      "name": "Nikolas Matinpalo",
+      "team": "OTT",
+      "opp": "BUF",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 0,
+      "toi": "12:15"
+     }
+    ]
    }
   },
   "2026020248": {
@@ -223,7 +251,7 @@
      "fin": false
     }
    ],
-   "goalies": "Spencer Knight (CHI) 25 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
+   "goalies": "Spencer Knight (CHI) 24 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
    "threeStars": [
     {
      "star": 1,
@@ -257,11 +285,61 @@
     }
    ],
    "venue": "Amerant Bank Arena",
+   "finStats": [
+    {
+     "name": "Teuvo Teräväinen",
+     "team": "CHI",
+     "opp": "FLA",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -2,
+     "sog": 0,
+     "toi": "09:43"
+    },
+    {
+     "name": "Anton Lundell",
+     "team": "FLA",
+     "opp": "CHI",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 0,
+     "toi": "16:54"
+    },
+    {
+     "name": "Eetu Luostarinen",
+     "team": "FLA",
+     "opp": "CHI",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 0,
+     "toi": "16:10"
+    },
+    {
+     "name": "Niko Mikkola",
+     "team": "FLA",
+     "opp": "CHI",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 2,
+     "sog": 1,
+     "toi": "14:02"
+    }
+   ],
    "note": "",
    "recapUrl": "https://www.nhl.com/video/chi-at-fla-recap-6407937129112",
    "videoId": "",
    "details": {
-    "goalies": "Spencer Knight (CHI) 25 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
+    "goalies": "Spencer Knight (CHI) 24 torjuntaa · Jacob Markstrom (FLA) 17 torjuntaa",
     "threeStars": [
      {
       "star": 1,
@@ -294,7 +372,57 @@
       "svp": null
      }
     ],
-    "venue": "Amerant Bank Arena"
+    "venue": "Amerant Bank Arena",
+    "finStats": [
+     {
+      "name": "Teuvo Teräväinen",
+      "team": "CHI",
+      "opp": "FLA",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -2,
+      "sog": 0,
+      "toi": "09:43"
+     },
+     {
+      "name": "Anton Lundell",
+      "team": "FLA",
+      "opp": "CHI",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 0,
+      "toi": "16:54"
+     },
+     {
+      "name": "Eetu Luostarinen",
+      "team": "FLA",
+      "opp": "CHI",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 0,
+      "toi": "16:10"
+     },
+     {
+      "name": "Niko Mikkola",
+      "team": "FLA",
+      "opp": "CHI",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 2,
+      "sog": 1,
+      "toi": "14:02"
+     }
+    ]
    }
   },
   "2026020249": {
@@ -414,7 +542,7 @@
      "fin": false
     }
    ],
-   "goalies": "Yaroslav Askarov (SJS) 20 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
+   "goalies": "Yaroslav Askarov (SJS) 19 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
    "threeStars": [
     {
      "star": 1,
@@ -448,11 +576,37 @@
     }
    ],
    "venue": "Crypto.com Arena",
+   "finStats": [
+    {
+     "name": "Joel Armia",
+     "team": "LAK",
+     "opp": "SJS",
+     "pos": "H",
+     "g": 1,
+     "a": 0,
+     "p": 1,
+     "pm": 2,
+     "sog": 1,
+     "toi": "12:51"
+    },
+    {
+     "name": "Erik Haula",
+     "team": "LAK",
+     "opp": "SJS",
+     "pos": "H",
+     "g": 1,
+     "a": 1,
+     "p": 2,
+     "pm": 2,
+     "sog": 2,
+     "toi": "14:29"
+    }
+   ],
    "note": "Adrian Kempe hattutemppu · Suomalaiset: Haula 1+1, Armia 1+0",
    "recapUrl": "https://www.nhl.com/video/sjs-at-lak-recap-6407941444112",
    "videoId": "",
    "details": {
-    "goalies": "Yaroslav Askarov (SJS) 20 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
+    "goalies": "Yaroslav Askarov (SJS) 19 torjuntaa · Darcy Kuemper (LAK) 30 torjuntaa",
     "threeStars": [
      {
       "star": 1,
@@ -485,7 +639,33 @@
       "svp": null
      }
     ],
-    "venue": "Crypto.com Arena"
+    "venue": "Crypto.com Arena",
+    "finStats": [
+     {
+      "name": "Joel Armia",
+      "team": "LAK",
+      "opp": "SJS",
+      "pos": "H",
+      "g": 1,
+      "a": 0,
+      "p": 1,
+      "pm": 2,
+      "sog": 1,
+      "toi": "12:51"
+     },
+     {
+      "name": "Erik Haula",
+      "team": "LAK",
+      "opp": "SJS",
+      "pos": "H",
+      "g": 1,
+      "a": 1,
+      "p": 2,
+      "pm": 2,
+      "sog": 2,
+      "toi": "14:29"
+     }
+    ]
    }
   },
   "2026020250": {
@@ -567,6 +747,44 @@
     }
    ],
    "venue": "Climate Pledge Arena",
+   "finStats": [
+    {
+     "name": "Jani Nyman",
+     "team": "SEA",
+     "opp": "CGY",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 2,
+     "toi": "09:16"
+    },
+    {
+     "name": "Kaapo Kakko",
+     "team": "SEA",
+     "opp": "CGY",
+     "pos": "H",
+     "g": 0,
+     "a": 1,
+     "p": 1,
+     "pm": 1,
+     "sog": 2,
+     "toi": "13:24"
+    },
+    {
+     "name": "Ville Ottavainen",
+     "team": "SEA",
+     "opp": "CGY",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 1,
+     "sog": 0,
+     "toi": "10:56"
+    }
+   ],
    "note": "Suomalaiset: Kakko 0+1",
    "recapUrl": "https://www.nhl.com/video/cgy-at-sea-recap-6407942016112",
    "videoId": "",
@@ -604,7 +822,45 @@
       "svp": 0.962
      }
     ],
-    "venue": "Climate Pledge Arena"
+    "venue": "Climate Pledge Arena",
+    "finStats": [
+     {
+      "name": "Jani Nyman",
+      "team": "SEA",
+      "opp": "CGY",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 2,
+      "toi": "09:16"
+     },
+     {
+      "name": "Kaapo Kakko",
+      "team": "SEA",
+      "opp": "CGY",
+      "pos": "H",
+      "g": 0,
+      "a": 1,
+      "p": 1,
+      "pm": 1,
+      "sog": 2,
+      "toi": "13:24"
+     },
+     {
+      "name": "Ville Ottavainen",
+      "team": "SEA",
+      "opp": "CGY",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 1,
+      "sog": 0,
+      "toi": "10:56"
+     }
+    ]
    }
   }
  }

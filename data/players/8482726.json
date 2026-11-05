@@ -1,0 +1,366 @@
+{
+ "playerId": 8482726,
+ "firstName": {
+  "default": "Samuel"
+ },
+ "lastName": {
+  "default": "Helenius"
+ },
+ "currentTeamAbbrev": "LAK",
+ "position": "C",
+ "sweaterNumber": 79,
+ "birthDate": "2002-11-26",
+ "birthCity": {
+  "default": "Dallas"
+ },
+ "birthStateProvince": {
+  "default": "Texas"
+ },
+ "birthCountry": "USA",
+ "heightInCentimeters": 198,
+ "weightInKilograms": 102,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2021,
+  "teamAbbrev": "LAK",
+  "round": 2,
+  "pickInRound": 27,
+  "overallPick": 59
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 0,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 11,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 20,
+    "plusMinus": 0,
+    "points": 1,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.125,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 8
+   },
+   "career": {
+    "assists": 7,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 114,
+    "goals": 10,
+    "otGoals": 0,
+    "pim": 95,
+    "plusMinus": -5,
+    "points": 17,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.1333,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 75
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 7,
+   "avgToi": "8:18",
+   "faceoffWinningPctg": 0.45840000000000003,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 114,
+   "goals": 10,
+   "otGoals": 0,
+   "pim": 95,
+   "plusMinus": -5,
+   "points": 17,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.1333,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 75
+  },
+  "playoffs": {
+   "assists": 1,
+   "avgToi": "5:30",
+   "faceoffWinningPctg": 0.5832999999999999,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 10,
+   "goals": 0,
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": -3,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 5
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-10-31",
+   "gameId": 2026020221,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "BUF",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 9,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "LAK",
+   "toi": "5:41"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020212,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "OTT",
+   "pim": 10,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 8,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "LAK",
+   "toi": "5:16"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020190,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "CHI",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "LAK",
+   "toi": "7:22"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-26",
+   "gameId": 2026020185,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NYR",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 15,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "LAK",
+   "toi": "10:11"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-24",
+   "gameId": 2026020169,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NJD",
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 9,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "LAK",
+   "toi": "9:51"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 3,
+   "avgToi": "8:39",
+   "faceoffWinningPctg": 0.464029,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 50,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 25,
+   "plusMinus": 1,
+   "points": 7,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.137931,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 29,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "3:58",
+   "faceoffWinningPctg": 0.666667,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 6,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 1,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "7:59",
+   "faceoffWinningPctg": 0.452381,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 53,
+   "goals": 5,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 50,
+   "plusMinus": -6,
+   "points": 9,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.131579,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 38,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "7:49",
+   "faceoffWinningPctg": 0.533333,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "8:17",
+   "faceoffWinningPctg": 0.458333,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 11,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 20,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.125,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 8,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

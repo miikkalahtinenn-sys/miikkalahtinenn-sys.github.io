@@ -1,0 +1,314 @@
+{
+ "playerId": 8483471,
+ "firstName": {
+  "default": "Brad"
+ },
+ "lastName": {
+  "default": "Lambert"
+ },
+ "currentTeamAbbrev": "WPG",
+ "position": "C",
+ "sweaterNumber": 93,
+ "birthDate": "2003-12-19",
+ "birthCity": {
+  "default": "Lahti",
+  "sv": "Lahtis"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 185,
+ "weightInKilograms": 78,
+ "shootsCatches": "R",
+ "draftDetails": {
+  "year": 2022,
+  "teamAbbrev": "WPG",
+  "round": 1,
+  "pickInRound": 30,
+  "overallPick": 30
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 1,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 11,
+    "goals": 0,
+    "otGoals": 0,
+    "pim": 4,
+    "plusMinus": -5,
+    "points": 1,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.0,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 4
+   },
+   "career": {
+    "assists": 6,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 42,
+    "goals": 3,
+    "otGoals": 0,
+    "pim": 12,
+    "plusMinus": -9,
+    "points": 9,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 1,
+    "shootingPctg": 0.0882,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 34
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 6,
+   "avgToi": "10:33",
+   "faceoffWinningPctg": 0.34090000000000004,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 42,
+   "goals": 3,
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": -9,
+   "points": 9,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "shootingPctg": 0.0882,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 34
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020204,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TBL",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 14,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "WPG",
+   "toi": "8:58"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020194,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "FLA",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "WPG",
+   "toi": "11:20"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-22",
+   "gameId": 2026020161,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "DAL",
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 12,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "WPG",
+   "toi": "7:10"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-20",
+   "gameId": 2026020146,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "STL",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 10,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "WPG",
+   "toi": "6:48"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-17",
+   "gameId": 2026020122,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CAR",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 9,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "WPG",
+   "toi": "5:55"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 1,
+   "avgToi": "13:51",
+   "faceoffWinningPctg": 0.428571,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 1,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 2,
+   "teamCommonName": {
+    "default": "Jets"
+   },
+   "teamName": {
+    "default": "Winnipeg Jets",
+    "fr": "Jets de Winnipeg"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Winnipeg",
+    "fr": "de Winnipeg"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "11:36",
+   "faceoffWinningPctg": 0.333333,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 5,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 1,
+   "teamCommonName": {
+    "default": "Jets"
+   },
+   "teamName": {
+    "default": "Winnipeg Jets",
+    "fr": "Jets de Winnipeg"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Winnipeg",
+    "fr": "de Winnipeg"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "10:48",
+   "faceoffWinningPctg": 0.285714,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 25,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 6,
+   "plusMinus": -5,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.111111,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 27,
+   "teamCommonName": {
+    "default": "Jets"
+   },
+   "teamName": {
+    "default": "Winnipeg Jets",
+    "fr": "Jets de Winnipeg"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Winnipeg",
+    "fr": "de Winnipeg"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "9:10",
+   "faceoffWinningPctg": 0.375,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 11,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": -5,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4,
+   "teamCommonName": {
+    "default": "Jets"
+   },
+   "teamName": {
+    "default": "Winnipeg Jets",
+    "fr": "Jets de Winnipeg"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Winnipeg",
+    "fr": "de Winnipeg"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

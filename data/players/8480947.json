@@ -1,0 +1,361 @@
+{
+ "playerId": 8480947,
+ "firstName": {
+  "default": "Kevin"
+ },
+ "lastName": {
+  "default": "Lankinen"
+ },
+ "currentTeamAbbrev": "VAN",
+ "position": "G",
+ "sweaterNumber": 32,
+ "birthDate": "1995-04-28",
+ "birthCity": {
+  "default": "Helsinki",
+  "cs": "Helsinky",
+  "sk": "Helsinky",
+  "sv": "Helsingfors"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 188,
+ "weightInKilograms": 90,
+ "shootsCatches": "L",
+ "draftDetails": null,
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "gamesPlayed": 9,
+    "goalsAgainstAvg": 6.032736,
+    "losses": 8,
+    "otLosses": 0,
+    "savePctg": 0.808219,
+    "shutouts": 0,
+    "wins": 1
+   },
+   "career": {
+    "gamesPlayed": 219,
+    "goalsAgainstAvg": 3.197516,
+    "losses": 93,
+    "otLosses": 27,
+    "savePctg": 0.894838,
+    "shutouts": 7,
+    "wins": 82
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 7,
+   "gamesPlayed": 219,
+   "gamesStarted": 201,
+   "goals": 0,
+   "goalsAgainst": 655,
+   "goalsAgainstAvg": 3.197516,
+   "losses": 93,
+   "otLosses": 27,
+   "pim": 8,
+   "savePctg": 0.894838,
+   "shotsAgainst": 6219,
+   "shutouts": 7,
+   "timeOnIce": "12290:47",
+   "wins": 82
+  }
+ },
+ "last5Games": [
+  {
+   "decision": "L",
+   "gameDate": "2026-11-03",
+   "gameId": 2026020246,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 5,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "ANA",
+   "penaltyMins": 0,
+   "savePctg": 0.772727,
+   "shotsAgainst": 22,
+   "teamAbbrev": "VAN",
+   "toi": "58:17"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-22",
+   "gameId": 2026020165,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 5,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "DET",
+   "penaltyMins": 0,
+   "savePctg": 0.83871,
+   "shotsAgainst": 31,
+   "teamAbbrev": "VAN",
+   "toi": "60:00"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-17",
+   "gameId": 2026020123,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 4,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TBL",
+   "penaltyMins": 0,
+   "savePctg": 0.885714,
+   "shotsAgainst": 35,
+   "teamAbbrev": "VAN",
+   "toi": "56:39"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-11",
+   "gameId": 2026020085,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 6,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NYR",
+   "penaltyMins": 0,
+   "savePctg": 0.76,
+   "shotsAgainst": 25,
+   "teamAbbrev": "VAN",
+   "toi": "60:00"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-10",
+   "gameId": 2026020071,
+   "gameTypeId": 2,
+   "gamesStarted": 0,
+   "goalsAgainst": 1,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NJD",
+   "penaltyMins": 0,
+   "savePctg": 0.666667,
+   "shotsAgainst": 3,
+   "teamAbbrev": "VAN",
+   "toi": "5:27"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 2,
+   "gameTypeId": 2,
+   "gamesPlayed": 37,
+   "gamesStarted": 37,
+   "goals": 0,
+   "goalsAgainst": 109,
+   "goalsAgainstAvg": 3.007148,
+   "leagueAbbrev": "NHL",
+   "losses": 14,
+   "otLosses": 5,
+   "pim": 2,
+   "savePctg": 0.909468,
+   "season": 20202021,
+   "sequence": 1,
+   "shotsAgainst": 1204,
+   "shutouts": 2,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   },
+   "timeOnIce": "2174:49",
+   "wins": 17
+  },
+  {
+   "assists": 1,
+   "gameTypeId": 2,
+   "gamesPlayed": 32,
+   "gamesStarted": 29,
+   "goals": 0,
+   "goalsAgainst": 106,
+   "goalsAgainstAvg": 3.503005,
+   "leagueAbbrev": "NHL",
+   "losses": 15,
+   "otLosses": 6,
+   "savePctg": 0.891059,
+   "season": 20212022,
+   "sequence": 1,
+   "shotsAgainst": 973,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   },
+   "timeOnIce": "1815:35",
+   "wins": 8
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 19,
+   "gamesStarted": 18,
+   "goals": 0,
+   "goalsAgainst": 49,
+   "goalsAgainstAvg": 2.749802,
+   "leagueAbbrev": "NHL",
+   "losses": 8,
+   "otLosses": 1,
+   "pim": 2,
+   "savePctg": 0.915952,
+   "season": 20222023,
+   "sequence": 1,
+   "shotsAgainst": 583,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   },
+   "timeOnIce": "1069:10",
+   "wins": 9
+  },
+  {
+   "assists": 1,
+   "gameTypeId": 2,
+   "gamesPlayed": 24,
+   "gamesStarted": 17,
+   "goals": 0,
+   "goalsAgainst": 56,
+   "goalsAgainstAvg": 2.820172,
+   "leagueAbbrev": "NHL",
+   "losses": 6,
+   "otLosses": 0,
+   "savePctg": 0.908197,
+   "season": 20232024,
+   "sequence": 1,
+   "shotsAgainst": 610,
+   "shutouts": 1,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   },
+   "timeOnIce": "1191:25",
+   "wins": 11
+  },
+  {
+   "assists": 1,
+   "gameTypeId": 2,
+   "gamesPlayed": 51,
+   "gamesStarted": 49,
+   "goals": 0,
+   "goalsAgainst": 132,
+   "goalsAgainstAvg": 2.622704,
+   "leagueAbbrev": "NHL",
+   "losses": 15,
+   "otLosses": 10,
+   "savePctg": 0.901859,
+   "season": 20242025,
+   "sequence": 1,
+   "shotsAgainst": 1345,
+   "shutouts": 4,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   },
+   "timeOnIce": "3019:47",
+   "wins": 25
+  },
+  {
+   "assists": 2,
+   "gameTypeId": 2,
+   "gamesPlayed": 47,
+   "gamesStarted": 43,
+   "goals": 0,
+   "goalsAgainst": 160,
+   "goalsAgainstAvg": 3.703204,
+   "leagueAbbrev": "NHL",
+   "losses": 27,
+   "otLosses": 5,
+   "pim": 4,
+   "savePctg": 0.875486,
+   "season": 20252026,
+   "sequence": 1,
+   "shotsAgainst": 1285,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   },
+   "timeOnIce": "2592:21",
+   "wins": 11
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 9,
+   "gamesStarted": 8,
+   "goals": 0,
+   "goalsAgainst": 43,
+   "goalsAgainstAvg": 6.032736,
+   "leagueAbbrev": "NHL",
+   "losses": 8,
+   "otLosses": 0,
+   "pim": 0,
+   "savePctg": 0.808219,
+   "season": 20262027,
+   "sequence": 1,
+   "shotsAgainst": 219,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   },
+   "timeOnIce": "427:40",
+   "wins": 1
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

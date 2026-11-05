@@ -1,0 +1,628 @@
+{
+ "playerId": 8480009,
+ "firstName": {
+  "default": "Eeli"
+ },
+ "lastName": {
+  "default": "Tolvanen"
+ },
+ "currentTeamAbbrev": "NYR",
+ "position": "R",
+ "sweaterNumber": 17,
+ "birthDate": "1999-04-22",
+ "birthCity": {
+  "default": "Vihti"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 180,
+ "weightInKilograms": 83,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2017,
+  "teamAbbrev": "NSH",
+  "round": 1,
+  "pickInRound": 30,
+  "overallPick": 30
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 2,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 16,
+    "goals": 4,
+    "otGoals": 0,
+    "pim": 4,
+    "plusMinus": 7,
+    "points": 6,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.222222,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 18
+   },
+   "career": {
+    "assists": 100,
+    "gameWinningGoals": 15,
+    "gamesPlayed": 439,
+    "goals": 96,
+    "otGoals": 1,
+    "pim": 115,
+    "plusMinus": -30,
+    "points": 196,
+    "powerPlayGoals": 19,
+    "powerPlayPoints": 55,
+    "shootingPctg": 0.12210000000000001,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 786
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 100,
+   "avgToi": "14:42",
+   "faceoffWinningPctg": 0.3,
+   "gameWinningGoals": 15,
+   "gamesPlayed": 439,
+   "goals": 96,
+   "otGoals": 1,
+   "pim": 115,
+   "plusMinus": -30,
+   "points": 196,
+   "powerPlayGoals": 19,
+   "powerPlayPoints": 55,
+   "shootingPctg": 0.12210000000000001,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 786
+  },
+  "playoffs": {
+   "assists": 5,
+   "avgToi": "16:06",
+   "faceoffWinningPctg": 0.4,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 21,
+   "goals": 4,
+   "otGoals": 0,
+   "pim": 8,
+   "plusMinus": -6,
+   "points": 9,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 3,
+   "shootingPctg": 0.09300000000000001,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 43
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 1,
+   "gameDate": "2026-11-03",
+   "gameId": 2026020240,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "STL",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "NYR",
+   "toi": "13:22"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-01",
+   "gameId": 2026020230,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "EDM",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "NYR",
+   "toi": "11:44"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-26",
+   "gameId": 2026020185,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "LAK",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 15,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "NYR",
+   "toi": "8:49"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-24",
+   "gameId": 2026020171,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "OTT",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "NYR",
+   "toi": "10:59"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-22",
+   "gameId": 2026020155,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TOR",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "NYR",
+   "toi": "12:12"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 0,
+   "avgToi": "12:07",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 3,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20172018,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "13:16",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.5,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 2,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 11,
+   "avgToi": "14:48",
+   "faceoffWinningPctg": 0.1667,
+   "gameTypeId": 2,
+   "gameWinningGoals": 4,
+   "gamesPlayed": 40,
+   "goals": 11,
+   "leagueAbbrev": "NHL",
+   "otGoals": 1,
+   "pim": 4,
+   "plusMinus": -10,
+   "points": 22,
+   "powerPlayGoals": 6,
+   "powerPlayPoints": 12,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.169,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 65,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "19:01",
+   "faceoffWinningPctg": 1.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 11,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 12,
+   "avgToi": "13:26",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 75,
+   "goals": 11,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 16,
+   "plusMinus": -7,
+   "points": 23,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 6,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.073,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 151,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "11:04",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 3,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -2,
+   "points": 1,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 1,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.25,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "12:49",
+   "faceoffWinningPctg": 0.333333,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 13,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": -2,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.105263,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 19,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   }
+  },
+  {
+   "assists": 11,
+   "avgToi": "14:59",
+   "faceoffWinningPctg": 0.222222,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 48,
+   "goals": 16,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": 10,
+   "points": 27,
+   "powerPlayGoals": 4,
+   "powerPlayPoints": 7,
+   "season": 20222023,
+   "sequence": 2,
+   "shootingPctg": 0.164948,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 97,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 5,
+   "avgToi": "16:20",
+   "faceoffWinningPctg": 0.25,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 14,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 6,
+   "plusMinus": -4,
+   "points": 8,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 2,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.107143,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 28,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 25,
+   "avgToi": "15:39",
+   "faceoffWinningPctg": 0.342857,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 81,
+   "goals": 16,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 24,
+   "plusMinus": -15,
+   "points": 41,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 10,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.104575,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 153,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 12,
+   "avgToi": "14:19",
+   "faceoffWinningPctg": 0.454545,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 81,
+   "goals": 23,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 23,
+   "plusMinus": 3,
+   "points": 35,
+   "powerPlayGoals": 2,
+   "powerPlayPoints": 5,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.167883,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 137,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 24,
+   "avgToi": "16:03",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 78,
+   "goals": 12,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 30,
+   "plusMinus": -18,
+   "points": 36,
+   "powerPlayGoals": 5,
+   "powerPlayPoints": 14,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.085106,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 141,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "12:34",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 16,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 7,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.222222,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 18,
+   "teamCommonName": {
+    "default": "Rangers"
+   },
+   "teamName": {
+    "default": "New York Rangers",
+    "fr": "Rangers de New York"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "New York",
+    "fr": "de New York"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

@@ -1,0 +1,660 @@
+{
+ "playerId": 8478859,
+ "firstName": {
+  "default": "Niko"
+ },
+ "lastName": {
+  "default": "Mikkola"
+ },
+ "currentTeamAbbrev": "FLA",
+ "position": "D",
+ "sweaterNumber": 77,
+ "birthDate": "1996-04-27",
+ "birthCity": {
+  "default": "Kiiminki",
+  "sv": "Kiminge"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 198,
+ "weightInKilograms": 93,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2015,
+  "teamAbbrev": "STL",
+  "round": 5,
+  "pickInRound": 6,
+  "overallPick": 127
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 2,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 16,
+    "goals": 2,
+    "otGoals": 0,
+    "pim": 16,
+    "plusMinus": 6,
+    "points": 4,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.086957,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 23
+   },
+   "career": {
+    "assists": 58,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 412,
+    "goals": 19,
+    "otGoals": 0,
+    "pim": 326,
+    "plusMinus": 20,
+    "points": 77,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.042,
+    "shorthandedGoals": 1,
+    "shorthandedPoints": 2,
+    "shots": 452
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 58,
+   "avgToi": "18:43",
+   "gameWinningGoals": 1,
+   "gamesPlayed": 412,
+   "goals": 19,
+   "otGoals": 0,
+   "pim": 326,
+   "plusMinus": 20,
+   "points": 77,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.042,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 2,
+   "shots": 452
+  },
+  "playoffs": {
+   "assists": 9,
+   "avgToi": "17:58",
+   "gameWinningGoals": 1,
+   "gamesPlayed": 69,
+   "goals": 5,
+   "otGoals": 0,
+   "pim": 81,
+   "plusMinus": 11,
+   "points": 14,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "shootingPctg": 0.0877,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 57
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-04",
+   "gameId": 2026020248,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CHI",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "FLA",
+   "toi": "14:02"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-02",
+   "gameId": 2026020233,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "DET",
+   "pim": 2,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 27,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "FLA",
+   "toi": "21:34"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-30",
+   "gameId": 2026020215,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "WPG",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 26,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "FLA",
+   "toi": "19:26"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020194,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "WPG",
+   "pim": 2,
+   "plusMinus": 2,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "shifts": 26,
+   "shorthandedGoals": 0,
+   "shots": 3,
+   "teamAbbrev": "FLA",
+   "toi": "19:16"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-25",
+   "gameId": 2026020180,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "CHI",
+   "pim": 4,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 32,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "FLA",
+   "toi": "21:32"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 1,
+   "avgToi": "14:22",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 5,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 3,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20192020,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "14:31",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 30,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 11,
+   "plusMinus": -11,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.045,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 22,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "14:40",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 10,
+   "avgToi": "16:59",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 54,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 55,
+   "plusMinus": -6,
+   "points": 13,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.052,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 1,
+   "shots": 58,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "15:39",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 12,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 8,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 7,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "16:39",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 50,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 35,
+   "plusMinus": 2,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 31,
+   "teamCommonName": {
+    "default": "Blues"
+   },
+   "teamName": {
+    "default": "St. Louis Blues",
+    "fr": "Blues de St. Louis"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "St. Louis",
+    "fr": "de St. Louis"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "18:42",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 31,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 23,
+   "plusMinus": 4,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 2,
+   "shootingPctg": 0.032258,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 31,
+   "teamCommonName": {
+    "default": "Rangers"
+   },
+   "teamName": {
+    "default": "New York Rangers",
+    "fr": "Rangers de New York"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "New York",
+    "fr": "de New York"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "14:23",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 7,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 2,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 6,
+   "teamCommonName": {
+    "default": "Rangers"
+   },
+   "teamName": {
+    "default": "New York Rangers",
+    "fr": "Rangers de New York"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "New York",
+    "fr": "de New York"
+   }
+  },
+  {
+   "assists": 14,
+   "avgToi": "20:02",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 82,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 69,
+   "plusMinus": 11,
+   "points": 17,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.032258,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 93,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "18:39",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 24,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 22,
+   "plusMinus": 4,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.086957,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 23,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  },
+  {
+   "assists": 16,
+   "avgToi": "20:12",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 76,
+   "goals": 6,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 70,
+   "plusMinus": 12,
+   "points": 22,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.051724,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 116,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "20:13",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 22,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 37,
+   "plusMinus": 5,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.166667,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 18,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  },
+  {
+   "assists": 8,
+   "avgToi": "20:21",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 68,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 47,
+   "plusMinus": -1,
+   "points": 11,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.044118,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 68,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "19:36",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 16,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 16,
+   "plusMinus": 6,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.086957,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 23,
+   "teamCommonName": {
+    "default": "Panthers"
+   },
+   "teamName": {
+    "default": "Florida Panthers",
+    "fr": "Panthers de la Floride"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Florida",
+    "fr": "de la Floride"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

@@ -1,0 +1,276 @@
+{
+ "playerId": 8482447,
+ "firstName": {
+  "default": "Leevi"
+ },
+ "lastName": {
+  "default": "Meriläinen"
+ },
+ "currentTeamAbbrev": "VAN",
+ "position": "G",
+ "sweaterNumber": 31,
+ "birthDate": "2002-08-13",
+ "birthCity": {
+  "default": "Oulu",
+  "sv": "Uleåborg"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 191,
+ "weightInKilograms": 84,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2020,
+  "teamAbbrev": "OTT",
+  "round": 3,
+  "pickInRound": 9,
+  "overallPick": 71
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "gamesPlayed": 11,
+    "goalsAgainstAvg": 3.305595,
+    "losses": 5,
+    "otLosses": 1,
+    "savePctg": 0.897436,
+    "shutouts": 0,
+    "wins": 2
+   },
+   "career": {
+    "gamesPlayed": 45,
+    "goalsAgainstAvg": 3.070087,
+    "losses": 19,
+    "otLosses": 4,
+    "savePctg": 0.888589,
+    "shutouts": 3,
+    "wins": 18
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 0,
+   "gamesPlayed": 45,
+   "gamesStarted": 41,
+   "goals": 0,
+   "goalsAgainst": 124,
+   "goalsAgainstAvg": 3.070087,
+   "losses": 19,
+   "otLosses": 4,
+   "pim": 0,
+   "savePctg": 0.888589,
+   "shotsAgainst": 1113,
+   "shutouts": 3,
+   "timeOnIce": "2423:23",
+   "wins": 18
+  }
+ },
+ "last5Games": [
+  {
+   "decision": "L",
+   "gameDate": "2026-10-31",
+   "gameId": 2026020224,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 3,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "TOR",
+   "penaltyMins": 0,
+   "savePctg": 0.888889,
+   "shotsAgainst": 27,
+   "teamAbbrev": "VAN",
+   "toi": "58:13"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-29",
+   "gameId": 2026020213,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 3,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "SJS",
+   "penaltyMins": 0,
+   "savePctg": 0.875,
+   "shotsAgainst": 24,
+   "teamAbbrev": "VAN",
+   "toi": "56:27"
+  },
+  {
+   "decision": "W",
+   "gameDate": "2026-10-27",
+   "gameId": 2026020197,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 5,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "ANA",
+   "penaltyMins": 0,
+   "savePctg": 0.782609,
+   "shotsAgainst": 23,
+   "teamAbbrev": "VAN",
+   "toi": "62:47"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-25",
+   "gameId": 2026020184,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 4,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "MIN",
+   "penaltyMins": 0,
+   "savePctg": 0.882353,
+   "shotsAgainst": 34,
+   "teamAbbrev": "VAN",
+   "toi": "57:06"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-20",
+   "gameId": 2026020150,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 5,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CAR",
+   "penaltyMins": 0,
+   "savePctg": 0.883721,
+   "shotsAgainst": 43,
+   "teamAbbrev": "VAN",
+   "toi": "59:11"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 2,
+   "gamesStarted": 2,
+   "goals": 0,
+   "goalsAgainst": 6,
+   "goalsAgainstAvg": 4.231145,
+   "leagueAbbrev": "NHL",
+   "losses": 1,
+   "otLosses": 1,
+   "savePctg": 0.877551,
+   "season": 20222023,
+   "sequence": 1,
+   "shotsAgainst": 49,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   },
+   "timeOnIce": "85:05",
+   "wins": 0
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 12,
+   "gamesStarted": 11,
+   "goals": 0,
+   "goalsAgainst": 22,
+   "goalsAgainstAvg": 1.990998,
+   "leagueAbbrev": "NHL",
+   "losses": 3,
+   "otLosses": 1,
+   "savePctg": 0.925424,
+   "season": 20242025,
+   "sequence": 1,
+   "shotsAgainst": 295,
+   "shutouts": 3,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   },
+   "timeOnIce": "662:59",
+   "wins": 8
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 20,
+   "gamesStarted": 19,
+   "goals": 0,
+   "goalsAgainst": 64,
+   "goalsAgainstAvg": 3.508505,
+   "leagueAbbrev": "NHL",
+   "losses": 10,
+   "otLosses": 1,
+   "pim": 0,
+   "savePctg": 0.859956,
+   "season": 20252026,
+   "sequence": 1,
+   "shotsAgainst": 457,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   },
+   "timeOnIce": "1094:29",
+   "wins": 8
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 11,
+   "gamesStarted": 9,
+   "goals": 0,
+   "goalsAgainst": 32,
+   "goalsAgainstAvg": 3.305595,
+   "leagueAbbrev": "NHL",
+   "losses": 5,
+   "otLosses": 1,
+   "pim": 0,
+   "savePctg": 0.897436,
+   "season": 20262027,
+   "sequence": 1,
+   "shotsAgainst": 312,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   },
+   "timeOnIce": "580:50",
+   "wins": 2
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

@@ -1,0 +1,332 @@
+{
+ "playerId": 8481020,
+ "firstName": {
+  "default": "Justus"
+ },
+ "lastName": {
+  "default": "Annunen"
+ },
+ "currentTeamAbbrev": "NSH",
+ "position": "G",
+ "sweaterNumber": 29,
+ "birthDate": "2000-03-11",
+ "birthCity": {
+  "default": "Kempele"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 193,
+ "weightInKilograms": 95,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2018,
+  "teamAbbrev": "COL",
+  "round": 3,
+  "pickInRound": 2,
+  "overallPick": 64
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "gamesPlayed": 3,
+    "goalsAgainstAvg": 3.894699,
+    "losses": 1,
+    "otLosses": 0,
+    "savePctg": 0.846154,
+    "shutouts": 0,
+    "wins": 2
+   },
+   "career": {
+    "gamesPlayed": 83,
+    "goalsAgainstAvg": 2.912879,
+    "losses": 33,
+    "otLosses": 5,
+    "savePctg": 0.897448,
+    "shutouts": 3,
+    "wins": 37
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 1,
+   "gamesPlayed": 83,
+   "gamesStarted": 70,
+   "goals": 0,
+   "goalsAgainst": 218,
+   "goalsAgainstAvg": 2.912879,
+   "losses": 33,
+   "otLosses": 5,
+   "pim": 2,
+   "savePctg": 0.897448,
+   "shotsAgainst": 2116,
+   "shutouts": 3,
+   "timeOnIce": "4490:24",
+   "wins": 37
+  }
+ },
+ "last5Games": [
+  {
+   "decision": "W",
+   "gameDate": "2026-10-31",
+   "gameId": 2026020219,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 4,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "TBL",
+   "penaltyMins": 0,
+   "savePctg": 0.846154,
+   "shotsAgainst": 26,
+   "teamAbbrev": "NSH",
+   "toi": "64:52"
+  },
+  {
+   "decision": "W",
+   "gameDate": "2026-10-25",
+   "gameId": 2026020183,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 2,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "COL",
+   "penaltyMins": 0,
+   "savePctg": 0.904762,
+   "shotsAgainst": 21,
+   "teamAbbrev": "NSH",
+   "toi": "60:00"
+  },
+  {
+   "decision": "L",
+   "gameDate": "2026-10-22",
+   "gameId": 2026020154,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 6,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "BOS",
+   "penaltyMins": 0,
+   "savePctg": 0.806452,
+   "shotsAgainst": 31,
+   "teamAbbrev": "NSH",
+   "toi": "60:00"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 1,
+   "gameTypeId": 2,
+   "gamesPlayed": 2,
+   "gamesStarted": 1,
+   "goals": 0,
+   "goalsAgainst": 7,
+   "goalsAgainstAvg": 4.340336,
+   "leagueAbbrev": "NHL",
+   "losses": 0,
+   "otLosses": 1,
+   "savePctg": 0.862745,
+   "season": 20212022,
+   "sequence": 1,
+   "shotsAgainst": 51,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Avalanche"
+   },
+   "teamName": {
+    "default": "Colorado Avalanche",
+    "fr": "Avalanche du Colorado"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Colorado",
+    "fr": "du Colorado"
+   },
+   "timeOnIce": "96:46",
+   "wins": 1
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 2,
+   "gamesStarted": 2,
+   "goals": 0,
+   "goalsAgainst": 7,
+   "goalsAgainstAvg": 3.579545,
+   "leagueAbbrev": "NHL",
+   "losses": 1,
+   "otLosses": 0,
+   "savePctg": 0.854167,
+   "season": 20222023,
+   "sequence": 1,
+   "shotsAgainst": 48,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Avalanche"
+   },
+   "teamName": {
+    "default": "Colorado Avalanche",
+    "fr": "Avalanche du Colorado"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Colorado",
+    "fr": "du Colorado"
+   },
+   "timeOnIce": "117:20",
+   "wins": 1
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 14,
+   "gamesStarted": 12,
+   "goals": 0,
+   "goalsAgainst": 30,
+   "goalsAgainstAvg": 2.246954,
+   "leagueAbbrev": "NHL",
+   "losses": 4,
+   "otLosses": 1,
+   "savePctg": 0.927536,
+   "season": 20232024,
+   "sequence": 1,
+   "shotsAgainst": 414,
+   "shutouts": 2,
+   "teamCommonName": {
+    "default": "Avalanche"
+   },
+   "teamName": {
+    "default": "Colorado Avalanche",
+    "fr": "Avalanche du Colorado"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Colorado",
+    "fr": "du Colorado"
+   },
+   "timeOnIce": "801:05",
+   "wins": 8
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 11,
+   "gamesStarted": 9,
+   "goals": 0,
+   "goalsAgainst": 28,
+   "goalsAgainstAvg": 3.2256,
+   "leagueAbbrev": "NHL",
+   "losses": 4,
+   "otLosses": 0,
+   "savePctg": 0.87156,
+   "season": 20242025,
+   "sequence": 1,
+   "shotsAgainst": 218,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Avalanche"
+   },
+   "teamName": {
+    "default": "Colorado Avalanche",
+    "fr": "Avalanche du Colorado"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Colorado",
+    "fr": "du Colorado"
+   },
+   "timeOnIce": "520:50",
+   "wins": 6
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 23,
+   "gamesStarted": 20,
+   "goals": 0,
+   "goalsAgainst": 67,
+   "goalsAgainstAvg": 3.167888,
+   "leagueAbbrev": "NHL",
+   "losses": 11,
+   "otLosses": 1,
+   "savePctg": 0.887584,
+   "season": 20242025,
+   "sequence": 2,
+   "shotsAgainst": 596,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   },
+   "timeOnIce": "1268:59",
+   "wins": 9
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 28,
+   "gamesStarted": 23,
+   "goals": 0,
+   "goalsAgainst": 67,
+   "goalsAgainstAvg": 2.679047,
+   "leagueAbbrev": "NHL",
+   "losses": 12,
+   "otLosses": 2,
+   "pim": 2,
+   "savePctg": 0.907173,
+   "season": 20252026,
+   "sequence": 1,
+   "shotsAgainst": 711,
+   "shutouts": 1,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   },
+   "timeOnIce": "1500:32",
+   "wins": 10
+  },
+  {
+   "assists": 0,
+   "gameTypeId": 2,
+   "gamesPlayed": 3,
+   "gamesStarted": 3,
+   "goals": 0,
+   "goalsAgainst": 12,
+   "goalsAgainstAvg": 3.894699,
+   "leagueAbbrev": "NHL",
+   "losses": 1,
+   "otLosses": 0,
+   "pim": 0,
+   "savePctg": 0.846154,
+   "season": 20262027,
+   "sequence": 1,
+   "shotsAgainst": 78,
+   "shutouts": 0,
+   "teamCommonName": {
+    "default": "Predators"
+   },
+   "teamName": {
+    "default": "Nashville Predators",
+    "fr": "Predators de Nashville"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Nashville",
+    "fr": "de Nashville"
+   },
+   "timeOnIce": "184:52",
+   "wins": 2
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

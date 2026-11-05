@@ -1,0 +1,298 @@
+{
+ "playerId": 8484797,
+ "firstName": {
+  "default": "Konsta"
+ },
+ "lastName": {
+  "default": "Helenius"
+ },
+ "currentTeamAbbrev": "BUF",
+ "position": "C",
+ "sweaterNumber": 94,
+ "birthDate": "2006-05-11",
+ "birthCity": {
+  "default": "Ylojarvi"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 180,
+ "weightInKilograms": 88,
+ "shootsCatches": "R",
+ "draftDetails": {
+  "year": 2024,
+  "teamAbbrev": "BUF",
+  "round": 1,
+  "pickInRound": 14,
+  "overallPick": 14
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 2,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 11,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": -2,
+    "points": 3,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.083333,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 12
+   },
+   "career": {
+    "assists": 5,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 20,
+    "goals": 2,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": -1,
+    "points": 7,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.07400000000000001,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 27
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 5,
+   "avgToi": "12:30",
+   "faceoffWinningPctg": 0.34369999999999995,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 20,
+   "goals": 2,
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -1,
+   "points": 7,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.07400000000000001,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 27
+  },
+  "playoffs": {
+   "assists": 0,
+   "avgToi": "13:28",
+   "faceoffWinningPctg": 0.303,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 2,
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.2,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 1,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020198,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "SJS",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 16,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "BUF",
+   "toi": "11:44"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-24",
+   "gameId": 2026020173,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "WSH",
+   "pim": 2,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "BUF",
+   "toi": "12:10"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-21",
+   "gameId": 2026020152,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "PHI",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "BUF",
+   "toi": "9:07"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-17",
+   "gameId": 2026020126,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "MTL",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 16,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "BUF",
+   "toi": "9:11"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-15",
+   "gameId": 2026020108,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TOR",
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 22,
+   "shorthandedGoals": 0,
+   "shots": 4,
+   "teamAbbrev": "BUF",
+   "toi": "15:11"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 3,
+   "avgToi": "11:55",
+   "faceoffWinningPctg": 0.416667,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 9,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.066667,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 15,
+   "teamCommonName": {
+    "default": "Sabres"
+   },
+   "teamName": {
+    "default": "Buffalo Sabres",
+    "fr": "Sabres de Buffalo"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Buffalo",
+    "fr": "de Buffalo"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "13:28",
+   "faceoffWinningPctg": 0.30303,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.2,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10,
+   "teamCommonName": {
+    "default": "Sabres"
+   },
+   "teamName": {
+    "default": "Buffalo Sabres",
+    "fr": "Sabres de Buffalo"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Buffalo",
+    "fr": "de Buffalo"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "13:00",
+   "faceoffWinningPctg": 0.125,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 11,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -2,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.083333,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 12,
+   "teamCommonName": {
+    "default": "Sabres"
+   },
+   "teamName": {
+    "default": "Buffalo Sabres",
+    "fr": "Sabres de Buffalo"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Buffalo",
+    "fr": "de Buffalo"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

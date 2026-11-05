@@ -1,0 +1,961 @@
+{
+ "playerId": 8476874,
+ "firstName": {
+  "default": "Olli"
+ },
+ "lastName": {
+  "default": "Maatta",
+  "cs": "Määttä",
+  "fi": "Määttä",
+  "sk": "Määttä",
+  "sv": "Määttä"
+ },
+ "currentTeamAbbrev": "MIN",
+ "position": "D",
+ "sweaterNumber": 3,
+ "birthDate": "1994-08-22",
+ "birthCity": {
+  "default": "Jyväskylä"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 188,
+ "weightInKilograms": 94,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2012,
+  "teamAbbrev": "PIT",
+  "round": 1,
+  "pickInRound": 22,
+  "overallPick": 22
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 3,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 13,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 4,
+    "plusMinus": 7,
+    "points": 4,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.111111,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 9
+   },
+   "career": {
+    "assists": 169,
+    "gameWinningGoals": 8,
+    "gamesPlayed": 817,
+    "goals": 45,
+    "otGoals": 0,
+    "pim": 186,
+    "plusMinus": 83,
+    "points": 214,
+    "powerPlayGoals": 4,
+    "powerPlayPoints": 21,
+    "shootingPctg": 0.0471,
+    "shorthandedGoals": 1,
+    "shorthandedPoints": 4,
+    "shots": 955
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 169,
+   "avgToi": "18:25",
+   "gameWinningGoals": 8,
+   "gamesPlayed": 817,
+   "goals": 45,
+   "otGoals": 0,
+   "pim": 186,
+   "plusMinus": 83,
+   "points": 214,
+   "powerPlayGoals": 4,
+   "powerPlayPoints": 21,
+   "shootingPctg": 0.0471,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 4,
+   "shots": 955
+  },
+  "playoffs": {
+   "assists": 22,
+   "avgToi": "18:56",
+   "gameWinningGoals": 1,
+   "gamesPlayed": 85,
+   "goals": 5,
+   "otGoals": 0,
+   "pim": 24,
+   "plusMinus": 28,
+   "points": 27,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "shootingPctg": 0.051,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 98
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 1,
+   "gameDate": "2026-11-03",
+   "gameId": 2026020241,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "PHI",
+   "pim": 0,
+   "plusMinus": 3,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "MIN",
+   "toi": "18:04"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-01",
+   "gameId": 2026020228,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "WSH",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 23,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "MIN",
+   "toi": "19:10"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020210,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "NYI",
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 23,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "MIN",
+   "toi": "16:58"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020195,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "UTA",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 25,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "MIN",
+   "toi": "24:25"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-25",
+   "gameId": 2026020184,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "VAN",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 20,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "MIN",
+   "toi": "18:38"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 20,
+   "avgToi": "18:30",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 78,
+   "goals": 9,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": 8,
+   "points": 29,
+   "powerPlayGoals": 3,
+   "powerPlayPoints": 6,
+   "season": 20132014,
+   "sequence": 1,
+   "shootingPctg": 0.0756,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 1,
+   "shots": 119,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "18:05",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 13,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20132014,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 19,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 8,
+   "avgToi": "20:43",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 20,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": 1,
+   "points": 9,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 2,
+   "season": 20142015,
+   "sequence": 1,
+   "shootingPctg": 0.037,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 27,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 13,
+   "avgToi": "19:58",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 67,
+   "goals": 6,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 22,
+   "plusMinus": 27,
+   "points": 19,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20152016,
+   "sequence": 1,
+   "shootingPctg": 0.0632,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 95,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 7,
+   "avgToi": "17:44",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 18,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 5,
+   "points": 7,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20152016,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 17,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 6,
+   "avgToi": "18:04",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 55,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 17,
+   "points": 7,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20162017,
+   "sequence": 1,
+   "shootingPctg": 0.0152,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 66,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 6,
+   "avgToi": "20:37",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 25,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 8,
+   "points": 8,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20162017,
+   "sequence": 1,
+   "shootingPctg": 0.0571,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 35,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 22,
+   "avgToi": "18:45",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 82,
+   "goals": 7,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 28,
+   "plusMinus": -1,
+   "points": 29,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 8,
+   "season": 20172018,
+   "sequence": 1,
+   "shootingPctg": 0.0427,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 164,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "19:49",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 12,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 8,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20172018,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 11,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 13,
+   "avgToi": "18:35",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 60,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 9,
+   "points": 14,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 4,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.0135,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 74,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "18:44",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 1,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 0,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 13,
+   "avgToi": "18:25",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 65,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 20,
+   "plusMinus": 0,
+   "points": 17,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20192020,
+   "sequence": 1,
+   "shootingPctg": 0.05,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 2,
+   "shots": 80,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "18:17",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 9,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 7,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20192020,
+   "sequence": 1,
+   "shootingPctg": 0.3,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "16:26",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 41,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 6,
+   "plusMinus": -8,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 43,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 7,
+   "avgToi": "18:17",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 66,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": 17,
+   "points": 8,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.016,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 61,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "16:55",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 7,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 6,
+   "teamCommonName": {
+    "default": "Kings"
+   },
+   "teamName": {
+    "default": "Los Angeles Kings",
+    "fr": "Kings de Los Angeles"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Los Angeles",
+    "fr": "de Los Angeles"
+   }
+  },
+  {
+   "assists": 17,
+   "avgToi": "18:42",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 78,
+   "goals": 6,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": -9,
+   "points": 23,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.096774,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 62,
+   "teamCommonName": {
+    "default": "Red Wings"
+   },
+   "teamName": {
+    "default": "Detroit Red Wings",
+    "fr": "Red Wings de Detroit"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Detroit",
+    "fr": "de Detroit"
+   }
+  },
+  {
+   "assists": 14,
+   "avgToi": "16:03",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 72,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": 14,
+   "points": 18,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.083333,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 48,
+   "teamCommonName": {
+    "default": "Red Wings"
+   },
+   "teamName": {
+    "default": "Detroit Red Wings",
+    "fr": "Red Wings de Detroit"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Detroit",
+    "fr": "de Detroit"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "15:52",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 7,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Red Wings"
+   },
+   "teamName": {
+    "default": "Detroit Red Wings",
+    "fr": "Red Wings de Detroit"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Detroit",
+    "fr": "de Detroit"
+   }
+  },
+  {
+   "assists": 16,
+   "avgToi": "19:55",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 70,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 16,
+   "plusMinus": 7,
+   "points": 18,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 2,
+   "shootingPctg": 0.028571,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 70,
+   "teamCommonName": {
+    "default": "Utah Hockey Club",
+    "fr": "Club de hockey de l'Utah"
+   },
+   "teamName": {
+    "default": "Utah Hockey Club",
+    "fr": "Club de hockey de l'Utah"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Utah",
+    "fr": "de l'Utah"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "12:10",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 22,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -5,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10,
+   "teamCommonName": {
+    "default": "Mammoth"
+   },
+   "teamName": {
+    "default": "Utah Mammoth",
+    "fr": "Mammoth de l'Utah"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Utah",
+    "fr": "de l'Utah"
+   }
+  },
+  {
+   "assists": 12,
+   "avgToi": "22:30",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 21,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -1,
+   "points": 14,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 2,
+   "shootingPctg": 0.083333,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 24,
+   "teamCommonName": {
+    "default": "Flames"
+   },
+   "teamName": {
+    "default": "Calgary Flames",
+    "fr": "Flames de Calgary"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Calgary",
+    "fr": "de Calgary"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "20:00",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 13,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 7,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.111111,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 9,
+   "teamCommonName": {
+    "default": "Wild"
+   },
+   "teamName": {
+    "default": "Minnesota Wild",
+    "fr": "Wild du Minnesota"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Minnesota",
+    "fr": "du Minnesota"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

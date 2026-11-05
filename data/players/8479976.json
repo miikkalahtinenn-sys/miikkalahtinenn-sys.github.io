@@ -1,0 +1,466 @@
+{
+ "playerId": 8479976,
+ "firstName": {
+  "default": "Juuso"
+ },
+ "lastName": {
+  "default": "Välimäki",
+  "de": "Valimaki",
+  "es": "Valimaki",
+  "fr": "Valimaki"
+ },
+ "currentTeamAbbrev": "CAR",
+ "position": "D",
+ "sweaterNumber": 8,
+ "birthDate": "1998-10-06",
+ "birthCity": {
+  "default": "Tampere",
+  "sv": "Tammerfors"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 188,
+ "weightInKilograms": 91,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2017,
+  "teamAbbrev": "CGY",
+  "round": 1,
+  "pickInRound": 16,
+  "overallPick": 16
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 1,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 7,
+    "goals": 2,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": 8,
+    "points": 3,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.25,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 8
+   },
+   "career": {
+    "assists": 62,
+    "gameWinningGoals": 2,
+    "gamesPlayed": 278,
+    "goals": 13,
+    "otGoals": 0,
+    "pim": 135,
+    "plusMinus": 1,
+    "points": 75,
+    "powerPlayGoals": 1,
+    "powerPlayPoints": 16,
+    "shootingPctg": 0.0404,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 321
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 62,
+   "avgToi": "17:16",
+   "gameWinningGoals": 2,
+   "gamesPlayed": 278,
+   "goals": 13,
+   "otGoals": 0,
+   "pim": 135,
+   "plusMinus": 1,
+   "points": 75,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 16,
+   "shootingPctg": 0.0404,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 321
+  },
+  "playoffs": {
+   "assists": 1,
+   "avgToi": "16:47",
+   "gameWinningGoals": 0,
+   "gamesPlayed": 2,
+   "goals": 0,
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-03",
+   "gameId": 2026020245,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NSH",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 20,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "CAR",
+   "toi": "17:58"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-01",
+   "gameId": 2026020227,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "WPG",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 24,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "CAR",
+   "toi": "15:39"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020206,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CBJ",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CAR",
+   "toi": "12:49"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020189,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "BOS",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 19,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "CAR",
+   "toi": "13:43"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-24",
+   "gameId": 2026020175,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "STL",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 20,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "CAR",
+   "toi": "16:13"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 2,
+   "avgToi": "15:29",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 24,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": -2,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.0357,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 28,
+   "teamCommonName": {
+    "default": "Flames"
+   },
+   "teamName": {
+    "default": "Calgary Flames",
+    "fr": "Flames de Calgary"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Calgary",
+    "fr": "de Calgary"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "16:47",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 2,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Flames"
+   },
+   "teamName": {
+    "default": "Calgary Flames",
+    "fr": "Flames de Calgary"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Calgary",
+    "fr": "de Calgary"
+   }
+  },
+  {
+   "assists": 9,
+   "avgToi": "15:26",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 49,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 26,
+   "plusMinus": -2,
+   "points": 11,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.028,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 72,
+   "teamCommonName": {
+    "default": "Flames"
+   },
+   "teamName": {
+    "default": "Calgary Flames",
+    "fr": "Flames de Calgary"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Calgary",
+    "fr": "de Calgary"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "15:42",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 9,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": 0,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 11,
+   "teamCommonName": {
+    "default": "Flames"
+   },
+   "teamName": {
+    "default": "Calgary Flames",
+    "fr": "Flames de Calgary"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Calgary",
+    "fr": "de Calgary"
+   }
+  },
+  {
+   "assists": 30,
+   "avgToi": "18:11",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 78,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 59,
+   "plusMinus": -10,
+   "points": 34,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 12,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.043011,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 93,
+   "teamCommonName": {
+    "default": "Coyotes"
+   },
+   "teamName": {
+    "default": "Arizona Coyotes",
+    "fr": "Coyotes de l'Arizona"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Arizona",
+    "fr": "de l'Arizona"
+   }
+  },
+  {
+   "assists": 15,
+   "avgToi": "19:06",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 68,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 12,
+   "points": 17,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 4,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.028986,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 69,
+   "teamCommonName": {
+    "default": "Coyotes"
+   },
+   "teamName": {
+    "default": "Arizona Coyotes",
+    "fr": "Coyotes de l'Arizona"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Arizona",
+    "fr": "de l'Arizona"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "16:33",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 43,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": -5,
+   "points": 5,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.05,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 40,
+   "teamCommonName": {
+    "default": "Utah Hockey Club",
+    "fr": "Club de hockey de l'Utah"
+   },
+   "teamName": {
+    "default": "Utah Hockey Club",
+    "fr": "Club de hockey de l'Utah"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Utah",
+    "fr": "de l'Utah"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "14:35",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 7,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 8,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.25,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 8,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

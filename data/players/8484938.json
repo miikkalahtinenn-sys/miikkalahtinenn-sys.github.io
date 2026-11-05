@@ -1,0 +1,326 @@
+{
+ "playerId": 8484938,
+ "firstName": {
+  "default": "Arttu"
+ },
+ "lastName": {
+  "default": "Hyry"
+ },
+ "currentTeamAbbrev": "DAL",
+ "position": "R",
+ "sweaterNumber": 25,
+ "birthDate": "2001-04-06",
+ "birthCity": {
+  "default": "Oulu",
+  "sv": "Uleåborg"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 191,
+ "weightInKilograms": 96,
+ "shootsCatches": "R",
+ "draftDetails": null,
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 2,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 15,
+    "goals": 4,
+    "otGoals": 0,
+    "pim": 7,
+    "plusMinus": 2,
+    "points": 6,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.133333,
+    "shorthandedGoals": 1,
+    "shorthandedPoints": 1,
+    "shots": 30
+   },
+   "career": {
+    "assists": 5,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 40,
+    "goals": 7,
+    "otGoals": 0,
+    "pim": 9,
+    "plusMinus": 3,
+    "points": 12,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.1186,
+    "shorthandedGoals": 2,
+    "shorthandedPoints": 2,
+    "shots": 59
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 5,
+   "avgToi": "12:31",
+   "faceoffWinningPctg": 0.6025,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 40,
+   "goals": 7,
+   "otGoals": 0,
+   "pim": 9,
+   "plusMinus": 3,
+   "points": 12,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.1186,
+   "shorthandedGoals": 2,
+   "shorthandedPoints": 2,
+   "shots": 59
+  },
+  "playoffs": {
+   "assists": 0,
+   "avgToi": "13:15",
+   "faceoffWinningPctg": 0.4878,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 1,
+   "gameDate": "2026-11-03",
+   "gameId": 2026020243,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "WSH",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 20,
+   "shorthandedGoals": 0,
+   "shots": 4,
+   "teamAbbrev": "DAL",
+   "toi": "15:25"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-31",
+   "gameId": 2026020225,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CBJ",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 4,
+   "teamAbbrev": "DAL",
+   "toi": "15:23"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020209,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "MTL",
+   "pim": 0,
+   "plusMinus": -3,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 19,
+   "shorthandedGoals": 0,
+   "shots": 3,
+   "teamAbbrev": "DAL",
+   "toi": "13:21"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020193,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "NJD",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 22,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "DAL",
+   "toi": "16:12"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-25",
+   "gameId": 2026020181,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "NYI",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 22,
+   "shorthandedGoals": 0,
+   "shots": 3,
+   "teamAbbrev": "DAL",
+   "toi": "16:01"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 1,
+   "avgToi": "9:05",
+   "faceoffWinningPctg": 0.6875,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 5,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 5,
+   "teamCommonName": {
+    "default": "Stars"
+   },
+   "teamName": {
+    "default": "Dallas Stars",
+    "fr": "Stars de Dallas"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Dallas",
+    "fr": "de Dallas"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "11:47",
+   "faceoffWinningPctg": 0.578947,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 20,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 1,
+   "points": 5,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.125,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 1,
+   "shots": 24,
+   "teamCommonName": {
+    "default": "Stars"
+   },
+   "teamName": {
+    "default": "Dallas Stars",
+    "fr": "Stars de Dallas"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Dallas",
+    "fr": "de Dallas"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "13:15",
+   "faceoffWinningPctg": 0.487805,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Stars"
+   },
+   "teamName": {
+    "default": "Dallas Stars",
+    "fr": "Stars de Dallas"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Dallas",
+    "fr": "de Dallas"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "14:39",
+   "faceoffWinningPctg": 0.622857,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 15,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 7,
+   "plusMinus": 2,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.133333,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 1,
+   "shots": 30,
+   "teamCommonName": {
+    "default": "Stars"
+   },
+   "teamName": {
+    "default": "Dallas Stars",
+    "fr": "Stars de Dallas"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Dallas",
+    "fr": "de Dallas"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

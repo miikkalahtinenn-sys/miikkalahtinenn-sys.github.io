@@ -1,0 +1,396 @@
+{
+ "playerId": 8484321,
+ "firstName": {
+  "default": "Nikolas"
+ },
+ "lastName": {
+  "default": "Matinpalo"
+ },
+ "currentTeamAbbrev": "OTT",
+ "position": "D",
+ "sweaterNumber": 33,
+ "birthDate": "1998-10-05",
+ "birthCity": {
+  "default": "Espoo",
+  "sv": "Esbo"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 191,
+ "weightInKilograms": 97,
+ "shootsCatches": "R",
+ "draftDetails": null,
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 3,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 15,
+    "goals": 0,
+    "otGoals": 0,
+    "pim": 12,
+    "plusMinus": 4,
+    "points": 3,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.0,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 11
+   },
+   "career": {
+    "assists": 11,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 110,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 48,
+    "plusMinus": 2,
+    "points": 12,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.010700000000000001,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 1,
+    "shots": 93
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 11,
+   "avgToi": "14:07",
+   "gameWinningGoals": 0,
+   "gamesPlayed": 110,
+   "goals": 1,
+   "otGoals": 0,
+   "pim": 48,
+   "plusMinus": 2,
+   "points": 12,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.010700000000000001,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 93
+  },
+  "playoffs": {
+   "assists": 0,
+   "avgToi": "16:12",
+   "gameWinningGoals": 0,
+   "gamesPlayed": 10,
+   "goals": 0,
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-04",
+   "gameId": 2026020247,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "BUF",
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "OTT",
+   "toi": "12:15"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-01",
+   "gameId": 2026020231,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "ANA",
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 23,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "OTT",
+   "toi": "16:19"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-31",
+   "gameId": 2026020222,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "SJS",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 25,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "OTT",
+   "toi": "18:53"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020212,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "LAK",
+   "pim": 2,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 20,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "OTT",
+   "toi": "12:37"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020196,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "VGK",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "OTT",
+   "toi": "12:43"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 0,
+   "avgToi": "7:00",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 2,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "12:37",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 41,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 20,
+   "plusMinus": -2,
+   "points": 4,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.023256,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 43,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "13:04",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 6,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 3,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  },
+  {
+   "assists": 5,
+   "avgToi": "15:38",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 50,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 16,
+   "plusMinus": -1,
+   "points": 5,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 37,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "20:53",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 1,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "15:06",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 15,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 4,
+   "points": 3,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 11,
+   "teamCommonName": {
+    "default": "Senators",
+    "fr": "Sénateurs"
+   },
+   "teamName": {
+    "default": "Ottawa Senators",
+    "fr": "Sénateurs d'Ottawa"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Ottawa",
+    "fr": "d'Ottawa"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

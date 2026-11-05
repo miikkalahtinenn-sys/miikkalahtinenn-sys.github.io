@@ -1,0 +1,329 @@
+{
+ "playerId": 8482691,
+ "firstName": {
+  "default": "Aatu"
+ },
+ "lastName": {
+  "default": "Räty"
+ },
+ "currentTeamAbbrev": "TOR",
+ "position": "C",
+ "sweaterNumber": 54,
+ "birthDate": "2002-11-14",
+ "birthCity": {
+  "default": "Oulu",
+  "sv": "Uleåborg"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 188,
+ "weightInKilograms": 93,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2021,
+  "teamAbbrev": "NYI",
+  "round": 2,
+  "pickInRound": 20,
+  "overallPick": 52
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 0,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 4,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": -2,
+    "points": 1,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.25,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 4
+   },
+   "career": {
+    "assists": 15,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 118,
+    "goals": 14,
+    "otGoals": 0,
+    "pim": 42,
+    "plusMinus": -7,
+    "points": 29,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 1,
+    "shootingPctg": 0.1176,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 119
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 15,
+   "avgToi": "11:07",
+   "faceoffWinningPctg": 0.5909,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 118,
+   "goals": 14,
+   "otGoals": 0,
+   "pim": 42,
+   "plusMinus": -7,
+   "points": 29,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "shootingPctg": 0.1176,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 119
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-10-11",
+   "gameId": 2026020085,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "NYR",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 16,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "VAN",
+   "toi": "12:37"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-08",
+   "gameId": 2026020061,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "CAR",
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 12,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "VAN",
+   "toi": "8:36"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-04",
+   "gameId": 2026020039,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "VGK",
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "VAN",
+   "toi": "9:56"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-03",
+   "gameId": 2026020033,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CGY",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 22,
+   "shorthandedGoals": 0,
+   "shots": 3,
+   "teamAbbrev": "VAN",
+   "toi": "9:30"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 0,
+   "avgToi": "8:46",
+   "faceoffWinningPctg": 0.522388,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 12,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 1,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.125,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 16,
+   "teamCommonName": {
+    "default": "Islanders"
+   },
+   "teamName": {
+    "default": "New York Islanders",
+    "fr": "Islanders de New York"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "New York",
+    "fr": "de New York"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "6:51",
+   "faceoffWinningPctg": 0.625,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 3,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 2,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 0,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "10:39",
+   "faceoffWinningPctg": 0.573574,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 33,
+   "goals": 7,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": -1,
+   "points": 11,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.205882,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 34,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   }
+  },
+  {
+   "assists": 10,
+   "avgToi": "12:01",
+   "faceoffWinningPctg": 0.604891,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 66,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 22,
+   "plusMinus": -4,
+   "points": 14,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.061538,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 65,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "10:10",
+   "faceoffWinningPctg": 0.568182,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 4,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": -2,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.25,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4,
+   "teamCommonName": {
+    "default": "Canucks"
+   },
+   "teamName": {
+    "default": "Vancouver Canucks",
+    "fr": "Canucks de Vancouver"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Vancouver",
+    "fr": "de Vancouver"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

@@ -1,0 +1,247 @@
+{
+ "playerId": 8482866,
+ "firstName": {
+  "default": "Ville"
+ },
+ "lastName": {
+  "default": "Ottavainen"
+ },
+ "currentTeamAbbrev": "SEA",
+ "position": "D",
+ "sweaterNumber": 46,
+ "birthDate": "2002-08-12",
+ "birthCity": {
+  "default": "Oulu",
+  "sv": "Uleåborg"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 196,
+ "weightInKilograms": 101,
+ "shootsCatches": "R",
+ "draftDetails": {
+  "year": 2021,
+  "teamAbbrev": "SEA",
+  "round": 4,
+  "pickInRound": 3,
+  "overallPick": 99
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 0,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 9,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": 3,
+    "points": 1,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.076923,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 13
+   },
+   "career": {
+    "assists": 1,
+    "gameWinningGoals": 0,
+    "gamesPlayed": 10,
+    "goals": 1,
+    "otGoals": 0,
+    "pim": 2,
+    "plusMinus": 3,
+    "points": 2,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.07139999999999999,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 14
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 1,
+   "avgToi": "11:52",
+   "gameWinningGoals": 0,
+   "gamesPlayed": 10,
+   "goals": 1,
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 3,
+   "points": 2,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "shootingPctg": 0.07139999999999999,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 14
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-04",
+   "gameId": 2026020250,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "CGY",
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "SEA",
+   "toi": "10:56"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-22",
+   "gameId": 2026020164,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "UTA",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 12,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "SEA",
+   "toi": "7:51"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-20",
+   "gameId": 2026020149,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "DET",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 4,
+   "teamAbbrev": "SEA",
+   "toi": "8:45"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-17",
+   "gameId": 2026020124,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "FLA",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 2,
+   "teamAbbrev": "SEA",
+   "toi": "16:03"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-15",
+   "gameId": 2026020111,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TBL",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 16,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "SEA",
+   "toi": "11:16"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 1,
+   "avgToi": "14:24",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 1,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 1,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "11:35",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 9,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 3,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.076923,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 13,
+   "teamCommonName": {
+    "default": "Kraken"
+   },
+   "teamName": {
+    "default": "Seattle Kraken",
+    "fr": "Kraken de Seattle"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Seattle",
+    "fr": "de Seattle"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

@@ -1,0 +1,281 @@
+{
+ "playerId": 8482758,
+ "firstName": {
+  "default": "Ville"
+ },
+ "lastName": {
+  "default": "Koivunen"
+ },
+ "currentTeamAbbrev": "PIT",
+ "position": "R",
+ "sweaterNumber": 41,
+ "birthDate": "2003-06-13",
+ "birthCity": {
+  "default": "Oulu",
+  "sv": "Uleåborg"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 183,
+ "weightInKilograms": 84,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2021,
+  "teamAbbrev": "CAR",
+  "round": 2,
+  "pickInRound": 19,
+  "overallPick": 51
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 3,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 13,
+    "goals": 2,
+    "otGoals": 1,
+    "pim": 8,
+    "plusMinus": 2,
+    "points": 5,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 0,
+    "shootingPctg": 0.166667,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 12
+   },
+   "career": {
+    "assists": 15,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 60,
+    "goals": 4,
+    "otGoals": 1,
+    "pim": 22,
+    "plusMinus": -8,
+    "points": 19,
+    "powerPlayGoals": 1,
+    "powerPlayPoints": 7,
+    "shootingPctg": 0.0634,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 63
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 15,
+   "avgToi": "13:48",
+   "faceoffWinningPctg": 0.8332999999999999,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 60,
+   "goals": 4,
+   "otGoals": 1,
+   "pim": 22,
+   "plusMinus": -8,
+   "points": 19,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 7,
+   "shootingPctg": 0.0634,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 63
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-03",
+   "gameId": 2026020242,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "VGK",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 14,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "PIT",
+   "toi": "18:50"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-31",
+   "gameId": 2026020223,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "MTL",
+   "pim": 2,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 15,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "PIT",
+   "toi": "13:16"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020205,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "UTA",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 17,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "PIT",
+   "toi": "16:43"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-24",
+   "gameId": 2026020172,
+   "gameTypeId": 2,
+   "goals": 1,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "NSH",
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 19,
+   "shorthandedGoals": 0,
+   "shots": 3,
+   "teamAbbrev": "PIT",
+   "toi": "16:28"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-22",
+   "gameId": 2026020158,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "FLA",
+   "pim": 2,
+   "plusMinus": 2,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "PIT",
+   "toi": "13:26"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 7,
+   "avgToi": "18:07",
+   "faceoffWinningPctg": 1.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 8,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 0,
+   "points": 7,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 3,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 15,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 5,
+   "avgToi": "12:44",
+   "faceoffWinningPctg": 1.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 39,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": -10,
+   "points": 7,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 4,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.055556,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 36,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "14:22",
+   "faceoffWinningPctg": 0.666667,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 13,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 1,
+   "pim": 8,
+   "plusMinus": 2,
+   "points": 5,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.166667,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 12,
+   "teamCommonName": {
+    "default": "Penguins"
+   },
+   "teamName": {
+    "default": "Pittsburgh Penguins",
+    "fr": "Penguins de Pittsburgh"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Pittsburgh",
+    "fr": "de Pittsburgh"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

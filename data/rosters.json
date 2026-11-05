@@ -1,0 +1,227 @@
+{
+ "date": "2026-11-05",
+ "players": [
+  {
+   "id": 8475798,
+   "name": "Mikael Granlund",
+   "team": "ANA",
+   "pos": "H"
+  },
+  {
+   "id": 8478024,
+   "name": "Ville Husso",
+   "team": "ANA",
+   "pos": "MV"
+  },
+  {
+   "id": 8484797,
+   "name": "Konsta Helenius",
+   "team": "BUF",
+   "pos": "H"
+  },
+  {
+   "id": 8480045,
+   "name": "Ukko-Pekka Luukkonen",
+   "team": "BUF",
+   "pos": "MV"
+  },
+  {
+   "id": 8478427,
+   "name": "Sebastian Aho",
+   "team": "CAR",
+   "pos": "H"
+  },
+  {
+   "id": 8480829,
+   "name": "Jesperi Kotkaniemi",
+   "team": "CAR",
+   "pos": "H"
+  },
+  {
+   "id": 8479976,
+   "name": "Juuso Välimäki",
+   "team": "CAR",
+   "pos": "P"
+  },
+  {
+   "id": 8476882,
+   "name": "Teuvo Teräväinen",
+   "team": "CHI",
+   "pos": "H"
+  },
+  {
+   "id": 8477476,
+   "name": "Artturi Lehkonen",
+   "team": "COL",
+   "pos": "H"
+  },
+  {
+   "id": 8478449,
+   "name": "Roope Hintz",
+   "team": "DAL",
+   "pos": "H"
+  },
+  {
+   "id": 8484938,
+   "name": "Arttu Hyry",
+   "team": "DAL",
+   "pos": "H"
+  },
+  {
+   "id": 8481641,
+   "name": "Joel Kiviranta",
+   "team": "DAL",
+   "pos": "H"
+  },
+  {
+   "id": 8478420,
+   "name": "Mikko Rantanen",
+   "team": "DAL",
+   "pos": "H"
+  },
+  {
+   "id": 8480036,
+   "name": "Miro Heiskanen",
+   "team": "DAL",
+   "pos": "P"
+  },
+  {
+   "id": 8476902,
+   "name": "Esa Lindell",
+   "team": "DAL",
+   "pos": "P"
+  },
+  {
+   "id": 8477953,
+   "name": "Kasperi Kapanen",
+   "team": "EDM",
+   "pos": "H"
+  },
+  {
+   "id": 8477493,
+   "name": "Aleksander Barkov",
+   "team": "FLA",
+   "pos": "H"
+  },
+  {
+   "id": 8482113,
+   "name": "Anton Lundell",
+   "team": "FLA",
+   "pos": "H"
+  },
+  {
+   "id": 8480185,
+   "name": "Eetu Luostarinen",
+   "team": "FLA",
+   "pos": "H"
+  },
+  {
+   "id": 8478859,
+   "name": "Niko Mikkola",
+   "team": "FLA",
+   "pos": "P"
+  },
+  {
+   "id": 8476469,
+   "name": "Joel Armia",
+   "team": "LAK",
+   "pos": "H"
+  },
+  {
+   "id": 8475287,
+   "name": "Erik Haula",
+   "team": "LAK",
+   "pos": "H"
+  },
+  {
+   "id": 8476874,
+   "name": "Olli Määttä",
+   "team": "MIN",
+   "pos": "P"
+  },
+  {
+   "id": 8481020,
+   "name": "Justus Annunen",
+   "team": "NSH",
+   "pos": "MV"
+  },
+  {
+   "id": 8477424,
+   "name": "Juuse Saros",
+   "team": "NSH",
+   "pos": "MV"
+  },
+  {
+   "id": 8481711,
+   "name": "Matias Maccelli",
+   "team": "NYI",
+   "pos": "H"
+  },
+  {
+   "id": 8480009,
+   "name": "Eeli Tolvanen",
+   "team": "NYR",
+   "pos": "H"
+  },
+  {
+   "id": 8476914,
+   "name": "Joonas Korpisalo",
+   "team": "NYR",
+   "pos": "MV"
+  },
+  {
+   "id": 8484321,
+   "name": "Nikolas Matinpalo",
+   "team": "OTT",
+   "pos": "P"
+  },
+  {
+   "id": 8477499,
+   "name": "Rasmus Ristolainen",
+   "team": "PHI",
+   "pos": "P"
+  },
+  {
+   "id": 8482758,
+   "name": "Ville Koivunen",
+   "team": "PIT",
+   "pos": "H"
+  },
+  {
+   "id": 8481554,
+   "name": "Kaapo Kakko",
+   "team": "SEA",
+   "pos": "H"
+  },
+  {
+   "id": 8483497,
+   "name": "Jani Nyman",
+   "team": "SEA",
+   "pos": "H"
+  },
+  {
+   "id": 8482866,
+   "name": "Ville Ottavainen",
+   "team": "SEA",
+   "pos": "P"
+  },
+  {
+   "id": 8483463,
+   "name": "Aleksanteri Kaskimäki",
+   "team": "STL",
+   "pos": "H"
+  },
+  {
+   "id": 8480947,
+   "name": "Kevin Lankinen",
+   "team": "VAN",
+   "pos": "MV"
+  },
+  {
+   "id": 8482447,
+   "name": "Leevi Meriläinen",
+   "team": "VAN",
+   "pos": "MV"
+  }
+ ]
+}

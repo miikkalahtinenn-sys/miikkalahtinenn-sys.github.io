@@ -1,0 +1,932 @@
+{
+ "playerId": 8476882,
+ "firstName": {
+  "default": "Teuvo"
+ },
+ "lastName": {
+  "default": "Teravainen",
+  "cs": "Teräväinen",
+  "fi": "Teräväinen",
+  "sk": "Teräväinen",
+  "sv": "Teräväinen"
+ },
+ "currentTeamAbbrev": "CHI",
+ "position": "C",
+ "sweaterNumber": 86,
+ "birthDate": "1994-09-11",
+ "birthCity": {
+  "default": "Helsinki",
+  "cs": "Helsinky",
+  "sk": "Helsinky",
+  "sv": "Helsingfors"
+ },
+ "birthStateProvince": null,
+ "birthCountry": "FIN",
+ "heightInCentimeters": 180,
+ "weightInKilograms": 87,
+ "shootsCatches": "L",
+ "draftDetails": {
+  "year": 2012,
+  "teamAbbrev": "CHI",
+  "round": 1,
+  "pickInRound": 18,
+  "overallPick": 18
+ },
+ "featuredStats": {
+  "season": 20262027,
+  "regularSeason": {
+   "subSeason": {
+    "assists": 4,
+    "gameWinningGoals": 1,
+    "gamesPlayed": 13,
+    "goals": 2,
+    "otGoals": 0,
+    "pim": 4,
+    "plusMinus": -5,
+    "points": 6,
+    "powerPlayGoals": 0,
+    "powerPlayPoints": 1,
+    "shootingPctg": 0.2,
+    "shorthandedGoals": 0,
+    "shorthandedPoints": 0,
+    "shots": 10
+   },
+   "career": {
+    "assists": 372,
+    "gameWinningGoals": 24,
+    "gamesPlayed": 840,
+    "goals": 186,
+    "otGoals": 2,
+    "pim": 148,
+    "plusMinus": 49,
+    "points": 558,
+    "powerPlayGoals": 61,
+    "powerPlayPoints": 195,
+    "shootingPctg": 0.11230000000000001,
+    "shorthandedGoals": 8,
+    "shorthandedPoints": 23,
+    "shots": 1656
+   }
+  }
+ },
+ "careerTotals": {
+  "regularSeason": {
+   "assists": 372,
+   "avgToi": "16:52",
+   "faceoffWinningPctg": 0.4454,
+   "gameWinningGoals": 24,
+   "gamesPlayed": 840,
+   "goals": 186,
+   "otGoals": 2,
+   "pim": 148,
+   "plusMinus": 49,
+   "points": 558,
+   "powerPlayGoals": 61,
+   "powerPlayPoints": 195,
+   "shootingPctg": 0.11230000000000001,
+   "shorthandedGoals": 8,
+   "shorthandedPoints": 23,
+   "shots": 1656
+  },
+  "playoffs": {
+   "assists": 27,
+   "avgToi": "17:22",
+   "faceoffWinningPctg": 0.3982,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 90,
+   "goals": 23,
+   "otGoals": 0,
+   "pim": 22,
+   "plusMinus": 25,
+   "points": 50,
+   "powerPlayGoals": 4,
+   "powerPlayPoints": 10,
+   "shootingPctg": 0.13449999999999998,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 171
+  }
+ },
+ "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-04",
+   "gameId": 2026020248,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "FLA",
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 16,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CHI",
+   "toi": "9:43"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-11-02",
+   "gameId": 2026020234,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "COL",
+   "pim": 0,
+   "plusMinus": -2,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CHI",
+   "toi": "13:19"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-29",
+   "gameId": 2026020203,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "DET",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 21,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CHI",
+   "toi": "17:32"
+  },
+  {
+   "assists": 1,
+   "gameDate": "2026-10-27",
+   "gameId": 2026020190,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "LAK",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 1,
+   "teamAbbrev": "CHI",
+   "toi": "13:44"
+  },
+  {
+   "assists": 0,
+   "gameDate": "2026-10-25",
+   "gameId": 2026020180,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "FLA",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 18,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CHI",
+   "toi": "18:57"
+  }
+ ],
+ "isActive": true,
+ "seasonTotals": [
+  {
+   "assists": 0,
+   "avgToi": "14:06",
+   "faceoffWinningPctg": 0.52,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 3,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20132014,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 4,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 5,
+   "avgToi": "12:47",
+   "faceoffWinningPctg": 0.4677,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 34,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 4,
+   "points": 9,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20142015,
+   "sequence": 1,
+   "shootingPctg": 0.0606,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 66,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 6,
+   "avgToi": "13:28",
+   "faceoffWinningPctg": 0.1,
+   "gameTypeId": 3,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 18,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 2,
+   "points": 10,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 1,
+   "season": 20142015,
+   "sequence": 1,
+   "shootingPctg": 0.1538,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 26,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 22,
+   "avgToi": "15:21",
+   "faceoffWinningPctg": 0.4045,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 78,
+   "goals": 13,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 20,
+   "plusMinus": -2,
+   "points": 35,
+   "powerPlayGoals": 2,
+   "powerPlayPoints": 9,
+   "season": 20152016,
+   "sequence": 1,
+   "shootingPctg": 0.0956,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 136,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 1,
+   "avgToi": "12:05",
+   "faceoffWinningPctg": 0.35,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 7,
+   "goals": 0,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 1,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20152016,
+   "sequence": 1,
+   "shootingPctg": 0.0,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 13,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 27,
+   "avgToi": "16:14",
+   "faceoffWinningPctg": 0.4673,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 81,
+   "goals": 15,
+   "leagueAbbrev": "NHL",
+   "otGoals": 1,
+   "pim": 16,
+   "plusMinus": -6,
+   "points": 42,
+   "powerPlayGoals": 5,
+   "powerPlayPoints": 15,
+   "season": 20162017,
+   "sequence": 1,
+   "shootingPctg": 0.0888,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 169,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 41,
+   "avgToi": "16:53",
+   "faceoffWinningPctg": 0.3061,
+   "gameTypeId": 2,
+   "gameWinningGoals": 3,
+   "gamesPlayed": 82,
+   "goals": 23,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 14,
+   "plusMinus": 8,
+   "points": 64,
+   "powerPlayGoals": 5,
+   "powerPlayPoints": 20,
+   "season": 20172018,
+   "sequence": 1,
+   "shootingPctg": 0.1243,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 185,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 55,
+   "avgToi": "17:55",
+   "faceoffWinningPctg": 0.4186,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 82,
+   "goals": 21,
+   "leagueAbbrev": "NHL",
+   "otGoals": 1,
+   "pim": 12,
+   "plusMinus": 30,
+   "points": 76,
+   "powerPlayGoals": 8,
+   "powerPlayPoints": 24,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.1257,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 5,
+   "shots": 167,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 3,
+   "avgToi": "19:55",
+   "faceoffWinningPctg": 0.4231,
+   "gameTypeId": 3,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 15,
+   "goals": 7,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 6,
+   "points": 10,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20182019,
+   "sequence": 1,
+   "shootingPctg": 0.1892,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 37,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 48,
+   "avgToi": "19:12",
+   "faceoffWinningPctg": 0.4906,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 68,
+   "goals": 15,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 8,
+   "plusMinus": 20,
+   "points": 63,
+   "powerPlayGoals": 4,
+   "powerPlayPoints": 21,
+   "season": 20192020,
+   "sequence": 1,
+   "shootingPctg": 0.082,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 4,
+   "shots": 182,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 2,
+   "avgToi": "19:58",
+   "faceoffWinningPctg": 0.5,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 8,
+   "goals": 3,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 6,
+   "points": 5,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 1,
+   "season": 20192020,
+   "sequence": 1,
+   "shootingPctg": 0.214,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 14,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 10,
+   "avgToi": "16:26",
+   "faceoffWinningPctg": 0.65,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 21,
+   "goals": 5,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": 5,
+   "points": 15,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 2,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.102,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 49,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "20:45",
+   "faceoffWinningPctg": 0.4167,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 11,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": 6,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20202021,
+   "sequence": 1,
+   "shootingPctg": 0.1,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 20,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 43,
+   "avgToi": "17:42",
+   "faceoffWinningPctg": 0.545455,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 77,
+   "goals": 22,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 24,
+   "plusMinus": 22,
+   "points": 65,
+   "powerPlayGoals": 9,
+   "powerPlayPoints": 31,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.109,
+   "shorthandedGoals": 2,
+   "shorthandedPoints": 3,
+   "shots": 202,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 7,
+   "avgToi": "16:54",
+   "faceoffWinningPctg": 1.0,
+   "gameTypeId": 3,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 14,
+   "goals": 4,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 4,
+   "points": 11,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 3,
+   "season": 20212022,
+   "sequence": 1,
+   "shootingPctg": 0.118,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 1,
+   "shots": 34,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 25,
+   "avgToi": "16:55",
+   "faceoffWinningPctg": 0.622642,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 68,
+   "goals": 12,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 16,
+   "plusMinus": 11,
+   "points": 37,
+   "powerPlayGoals": 5,
+   "powerPlayPoints": 11,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.083333,
+   "shorthandedGoals": 2,
+   "shorthandedPoints": 3,
+   "shots": 144,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 0,
+   "avgToi": "18:46",
+   "faceoffWinningPctg": 0.75,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 6,
+   "goals": 1,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 2,
+   "plusMinus": 0,
+   "points": 1,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 0,
+   "season": 20222023,
+   "sequence": 1,
+   "shootingPctg": 0.111111,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 9,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 28,
+   "avgToi": "16:24",
+   "faceoffWinningPctg": 0.471429,
+   "gameTypeId": 2,
+   "gameWinningGoals": 4,
+   "gamesPlayed": 76,
+   "goals": 25,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 10,
+   "plusMinus": 15,
+   "points": 53,
+   "powerPlayGoals": 9,
+   "powerPlayPoints": 17,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.176056,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 4,
+   "shots": 142,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "18:08",
+   "faceoffWinningPctg": 0.444444,
+   "gameTypeId": 3,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 11,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 6,
+   "powerPlayGoals": 1,
+   "powerPlayPoints": 3,
+   "season": 20232024,
+   "sequence": 1,
+   "shootingPctg": 0.111111,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 18,
+   "teamCommonName": {
+    "default": "Hurricanes"
+   },
+   "teamName": {
+    "default": "Carolina Hurricanes",
+    "fr": "Hurricanes de la Caroline"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Carolina",
+    "fr": "de la Caroline"
+   }
+  },
+  {
+   "assists": 43,
+   "avgToi": "17:04",
+   "faceoffWinningPctg": 0.392157,
+   "gameTypeId": 2,
+   "gameWinningGoals": 0,
+   "gamesPlayed": 82,
+   "goals": 15,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 12,
+   "plusMinus": -23,
+   "points": 58,
+   "powerPlayGoals": 7,
+   "powerPlayPoints": 24,
+   "season": 20242025,
+   "sequence": 1,
+   "shootingPctg": 0.135135,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 2,
+   "shots": 111,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 21,
+   "avgToi": "17:45",
+   "faceoffWinningPctg": 0.391667,
+   "gameTypeId": 2,
+   "gameWinningGoals": 2,
+   "gamesPlayed": 75,
+   "goals": 14,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 6,
+   "plusMinus": -30,
+   "points": 35,
+   "powerPlayGoals": 7,
+   "powerPlayPoints": 19,
+   "season": 20252026,
+   "sequence": 1,
+   "shootingPctg": 0.157303,
+   "shorthandedGoals": 1,
+   "shorthandedPoints": 1,
+   "shots": 89,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  },
+  {
+   "assists": 4,
+   "avgToi": "14:43",
+   "faceoffWinningPctg": 0.0,
+   "gameTypeId": 2,
+   "gameWinningGoals": 1,
+   "gamesPlayed": 13,
+   "goals": 2,
+   "leagueAbbrev": "NHL",
+   "otGoals": 0,
+   "pim": 4,
+   "plusMinus": -5,
+   "points": 6,
+   "powerPlayGoals": 0,
+   "powerPlayPoints": 1,
+   "season": 20262027,
+   "sequence": 1,
+   "shootingPctg": 0.2,
+   "shorthandedGoals": 0,
+   "shorthandedPoints": 0,
+   "shots": 10,
+   "teamCommonName": {
+    "default": "Blackhawks"
+   },
+   "teamName": {
+    "default": "Chicago Blackhawks",
+    "fr": "Blackhawks de Chicago"
+   },
+   "teamPlaceNameWithPreposition": {
+    "default": "Chicago",
+    "fr": "de Chicago"
+   }
+  }
+ ],
+ "_fetched": "2026-11-05"
+}

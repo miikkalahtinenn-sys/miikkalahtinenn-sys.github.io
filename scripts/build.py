@@ -391,19 +391,26 @@ def fetch_roster_finns(today):
     Kokoonpanot haetaan kerran päivässä ja tallennetaan data/rosters.json."""
     path = os.path.join(DATA, "rosters.json")
     cache = load_json(path, {})
-    if cache.get("date") != today.isoformat() or not cache.get("players"):
-        players = []
+    if cache.get("date") != today.isoformat() or not cache.get("players") or "allIds" not in cache:
+        players, all_ids = [], []
         for abbr in TEAMS:
             d = get(f"{API}/roster/{abbr}/current") or {}
             for grp, pos in (("forwards", "H"), ("defensemen", "P"), ("goalies", "MV")):
                 for p in d.get(grp) or []:
+                    if p.get("id"):
+                        all_ids.append(p["id"])
                     if (p.get("birthCountry") or "").upper() != "FIN":
                         continue
                     players.append({"id": p.get("id"), "name": fixname(full_name(p)), "team": abbr, "pos": pos})
         if players:
-            cache = {"date": today.isoformat(), "players": players}
+            cache = {"date": today.isoformat(), "players": players, "allIds": sorted(set(all_ids))}
             save_json(path, cache)
+    ROSTER_IDS.clear()
+    ROSTER_IDS.update(cache.get("allIds") or [])
     return cache.get("players") or []
+
+
+ROSTER_IDS = set()
 
 
 def fetch_profiles(pids, today):
@@ -747,8 +754,8 @@ def collect():
         else:
             finns.append([r["name"], r["team"], r["pos"], 0, 0, 0, 0, slugify(r["name"])])
     # kauden tilastoissa mutta ei nyt minkään joukkueen NHL-kokoonpanossa (esim. farmissa)
-    roster_names = {r["name"] for r in roster}
-    finn_off = sorted(f[0] for f in finns + fgk if roster and f[1] and f[0] not in roster_names)
+    finn_off = sorted(f[0] for f in finns + fgk
+                      if len(ROSTER_IDS) > 500 and f[1] and FINN_PID.get(f[0]) and FINN_PID[f[0]] not in ROSTER_IDS)
     # paljon haetut suomalaiset, jotka eivät juuri nyt ole NHL-kokoonpanossa (config.json: extraFinns)
     have = {f[0] for f in finns} | {f[0] for f in fgk}
     extra = []

@@ -72,5 +72,158 @@
       "NHLsuomi.com: NHL-lähetykset ja hinnat",
       "https://www.nhlsuomi.com/nhl-viaplay-mtv-tv/"
     ]
-  }
+  },
+  "freeGames": [
+    {
+      "ch": "MTV Sub",
+      "date": "2026-10-04",
+      "teams": [
+        "DET",
+        "WPG"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-10-11",
+      "teams": [
+        "SEA",
+        "WSH"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-10-17",
+      "teams": [
+        "VAN",
+        "TBL"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-10-25",
+      "teams": [
+        "CHI",
+        "FLA"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-11-01",
+      "teams": [
+        "CAR",
+        "WPG"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-11-08",
+      "teams": [
+        "BOS",
+        "FLA"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-11-22",
+      "teams": [
+        "NYR",
+        "CAR"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-11-29",
+      "teams": [
+        "CHI",
+        "MIN"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-12-06",
+      "teams": [
+        "PIT",
+        "SJS"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-12-13",
+      "teams": [
+        "CAR",
+        "BOS"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-12-20",
+      "teams": [
+        "BOS",
+        "PHI"
+      ]
+    },
+    {
+      "ch": "MTV Sub",
+      "date": "2026-12-27",
+      "teams": [
+        "CHI",
+        "PHI"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-03",
+      "teams": [
+        "CAR",
+        "WSH"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-10",
+      "teams": [
+        "SJS",
+        "EDM"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-12",
+      "teams": [
+        "BUF",
+        "FLA"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-26",
+      "teams": [
+        "DAL",
+        "NYI"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-31",
+      "teams": [
+        "BOS",
+        "CHI"
+      ]
+    }
+  ],
+  "freeGamesNote": "MTV:n kevään ja Star Channelin marraskuusta eteenpäin näytettävät ottelut lisätään, kun kanavat julkaisevat ne.",
+  "freeGamesSources": [
+    [
+      "MTV (STT Info)",
+      "https://www.sttinfo.fi/tiedote/72358886/nhl-jatkaa-mtv-katsomon-ja-mtv-subin-sunnuntai-illoissa-uudella-viisivuotisella-sopimuksella"
+    ],
+    [
+      "NHL.com/fi",
+      "https://www.nhl.com/fi/news/nhl-laehetykset-kaudella-2026-27"
+    ],
+    [
+      "NHLsuomi.com",
+      "https://www.nhlsuomi.com/nhl-viaplay-mtv-tv/"
+    ]
+  ]
 }

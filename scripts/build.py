@@ -80,8 +80,8 @@ def tbadge(a, cls="badge"):
     return f'<span class="{cls}" style="background:{COLORS.get(a, "#445")}" title="{esc(TEAMS.get(a, (a,))[0])}">{esc(a)}</span>'
 
 
-NAV = [("/", "Tulokset"), ("/otteluohjelma/", "Ohjelma"), ("/suomalaiset/", "Suomalaiset"), ("/pisteporssi/", "Pistepörssi"),
-       ("/sarjataulukko/", "Sarjataulukko"), ("/ottelut/", "Arkisto")]
+NAV = [("/", "Tulokset"), ("/otteluohjelma/", "Ohjelma"), ("/suomalaiset/", "Suomalaiset"), ("/nhl-tv/", "TV-lähetykset"),
+       ("/pisteporssi/", "Pistepörssi"), ("/sarjataulukko/", "Sarjataulukko"), ("/ottelut/", "Arkisto")]
 
 
 def site_header(path=""):
@@ -575,6 +575,56 @@ def fetch_upcoming(et_today):
     return ups
 
 
+def resolve_free_games(hel_today):
+    """Ilmaiskanavien ottelut (config.json: freeGames) täydennettynä NHL:n otteluohjelmalla ja arkistolla.
+    Tulevien otteluiden aloitusajat haetaan kerran päivässä (data/freetv.json)."""
+    items = CFG.get("freeGames") or []
+    path = os.path.join(DATA, "freetv.json")
+    cache = load_json(path, {})
+    if cache.get("date") != hel_today.isoformat():
+        sched, weeks = {}, set()
+        for it in items:
+            d = dt.date.fromisoformat(it["date"])
+            if not (hel_today - dt.timedelta(days=1) <= d <= hel_today + dt.timedelta(days=70)):
+                continue
+            if any(w <= d - dt.timedelta(days=1) and d <= w + dt.timedelta(days=6) for w in weeks):
+                continue
+            wk = d - dt.timedelta(days=1)
+            data = get(f"{API}/schedule/{wk.isoformat()}") or {}
+            weeks.add(wk)
+            for day in data.get("gameWeek") or []:
+                for g in day.get("games") or []:
+                    a, h = team(g["awayTeam"].get("abbrev")), team(g["homeTeam"].get("abbrev"))
+                    sched[f"{min(a, h)}-{max(a, h)}-{day.get('date')}"] = {"away": a, "home": h, "start": g.get("startTimeUTC"), "et": day.get("date")}
+        cache = {"date": hel_today.isoformat(), "sched": sched}
+        save_json(path, cache)
+    sched = cache.get("sched") or {}
+    arch = {}
+    for it in items:
+        d = dt.date.fromisoformat(it["date"])
+        for et in (d, d - dt.timedelta(days=1)):
+            fn = os.path.join(DATA, "archive", f"{et.isoformat()}.json")
+            if fn not in arch:
+                arch[fn] = load_json(fn, {}).get("games") or {}
+    out = []
+    for it in items:
+        d = dt.date.fromisoformat(it["date"])
+        t1, t2 = sorted(it["teams"])
+        e = {"ch": it["ch"], "date": it["date"], "away": it["teams"][0], "home": it["teams"][1], "start": None, "status": "upcoming"}
+        for et in (d, d - dt.timedelta(days=1)):
+            for g in arch.get(os.path.join(DATA, "archive", f"{et.isoformat()}.json"), {}).values():
+                if sorted((g["away"], g["home"])) == [t1, t2]:
+                    e.update(away=g["away"], home=g["home"], start=g.get("start"), status="final", score=score_txt(g), slug=game_slug(et.isoformat(), g))
+            if e["status"] == "upcoming":
+                m = sched.get(f"{t1}-{t2}-{et.isoformat()}")
+                if m:
+                    e.update(away=m["away"], home=m["home"], start=m["start"])
+        if e["status"] != "final" and d < hel_today:
+            e["status"] = "past"
+        out.append(e)
+    return out
+
+
 def goal_entry(goal, fin_ids):
     pd = goal.get("periodDescriptor") or {}
     ptype = pd.get("periodType") or "REG"
@@ -846,6 +896,11 @@ def collect():
         if n.get("from", "0000") <= hel_today.isoformat() <= n.get("to", "9999"):
             notice = {"title": n["title"], "text": n["text"]}
 
+    try:
+        free_tv = resolve_free_games(hel_today)
+    except Exception as e:
+        log("ilmaisottelut epäonnistuivat", e)
+        free_tv = []
     any_live = any(p["status"] and not p["status"].startswith(("Alkaa", "Siirretty", "Ei alkanut")) for p in pending)
     return {
         "site": CFG["siteName"],
@@ -866,6 +921,7 @@ def collect():
         "finnNames": sorted(fin_names),
         "finnOff": finn_off,
         "tvInfo": CFG.get("tvInfo"),
+        "freeTv": free_tv,
         "history": hist[-120:],
         "sources": [{"name": "NHL.com (julkiset tulos- ja tilastotiedot)", "url": "https://www.nhl.com/"}]
                    + ([{"name": "MoneyPuck.com (edistyneet tilastot pelaajasivuilla)", "url": "https://moneypuck.com/"}] if MP.get("skaters") or MP.get("goalies") else []),
@@ -1028,6 +1084,7 @@ def footer():
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/ottelut/">Otteluarkisto</a></div>'
             '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a></div>'
+            '<div><h4>Katso NHL:ää</h4><a href="/nhl-tv/">NHL tv-lähetykset</a><a href="/nhl-tv/#ilmaisottelut">Ilmaisottelut</a></div>'
             '<div><h4>Sivusto</h4><a href="/tietoa.html">Tietoa sivustosta</a><a href="/yhteys.html">Ota yhteyttä</a><a href="/tietosuoja.html">Tietosuoja</a></div>'
             '</div>'
             f'<p class="legal">{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
@@ -1284,6 +1341,54 @@ def build_site(data):
             f"<li><b>{esc(fi_time(u['start']))}</b> {esc(tname(u['away']))} – {esc(tname(u['home']))}{(' · ' + esc(u['venue'])) if u.get('venue') else ''}"
             + (f" <span class='fins'>{FLAG}{esc(', '.join(short_name(n) for n in finn_by_team(data, u['away'], u['home'])))}</span>" if finn_by_team(data, u['away'], u['home']) else "")
             + "</li>" for u in sorted(lst, key=lambda x: x["start"] or "")) + "</ul>"
+    # --- NHL tv-lähetykset ja ilmaisottelut
+    free = data.get("freeTv") or []
+    def frow(e):
+        when = ""
+        if e.get("start"):
+            st_ = dt.datetime.fromisoformat(e["start"].replace("Z", "+00:00")).astimezone(HEL)
+            when = f"{['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'][st_.weekday()]} {st_.day}.{st_.month}. klo {st_:%H.%M}"
+        else:
+            d_ = dt.date.fromisoformat(e["date"])
+            when = f"{['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'][d_.weekday()]} {d_.day}.{d_.month}."
+        fins = finn_by_team(data, e["away"], e["home"])
+        right = f"<b class='fsc'>{esc(e['score'])}</b>" if e.get("score") else ""
+        inner = (f"<div class='ftop'><span class='gt'>{esc(when)}</span><span class='chan'>{esc(e['ch'])}</span></div>"
+                 f"<div class='fmid'><span class='tm'>{tbadge(e['away'], 'mini')}{esc(tname(e['away']))}</span><span class='mute'>–</span><span class='tm'>{tbadge(e['home'], 'mini')}{esc(tname(e['home']))}</span>{right}</div>"
+                 + (f"<div class='fins2'>{FLAG}{esc(', '.join(short_name(n) for n in fins))}</div>" if fins and e["status"] == "upcoming" else ""))
+        return (f"<li class='frow'><a href='/ottelut/{e['slug']}.html'>{inner}</a></li>" if e.get("slug") else f"<li class='frow'>{inner}</li>")
+    up_ = [e for e in free if e["status"] == "upcoming"]
+    past_ = [e for e in free if e["status"] != "upcoming"][::-1]
+    tv = CFG.get("tvInfo") or {}
+    srcs = " · ".join(f"<a href='{esc(u)}' rel='noopener'>{esc(n)}</a>" for n, u in CFG.get("freeGamesSources") or [])
+    nxt_free = up_[0] if up_ else None
+    lead_free = (f"Seuraava ilmaisottelu: {tname(nxt_free['away'])} – {tname(nxt_free['home'])} ({nxt_free['ch']})." if nxt_free else "")
+    faq_tv = [
+        ("Mistä NHL näkyy Suomessa?", "Kaudella 2026–27 suurin osa otteluista näkyy Viaplayssa (noin 1 150 runkosarjaottelua). Disney+ näyttää 160 runkosarjaottelua ESPN:n lähetyksinä. Ilmaiskanavista MTV Sub näyttää yhden ottelun viikossa, yleensä sunnuntaisin, ja Star Channel valikoituja Disney+:n otteluita."),
+        ("Näkyykö NHL ilmaiseksi?", "Kyllä, osa otteluista. MTV Sub näyttää NHL-ottelun lähes joka sunnuntai, ja Star Channel sekä Viaplay TV näyttävät yksittäisiä otteluita ilmaiseksi. Tulevat ilmaisottelut näet tältä sivulta."),
+        ("Mistä näkee kaikki NHL-ottelut?", "Yksikään palvelu ei näytä Suomessa kaikkia otteluita. Viaplay näyttää suurimman osan, ja Disney+ näyttää 160 runkosarjaottelua yksinoikeudella."),
+        ("Mihin aikaan NHL-ottelut alkavat Suomessa?", "Useimmat ottelut alkavat Suomen aikaa yöllä klo 1.30–5.00. Viikonloppuisin osa otteluista pelataan Suomen aikaa jo iltapäivällä tai illalla."),
+    ]
+    tvrows = "".join(f"<li><b>{esc(n)}</b><span>{esc(t)}</span></li>" for n, t in tv.get("items") or [])
+    body_tv = (f"<h1>NHL tv-lähetykset Suomessa {esc(tv.get('season', ''))}</h1>"
+               f"<p class='lead'>Missä NHL näkyy ja mitkä ottelut näkee ilmaiseksi? Kokosimme kauden lähetysoikeudet ja ilmaiskanavien ottelut samalle sivulle. {esc(lead_free)}</p>"
+               f"<h2>Missä NHL näkyy</h2><ul class='tvlist'>{tvrows}</ul><p class='mute small'>{esc(tv.get('note', ''))}</p>"
+               + (f"<p class='small'><a href='{esc(tv['more'][1])}' rel='noopener'>{esc(tv['more'][0])} {ic('chev')}</a></p>" if tv.get("more") else "")
+               + f"<h2 id='ilmaisottelut'>Tulevat ilmaisottelut</h2>"
+               + (f"<ul class='rows'>{''.join(frow(e) for e in up_)}</ul>" if up_ else "<p>Ei tiedossa olevia tulevia ilmaisotteluita.</p>")
+               + f"<p class='mute small'>Kellonajat Suomen aikaa. Aika näkyy, kun NHL on vahvistanut ottelun aloitusajan. {esc(CFG.get('freeGamesNote', ''))}</p>"
+               + (f"<h2>Kauden ilmaisottelut tähän mennessä</h2><ul class='rows'>{''.join(frow(e) for e in past_)}</ul>" if past_ else "")
+               + "<h2>Usein kysyttyä</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faq_tv)
+               + (f"<h2>Lähteet</h2><p class='small'>{srcs}</p>" if srcs else ""))
+    tv_jl = {"@context": "https://schema.org", "@type": "FAQPage",
+             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_tv]}
+    os.makedirs(os.path.join(OUT, "nhl-tv"), exist_ok=True)
+    open(os.path.join(OUT, "nhl-tv", "index.html"), "w", encoding="utf-8").write(page(
+        f"NHL tv-lähetykset Suomessa {tv.get('season', '')} – missä NHL näkyy ja ilmaisottelut | {CFG['siteName']}",
+        f"Missä NHL näkyy Suomessa kaudella {tv.get('season', '')}? Viaplay, Disney+ (ESPN), MTV Sub ja Star Channel. Katso myös tulevat NHL-ilmaisottelut kellonaikoineen.",
+        "/nhl-tv/", body_tv, tv_jl))
+    urls.append("/nhl-tv/")
+
     write("/otteluohjelma/", f"NHL-otteluohjelma – tulevat ottelut Suomen aikaa | {CFG['siteName']}",
           "NHL:n otteluohjelma seuraavalle viikolle Suomen ajassa. Näet myös, missä otteluissa suomalaiset pelaavat.",
           f"<h1>NHL-otteluohjelma Suomen aikaa</h1><p class='mute'>Kellonajat Suomen aikaa. Otsikon päivä on NHL:n pelipäivä Pohjois-Amerikassa; ottelut pelataan Suomessa seuraavana yönä.</p>{tv_html(data)}{orows or '<p>Ei tulevia otteluita tiedossa.</p>'}")

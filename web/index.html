@@ -125,6 +125,7 @@ tr.cut td{border-top:2px solid #35506b}
 .teamcard .th b{font-size:15px}
 .teamcard .th small{color:var(--mute);font-size:12px;margin-left:auto}
 .na{color:var(--mute)}
+.freech{align-self:flex-start;font-size:11.5px;font-weight:700;color:#0b1118;background:#ffd27a;border-radius:999px;padding:2px 9px;text-decoration:none;margin-top:2px}
 .tvbox ul{list-style:none;margin:0;padding:0}.tvbox li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px}.tvbox li:first-child{border-top:0}.tvbox li span{color:#c7d3e0}.tvfoot{padding:10px 14px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}.tvfoot a{color:var(--ice);text-decoration:none;font-weight:600}
 @media (max-width:480px){.tvbox li{grid-template-columns:1fr;gap:2px}}
 .offs{color:#ffd27a}
@@ -185,7 +186,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
 
 /* alaosa */
 .foot{margin-top:36px;border-top:1px solid var(--line);padding-top:22px;color:var(--mute);font-size:13px}
-.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:20px}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:20px}
 .fgrid h4{margin:0 0 8px;color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
 .fgrid a{display:block;color:var(--mute);padding:3px 0;text-decoration:none}
 .fgrid a:hover{color:var(--ink)}
@@ -221,6 +222,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
     <a href="#tulokset" data-v="tulokset">Tulokset</a>
     <a href="#ohjelma" data-v="ohjelma">Tulevat ottelut</a>
     <a href="#suomalaiset" data-v="suomalaiset" class="fi-tab"><span class="flag sm"></span>Suomalaiset</a>
+    <a href="/nhl-tv/">TV-lähetykset</a>
     <a href="#porssi" data-v="porssi">Pistepörssi</a>
     <a href="#sarjataulukko" data-v="sarjataulukko">Sarjataulukko</a>
   </nav>
@@ -381,6 +383,7 @@ function renderUpcoming(){
           <div class="side">${badge(u.away)}<span class="nm">${esc(T(u.away)[0])}</span><em>vieras</em></div>
           <div class="side">${badge(u.home)}<span class="nm">${esc(T(u.home)[0])}</span><em>koti</em></div>
           ${u.venue?`<div class="venue">${IC("pin")}${esc(u.venue)}</div>`:""}
+          ${freeCh(u)?`<a class="freech" href="/nhl-tv/">Ilmaiseksi: ${esc(freeCh(u))}</a>`:""}
           ${gkInfo.length?`<div class="pg">${IC("goalie")}${gkInfo.map(x=>`<b>${esc(x.team)}</b> ${esc(x.name)}${fiBadge(x.name,x.team)} <span class="na">(${esc(x.status)})</span>`).join(" · ")}</div>`:""}
           ${(FINN_BY_TEAM[u.away]||[]).length||(FINN_BY_TEAM[u.home]||[]).length?`<div class="chips">${finnChips(u.away)}${finnChips(u.home)}</div>`:""}
         </div></div>`;
@@ -392,9 +395,14 @@ function renderUpcoming(){
   el.innerHTML=h;
   bindSeg(el,"f",v=>{progFilter=v;renderUpcoming();});
 }
+function freeCh(u){
+  const k=[u.away,u.home].sort().join("-"), d=fiDate(u.start,{year:"numeric",month:"2-digit",day:"2-digit"}).split(".").reverse().join("-");
+  const f=(D.freeTv||[]).find(e=>[e.away,e.home].sort().join("-")===k&&e.date===d);
+  return f?f.ch:"";
+}
 function tvBox(){
   const tv=D.tvInfo; if(!tv) return "";
-  return `<div class="card tvbox"><div class="dayh"><b>Missä NHL näkyy Suomessa</b><small>kausi ${esc(tv.season||"")}</small></div><ul>${tv.items.map(([n,t])=>`<li><b>${esc(n)}</b><span>${esc(t)}</span></li>`).join("")}</ul><div class="tvfoot">${esc(tv.note||"")}${tv.more?` <a href="${esc(tv.more[1])}" target="_blank" rel="noopener">${esc(tv.more[0])} →</a>`:""}</div></div>`;
+  return `<div class="card tvbox"><div class="dayh"><b>Missä NHL näkyy Suomessa</b><small><a href="/nhl-tv/" style="color:var(--ice);text-decoration:none">Ilmaisottelut →</a></small></div><ul>${tv.items.map(([n,t])=>`<li><b>${esc(n)}</b><span>${esc(t)}</span></li>`).join("")}</ul><div class="tvfoot">${esc(tv.note||"")}${tv.more?` <a href="${esc(tv.more[1])}" target="_blank" rel="noopener">${esc(tv.more[0])} →</a>`:""}</div></div>`;
 }
 function bindSeg(el,key,fn){el.querySelectorAll(`.seg button[data-${key}]`).forEach(b=>b.onclick=()=>fn(b.dataset[key]));}
 

@@ -22,8 +22,8 @@ body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-seri
 a{color:inherit}
 .wrap{max-width:780px;margin:0 auto;padding:0 14px 60px}
 header{padding:22px 0 10px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-family:Fraunces,Georgia,serif;font-weight:700;font-size:32px;letter-spacing:-.6px;line-height:1}
-.brand img{border-radius:9px;box-shadow:0 6px 18px rgba(240,40,46,.35)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-family:Fraunces,Georgia,serif;font-weight:700;font-size:28px;letter-spacing:.04em;line-height:1}
+.brand img{filter:drop-shadow(0 0 12px rgba(255,59,48,.45))}
 .brand b{font-weight:700}
 .sub{color:var(--mute);font-size:13px;margin-top:4px}
 .upd{color:var(--mute);font-size:12px;text-align:right;white-space:nowrap}
@@ -187,7 +187,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
 .fgrid a{display:block;color:var(--mute);padding:3px 0;text-decoration:none}
 .fgrid a:hover{color:var(--ink)}
 .fbrand p{margin:10px 0 0;max-width:260px}
-.brand.sm{font-size:22px}
+.brand.sm{font-size:20px}
 .foot .legal{margin:22px 0 0;font-size:11.5px;line-height:1.5;color:#6d7e93}
 @media (max-width:640px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
 .rgrid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"fin" "main" "stats";gap:0}
@@ -201,7 +201,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
   .view:not(#v-tulokset){max-width:860px;margin:0 auto}
   .view:not(#v-tulokset).on{display:block}
 }
-@media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:13.5px;padding:7px 11px}.brand{font-size:28px}h2{font-size:24px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
+@media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:13.5px;padding:7px 11px}.brand{font-size:24px}h2{font-size:24px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
 </style>
 </head>
 <body>
@@ -209,7 +209,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
 <div class="wrap">
   <header>
     <div>
-      <a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>Punalamppu</span></a>
+      <a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>PUNALAMPPU</span></a>
       <h1 class="sub">{{TAGLINE}}</h1>
     </div>
     <div class="upd" id="upd"></div>

@@ -88,7 +88,7 @@ def site_header(path=""):
     def on(h):
         return h == path or (h != "/" and path.startswith(h)) or (h == "/ottelut/" and path.startswith("/ottelut/"))
     nav = "".join(f'<a href="{h}"{" class=on" if on(h) else ""}>{FLAG if h == "/suomalaiset/" else ""}{t}</a>' for h, t in NAV)
-    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>Punalamppu</span></a>'
+    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>PUNALAMPPU</span></a>'
             f'<form class="q" action="/" method="get" role="search">{ic("search")}<input type="search" name="q" placeholder="Hae pelaajaa tai joukkuetta" aria-label="Hae pelaajaa tai joukkuetta"></form></header>'
             f'<nav class="pills" aria-label="Päävalikko">{nav}</nav>')
 
@@ -897,20 +897,21 @@ def _canvas(c1=None, c2=None):
     return im
 
 
-def _logo(d, x, y, sz):
-    r = sz * 16 / 64
-    d.rounded_rectangle((x, y, x + sz, y + sz), r, fill=(232, 35, 43))
-    k = sz / 64
-    d.arc((x + 14 * k, y + 10.5 * k, x + 50 * k, y + 46.5 * k), 200, 340, fill=(246, 160, 164), width=max(2, int(3 * k)))
-    d.pieslice((x + 20 * k, y + 23 * k, x + 44 * k, y + 47 * k), 180, 360, fill="white")
-    d.rectangle((x + 20 * k, y + 35 * k, x + 44 * k, y + 45 * k), fill="white")
-    d.rounded_rectangle((x + 15 * k, y + 45 * k, x + 49 * k, y + 50 * k), 2.5 * k, fill="white")
+_LOGO = None
+
+
+def _logo(im, x, y, sz):
+    global _LOGO
+    if _LOGO is None:
+        _LOGO = Image.open(os.path.join(ROOT, "assets", "logo-512.png")).convert("RGBA")
+    lg = _LOGO.resize((int(sz), int(sz)), Image.LANCZOS)
+    im.paste(lg, (int(x), int(y)), lg)
 
 
 def _brand(d, x, y, sz=64):
-    _logo(d, x, y, sz)
-    f = _font("fraunces-latin-700-normal", int(sz * .72))
-    d.text((x + sz * 1.25, y + sz / 2), "Punalamppu", font=f, fill=INK, anchor="lm")
+    _logo(d._image, x, y, sz)
+    f = _font("fraunces-latin-700-normal", int(sz * .62))
+    d.text((x + sz * 1.2, y + sz / 2 + sz * .03), "PUNALAMPPU", font=f, fill=INK, anchor="lm")
 
 
 def _fit(d, text, name, size, maxw):
@@ -934,9 +935,9 @@ def og_default(path):
     mask = Image.radial_gradient("L").resize((W, H)).point(lambda v: 255 - v)
     im.paste(glow, (0, 0), mask)
     d = ImageDraw.Draw(im)
-    _logo(d, W // 2 - 120 * S2, 150 * S2, 240 * S2)
-    f = _font("fraunces-latin-700-normal", 112 * S2)
-    d.text((W // 2, 470 * S2), "Punalamppu", font=f, fill=INK, anchor="mm")
+    _logo(im, W // 2 - 140 * S2, 90 * S2, 280 * S2)
+    f = _font("fraunces-latin-700-normal", 104 * S2)
+    d.text((W // 2, 450 * S2), "PUNALAMPPU", font=f, fill=INK, anchor="mm")
     d.text((W // 2, 555 * S2), "Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi", font=_font("inter-latin-500-normal", 30 * S2), fill=MUTE, anchor="mm")
     _save(im, path)
 
@@ -1011,7 +1012,7 @@ def page(title, desc, path, body, jsonld=None, og=None):
 
 def footer():
     return ('<footer class="foot"><div class="fgrid">'
-            '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>Punalamppu</span></a>'
+            '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>PUNALAMPPU</span></a>'
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/ottelut/">Otteluarkisto</a></div>'
             '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a></div>'

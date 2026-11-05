@@ -208,7 +208,7 @@ def esc(s):
 # ---------------------------------------------------------------- tiedot
 def stats_rows(kind, report, sid):
     q = urllib.parse.quote(f"gameTypeId=2 and seasonId={sid}")
-    url = f"{STATS}/{kind}/{report}?isAggregate=true&isGame=false&limit=-1&cayenneExp={q}"
+    url = f"{STATS}/{kind}/{report}?isAggregate=false&isGame=false&limit=-1&cayenneExp={q}"
     d = get(url)
     return (d or {}).get("data") or []
 
@@ -219,18 +219,73 @@ def last_team(abbrs):
 
 
 NAMES = {}  # playerId -> koko nimi (tilastopalvelusta)
+FIN_IDS = set()
+NAME_FIX = CFG.get("nameFixes") or {}
+
+
+def fixname(n):
+    """NHL:n tilastopalvelu palauttaa nimet ilman ääkkösiä (Teravainen) – korjataan config.json:n nameFixes-listalla."""
+    if not n:
+        return n
+    for a, b in NAME_FIX.items():
+        n = re.sub(r"\b" + re.escape(a) + r"\b", b, n)
+    return n
 
 
 def pname(obj):
-    return NAMES.get(obj.get("playerId")) or full_name(obj)
+    return NAMES.get(obj.get("playerId")) or fixname(full_name(obj))
+
+
+def merge_rows(rows, sum_keys):
+    """isAggregate=false voi palauttaa pelaajalle useamman rivin (seurasiirto) – yhdistetään playerId:n mukaan."""
+    out = {}
+    for r in rows:
+        pid = r.get("playerId")
+        if pid not in out:
+            out[pid] = dict(r)
+            out[pid]["_teams"] = [r.get("teamAbbrevs") or r.get("teamAbbrev") or ""]
+            continue
+        o = out[pid]
+        for k in sum_keys:
+            o[k] = (o.get(k) or 0) + (r.get(k) or 0)
+        o["_teams"].append(r.get("teamAbbrevs") or r.get("teamAbbrev") or "")
+        if (r.get("gamesPlayed") or 0) > (o.get("_maxgp") or 0):
+            o["_maxgp"] = r.get("gamesPlayed") or 0
+            for k in ("savePct", "goalsAgainstAverage"):
+                if k in r:
+                    o[k] = r[k]
+    return list(out.values())
+
+
+def leader_teams():
+    """Varalähde pelaajan nykyiselle joukkueelle: NHL:n pörssilistat sisältävät teamAbbrev-kentän."""
+    m = {}
+    for path, cats in (("skater-stats-leaders", "points"), ("goalie-stats-leaders", "wins")):
+        d = get(f"{API}/{path}/current?categories={cats}&limit=-1") or {}
+        for p in d.get(cats) or []:
+            if p.get("id") and p.get("teamAbbrev"):
+                m[p["id"]] = team(p["teamAbbrev"])
+    return m
 
 
 def fetch_players(sid):
     """Kenttäpelaajat, maalivahdit ja suomalaiset NHL:n tilastopalvelusta."""
-    sk = stats_rows("skater", "summary", sid)
-    gk = stats_rows("goalie", "summary", sid)
+    sk = merge_rows(stats_rows("skater", "summary", sid), ("gamesPlayed", "goals", "assists", "points"))
+    gk = merge_rows(stats_rows("goalie", "summary", sid), ("gamesPlayed", "wins", "losses", "otLosses", "shutouts"))
     skb = {r.get("playerId"): r for r in stats_rows("skater", "bios", sid)}
     gkb = {r.get("playerId"): r for r in stats_rows("goalie", "bios", sid)}
+    lt = None
+
+    def team_of(r, bio):
+        nonlocal lt
+        t = team((bio or {}).get("currentTeamAbbrev")) if (bio or {}).get("currentTeamAbbrev") else ""
+        if not t:
+            t = last_team(",".join(x for x in r.get("_teams", []) if x))
+        if not t:
+            if lt is None:
+                lt = leader_teams()
+            t = lt.get(r.get("playerId"), "")
+        return t
 
     def is_fin(bio):
         return bool(bio) and ("FIN" in (bio.get("nationalityCode"), bio.get("birthCountryCode")))
@@ -238,9 +293,9 @@ def fetch_players(sid):
     skaters, finns, fin_ids = [], [], set()
     for r in sk:
         pid = r.get("playerId")
-        name = r.get("skaterFullName") or full_name(r)
+        name = fixname(r.get("skaterFullName") or full_name(r))
         NAMES[pid] = name
-        t = last_team(r.get("teamAbbrevs") or r.get("teamAbbrev"))
+        t = team_of(r, skb.get(pid))
         row = [name, t, r.get("gamesPlayed") or 0, r.get("goals") or 0, r.get("assists") or 0, r.get("points") or 0]
         skaters.append(row)
         if is_fin(skb.get(pid)):
@@ -253,9 +308,9 @@ def fetch_players(sid):
     goalies, fgk = [], []
     for r in gk:
         pid = r.get("playerId")
-        name = r.get("goalieFullName") or full_name(r)
+        name = fixname(r.get("goalieFullName") or full_name(r))
         NAMES[pid] = name
-        t = last_team(r.get("teamAbbrevs") or r.get("teamAbbrev"))
+        t = team_of(r, gkb.get(pid))
         sv = r.get("savePct")
         gaa = r.get("goalsAgainstAverage")
         svs = f"{sv:.3f}".lstrip("0") if isinstance(sv, (int, float)) else "–"
@@ -266,6 +321,7 @@ def fetch_players(sid):
             fin_ids.add(pid)
             fgk.append(row[:8] + [slugify(name)])
     goalies.sort(key=lambda x: -x[2])
+    FIN_IDS.update(fin_ids)
     return skaters[:100], goalies, finns, fgk, fin_ids
 
 
@@ -315,11 +371,31 @@ def goal_entry(goal, fin_ids):
 
 def game_details(gid):
     """Maalivahdit (boxscore) ja kolme tähteä (landing) päättyneestä ottelusta."""
-    out = {"goalies": "", "threeStars": [], "venue": ""}
+    out = {"goalies": "", "threeStars": [], "venue": "", "finStats": []}
     bx = get(f"{API}/gamecenter/{gid}/boxscore") or {}
     parts = []
+    abbrs = {side: team((bx.get(side) or {}).get("abbrev")) for side in ("awayTeam", "homeTeam")}
     for side in ("awayTeam", "homeTeam"):
-        tm = team((bx.get(side) or {}).get("abbrev"))
+        tm = abbrs[side]
+        opp = abbrs["homeTeam" if side == "awayTeam" else "awayTeam"]
+        pg = (bx.get("playerByGameStats") or {}).get(side) or {}
+        for grp in ("forwards", "defense"):
+            for p in pg.get(grp) or []:
+                if p.get("playerId") in FIN_IDS:
+                    out["finStats"].append({"name": NAMES.get(p.get("playerId")) or fixname(L(p.get("name"))), "team": tm, "opp": opp,
+                                            "pos": "P" if grp == "defense" else "H", "g": p.get("goals") or 0, "a": p.get("assists") or 0,
+                                            "p": p.get("points") if p.get("points") is not None else (p.get("goals") or 0) + (p.get("assists") or 0),
+                                            "pm": p.get("plusMinus"), "sog": p.get("sog", p.get("shots")), "toi": p.get("toi") or ""})
+        for g in pg.get("goalies") or []:
+            if g.get("playerId") in FIN_IDS and (g.get("toi") or "00:00") not in ("00:00", "0:00"):
+                sv, sa = g.get("saves"), g.get("shotsAgainst")
+                if (sv is None or sa is None) and g.get("saveShotsAgainst"):
+                    try:
+                        sv, sa = (int(x) for x in str(g["saveShotsAgainst"]).split("/"))
+                    except ValueError:
+                        pass
+                out["finStats"].append({"name": NAMES.get(g.get("playerId")) or fixname(L(g.get("name"))), "team": tm, "opp": opp,
+                                        "pos": "MV", "saves": sv, "shots": sa, "dec": g.get("decision") or "", "toi": g.get("toi") or ""})
         for gk in ((bx.get("playerByGameStats") or {}).get(side) or {}).get("goalies") or []:
             if not gk.get("decision") and not gk.get("starter"):
                 continue
@@ -449,11 +525,11 @@ def collect():
             goals = [x for x in (goal_entry(x, fin_ids) for x in g.get("goals") or []) if x]
             lpt = (g.get("gameOutcome") or {}).get("lastPeriodType") or (g.get("periodDescriptor") or {}).get("periodType")
             det = old.get("details")
-            if not det or re.match(r"^[A-Z]\. ", det.get("goalies", "")):
+            if not det or "finStats" not in det or re.match(r"^[A-Z]\. ", det.get("goalies", "")):
                 det = game_details(g.get("id"))
             recap = g.get("threeMinRecap") or ""
             entry = dict(base, final={"OT": "JA", "SO": "VL"}.get(lpt, ""), goals=goals, goalies=det.get("goalies", ""),
-                         threeStars=det.get("threeStars", []), venue=det.get("venue", ""),
+                         threeStars=det.get("threeStars", []), venue=det.get("venue", ""), finStats=det.get("finStats", []),
                          note=game_note(goals, fin_names),
                          recapUrl=("https://www.nhl.com" + recap) if recap.startswith("/") else recap,
                          videoId=videos.get(f"{gd.isoformat()}|{base['away']}|{base['home']}") or old.get("videoId") or "",

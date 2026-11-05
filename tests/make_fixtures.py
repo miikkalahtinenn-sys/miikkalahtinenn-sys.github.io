@@ -57,8 +57,12 @@ gk_saves = {2026020201: [("Yaroslav Askarov", "L", 24, "SJS"), ("Darcy Kuemper",
 for gid, a, _, h, _, _, _, stars in games:
     gs = gk_saves[gid]
     save(f"{API}/gamecenter/{gid}/boxscore", {"venue": D("Arena"), "awayTeam": {"abbrev": a}, "homeTeam": {"abbrev": h}, "playerByGameStats": {
-        "awayTeam": {"goalies": [{"name": D(gs[0][0]), "decision": gs[0][1], "saves": gs[0][2]}]},
-        "homeTeam": {"goalies": [{"name": D(gs[1][0]), "decision": gs[1][1], "saves": gs[1][2]}]}}})
+        "awayTeam": {"goalies": [{"name": D(gs[0][0]), "decision": gs[0][1], "saves": gs[0][2]}], "forwards": [], "defense": []},
+        "homeTeam": {"goalies": [{"name": D(gs[1][0]), "decision": gs[1][1], "saves": gs[1][2]}],
+                     "forwards": [{"playerId": 100, "name": D("E. Haula"), "goals": 1, "assists": 1, "points": 2, "plusMinus": 2, "sog": 3, "toi": "15:10"},
+                                  {"playerId": 101, "name": D("J. Armia"), "goals": 1, "assists": 0, "points": 1, "plusMinus": 1, "sog": 2, "toi": "13:02"}] if gid == 2026020201 else
+                                 ([{"playerId": 106, "name": D("K. Kakko"), "goals": 0, "assists": 1, "points": 1, "plusMinus": 0, "sog": 1, "toi": "17:44"}] if gid == 2026020204 else []),
+                     "defense": []}}})
     save(f"{API}/gamecenter/{gid}/landing", {"summary": {"threeStars": [
         {"star": i + 1, "name": D(n), "teamAbbrev": t, "position": p, "goals": g_, "assists": a_, "points": p_, "savePctg": .937 if p == "G" else None}
         for i, (n, t, p, g_, a_, p_) in enumerate(stars)]}})
@@ -83,14 +87,14 @@ sk = [  # pid, nimi, joukkue, pos, gp, g, a, fin
     (104, "Artturi Lehkonen", "COL", "L", 16, 12, 5, 1), (105, "Miro Heiskanen", "DAL", "D", 15, 3, 8, 1), (100, "Erik Haula", "LAK", "C", 14, 3, 3, 1),
     (101, "Joel Armia", "LAK", "R", 14, 3, 2, 1), (106, "Kaapo Kakko", "SEA", "R", 15, 2, 10, 1), (107, "Teuvo Teräväinen", "CHI", "C", 12, 2, 4, 1),
     (5, "Sandis Vilmanis", "FLA", "R", 16, 4, 3, 0)]
-save(f"{STATS}/skater/summary?isAggregate=true&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
-     {"data": [{"playerId": p, "skaterFullName": n, "teamAbbrevs": t, "positionCode": pos, "gamesPlayed": gp, "goals": g, "assists": a, "points": g + a} for p, n, t, pos, gp, g, a, _ in sk]})
-save(f"{STATS}/skater/bios?isAggregate=true&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
-     {"data": [{"playerId": p, "skaterFullName": n, "nationalityCode": "FIN" if f else "CAN", "birthCountryCode": "FIN" if f else "CAN", "positionCode": pos} for p, n, t, pos, gp, g, a, f in sk]})
+save(f"{STATS}/skater/summary?isAggregate=false&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
+     {"data": [{"playerId": p, "skaterFullName": n.replace("ä", "a"), "positionCode": pos, "gamesPlayed": gp, "goals": g, "assists": a, "points": g + a} for p, n, t, pos, gp, g, a, _ in sk]})
+save(f"{STATS}/skater/bios?isAggregate=false&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
+     {"data": [{"playerId": p, "skaterFullName": n, "nationalityCode": "FIN" if f else "CAN", "birthCountryCode": "FIN" if f else "CAN", "positionCode": pos, "currentTeamAbbrev": t} for p, n, t, pos, gp, g, a, f in sk]})
 gks = [(200, "Juuse Saros", "NSH", 11, 4, 3, 4, .908, 2.81, 0, 1), (201, "Ukko-Pekka Luukkonen", "BUF", 10, 4, 3, 3, .874, 3.42, 0, 1), (202, "Darcy Kuemper", "LAK", 9, 5, 3, 1, .883, 3.4, 0, 0)]
-save(f"{STATS}/goalie/summary?isAggregate=true&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
+save(f"{STATS}/goalie/summary?isAggregate=false&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
      {"data": [{"playerId": p, "goalieFullName": n, "teamAbbrevs": t, "gamesPlayed": gp, "wins": w, "losses": l, "otLosses": o, "savePct": sv, "goalsAgainstAverage": ga, "shutouts": so} for p, n, t, gp, w, l, o, sv, ga, so, _ in gks]})
-save(f"{STATS}/goalie/bios?isAggregate=true&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
+save(f"{STATS}/goalie/bios?isAggregate=false&isGame=false&limit=-1&cayenneExp=" + urllib.parse.quote(f"gameTypeId=2 and seasonId={SID}"),
      {"data": [{"playerId": p, "goalieFullName": n, "nationalityCode": "FIN" if f else "CAN"} for p, n, *_, f in gks]})
 print("fixtures:", len(os.listdir(OUT)))
 

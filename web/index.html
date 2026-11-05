@@ -133,6 +133,7 @@ h1.sub{font:inherit;font-size:13px;color:var(--mute);margin-top:4px;font-weight:
 .favbar select{font:inherit;font-size:13.5px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 8px;flex:1;min-width:0}
 .card.fav{border-color:#ffd27a;box-shadow:0 0 0 1px #ffd27a inset}
 tr.fav td{background:rgba(255,210,122,.09)}
+tr.hit td{background:rgba(240,40,46,.07)}
 .urow.fav{background:rgba(255,210,122,.07)}
 .star{font-size:11px;color:#ffd27a;margin-left:6px}
 .stars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
@@ -313,6 +314,22 @@ function bindSeg(el,key,fn){el.querySelectorAll(`.seg button[data-${key}]`).forE
 
 /* ---------- Suomalaiset ---------- */
 let fiView="team";
+function nightFinnTable(agg){
+  const rows=[];(D.games||[]).forEach(g=>(g.finStats||[]).forEach(r=>rows.push(r)));
+  if(!rows.length){
+    const a=Object.values(agg);
+    return `<div class="night">${a.length?a.map(n=>`<div class="row">${mini(n.team)}<b>${plink(n.who)}</b><span>${n.n>1?n.n+" maalia":"maali"}</span><em>vs ${esc(n.opp)}</em></div>`).join(""):'<div class="row na">Ei suomalaisten pisteitä yöllä.</div>'}</div>`;
+  }
+  const sk=rows.filter(r=>r.pos!=="MV").sort((a,b)=>b.p-a.p||b.g-a.g||(b.sog||0)-(a.sog||0));
+  const gk=rows.filter(r=>r.pos==="MV");
+  const dec={W:"voitto",L:"tappio",O:"JA-tappio"};
+  const pm=v=>v==null?"–":(v>0?"+"+v:v);
+  let t=`<table><thead><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th><th class="hide">L</th><th class="hide">Aika</th></tr></thead><tbody>`+
+    sk.map(r=>`<tr${r.p>0?' class="hit"':""}><td><div class="nm-cell">${mini(r.team)}<div class="txt">${plink(r.name)}<small>vs ${esc(r.opp)}</small></div></div></td><td>${r.g}</td><td>${r.a}</td><td class="pts">${r.p}</td><td class="${r.pm>0?"pos":r.pm<0?"neg":""}">${pm(r.pm)}</td><td class="hide">${r.sog??"–"}</td><td class="hide">${esc(r.toi)}</td></tr>`).join("")+`</tbody></table>`;
+  if(gk.length) t+=`<table><thead><tr><th>Maalivahti</th><th>Torjunnat</th><th>TO%</th><th class="hide">Tulos</th></tr></thead><tbody>`+
+    gk.map(r=>`<tr><td><div class="nm-cell">${mini(r.team)}<div class="txt">${plink(r.name)}<small>vs ${esc(r.opp)}</small></div></div></td><td>${r.saves??"–"}/${r.shots??"–"}</td><td class="pts">${r.saves!=null&&r.shots?(r.saves/r.shots).toFixed(3).replace(/^0/,""):"–"}</td><td class="hide">${esc(dec[r.dec]||"")}</td></tr>`).join("")+`</tbody></table>`;
+  return t+`<div class="legend" style="margin:6px 14px 10px">M = maalit, S = syötöt, P = pisteet, L = laukaukset, Aika = peliaika</div>`;
+}
 function renderFinns(){
   const el=document.getElementById("v-suomalaiset");
   const sk=D.finns, gk=D.finnGoalies||[];
@@ -328,11 +345,9 @@ function renderFinns(){
      <div class="fistat"><b>${tot.g}</b><small>maalia yhteensä</small></div>
      <div class="fistat"><b>${tot.p}</b><small>pistettä yhteensä</small></div>
    </div>
-   <div class="card"><div class="dayh"><b><img src="/logo-mark.svg" alt="" width="18" height="18" style="vertical-align:-3px;margin-right:6px">Yön suomalaismaalit</b><small>${esc(nightLabel())}</small></div><div class="night">${
-     Object.values(agg).length?Object.values(agg).map(n=>`<div class="row">${mini(n.team)}<b>${esc(n.who)}</b><span>${n.n>1?n.n+" maalia":"maali"}</span><em>vs ${esc(n.opp)}</em></div>`).join(""):'<div class="row na">Ei suomalaisten maaleja yöllä.</div>'
-   }</div></div>
+   <div class="card"><div class="dayh"><b><img src="/logo-mark.svg" alt="" width="18" height="18" style="vertical-align:-3px;margin-right:6px">Yön suomalaistilastot</b><small>${esc(nightLabel())}</small></div>${nightFinnTable(agg)}</div>
    ${trendChart()}
-   <div class="seg"><button data-v="team" class="${fiView==="team"?"on":""}">Joukkueittain</button><button data-v="pts" class="${fiView==="pts"?"on":""}">Pistejärjestys</button><button data-v="gk" class="${fiView==="gk"?"on":""}">Maalivahdit</button></div>`;
+   <div class="seg"><button data-v="team" class="${fiView==="team"?"on":""}">Joukkueittain</button><button data-v="pts" class="${fiView==="pts"?"on":""}">Pistepörssi</button><button data-v="gk" class="${fiView==="gk"?"on":""}">Maalivahdit</button></div>`;
   const posName={H:"hyökkääjä",P:"puolustaja",MV:"maalivahti"};
   const skRow=(p,i,showTeam)=>`<tr><td><div class="nm-cell">${showTeam?`<span class="rk">${i+1}</span>${mini(p[1])}`:""}<div class="txt">${plink(p[0])}<small>${posName[p[2]]||""}</small></div></div></td><td>${num(p[3])}</td><td>${num(p[4])}</td><td>${num(p[5])}</td><td class="pts">${num(p[6])}</td></tr>`;
   const skHead=`<thead><tr><th>Pelaaja</th><th>O</th><th>M</th><th>S</th><th>P</th></tr></thead>`;

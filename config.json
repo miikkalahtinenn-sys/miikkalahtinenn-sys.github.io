@@ -13,5 +13,28 @@
       "text": "Carolina Hurricanes – Seattle Kraken Veikkaus Arenalla to 12.11. ja la 14.11."
     }
   ],
-  "youtubeChannelId": "UCqFMzb-4AUf6WAIbl132QKA"
+  "youtubeChannelId": "UCqFMzb-4AUf6WAIbl132QKA",
+  "nameFixes": {
+    "Teravainen": "Teräväinen",
+    "Maatta": "Määttä",
+    "Merilainen": "Meriläinen",
+    "Valimaki": "Välimäki",
+    "Kaskimaki": "Kaskimäki",
+    "Hameenaho": "Hämeenaho",
+    "Parssinen": "Pärssinen",
+    "Jarventie": "Järventie",
+    "Pyyhtia": "Pyyhtiä",
+    "Hakanpaa": "Hakanpää",
+    "Raty": "Räty",
+    "Lekkerimaki": "Lekkerimäki",
+    "Kahkonen": "Kähkönen",
+    "Vehvilainen": "Vehviläinen",
+    "Kemppainen": "Kemppainen",
+    "Lehtera": "Lehterä",
+    "Jaaskelainen": "Jääskeläinen",
+    "Makinen": "Mäkinen",
+    "Rasanen": "Räsänen",
+    "Heikkila": "Heikkilä",
+    "Hamalainen": "Hämäläinen"
+  }
 }

@@ -579,10 +579,29 @@ def collect():
             fgk.append([r["name"], r["team"], 0, 0, 0, 0, "–", "–", slugify(r["name"])])
         else:
             finns.append([r["name"], r["team"], r["pos"], 0, 0, 0, 0, slugify(r["name"])])
+    # paljon haetut suomalaiset, jotka eivät juuri nyt ole NHL-kokoonpanossa (config.json: extraFinns)
+    have = {f[0] for f in finns} | {f[0] for f in fgk}
+    extra = []
+    for e in CFG.get("extraFinns") or []:
+        if e.get("name") in have or not e.get("id"):
+            continue
+        FINN_PID[e["name"]] = e["id"]
+        FIN_IDS.add(e["id"])
+        row = [e["name"], "", e.get("pos", "H"), 0, 0, 0, 0, slugify(e["name"])]
+        finns.append(row)
+        extra.append(row)
     try:
         PROFILES.update(fetch_profiles([FINN_PID.get(f[0]) for f in finns + fgk], hel_today))
     except Exception as e:
         log("profiilit epäonnistuivat", e)
+    for row in extra:
+        pr = PROFILES.get(FINN_PID[row[0]]) or {}
+        got = fixname(full_name(pr)) if pr else ""
+        if got and got != row[0]:  # väärä id config.json:ssa – ei näytetä väärän pelaajan tietoja
+            log("extraFinns: id ei vastaa nimeä", row[0], got)
+            PROFILES.pop(FINN_PID[row[0]], None)
+        elif pr.get("currentTeamAbbrev"):
+            row[1] = team(pr["currentTeamAbbrev"])
     fin_names = {f[0] for f in finns} | {f[0] for f in fgk}
 
     videos = fetch_videos()

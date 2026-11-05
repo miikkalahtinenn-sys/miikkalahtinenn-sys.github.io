@@ -36,5 +36,12 @@
     "Rasanen": "Räsänen",
     "Heikkila": "Heikkilä",
     "Hamalainen": "Hämäläinen"
-  }
+  },
+  "extraFinns": [
+    {
+      "name": "Patrik Laine",
+      "id": 8479339,
+      "pos": "H"
+    }
+  ]
 }

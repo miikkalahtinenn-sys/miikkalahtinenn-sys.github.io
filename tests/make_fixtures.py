@@ -105,3 +105,24 @@ feed = '''<?xml version="1.0" encoding="UTF-8"?><feed xmlns:yt="http://www.youtu
 <entry><yt:videoId>Other000001</yt:videoId><title>Top Saves from Week 5</title></entry></feed>'''
 fname = re.sub(r"[^A-Za-z0-9]+", "_", "www.youtube.com/feeds/videos.xml?channel_id=UCqFMzb-4AUf6WAIbl132QKA").strip("_")[:180] + ".xml"
 open(os.path.join(OUT, fname), "w").write(feed)
+
+
+# Kokoonpanot: Patrik Laine (MTL, ei pelannut tällä kaudella) + muutama joukkue tyhjänä
+for abbr in ["ANA","BOS","BUF","CAR","CBJ","CGY","CHI","COL","DAL","DET","EDM","FLA","LAK","MIN","MTL","NJD","NSH","NYI","NYR","OTT","PHI","PIT","SEA","SJS","STL","TBL","TOR","UTA","VAN","VGK","WPG","WSH"]:
+    fw = [{"id": 300, "firstName": D("Patrik"), "lastName": D("Laine"), "birthCountry": "FIN"}] if abbr == "MTL" else []
+    if abbr == "CAR":
+        fw = [{"id": 102, "firstName": D("Sebastian"), "lastName": D("Aho"), "birthCountry": "FIN"}]
+    save(f"{API}/roster/{abbr}/current", {"forwards": fw, "defensemen": [], "goalies": []})
+save(f"{API}/player/102/landing", {"playerId": 102, "firstName": D("Sebastian"), "lastName": D("Aho"), "currentTeamAbbrev": "CAR", "position": "C",
+    "sweaterNumber": 20, "birthDate": "1997-07-26", "birthCity": D("Rauma"), "birthCountry": "FIN", "heightInCentimeters": 183, "weightInKilograms": 79,
+    "shootsCatches": "L", "draftDetails": {"year": 2015, "teamAbbrev": "CAR", "round": 2, "pickInRound": 5, "overallPick": 35},
+    "featuredStats": {"regularSeason": {"subSeason": {"gamesPlayed": 17, "goals": 9, "assists": 12, "points": 21, "plusMinus": 8, "powerPlayGoals": 3, "shots": 55}}},
+    "careerTotals": {"regularSeason": {"gamesPlayed": 790, "goals": 330, "assists": 420, "points": 750}},
+    "last5Games": [{"gameDate": "2026-11-03", "opponentAbbrev": "TOR", "goals": 1, "assists": 1, "points": 2, "plusMinus": 1}],
+    "seasonTotals": [{"season": 20252026, "gameTypeId": 2, "leagueAbbrev": "NHL", "teamName": D("Carolina Hurricanes"), "gamesPlayed": 75, "goals": 25, "assists": 52, "points": 77},
+                     {"season": 20262027, "gameTypeId": 2, "leagueAbbrev": "NHL", "teamName": D("Carolina Hurricanes"), "gamesPlayed": 17, "goals": 9, "assists": 12, "points": 21}]})
+save(f"{API}/player/300/landing", {"playerId": 300, "firstName": D("Patrik"), "lastName": D("Laine"), "currentTeamAbbrev": "MTL", "birthDate": "1998-04-19",
+    "birthCity": D("Tampere"), "birthCountry": "FIN", "heightInCentimeters": 196, "shootsCatches": "R",
+    "draftDetails": {"year": 2016, "teamAbbrev": "WPG", "round": 1, "overallPick": 2},
+    "careerTotals": {"regularSeason": {"gamesPlayed": 520, "goals": 230, "assists": 210, "points": 440}},
+    "seasonTotals": [{"season": 20252026, "gameTypeId": 2, "leagueAbbrev": "NHL", "teamName": D("Montréal Canadiens"), "gamesPlayed": 40, "goals": 12, "assists": 10, "points": 22}]})

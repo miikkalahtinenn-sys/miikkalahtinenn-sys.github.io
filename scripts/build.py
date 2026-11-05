@@ -220,6 +220,8 @@ def last_team(abbrs):
 
 NAMES = {}  # playerId -> koko nimi (tilastopalvelusta)
 FIN_IDS = set()
+FINN_PID = {}  # nimi -> playerId
+PROFILES = {}  # playerId -> profiili
 NAME_FIX = CFG.get("nameFixes") or {}
 
 
@@ -300,6 +302,7 @@ def fetch_players(sid):
         skaters.append(row)
         if is_fin(skb.get(pid)):
             fin_ids.add(pid)
+            FINN_PID[name] = pid
             pos = "P" if (r.get("positionCode") or skb[pid].get("positionCode")) == "D" else "H"
             finns.append([name, t, pos] + row[2:] + [slugify(name)])
     skaters.sort(key=lambda x: (-x[5], -x[3], x[2]))
@@ -319,10 +322,57 @@ def fetch_players(sid):
         goalies.append(row)
         if is_fin(gkb.get(pid)):
             fin_ids.add(pid)
+            FINN_PID[name] = pid
             fgk.append(row[:8] + [slugify(name)])
     goalies.sort(key=lambda x: -x[2])
     FIN_IDS.update(fin_ids)
     return skaters[:100], goalies, finns, fgk, fin_ids
+
+
+def fetch_roster_finns(today):
+    """Kaikki NHL-kokoonpanoissa olevat suomalaiset (myös loukkaantuneet ja ne, jotka eivät ole vielä pelanneet).
+    Kokoonpanot haetaan kerran päivässä ja tallennetaan data/rosters.json."""
+    path = os.path.join(DATA, "rosters.json")
+    cache = load_json(path, {})
+    if cache.get("date") != today.isoformat() or not cache.get("players"):
+        players = []
+        for abbr in TEAMS:
+            d = get(f"{API}/roster/{abbr}/current") or {}
+            for grp, pos in (("forwards", "H"), ("defensemen", "P"), ("goalies", "MV")):
+                for p in d.get(grp) or []:
+                    if (p.get("birthCountry") or "").upper() != "FIN":
+                        continue
+                    players.append({"id": p.get("id"), "name": fixname(full_name(p)), "team": abbr, "pos": pos})
+        if players:
+            cache = {"date": today.isoformat(), "players": players}
+            save_json(path, cache)
+    return cache.get("players") or []
+
+
+def fetch_profiles(pids, today):
+    """Pelaajien taustatiedot ja uratilastot (/v1/player/<id>/landing), päivitetään kerran päivässä."""
+    out = {}
+    pdir = os.path.join(DATA, "players")
+    os.makedirs(pdir, exist_ok=True)
+    for pid in pids:
+        if not pid:
+            continue
+        path = os.path.join(pdir, f"{pid}.json")
+        pr = load_json(path, {})
+        if pr.get("_fetched") != today.isoformat():
+            d = get(f"{API}/player/{pid}/landing")
+            if d:
+                keep = {k: d.get(k) for k in ("playerId", "firstName", "lastName", "currentTeamAbbrev", "position", "sweaterNumber",
+                                               "birthDate", "birthCity", "birthStateProvince", "birthCountry", "heightInCentimeters",
+                                               "weightInKilograms", "shootsCatches", "draftDetails", "featuredStats", "careerTotals",
+                                               "last5Games", "isActive")}
+                keep["seasonTotals"] = [x for x in (d.get("seasonTotals") or []) if x.get("leagueAbbrev") == "NHL"]
+                keep["_fetched"] = today.isoformat()
+                pr = keep
+                save_json(path, pr)
+        if pr:
+            out[pid] = pr
+    return out
 
 
 def fetch_standings():
@@ -509,6 +559,30 @@ def collect():
         skaters, goalies = prev.get("skaters", []), prev.get("goalies", [])
         finns = [f[:7] + [slugify(f[0])] for f in prev.get("finns", [])]
         fgk = [f[:8] + [slugify(f[0])] for f in prev.get("finnGoalies", [])]
+    try:
+        roster = fetch_roster_finns(hel_today)
+    except Exception as e:
+        log("kokoonpanot epäonnistuivat", e)
+        roster = []
+    have = {f[0] for f in finns} | {f[0] for f in fgk}
+    for r in roster:
+        FIN_IDS.add(r["id"])
+        fin_ids.add(r["id"])
+        if r["name"] in have:
+            # korjaa joukkue kokoonpanon mukaan (seurasiirrot)
+            for f in finns + fgk:
+                if f[0] == r["name"] and r["team"]:
+                    f[1] = r["team"]
+            continue
+        FINN_PID[r["name"]] = r["id"]
+        if r["pos"] == "MV":
+            fgk.append([r["name"], r["team"], 0, 0, 0, 0, "–", "–", slugify(r["name"])])
+        else:
+            finns.append([r["name"], r["team"], r["pos"], 0, 0, 0, 0, slugify(r["name"])])
+    try:
+        PROFILES.update(fetch_profiles([FINN_PID.get(f[0]) for f in finns + fgk], hel_today))
+    except Exception as e:
+        log("profiilit epäonnistuivat", e)
     fin_names = {f[0] for f in finns} | {f[0] for f in fgk}
 
     videos = fetch_videos()
@@ -746,33 +820,16 @@ def build_site(data):
     rows = []
     for f in data["finns"]:
         name, t, pos, gp, g_, a_, p_ = f
-        slug = slugs[name]
-        path = f"/suomalaiset/{slug}.html"
-        posn = "puolustaja" if pos == "P" else "hyökkääjä"
-        title = f"{name} – tilastot {season_label(gd)} | {CFG['siteName']}"
-        desc_p = f"{name} ({tname(t)}, {posn}) kaudella {season_label(gd)}: {gp} ottelua, {g_} maalia, {a_} syöttöä, {p_} pistettä."
-        recent = recent_goals(name)
-        body = (f"<h1>{esc(name)}</h1><p class='mute'>{esc(tname(t))} · {posn}</p>"
-                f"<table class='t'><tr><th>Ottelut</th><th>Maalit</th><th>Syötöt</th><th>Pisteet</th></tr>"
-                f"<tr><td>{gp}</td><td>{g_}</td><td>{a_}</td><td><b>{p_}</b></td></tr></table>"
-                + (f"<h2>Viimeisimmät maalit</h2><ul>{recent}</ul>" if recent else "")
-                + "<p><a href='/suomalaiset/'>← Kaikki suomalaiset</a></p>")
-        jl = {"@context": "https://schema.org", "@type": "Person", "name": name, "nationality": "Finland",
-              "memberOf": {"@type": "SportsTeam", "name": tname(t)}}
+        path = f"/suomalaiset/{slugs[name]}.html"
+        title, desc_p, body, jl = render_player(name, t, pos, f, False, data, gd, slugs)
         open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl))
         urls.append(path)
         rows.append(f"<tr><td><a href='{path}'>{esc(name)}</a></td><td>{esc(t)}</td><td>{gp}</td><td>{g_}</td><td>{a_}</td><td><b>{p_}</b></td></tr>")
     for f in data["finnGoalies"]:
-        name, t, gp, w, l, otl, sv, gaa = f
-        slug = slugs[name]
-        path = f"/suomalaiset/{slug}.html"
-        title = f"{name} – maalivahtitilastot {season_label(gd)} | {CFG['siteName']}"
-        desc_p = f"{name} ({tname(t)}, maalivahti) kaudella {season_label(gd)}: {gp} ottelua, {w}-{l}-{otl}, torjunta-% {sv}, päästettyjen maalien ka {gaa}."
-        body = (f"<h1>{esc(name)}</h1><p class='mute'>{esc(tname(t))} · maalivahti</p>"
-                f"<table class='t'><tr><th>Ottelut</th><th>V-H-JA</th><th>TO%</th><th>PMK</th></tr>"
-                f"<tr><td>{gp}</td><td>{w}-{l}-{otl}</td><td><b>{sv}</b></td><td>{gaa}</td></tr></table>"
-                "<p><a href='/suomalaiset/'>← Kaikki suomalaiset</a></p>")
-        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body))
+        name, t = f[0], f[1]
+        path = f"/suomalaiset/{slugs[name]}.html"
+        title, desc_p, body, jl = render_player(name, t, "MV", f, True, data, gd, slugs)
+        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl))
         urls.append(path)
     open(os.path.join(OUT, "suomalaiset", "index.html"), "w", encoding="utf-8").write(page(
         f"Suomalaiset NHL:ssä {season_label(gd)} – pisteet ja tilastot | {CFG['siteName']}",
@@ -858,6 +915,158 @@ def recent_goals(name, limit=5):
         if len(out) >= limit:
             break
     return "".join(out)
+
+
+FI_MONTHS = ["tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta",
+             "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta"]
+TEAM_GEN = {}  # joukkueen nimi genetiivissä: "Montréal Canadiensin"
+
+
+def tgen(a):
+    return TEAM_GEN.get(a) or (tname(a) + ("in" if not tname(a).endswith("s") else "in"))
+
+
+def season_txt(sid):
+    s_ = str(sid)
+    return f"{s_[:4]}–{s_[6:8]}" if len(s_) == 8 else s_
+
+
+def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
+    pr = PROFILES.get(FINN_PID.get(name)) or {}
+    sl = season_label(gd)
+    posn = {"P": "puolustaja", "H": "hyökkääjä", "MV": "maalivahti"}[pos]
+    team_full = tname(t) if t else ""
+    # syntymä ja ikä
+    born, age = "", None
+    if pr.get("birthDate"):
+        try:
+            bd = dt.date.fromisoformat(pr["birthDate"])
+            today = now_utc().astimezone(HEL).date()
+            age = today.year - bd.year - ((today.month, today.day) < (bd.month, bd.day))
+            city = L(pr.get("birthCity")) or ""
+            country = {"FIN": "Suomi", "SWE": "Ruotsi", "USA": "Yhdysvallat", "CAN": "Kanada"}.get(pr.get("birthCountry") or "", "")
+            born = f"Hän on syntynyt {bd.day}. {FI_MONTHS[bd.month - 1]} {bd.year}." + (f" Syntymäpaikka: {city}" + (f", {country}" if country else "") + "." if city else "")
+        except ValueError:
+            pass
+    lead = f"{esc(name)} on {str(age) + '-vuotias ' if age else ''}suomalainen {posn}"
+    lead += f", joka pelaa NHL:ssä {esc(team_full)} -joukkueessa." if team_full else "."
+    if is_goalie:
+        gp, w, l, otl, sv, gaa = f[2], f[3], f[4], f[5], f[6], f[7]
+        season_line = (f"Kaudella {sl} hän on pelannut {gp} ottelua (voitot–tappiot–JA {w}–{l}–{otl}), torjuntaprosentti {sv} ja päästettyjen maalien keskiarvo {gaa}."
+                       if gp else f"Kaudella {sl} hän ei ole vielä pelannut NHL-ottelua.")
+        stat_tbl = (f"<table class='t'><tr><th>Ottelut</th><th>V-H-JA</th><th>TO%</th><th>PMK</th></tr>"
+                    f"<tr><td>{gp}</td><td>{w}-{l}-{otl}</td><td><b>{esc(sv)}</b></td><td>{esc(gaa)}</td></tr></table>")
+        desc_p = f"{name} ({team_full or 'NHL'}, maalivahti): kauden {sl} tilastot, torjuntaprosentti, viimeisimmät ottelut ja NHL-ura."
+    else:
+        gp, g_, a_, p_ = f[3], f[4], f[5], f[6]
+        season_line = (f"Kaudella {sl} hän on tehnyt {gp} ottelussa {g_} maalia ja {a_} syöttöä eli {p_} pistettä."
+                       if gp else f"Kaudella {sl} hän ei ole vielä pelannut NHL-ottelua.")
+        sub = (((pr.get("featuredStats") or {}).get("regularSeason") or {}).get("subSeason")) or {}
+        extra_h = extra_d = ""
+        for k, lbl in (("plusMinus", "+/-"), ("powerPlayGoals", "YVM"), ("shots", "L")):
+            if sub.get(k) is not None:
+                extra_h += f"<th>{lbl}</th>"
+                extra_d += f"<td>{sub[k]:+d}</td>" if k == "plusMinus" else f"<td>{sub[k]}</td>"
+        stat_tbl = (f"<table class='t'><tr><th>Ottelut</th><th>Maalit</th><th>Syötöt</th><th>Pisteet</th>{extra_h}</tr>"
+                    f"<tr><td>{gp}</td><td>{g_}</td><td>{a_}</td><td><b>{p_}</b></td>{extra_d}</tr></table>")
+        desc_p = (f"{name} ({team_full or 'NHL'}): kaudella {sl} {gp} ottelua, {g_}+{a_}={p_} pistettä. Tilastot, viimeisimmät ottelut, maalit ja NHL-ura."
+                  if gp else f"{name} ({team_full or 'NHL'}, {posn}): tilastot, NHL-ura ja ottelut kaudella {sl}.")
+    dd = pr.get("draftDetails") or {}
+    draft = (f"NHL-varaus: {dd.get('year')}, {esc(tname(team(dd.get('teamAbbrev'))))}, {dd.get('round')}. kierros ({dd.get('overallPick')}. kokonaisuudessaan)."
+             if dd.get("year") else "")
+    phys = []
+    if pr.get("heightInCentimeters"):
+        phys.append(f"pituus {pr['heightInCentimeters']} cm")
+    if pr.get("weightInKilograms"):
+        phys.append(f"paino {pr['weightInKilograms']} kg")
+    if pr.get("shootsCatches"):
+        phys.append(("kätisyys " if not is_goalie else "kiinniottokäsi ") + {"L": "vasen", "R": "oikea"}.get(pr["shootsCatches"], pr["shootsCatches"]))
+    if pr.get("sweaterNumber"):
+        phys.append(f"pelinumero {pr['sweaterNumber']}")
+
+    # viimeisimmät ottelut
+    l5 = pr.get("last5Games") or []
+    l5html = ""
+    if l5:
+        if is_goalie:
+            l5html = "<h2>Viimeisimmät ottelut</h2><table class='t'><tr><th>Pvm</th><th>Vastustaja</th><th>Tulos</th><th>Torj.</th><th>TO%</th></tr>" + "".join(
+                f"<tr><td>{esc(fi_short(x.get('gameDate')))}</td><td>{esc(x.get('opponentAbbrev') or '')}</td><td>{esc({'W': 'V', 'L': 'H', 'O': 'JA'}.get(x.get('decision') or '', '–'))}</td>"
+                f"<td>{(x.get('shotsAgainst') or 0) - (x.get('goalsAgainst') or 0)}/{x.get('shotsAgainst') or 0}</td><td>{fmt_sv(x.get('savePctg'))}</td></tr>" for x in l5) + "</table>"
+        else:
+            l5html = "<h2>Viimeisimmät ottelut</h2><table class='t'><tr><th>Pvm</th><th>Vastustaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th></tr>" + "".join(
+                f"<tr><td>{esc(fi_short(x.get('gameDate')))}</td><td>{esc(x.get('opponentAbbrev') or '')}</td><td>{x.get('goals', 0)}</td><td>{x.get('assists', 0)}</td>"
+                f"<td><b>{x.get('points', 0)}</b></td><td>{x.get('plusMinus', 0):+d}</td></tr>" for x in l5) + "</table>"
+    # NHL-ura kausittain
+    st = [x for x in pr.get("seasonTotals") or [] if x.get("gameTypeId") == 2]
+    career = ""
+    if st:
+        if is_goalie:
+            career = "<h2>NHL-ura</h2><table class='t'><tr><th>Kausi</th><th>Joukkue</th><th>O</th><th>V</th><th>TO%</th><th>PMK</th></tr>" + "".join(
+                f"<tr><td>{season_txt(x.get('season'))}</td><td>{esc(L(x.get('teamName')) or '')}</td><td>{x.get('gamesPlayed', 0)}</td><td>{x.get('wins', 0)}</td>"
+                f"<td>{fmt_sv(x.get('savePctg'))}</td><td>{fmt_gaa(x.get('goalsAgainstAvg'))}</td></tr>" for x in reversed(st)) + "</table>"
+        else:
+            career = "<h2>NHL-ura</h2><table class='t'><tr><th>Kausi</th><th>Joukkue</th><th>O</th><th>M</th><th>S</th><th>P</th></tr>" + "".join(
+                f"<tr><td>{season_txt(x.get('season'))}</td><td>{esc(L(x.get('teamName')) or '')}</td><td>{x.get('gamesPlayed', 0)}</td><td>{x.get('goals', 0)}</td>"
+                f"<td>{x.get('assists', 0)}</td><td><b>{x.get('points', 0)}</b></td></tr>" for x in reversed(st)) + "</table>"
+        ct = ((pr.get("careerTotals") or {}).get("regularSeason")) or {}
+        if ct and not is_goalie:
+            career += f"<p>Runkosarjaura yhteensä: <b>{ct.get('gamesPlayed', 0)}</b> ottelua, {ct.get('goals', 0)} maalia, {ct.get('assists', 0)} syöttöä, <b>{ct.get('points', 0)}</b> pistettä.</p>"
+        elif ct:
+            career += f"<p>Runkosarjaura yhteensä: <b>{ct.get('gamesPlayed', 0)}</b> ottelua, {ct.get('wins', 0)} voittoa, {ct.get('shutouts', 0)} nollapeliä.</p>"
+    # seuraava ottelu
+    nxt = next((u for u in sorted(data["upcoming"], key=lambda u: u.get("start") or "") if t and t in (u["away"], u["home"])), None)
+    nxt_html = ""
+    if nxt:
+        opp = nxt["home"] if nxt["away"] == t else nxt["away"]
+        st_ = dt.datetime.fromisoformat(nxt["start"].replace("Z", "+00:00")).astimezone(HEL)
+        nxt_html = (f"<h2>Seuraava ottelu</h2><p>{esc(team_full)} – {esc(tname(opp))}: {['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'][st_.weekday()]} {st_.day}.{st_.month}. klo {st_:%H.%M} Suomen aikaa"
+                    + (f" ({esc(nxt['venue'])})" if nxt.get("venue") else "") + ". <a href='/otteluohjelma/'>Koko otteluohjelma</a></p>")
+    mates = [n for n in finn_by_team(data, t) if n != name] if t else []
+    mates_html = ("<p>Muut suomalaiset joukkueessa: " + ", ".join(f"<a href='/suomalaiset/{slugs[n]}.html'>{esc(n)}</a>" for n in mates if n in slugs) + ".</p>") if mates else ""
+    recent = recent_goals(name)
+    # usein kysytyt
+    faq = [(f"Missä joukkueessa {name} pelaa?", f"{name} pelaa NHL:ssä {team_full} -joukkueessa." if team_full else f"{name} ei ole tällä hetkellä NHL-kokoonpanossa.")]
+    faq.append((f"Paljonko {name} on tehnyt pisteitä kaudella {sl}?" if not is_goalie else f"Millaiset tilastot {name} on tehnyt kaudella {sl}?", season_line))
+    faq_html = "<h2>Usein kysyttyä</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faq)
+    body = (f"<article><h1>{esc(name)}</h1><p class='mute'>{esc(team_full or 'NHL')} · {posn}</p>"
+            f"<p>{lead} {esc(born)} {esc(season_line)}</p>"
+            + (f"<p class='mute'>{esc(', '.join(phys).capitalize())}. {draft}</p>" if phys or draft else "")
+            + f"<h2>Kausi {sl}</h2><div class='tw'>{stat_tbl}</div>{l5html}"
+            + (f"<h2>Viimeisimmät maalit</h2><ul>{recent}</ul>" if recent else "")
+            + nxt_html + career + mates_html + faq_html
+            + "<p><a href='/suomalaiset/'>← Kaikki suomalaiset NHL:ssä</a></p></article>")
+    title = f"{name} – tilastot, pisteet ja ottelut {sl} | {CFG['siteName']}" if not is_goalie else f"{name} – maalivahtitilastot ja ottelut {sl} | {CFG['siteName']}"
+    base = CFG["baseUrl"].rstrip("/")
+    person = {"@type": "Person", "name": name, "nationality": {"@type": "Country", "name": "Suomi"}, "jobTitle": f"jääkiekon {posn}",
+              "url": f"{base}/suomalaiset/{slugs[name]}.html"}
+    if team_full:
+        person["memberOf"] = {"@type": "SportsTeam", "name": team_full, "sport": "Jääkiekko"}
+    if pr.get("birthDate"):
+        person["birthDate"] = pr["birthDate"]
+    if L(pr.get("birthCity")):
+        person["birthPlace"] = {"@type": "Place", "name": L(pr.get("birthCity"))}
+    if pr.get("heightInCentimeters"):
+        person["height"] = {"@type": "QuantitativeValue", "value": pr["heightInCentimeters"], "unitCode": "CMT"}
+    jl = {"@context": "https://schema.org", "@graph": [
+        person,
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]}
+    return title, desc_p, body, jl
+
+
+def fi_short(iso):
+    try:
+        d = dt.date.fromisoformat(str(iso)[:10])
+        return f"{d.day}.{d.month}."
+    except ValueError:
+        return str(iso or "")
+
+
+def fmt_sv(v):
+    return f"{v:.3f}".lstrip("0") if isinstance(v, (int, float)) else "–"
+
+
+def fmt_gaa(v):
+    return f"{v:.2f}" if isinstance(v, (int, float)) else "–"
 
 
 def finn_by_team(data, *teams):

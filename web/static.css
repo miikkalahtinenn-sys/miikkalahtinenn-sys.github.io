@@ -17,3 +17,4 @@ table.t{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;ba
 .foot{margin-top:40px;color:var(--mute);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px}.foot a{color:var(--mute)}
 .yt{margin:14px 0}.yt button{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer}
 .yt iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.tw{overflow-x:auto}.t th,.t td{white-space:nowrap}

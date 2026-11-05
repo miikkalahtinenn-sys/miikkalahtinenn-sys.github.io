@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ota yhteyttä | {{SITE}}</title><meta name="description" content="Lähetä palautetta, virheilmoitus tai oikeuksiin liittyvä pyyntö {{SITE}}-sivuston ylläpitäjälle.">
+<link rel="canonical" href="{{BASE}}/yhteys.html"><link rel="stylesheet" href="/static.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118"></head>
+<body><div class="wrap"><header><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a></header>
+<nav class="crumbs"><a href="/">Etusivu</a> · <a href="/suomalaiset/">Suomalaiset</a> · <a href="/tietoa.html">Tietoa sivustosta</a></nav>
+<main>
+<h1>Ota yhteyttä</h1>
+<p>Löysitkö virheen, onko sinulla palautetta tai koskeeko asiasi tekijän- tai muita oikeuksia? Lähetä viesti alla olevalla lomakkeella. Oikeuksiin liittyvät pyynnöt käsitellään yleensä vuorokauden kuluessa.</p>
+<form id="cf" class="cf" action="https://api.web3forms.com/submit" method="POST" data-key="{{FORMKEY}}">
+  <input type="hidden" name="access_key" value="{{FORMKEY}}">
+  <input type="hidden" name="from_name" value="Punalamppu – yhteydenotto">
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label>Aihe
+    <select name="subject" required>
+      <option value="Punalamppu: palaute">Palaute tai kehitysidea</option>
+      <option value="Punalamppu: virhe tiedoissa">Virhe tuloksissa tai tilastoissa</option>
+      <option value="Punalamppu: oikeudet / poistopyyntö">Tekijänoikeus, tavaramerkki tai poistopyyntö</option>
+      <option value="Punalamppu: muu asia">Muu asia</option>
+    </select>
+  </label>
+  <label>Viesti
+    <textarea name="message" rows="7" required maxlength="5000" placeholder="Kirjoita viestisi tähän. Jos asia koskee tiettyä sivua, liitä mukaan sen osoite."></textarea>
+  </label>
+  <label>Nimi <span class="mute">(vapaaehtoinen)</span>
+    <input type="text" name="name" maxlength="120" autocomplete="name">
+  </label>
+  <label>Sähköposti <span class="mute">(vapaaehtoinen – tarvitaan, jos haluat vastauksen)</span>
+    <input type="email" name="email" maxlength="200" autocomplete="email">
+  </label>
+  <p class="mute small">Lähettämällä viestin hyväksyt, että tiedot välitetään ylläpitäjälle Web3Forms-palvelun kautta. Lue lisää <a href="/tietosuoja.html">tietosuojaselosteesta</a>.</p>
+  <button type="submit" class="btn">Lähetä viesti</button>
+  <p id="cfmsg" class="cfmsg" role="status" aria-live="polite"></p>
+</form>
+<p id="cfoff" class="cfmsg" hidden>Yhteydenottolomake otetaan käyttöön lähipäivinä.</p>
+</main>{{FOOTER}}</div>
+<script>
+(function(){
+  var f=document.getElementById("cf"),m=document.getElementById("cfmsg");
+  if(!f.dataset.key){f.hidden=true;document.getElementById("cfoff").hidden=false;return;}
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(f.botcheck.checked) return;
+    var b=f.querySelector("button");b.disabled=true;m.textContent="Lähetetään…";m.className="cfmsg";
+    fetch(f.action,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(f)})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success,j:j};});})
+      .then(function(x){
+        if(x.ok){f.reset();m.textContent="Kiitos! Viestisi on lähetetty.";m.className="cfmsg ok";}
+        else{m.textContent="Lähetys epäonnistui. Yritä hetken kuluttua uudelleen.";m.className="cfmsg err";}
+      })
+      .catch(function(){m.textContent="Lähetys epäonnistui. Tarkista verkkoyhteys ja yritä uudelleen.";m.className="cfmsg err";})
+      .finally(function(){b.disabled=false;});
+  });
+})();
+</script>
+</body></html>

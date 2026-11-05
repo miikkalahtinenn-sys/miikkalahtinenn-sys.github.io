@@ -126,3 +126,15 @@ save(f"{API}/player/300/landing", {"playerId": 300, "firstName": D("Patrik"), "l
     "draftDetails": {"year": 2016, "teamAbbrev": "WPG", "round": 1, "overallPick": 2},
     "careerTotals": {"regularSeason": {"gamesPlayed": 520, "goals": 230, "assists": 210, "points": 440}},
     "seasonTotals": [{"season": 20252026, "gameTypeId": 2, "leagueAbbrev": "NHL", "teamName": D("Montréal Canadiens"), "gamesPlayed": 40, "goals": 12, "assists": 10, "points": 22}]})
+
+# MoneyPuck (kauden yhteenveto, CSV)
+def save_csv(url, text):
+    name = re.sub(r"[^A-Za-z0-9]+", "_", url.split("://", 1)[-1]).strip("_")[:180] + ".csv"
+    open(os.path.join(OUT, name), "w").write(text)
+MPU = "https://moneypuck.com/moneypuck/playerData/seasonSummary/2026/regular/{}.csv"
+save_csv(MPU.format("skaters"), "playerId,season,name,team,position,situation,games_played,icetime,I_F_xGoals,I_F_goals,OnIce_F_xGoals,OnIce_A_xGoals\n"
+         "102,2026,Sebastian Aho,CAR,C,all,17,20000,7.42,9,15.1,11.2\n102,2026,Sebastian Aho,CAR,C,5on5,17,15000,4.9,6,10.3,8.1\n"
+         "102,2026,Sebastian Aho,CAR,C,5on4,17,3000,2.3,3,3.9,0.4\n103,2026,Mikko Rantanen,DAL,R,all,15,18000,8.8,8,14,12\n"
+         "22,2026,Kirill Kaprizov,MIN,L,all,17,20000,9.9,15,16,12\n")
+save_csv(MPU.format("goalies"), "playerId,season,name,team,position,situation,games_played,icetime,xGoals,goals,ongoal\n"
+         "200,2026,Juuse Saros,NSH,G,all,11,39000,34.6,31,337\n201,2026,Ukko-Pekka Luukkonen,BUF,G,all,10,35000,29.0,34,268\n")

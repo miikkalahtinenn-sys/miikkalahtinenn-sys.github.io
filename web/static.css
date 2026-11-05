@@ -26,3 +26,13 @@ form.q input{flex:1;min-width:0;font:inherit;font-size:14.5px;background:var(--p
 form.q button{background:var(--panel);border:1px solid var(--line);border-radius:0 12px 12px 0;padding:0 12px;cursor:pointer;font-size:15px}
 .yt iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
 .tw{overflow-x:auto}.t th,.t td{white-space:nowrap}
+.cf{display:flex;flex-direction:column;gap:14px;margin-top:18px;max-width:560px}
+.cf label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+.cf input,.cf select,.cf textarea{font:inherit;font-weight:400;font-size:15px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px 12px;-webkit-appearance:none;appearance:none}
+.cf textarea{resize:vertical;min-height:140px}
+.cf input:focus,.cf select:focus,.cf textarea:focus{outline:none;border-color:var(--ice)}
+.cf .btn{border:0;font:inherit;font-weight:700;cursor:pointer;align-self:flex-start;padding:12px 20px}
+.cf .btn:disabled{opacity:.6}
+.cf .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.small{font-size:12.5px;margin:0}
+.cfmsg{margin:0;font-weight:600}.cfmsg.ok{color:#6fe3a1}.cfmsg.err{color:#ff8a94}

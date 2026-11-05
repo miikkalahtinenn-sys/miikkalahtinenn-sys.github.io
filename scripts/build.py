@@ -7,7 +7,9 @@ Ympäristömuuttujat testaukseen:
   KA_FIXTURES=<kansio>  lukee rajapintavastaukset tiedostoista verkon sijaan
   KA_NOW=<ISO-aika>     korvaa nykyhetken (esim. 2026-11-05T04:00:00Z)
 """
+import csv
 import datetime as dt
+import io
 import html
 import json
 import os
@@ -101,13 +103,13 @@ def get(url, required=False):
     return None
 
 
-def get_text(url):
+def get_text(url, ext=".xml"):
     if FIXTURES:
-        p = fixture_path(url)[:-5] + ".xml"
+        p = fixture_path(url)[:-5] + ext
         return open(p, encoding="utf-8").read() if os.path.exists(p) else None
     req = urllib.request.Request(url, headers={"User-Agent": CFG["userAgent"]})
     try:
-        with urllib.request.urlopen(req, timeout=20) as r:
+        with urllib.request.urlopen(req, timeout=60) as r:
             return r.read().decode("utf-8")
     except Exception as e:
         log("virhe", type(e).__name__, url)
@@ -375,6 +377,116 @@ def fetch_profiles(pids, today):
     return out
 
 
+# ---------------------------------------------------------------- MoneyPuck (edistyneet tilastot)
+# MoneyPuck.com: "free to use for non-commercial purposes" kun MoneyPuck.com mainitaan lähteenä.
+# Käytetään vain datasivulla (moneypuck.com/data.htm) listattuja valmiita CSV-tiedostoja,
+# haetaan enintään kahdesti vuorokaudessa ja tallennetaan vain suomalaisten rivit.
+MP = {}
+MP_URL = "https://moneypuck.com/moneypuck/playerData/seasonSummary/{y}/regular/{kind}.csv"
+
+
+def _f(row, *keys):
+    for k in keys:
+        v = row.get(k)
+        if v not in (None, ""):
+            try:
+                return float(v)
+            except ValueError:
+                pass
+    return None
+
+
+def fetch_moneypuck(sid, pids, now):
+    path = os.path.join(DATA, "moneypuck.json")
+    cache = load_json(path, {})
+    try:
+        age = (now - dt.datetime.fromisoformat(cache.get("_fetched"))).total_seconds() / 3600
+    except Exception:
+        age = 1e9
+    want = {str(p) for p in pids if p}
+    if age < 12 and cache.get("season") == sid and want <= set(cache.get("skaters", {})) | set(cache.get("goalies", {})) | set(cache.get("_missing", [])):
+        return cache
+    y = str(sid)[:4]
+    out = {"season": sid, "_fetched": now.isoformat(timespec="minutes"), "skaters": {}, "goalies": {}}
+    for kind in ("skaters", "goalies"):
+        txt = get_text(MP_URL.format(y=y, kind=kind), ext=".csv")
+        if not txt:
+            log("MoneyPuck: ei dataa", kind)
+            if cache.get("season") == sid:
+                out[kind] = cache.get(kind, {})
+            continue
+        for row in csv.DictReader(io.StringIO(txt)):
+            pid = (row.get("playerId") or "").strip()
+            if pid not in want:
+                continue
+            sit = row.get("situation")
+            if sit not in ("all", "5on5", "5on4"):
+                continue
+            d = out[kind].setdefault(pid, {})
+            if kind == "skaters":
+                d[sit] = {"gp": _f(row, "games_played"), "toi": _f(row, "icetime"),
+                          "xg": _f(row, "I_F_xGoals"), "g": _f(row, "I_F_goals"),
+                          "oxf": _f(row, "OnIce_F_xGoals"), "oxa": _f(row, "OnIce_A_xGoals"),
+                          "oxp": _f(row, "onIce_xGoalsPercentage")}
+            else:
+                d[sit] = {"gp": _f(row, "games_played"), "xga": _f(row, "xGoals"), "ga": _f(row, "goals"), "sog": _f(row, "ongoal")}
+    out["_missing"] = sorted(want - set(out["skaters"]) - set(out["goalies"]))
+    log("MoneyPuck:", len(out["skaters"]), "kenttäpelaajaa,", len(out["goalies"]), "maalivahtia")
+    save_json(path, out)
+    return out
+
+
+def fi_num(v, d=1, sign=False):
+    if v is None:
+        return "–"
+    s = f"{v:+.{d}f}" if sign else f"{v:.{d}f}"
+    return s.replace(".", ",").replace("-", "−")
+
+
+def mp_block(name, pid, is_goalie, data):
+    if not pid:
+        return ""
+    src = ("<p class='mute'>Data: <a href='https://moneypuck.com/' rel='noopener'>MoneyPuck.com</a> "
+           "(edistyneet tilastot, runkosarja). Maaliodottama (xG) kertoo, montako maalia laukausten paikkojen ja tyypin perusteella "
+           "olisi keskimäärin odottanut syntyvän.</p>")
+    if is_goalie:
+        a = (MP.get("goalies", {}).get(str(pid)) or {}).get("all")
+        if not a or a.get("xga") is None or a.get("ga") is None:
+            return ""
+        gsax = a["xga"] - a["ga"]
+        allg = sorted(((v.get("all") or {}).get("xga", 0) - (v.get("all") or {}).get("ga", 0), k) for k, v in MP.get("goalies", {}).items()
+                      if (v.get("all") or {}).get("xga") is not None)
+        rank = next((i + 1 for i, (_, k) in enumerate(sorted(allg, reverse=True)) if k == str(pid)), None)
+        word = "enemmän" if gsax >= 0 else "vähemmän"
+        rows = [("Odotetut päästetyt maalit (xGA)", fi_num(a["xga"])), ("Päästetyt maalit", fi_num(a["ga"], 0)),
+                ("Torjutut maalit yli odotetun (GSAx)", f"<b>{fi_num(gsax, 1, True)}</b>")]
+        if rank and len(allg) > 1:
+            rows.append(("Sija suomalaisten maalivahtien GSAx-vertailussa", f"{rank}./{len(allg)}"))
+        lead = f"<p>{esc(name)} on torjunut tällä kaudella {fi_num(abs(gsax))} maalia {word} kuin laukausten laatu olisi antanut odottaa.</p>"
+    else:
+        m = MP.get("skaters", {}).get(str(pid)) or {}
+        a, ev, pp = m.get("all"), m.get("5on5") or {}, m.get("5on4") or {}
+        if not a or a.get("xg") is None:
+            return ""
+        diff = (a.get("g") or 0) - a["xg"]
+        allx = sorted((((v.get("all") or {}).get("xg") or 0), k) for k, v in MP.get("skaters", {}).items())
+        rank = next((i + 1 for i, (_, k) in enumerate(sorted(allx, reverse=True)) if k == str(pid)), None)
+        oxp = ev.get("oxp")
+        if oxp is None and ev.get("oxf") is not None and (ev.get("oxf") or 0) + (ev.get("oxa") or 0) > 0:
+            oxp = ev["oxf"] / (ev["oxf"] + ev["oxa"])
+        rows = [("Maaliodottama (xG), kaikki tilanteet", f"<b>{fi_num(a['xg'])}</b>"), ("Toteutuneet maalit", fi_num(a.get("g"), 0)),
+                ("Maalit yli/alle odotetun", fi_num(diff, 1, True)),
+                ("xG tasakentällisin (5v5)", fi_num(ev.get("xg"))), ("xG ylivoimalla (5v4)", fi_num(pp.get("xg")))]
+        if oxp is not None:
+            rows.append(("Joukkueen xG-osuus pelaajan ollessa kentällä (5v5)", fi_num(oxp * 100) + " %"))
+        if rank and len(allx) > 1:
+            rows.append(("Sija suomalaisten xG-vertailussa", f"{rank}./{len(allx)}"))
+        lead = (f"<p>{esc(name)} on tehnyt {fi_num(a.get('g'), 0)} maalia, kun maaliodottama on {fi_num(a['xg'])}. "
+                + ("Hän on siis viimeistellyt odotettua paremmin.</p>" if diff > 0.5 else "Hän on siis tehnyt odotettua vähemmän maaleja.</p>" if diff < -0.5 else "Maalit vastaavat siis odotettua.</p>"))
+    return ("<h2>Edistyneet tilastot</h2>" + lead + "<table class='t'>" + "".join(f"<tr><td>{k}</td><td>{v}</td></tr>" for k, v in rows)
+            + "</table>" + src)
+
+
 def fetch_standings():
     d = get(f"{API}/standings/now") or {}
     divs = {}
@@ -594,6 +706,10 @@ def collect():
         PROFILES.update(fetch_profiles([FINN_PID.get(f[0]) for f in finns + fgk], hel_today))
     except Exception as e:
         log("profiilit epäonnistuivat", e)
+    try:
+        MP.update(fetch_moneypuck(sid, [FINN_PID.get(f[0]) for f in finns + fgk], now))
+    except Exception as e:
+        log("MoneyPuck epäonnistui", e)
     for row in extra:
         pr = PROFILES.get(FINN_PID[row[0]]) or {}
         got = fixname(full_name(pr)) if pr else ""
@@ -684,7 +800,8 @@ def collect():
         "finnSlugs": {f[0]: f[-1] for f in finns + fgk},
         "finnNames": sorted(fin_names),
         "history": hist[-120:],
-        "sources": [{"name": "NHL.com (julkiset tulos- ja tilastotiedot)", "url": "https://www.nhl.com/"}],
+        "sources": [{"name": "NHL.com (julkiset tulos- ja tilastotiedot)", "url": "https://www.nhl.com/"}]
+                   + ([{"name": "MoneyPuck.com (edistyneet tilastot pelaajasivuilla)", "url": "https://moneypuck.com/"}] if MP.get("skaters") or MP.get("goalies") else []),
     }
 
 
@@ -708,7 +825,7 @@ def page(title, desc, path, body, jsonld=None):
 def footer():
     return (f'<footer class="foot"><p>{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
             'tai sen joukkueisiin. NHL ja joukkueiden nimet ovat omistajiensa tavaramerkkejä. Tulos- ja tilastotiedot: NHL.com.</p>'
-            '<p><a href="/tietoa.html">Tietoa sivustosta</a> · <a href="/tietosuoja.html">Tietosuoja</a></p></footer>')
+            '<p><a href="/tietoa.html">Tietoa sivustosta</a> · <a href="/yhteys.html">Ota yhteyttä</a> · <a href="/tietosuoja.html">Tietosuoja</a></p></footer>')
 
 
 def tname(a):
@@ -809,7 +926,7 @@ def build_site(data):
     shutil.copytree(WEB, OUT)
     base = CFG["baseUrl"].rstrip("/")
     slugs = data["finnSlugs"]
-    urls = ["/", "/ottelut/", "/suomalaiset/", "/tietoa.html", "/tietosuoja.html"]
+    urls = ["/", "/ottelut/", "/suomalaiset/", "/tietoa.html", "/tietosuoja.html", "/yhteys.html"]
     gd = data["gameDate"]
 
     # --- etusivu: esirenderöity sisältö hakukoneille, JS korvaa sen
@@ -828,13 +945,13 @@ def build_site(data):
     save_json(os.path.join(OUT, "data.json"), data, pretty=False)
 
     # --- tieto- ja tietosuojasivut
-    for fn in ("tietoa.html", "tietosuoja.html", "404.html"):
+    for fn in ("tietoa.html", "tietosuoja.html", "404.html", "yhteys.html"):
         p = os.path.join(OUT, fn)
         if os.path.exists(p):
             s = open(p, encoding="utf-8").read()
             s = (s.replace("{{SITE}}", esc(CFG["siteName"])).replace("{{BASE}}", base)
-                  .replace("{{EMAIL}}", esc(CFG.get("contactEmail") or "(lisää yhteystieto config.json-tiedostoon)"))
-                  .replace("{{OWNER}}", esc(CFG.get("ownerName") or "(lisää ylläpitäjän nimi config.json-tiedostoon)"))
+                  .replace("{{FORMKEY}}", esc(CFG.get("contactFormKey") or ""))
+                  .replace("{{OWNER}}", esc(CFG.get("ownerName") or "Punalampun ylläpitäjä"))
                   .replace("{{FOOTER}}", footer()))
             open(p, "w", encoding="utf-8").write(s)
 
@@ -1076,7 +1193,7 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
     body = (f"<article><h1>{esc(name)}</h1><p class='mute'>{esc(team_full or 'NHL')} · {posn}</p>"
             f"<p>{lead} {esc(born)} {esc(season_line)}</p>"
             + (f"<p class='mute'>{esc(', '.join(phys).capitalize())}. {draft}</p>" if phys or draft else "")
-            + f"<h2>Kausi {sl}</h2><div class='tw'>{stat_tbl}</div>{l5html}"
+            + f"<h2>Kausi {sl}</h2><div class='tw'>{stat_tbl}</div>{mp_block(name, FINN_PID.get(name), is_goalie, data)}{l5html}"
             + (f"<h2>Viimeisimmät maalit</h2><ul>{recent}</ul>" if recent else "")
             + nxt_html + career + mates_html + faq_html
             + "<p><a href='/suomalaiset/'>← Kaikki suomalaiset NHL:ssä</a></p></article>")

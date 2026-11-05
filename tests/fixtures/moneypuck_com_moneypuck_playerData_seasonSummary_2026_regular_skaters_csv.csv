@@ -1,0 +1,6 @@
+playerId,season,name,team,position,situation,games_played,icetime,I_F_xGoals,I_F_goals,OnIce_F_xGoals,OnIce_A_xGoals
+102,2026,Sebastian Aho,CAR,C,all,17,20000,7.42,9,15.1,11.2
+102,2026,Sebastian Aho,CAR,C,5on5,17,15000,4.9,6,10.3,8.1
+102,2026,Sebastian Aho,CAR,C,5on4,17,3000,2.3,3,3.9,0.4
+103,2026,Mikko Rantanen,DAL,R,all,15,18000,8.8,8,14,12
+22,2026,Kirill Kaprizov,MIN,L,all,17,20000,9.9,15,16,12

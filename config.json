@@ -75,6 +75,14 @@
   },
   "freeGames": [
     {
+      "ch": "Star Channel",
+      "date": "2026-10-03",
+      "teams": [
+        "CAR",
+        "WSH"
+      ]
+    },
+    {
       "ch": "MTV Sub",
       "date": "2026-10-04",
       "teams": [
@@ -83,11 +91,27 @@
       ]
     },
     {
+      "ch": "Star Channel",
+      "date": "2026-10-10",
+      "teams": [
+        "SJS",
+        "EDM"
+      ]
+    },
+    {
       "ch": "MTV Sub",
       "date": "2026-10-11",
       "teams": [
         "SEA",
         "WSH"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-12",
+      "teams": [
+        "BUF",
+        "FLA"
       ]
     },
     {
@@ -107,6 +131,22 @@
       ]
     },
     {
+      "ch": "Star Channel",
+      "date": "2026-10-26",
+      "teams": [
+        "DAL",
+        "NYI"
+      ]
+    },
+    {
+      "ch": "Star Channel",
+      "date": "2026-10-31",
+      "teams": [
+        "BOS",
+        "CHI"
+      ]
+    },
+    {
       "ch": "MTV Sub",
       "date": "2026-11-01",
       "teams": [
@@ -120,6 +160,30 @@
       "teams": [
         "BOS",
         "FLA"
+      ]
+    },
+    {
+      "ch": "Viaplay TV",
+      "date": "2026-11-08",
+      "teams": [
+        "CHI",
+        "CAR"
+      ]
+    },
+    {
+      "ch": "Viaplay TV",
+      "date": "2026-11-12",
+      "teams": [
+        "SEA",
+        "CAR"
+      ]
+    },
+    {
+      "ch": "Viaplay TV",
+      "date": "2026-11-14",
+      "teams": [
+        "CAR",
+        "SEA"
       ]
     },
     {
@@ -169,49 +233,9 @@
         "CHI",
         "PHI"
       ]
-    },
-    {
-      "ch": "Star Channel",
-      "date": "2026-10-03",
-      "teams": [
-        "CAR",
-        "WSH"
-      ]
-    },
-    {
-      "ch": "Star Channel",
-      "date": "2026-10-10",
-      "teams": [
-        "SJS",
-        "EDM"
-      ]
-    },
-    {
-      "ch": "Star Channel",
-      "date": "2026-10-12",
-      "teams": [
-        "BUF",
-        "FLA"
-      ]
-    },
-    {
-      "ch": "Star Channel",
-      "date": "2026-10-26",
-      "teams": [
-        "DAL",
-        "NYI"
-      ]
-    },
-    {
-      "ch": "Star Channel",
-      "date": "2026-10-31",
-      "teams": [
-        "BOS",
-        "CHI"
-      ]
     }
   ],
-  "freeGamesNote": "MTV:n kevään ja Star Channelin marraskuusta eteenpäin näytettävät ottelut lisätään, kun kanavat julkaisevat ne.",
+  "freeGamesNote": "Star Channelin marraskuusta eteenpäin sekä MTV:n ja Viaplay TV:n joulukuun jälkeen näytettävät ottelut lisätään, kun kanavat julkaisevat ne.",
   "freeGamesSources": [
     [
       "MTV (STT Info)",

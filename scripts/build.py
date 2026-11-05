@@ -746,6 +746,9 @@ def collect():
             fgk.append([r["name"], r["team"], 0, 0, 0, 0, "–", "–", slugify(r["name"])])
         else:
             finns.append([r["name"], r["team"], r["pos"], 0, 0, 0, 0, slugify(r["name"])])
+    # kauden tilastoissa mutta ei nyt minkään joukkueen NHL-kokoonpanossa (esim. farmissa)
+    roster_names = {r["name"] for r in roster}
+    finn_off = sorted(f[0] for f in finns + fgk if roster and f[1] and f[0] not in roster_names)
     # paljon haetut suomalaiset, jotka eivät juuri nyt ole NHL-kokoonpanossa (config.json: extraFinns)
     have = {f[0] for f in finns} | {f[0] for f in fgk}
     extra = []
@@ -854,6 +857,7 @@ def collect():
         "finnGoalies": [f[:8] for f in fgk],
         "finnSlugs": {f[0]: f[-1] for f in finns + fgk},
         "finnNames": sorted(fin_names),
+        "finnOff": finn_off,
         "history": hist[-120:],
         "sources": [{"name": "NHL.com (julkiset tulos- ja tilastotiedot)", "url": "https://www.nhl.com/"}]
                    + ([{"name": "MoneyPuck.com (edistyneet tilastot pelaajasivuilla)", "url": "https://moneypuck.com/"}] if MP.get("skaters") or MP.get("goalies") else []),
@@ -1342,8 +1346,12 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
             born = f"Hän on syntynyt {bd.day}. {FI_MONTHS[bd.month - 1]} {bd.year}." + (f" Syntymäpaikka: {city}" + (f", {country}" if country else "") + "." if city else "")
         except ValueError:
             pass
+    off = name in (data.get("finnOff") or [])
     lead = f"{esc(name)} on {str(age) + '-vuotias ' if age else ''}suomalainen {posn}"
-    lead += f", joka pelaa NHL:ssä {esc(team_full)} -joukkueessa." if team_full else "."
+    if team_full and off:
+        lead += f", joka ei ole tällä hetkellä {esc(team_full)} -joukkueen NHL-kokoonpanossa (esimerkiksi farmissa). Tämän kauden NHL-ottelunsa hän on pelannut {esc(team_full)} -joukkueessa."
+    else:
+        lead += f", joka pelaa NHL:ssä {esc(team_full)} -joukkueessa." if team_full else "."
     if is_goalie:
         gp, w, l, otl, sv, gaa = f[2], f[3], f[4], f[5], f[6], f[7]
         season_line = (f"Kaudella {sl} hän on pelannut {gp} ottelua (voitot–tappiot–JA {w}–{l}–{otl}), torjuntaprosentti {sv} ja päästettyjen maalien keskiarvo {gaa}."
@@ -1419,7 +1427,9 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
     mates_html = ("<ul class='rows'>" + "".join(f"<li><a class='mrow' href='/suomalaiset/{slugs[n]}.html'>{tbadge(t, 'mini')}<span>{esc(n)}</span>{ic('chev')}</a></li>" for n in mates if n in slugs) + "</ul>") if mates else ""
     recent = recent_goals(name)
     # usein kysytyt
-    faq = [(f"Missä joukkueessa {name} pelaa?", f"{name} pelaa NHL:ssä {team_full} -joukkueessa." if team_full else f"{name} ei ole tällä hetkellä NHL-kokoonpanossa.")]
+    faq = [(f"Missä joukkueessa {name} pelaa?",
+            f"{name} kuuluu {team_full} -organisaatioon, mutta ei ole tällä hetkellä joukkueen NHL-kokoonpanossa." if team_full and off
+            else f"{name} pelaa NHL:ssä {team_full} -joukkueessa." if team_full else f"{name} ei ole tällä hetkellä NHL-kokoonpanossa.")]
     faq.append((f"Paljonko {name} on tehnyt pisteitä kaudella {sl}?" if not is_goalie else f"Millaiset tilastot {name} on tehnyt kaudella {sl}?", season_line))
     faq_html = "<h2>Usein kysyttyä</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faq)
     if is_goalie:
@@ -1445,7 +1455,8 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
         facts.append(("NHL-varaus", f"{dd.get('year')}, {dd.get('round')}. kierros ({dd.get('overallPick')}.), {team(dd.get('teamAbbrev')) or ''}"))
     numtxt = f" · #{pr['sweaterNumber']}" if pr.get("sweaterNumber") else ""
     hero = (f"<header class='phero' style='--tc:{COLORS.get(t, '#2a3646')}'>{tbadge(t, 'badge lg')}<div><h1>{esc(name)}</h1>"
-            f"<p class='sub'>{FLAG}{esc(team_full or 'Ei NHL-joukkuetta')} · {posn}{numtxt}</p></div></header>"
+            f"<p class='sub'>{FLAG}{esc(team_full or 'Ei NHL-joukkuetta')} · {posn}{numtxt}</p>"
+            + ("<p class='offtag'>Ei tällä hetkellä NHL-kokoonpanossa</p>" if off else "") + "</div></header>"
             "<div class='tiles'>" + "".join(f"<div class='tile'><b>{v if v not in (None, '') else '–'}</b><small>{k}</small></div>" for k, v in tiles) + "</div>")
     facts_html = ("<dl class='facts'>" + "".join(f"<div><dt>{k}</dt><dd>{esc(v)}</dd></div>" for k, v in facts) + "</dl>") if facts else ""
     body = (f"<article>{hero}<p class='lead'>{lead} {esc(born)} {esc(season_line)}</p>{facts_html}"
@@ -1493,7 +1504,8 @@ def fmt_gaa(v):
 
 
 def finn_by_team(data, *teams):
-    return [f[0] for f in data["finns"] if f[1] in teams] + [f[0] for f in data["finnGoalies"] if f[1] in teams]
+    off = set(data.get("finnOff") or [])
+    return [f[0] for f in data["finns"] + data["finnGoalies"] if f[1] in teams and f[0] not in off]
 
 
 def season_label(gd):

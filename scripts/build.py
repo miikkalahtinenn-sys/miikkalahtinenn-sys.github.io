@@ -218,6 +218,13 @@ def last_team(abbrs):
     return team(parts[-1]) if parts else ""
 
 
+NAMES = {}  # playerId -> koko nimi (tilastopalvelusta)
+
+
+def pname(obj):
+    return NAMES.get(obj.get("playerId")) or full_name(obj)
+
+
 def fetch_players(sid):
     """Kenttäpelaajat, maalivahdit ja suomalaiset NHL:n tilastopalvelusta."""
     sk = stats_rows("skater", "summary", sid)
@@ -232,6 +239,7 @@ def fetch_players(sid):
     for r in sk:
         pid = r.get("playerId")
         name = r.get("skaterFullName") or full_name(r)
+        NAMES[pid] = name
         t = last_team(r.get("teamAbbrevs") or r.get("teamAbbrev"))
         row = [name, t, r.get("gamesPlayed") or 0, r.get("goals") or 0, r.get("assists") or 0, r.get("points") or 0]
         skaters.append(row)
@@ -246,6 +254,7 @@ def fetch_players(sid):
     for r in gk:
         pid = r.get("playerId")
         name = r.get("goalieFullName") or full_name(r)
+        NAMES[pid] = name
         t = last_team(r.get("teamAbbrevs") or r.get("teamAbbrev"))
         sv = r.get("savePct")
         gaa = r.get("goalsAgainstAverage")
@@ -298,8 +307,8 @@ def goal_entry(goal, fin_ids):
         tag = "TM"
     return {
         "p": p, "t": goal.get("timeInPeriod") or "", "team": team(goal.get("teamAbbrev")),
-        "who": full_name(goal), "tag": tag,
-        "ast": [full_name(a) for a in goal.get("assists") or []],
+        "who": pname(goal), "tag": tag,
+        "ast": [pname(a) for a in goal.get("assists") or []],
         "fin": goal.get("playerId") in fin_ids,
     }
 
@@ -319,13 +328,13 @@ def game_details(gid):
                 saves = str(gk["saveShotsAgainst"]).split("/")[0]
             if saves is None:
                 continue
-            parts.append(f"{L(gk.get('name'))} ({tm}) {saves} torjuntaa")
+            parts.append(f"{NAMES.get(gk.get('playerId')) or L(gk.get('name'))} ({tm}) {saves} torjuntaa")
     out["goalies"] = " · ".join(parts)
     out["venue"] = L(bx.get("venue")) or ""
     ld = get(f"{API}/gamecenter/{gid}/landing") or {}
     for s in ((ld.get("summary") or {}).get("threeStars") or []):
         out["threeStars"].append({
-            "star": s.get("star"), "name": full_name(s) or L(s.get("name")), "team": team(s.get("teamAbbrev")),
+            "star": s.get("star"), "name": NAMES.get(s.get("playerId")) or full_name(s) or L(s.get("name")), "team": team(s.get("teamAbbrev")),
             "pos": s.get("position"), "goals": s.get("goals"), "assists": s.get("assists"), "points": s.get("points"),
             "svp": s.get("savePctg"),
         })
@@ -439,7 +448,9 @@ def collect():
             old = arch["games"].get(key) or {}
             goals = [x for x in (goal_entry(x, fin_ids) for x in g.get("goals") or []) if x]
             lpt = (g.get("gameOutcome") or {}).get("lastPeriodType") or (g.get("periodDescriptor") or {}).get("periodType")
-            det = old.get("details") or game_details(g.get("id"))
+            det = old.get("details")
+            if not det or re.match(r"^[A-Z]\. ", det.get("goalies", "")):
+                det = game_details(g.get("id"))
             recap = g.get("threeMinRecap") or ""
             entry = dict(base, final={"OT": "JA", "SO": "VL"}.get(lpt, ""), goals=goals, goalies=det.get("goalies", ""),
                          threeStars=det.get("threeStars", []), venue=det.get("venue", ""),

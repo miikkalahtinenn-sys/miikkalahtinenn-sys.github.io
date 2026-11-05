@@ -88,7 +88,7 @@ def site_header(path=""):
     def on(h):
         return h == path or (h != "/" and path.startswith(h)) or (h == "/ottelut/" and path.startswith("/ottelut/"))
     nav = "".join(f'<a href="{h}"{" class=on" if on(h) else ""}>{FLAG if h == "/suomalaiset/" else ""}{t}</a>' for h, t in NAV)
-    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a>'
+    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>Punalamppu</span></a>'
             f'<form class="q" action="/" method="get" role="search">{ic("search")}<input type="search" name="q" placeholder="Hae pelaajaa tai joukkuetta" aria-label="Hae pelaajaa tai joukkuetta"></form></header>'
             f'<nav class="pills" aria-label="Päävalikko">{nav}</nav>')
 
@@ -861,7 +861,141 @@ def collect():
 
 
 # ---------------------------------------------------------------- sivut
-def page(title, desc, path, body, jsonld=None):
+# ---------------------------------------------------------------- jakokuvat (Open Graph, 1200x630)
+OG_FONTS = os.path.join(ROOT, "assets", "fonts")
+try:
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError:  # kuvat ovat valinnaisia; ilman Pillowia käytetään yleiskuvaa
+    Image = None
+
+
+def _font(name, size):
+    return ImageFont.truetype(os.path.join(OG_FONTS, name + ".ttf"), size)
+
+
+def _hex(c):
+    c = c.lstrip("#")
+    return tuple(int(c[i:i + 2], 16) for i in (0, 2, 4))
+
+
+S2 = 2  # piirretään kaksinkertaisena ja pienennetään -> pehmeät reunat
+W, H = 1200 * S2, 630 * S2
+BG = (11, 17, 24)
+INK, MUTE, ICE = (238, 243, 248), (138, 155, 176), (127, 211, 255)
+
+
+def _canvas(c1=None, c2=None):
+    im = Image.new("RGB", (W, H), BG)
+    for col, left in ((c1, True), (c2, False)):
+        if not col:
+            continue
+        g1 = Image.new("L", (256, 1))
+        g1.putdata([int(150 * ((255 - i) / 255) ** 1.6) for i in range(256)] if left else [int(150 * (i / 255) ** 1.6) for i in range(256)])
+        grad = g1.resize((W // 2, H))
+        layer = Image.new("RGB", (W // 2, H), _hex(col))
+        im.paste(layer, (0 if left else W // 2, 0), grad)
+    return im
+
+
+def _logo(d, x, y, sz):
+    r = sz * 16 / 64
+    d.rounded_rectangle((x, y, x + sz, y + sz), r, fill=(232, 35, 43))
+    k = sz / 64
+    d.arc((x + 14 * k, y + 10.5 * k, x + 50 * k, y + 46.5 * k), 200, 340, fill=(246, 160, 164), width=max(2, int(3 * k)))
+    d.pieslice((x + 20 * k, y + 23 * k, x + 44 * k, y + 47 * k), 180, 360, fill="white")
+    d.rectangle((x + 20 * k, y + 35 * k, x + 44 * k, y + 45 * k), fill="white")
+    d.rounded_rectangle((x + 15 * k, y + 45 * k, x + 49 * k, y + 50 * k), 2.5 * k, fill="white")
+
+
+def _brand(d, x, y, sz=64):
+    _logo(d, x, y, sz)
+    f = _font("fraunces-latin-700-normal", int(sz * .72))
+    d.text((x + sz * 1.25, y + sz / 2), "Punalamppu", font=f, fill=INK, anchor="lm")
+
+
+def _fit(d, text, name, size, maxw):
+    while size > 20:
+        f = _font(name, size)
+        if d.textlength(text, font=f) <= maxw:
+            return f
+        size -= 4
+    return _font(name, size)
+
+
+def _save(im, path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    im.resize((1200, 630), Image.LANCZOS).save(path, "PNG", optimize=True)
+
+
+def og_default(path):
+    im = _canvas()
+    d = ImageDraw.Draw(im)
+    glow = Image.new("RGB", (W, H), (60, 14, 20))
+    mask = Image.radial_gradient("L").resize((W, H)).point(lambda v: 255 - v)
+    im.paste(glow, (0, 0), mask)
+    d = ImageDraw.Draw(im)
+    _logo(d, W // 2 - 120 * S2, 150 * S2, 240 * S2)
+    f = _font("fraunces-latin-700-normal", 112 * S2)
+    d.text((W // 2, 470 * S2), "Punalamppu", font=f, fill=INK, anchor="mm")
+    d.text((W // 2, 555 * S2), "Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi", font=_font("inter-latin-500-normal", 30 * S2), fill=MUTE, anchor="mm")
+    _save(im, path)
+
+
+def og_game(path, gd, g):
+    a, h = g["away"], g["home"]
+    im = _canvas(COLORS.get(a), COLORS.get(h))
+    d = ImageDraw.Draw(im)
+    _brand(d, 56 * S2, 46 * S2, 56 * S2)
+    d.text((W - 56 * S2, 74 * S2), fi_date(gd).capitalize(), font=_font("inter-latin-500-normal", 28 * S2), fill=INK, anchor="rm")
+    bs, cy = 190 * S2, 300 * S2
+    fb = _font("barlow-condensed-latin-800-normal", 84 * S2)
+    for team_, cx in ((a, 230 * S2), (h, W - 230 * S2)):
+        d.rounded_rectangle((cx - bs // 2, cy - bs // 2, cx + bs // 2, cy + bs // 2), 40 * S2, fill=_hex(COLORS.get(team_, "#445")))
+        d.text((cx, cy + 4 * S2), team_, font=fb, fill="white", anchor="mm")
+        d.text((cx, cy + bs // 2 + 44 * S2), tname(team_), font=_fit(d, tname(team_), "inter-latin-700-normal", 30 * S2, 360 * S2), fill=INK, anchor="mm")
+    aw = (g.get("awayScore") or 0) > (g.get("homeScore") or 0)
+    fs = _font("barlow-condensed-latin-800-normal", 250 * S2)
+    sa, sh = str(g.get("awayScore")), str(g.get("homeScore"))
+    wa, wh = d.textlength(sa, font=fs), d.textlength(sh, font=fs)
+    wd = 70 * S2
+    x0 = W / 2 - (wa + wd + wh) / 2
+    d.text((x0, cy), sa, font=fs, fill=INK if aw else MUTE, anchor="lm")
+    d.rounded_rectangle((x0 + wa + 16 * S2, cy + 6 * S2, x0 + wa + wd - 16 * S2, cy + 22 * S2), 6 * S2, fill=MUTE)
+    d.text((x0 + wa + wd, cy), sh, font=fs, fill=MUTE if aw else INK, anchor="lm")
+    st = "PÄÄTTYI" + (f" · {g['final']}" if g.get("final") else "")
+    d.text((W / 2, cy + 150 * S2), st, font=_font("inter-latin-700-normal", 26 * S2), fill=ICE, anchor="mm")
+    fins = [r for r in (g.get("finStats") or []) if r.get("pos") != "MV" and r.get("p")]
+    line = ("Suomalaiset: " + ", ".join(f"{short_name(r['name'])} {r['g']}+{r['a']}" for r in sorted(fins, key=lambda r: -r["p"])[:4])) if fins else "Maalit, maalikooste ja suomalaiset – punalamppu.com"
+    yb = H - 66 * S2
+    d.rectangle((0, yb - 46 * S2, W, H), fill=(18, 27, 37))
+    d.text((56 * S2, yb), line, font=_fit(d, line, "inter-latin-500-normal", 30 * S2, W - 112 * S2), fill=INK, anchor="lm")
+    _save(im, path)
+
+
+def og_player(path, name, t, posn, tiles, season):
+    im = _canvas(COLORS.get(t) if t else None)
+    d = ImageDraw.Draw(im)
+    _brand(d, 56 * S2, 46 * S2, 56 * S2)
+    d.text((W - 56 * S2, 74 * S2), f"Kausi {season}", font=_font("inter-latin-500-normal", 28 * S2), fill=INK, anchor="rm")
+    bs = 150 * S2
+    x, y = 56 * S2, 170 * S2
+    d.rounded_rectangle((x, y, x + bs, y + bs), 34 * S2, fill=_hex(COLORS.get(t, "#2a3646")))
+    d.text((x + bs / 2, y + bs / 2 + 4 * S2), t or "–", font=_font("barlow-condensed-latin-800-normal", 66 * S2), fill="white", anchor="mm")
+    tx = x + bs + 36 * S2
+    d.text((tx, y + 58 * S2), name, font=_fit(d, name, "fraunces-latin-700-normal", 92 * S2, W - tx - 56 * S2), fill=INK, anchor="lm")
+    d.text((tx, y + 126 * S2), f"{tname(t) if t else 'Ei NHL-joukkuetta'} · {posn}", font=_font("inter-latin-500-normal", 32 * S2), fill=(210, 222, 234), anchor="lm")
+    tw_, gap, ty = (W - 112 * S2 - 3 * 20 * S2) / 4, 20 * S2, 382 * S2
+    fv, fl = _font("barlow-condensed-latin-800-normal", 104 * S2), _font("inter-latin-500-normal", 26 * S2)
+    for i, (lbl, val) in enumerate(tiles):
+        x0 = 56 * S2 + i * (tw_ + gap)
+        d.rounded_rectangle((x0, ty, x0 + tw_, ty + 190 * S2), 24 * S2, fill=(18, 27, 37), outline=(34, 48, 64), width=2 * S2)
+        vt = str(val if val not in (None, "") else "–")
+        d.text((x0 + 28 * S2, ty + 82 * S2), vt, font=_fit(d, vt, "barlow-condensed-latin-800-normal", 104 * S2, tw_ - 56 * S2), fill=INK, anchor="lm")
+        d.text((x0 + 30 * S2, ty + 158 * S2), lbl, font=fl, fill=MUTE, anchor="lm")
+    _save(im, path)
+
+
+def page(title, desc, path, body, jsonld=None, og=None):
     base = CFG["baseUrl"].rstrip("/")
     ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
     return f"""<!DOCTYPE html>
@@ -869,7 +1003,7 @@ def page(title, desc, path, body, jsonld=None):
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{base}{path}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
-<meta property="og:image" content="{base}/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{base}{og or '/og.png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
 <body><div class="wrap">{site_header(path)}
 <main>{boxify(body)}</main>{footer()}</div></body></html>"""
@@ -877,7 +1011,7 @@ def page(title, desc, path, body, jsonld=None):
 
 def footer():
     return ('<footer class="foot"><div class="fgrid">'
-            '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>PUNA<b>LAMPPU</b></span></a>'
+            '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>Punalamppu</span></a>'
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/ottelut/">Otteluarkisto</a></div>'
             '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a></div>'
@@ -984,6 +1118,18 @@ def render_game_page(gd, g, slugs, others=()):
     return title, desc, body, jsonld
 
 
+def player_og(slug, name, t, posn, tiles, gd):
+    if not Image:
+        return None
+    try:
+        p_ = f"/og/suomalaiset/{slug}.png"
+        og_player(os.path.join(OUT, p_.lstrip("/")), name, t, posn, tiles, season_label(gd))
+        return p_
+    except Exception as e:
+        log("og-kuva epäonnistui", slug, e)
+        return None
+
+
 def build_site(data):
     if os.path.exists(OUT):
         shutil.rmtree(OUT)
@@ -1023,17 +1169,35 @@ def build_site(data):
     # --- ottelusivut arkistosta
     os.makedirs(os.path.join(OUT, "ottelut"), exist_ok=True)
     days = []
-    for fn in sorted(os.listdir(os.path.join(DATA, "archive")), reverse=True):
+    if Image:
+        try:
+            og_default(os.path.join(OUT, "og.png"))
+        except Exception as e:
+            log("og-oletuskuva epäonnistui", e)
+    for di, fn in enumerate(sorted(os.listdir(os.path.join(DATA, "archive")), reverse=True)):
         if not fn.endswith(".json"):
             continue
         a = load_json(os.path.join(DATA, "archive", fn), {})
         d = a.get("gameDate") or fn[:-5]
-        glist = list((a.get("games") or {}).values())
+        glist = {}
+        for g in (a.get("games") or {}).values():  # sama ottelu vain kerran (rikkaimmat tiedot)
+            k = game_slug(d, g)
+            if k not in glist or len(g.get("finStats") or []) + len(g.get("goals") or []) > len(glist[k].get("finStats") or []) + len(glist[k].get("goals") or []):
+                glist[k] = g
+        glist = list(glist.values())
         lis = []
         for g in glist:
             title, desc_g, body, jl = render_game_page(d, g, slugs, [o for o in {game_slug(d, x): x for x in glist}.values() if game_slug(d, o) != game_slug(d, g)])
             path = f"/ottelut/{game_slug(d, g)}.html"
-            open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_g, path, body, jl))
+            ogp = None
+            if Image and di < 4:
+                try:
+                    ogp = f"/og/ottelut/{game_slug(d, g)}.png"
+                    og_game(os.path.join(OUT, ogp.lstrip("/")), d, g)
+                except Exception as e:
+                    log("og-kuva epäonnistui", path, e)
+                    ogp = None
+            open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_g, path, body, jl, ogp))
             urls.append(path)
             lis.append(f"<li><a class='mrow' href='{path}'>{tbadge(g['away'], 'mini')}<span>{esc(tname(g['away']))} – {esc(tname(g['home']))}</span>{tbadge(g['home'], 'mini')}<b>{esc(score_txt(g))}</b>{ic('chev')}</a></li>")
         if lis:
@@ -1049,14 +1213,16 @@ def build_site(data):
         name, t, pos, gp, g_, a_, p_ = f
         path = f"/suomalaiset/{slugs[name]}.html"
         title, desc_p, body, jl = render_player(name, t, pos, f, False, data, gd, slugs)
-        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl))
+        ogp = player_og(slugs[name], name, t, {"P": "puolustaja", "H": "hyökkääjä"}.get(pos, pos), [("Ottelut", gp), ("Maalit", g_), ("Syötöt", a_), ("Pisteet", p_)], gd)
+        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl, ogp))
         urls.append(path)
         rows.append(f"<tr><td><a href='{path}'>{esc(name)}</a></td><td>{esc(t)}</td><td>{gp}</td><td>{g_}</td><td>{a_}</td><td><b>{p_}</b></td></tr>")
     for f in data["finnGoalies"]:
         name, t = f[0], f[1]
         path = f"/suomalaiset/{slugs[name]}.html"
         title, desc_p, body, jl = render_player(name, t, "MV", f, True, data, gd, slugs)
-        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl))
+        ogp = player_og(slugs[name], name, t, "maalivahti", [("Ottelut", f[2]), ("V–H–JA", f"{f[3]}–{f[4]}–{f[5]}"), ("TO%", f[6]), ("PMK", f[7])], gd)
+        open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_p, path, body, jl, ogp))
         urls.append(path)
     open(os.path.join(OUT, "suomalaiset", "index.html"), "w", encoding="utf-8").write(page(
         f"Suomalaiset NHL:ssä {season_label(gd)} – pisteet ja tilastot | {CFG['siteName']}",

@@ -37,6 +37,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Asenna kuvakirjasto (jakokuvat)
+        run: pip install --quiet pillow
+
       - name: Hae tiedot ja rakenna sivusto
         run: python scripts/build.py
 

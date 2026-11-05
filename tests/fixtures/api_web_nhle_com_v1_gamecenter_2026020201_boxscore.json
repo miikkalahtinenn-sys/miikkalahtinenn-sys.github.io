@@ -1,0 +1,1 @@
+{"venue": {"default": "Arena"}, "awayTeam": {"abbrev": "SJS"}, "homeTeam": {"abbrev": "LAK"}, "playerByGameStats": {"awayTeam": {"goalies": [{"name": {"default": "Yaroslav Askarov"}, "decision": "L", "saves": 24}]}, "homeTeam": {"goalies": [{"name": {"default": "Darcy Kuemper"}, "decision": "W", "saves": 30}]}}}

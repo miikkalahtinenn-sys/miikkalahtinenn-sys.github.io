@@ -1,0 +1,1 @@
+{"venue": {"default": "Arena"}, "awayTeam": {"abbrev": "CHI"}, "homeTeam": {"abbrev": "FLA"}, "playerByGameStats": {"awayTeam": {"goalies": [{"name": {"default": "Spencer Knight"}, "decision": "L", "saves": 20}]}, "homeTeam": {"goalies": [{"name": {"default": "Jacob Markstrom"}, "decision": "W", "saves": 17}]}}}

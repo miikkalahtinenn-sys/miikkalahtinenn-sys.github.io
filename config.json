@@ -1,0 +1,17 @@
+{
+  "siteName": "Kiekkoaamu",
+  "tagline": "Yön NHL-tulokset, tilastot ja suomalaiset – suomeksi",
+  "baseUrl": "https://miikkalahtinenn-sys.github.io",
+  "contactEmail": "",
+  "ownerName": "",
+  "userAgent": "Kiekkoaamu/1.0 (harrastussivusto; https://miikkalahtinenn-sys.github.io)",
+  "notices": [
+    {
+      "from": "2026-11-05",
+      "to": "2026-11-14",
+      "title": "NHL Global Series Helsingissä",
+      "text": "Carolina Hurricanes – Seattle Kraken Veikkaus Arenalla to 12.11. ja la 14.11."
+    }
+  ],
+  "youtubeChannelId": "UCqFMzb-4AUf6WAIbl132QKA"
+}

@@ -1,0 +1,19 @@
+@import url(/fonts.css);
+:root{--bg:#0b1118;--panel:#121b25;--line:#223040;--ink:#eef3f8;--mute:#8a9bb0;--ice:#7fd3ff;--accent:#ff4d5e;--fi:#2f6fe0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+a{color:var(--ice)}.wrap{max-width:780px;margin:0 auto;padding:18px 14px 50px}
+.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.crumbs{font-size:13px;color:var(--mute);margin:6px 0 18px}.crumbs a{color:var(--mute)}
+h1{font-family:"Barlow Condensed",sans-serif;font-size:30px;line-height:1.15;margin:.2em 0}
+h2{font-family:"Barlow Condensed",sans-serif;font-size:21px;text-transform:uppercase;letter-spacing:.3px;margin:1.4em 0 .4em;color:var(--ice)}
+.sc{color:#fff;white-space:nowrap}.mute{color:var(--mute)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:10px 14px;border-radius:12px}
+.btn.alt{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+.goals li,ul li{margin:5px 0}.tag{font-size:11px;background:#22344a;color:var(--ice);border-radius:4px;padding:1px 5px}
+.fi{font-size:10px;font-weight:800;background:var(--fi);color:#fff;border-radius:4px;padding:1px 4px}
+table.t{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;background:var(--panel);border-radius:12px;overflow:hidden}
+.t th,.t td{padding:8px 10px;text-align:right;border-top:1px solid var(--line)}.t th:first-child,.t td:first-child{text-align:left}
+.t th{color:var(--mute);font-weight:500;font-size:12px;text-transform:uppercase}
+.foot{margin-top:40px;color:var(--mute);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px}.foot a{color:var(--mute)}
+.yt{margin:14px 0}.yt button{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer}
+.yt iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}

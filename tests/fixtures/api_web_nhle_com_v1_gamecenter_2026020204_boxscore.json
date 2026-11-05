@@ -1,0 +1,1 @@
+{"venue": {"default": "Arena"}, "awayTeam": {"abbrev": "CGY"}, "homeTeam": {"abbrev": "SEA"}, "playerByGameStats": {"awayTeam": {"goalies": [{"name": {"default": "Dustin Wolf"}, "decision": "O", "saves": 27}]}, "homeTeam": {"goalies": [{"name": {"default": "Joey Daccord"}, "decision": "W", "saves": 25}]}}}

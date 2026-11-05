@@ -1,0 +1,1 @@
+{"venue": {"default": "Arena"}, "awayTeam": {"abbrev": "OTT"}, "homeTeam": {"abbrev": "BUF"}, "playerByGameStats": {"awayTeam": {"goalies": [{"name": {"default": "Samuel Ersson"}, "decision": "W", "saves": 24}]}, "homeTeam": {"goalies": [{"name": {"default": "Colten Ellis"}, "decision": "L", "saves": 28}]}}}

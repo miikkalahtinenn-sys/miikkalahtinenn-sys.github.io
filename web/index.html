@@ -125,6 +125,8 @@ tr.cut td{border-top:2px solid #35506b}
 .teamcard .th b{font-size:15px}
 .teamcard .th small{color:var(--mute);font-size:12px;margin-left:auto}
 .na{color:var(--mute)}
+.tvbox ul{list-style:none;margin:0;padding:0}.tvbox li{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px}.tvbox li:first-child{border-top:0}.tvbox li span{color:#c7d3e0}.tvfoot{padding:10px 14px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}.tvfoot a{color:var(--ice);text-decoration:none;font-weight:600}
+@media (max-width:480px){.tvbox li{grid-template-columns:1fr;gap:2px}}
 .offs{color:#ffd27a}
 button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
 .ytwrap{padding:0 14px 12px}.yt16{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
@@ -385,9 +387,14 @@ function renderUpcoming(){
     }
     h+=`</div>`;
   }
+  h+=tvBox();
   h+=`<div class="legend">Päivä = NHL:n pelipäivä Pohjois-Amerikan aikaa; kellonajat Suomen aikaa (yöllä seuraavana päivänä). Siniset nimilaput: joukkueiden suomalaiset (kokoonpanot voivat muuttua). Otteluohjelma voi muuttua.</div>`;
   el.innerHTML=h;
   bindSeg(el,"f",v=>{progFilter=v;renderUpcoming();});
+}
+function tvBox(){
+  const tv=D.tvInfo; if(!tv) return "";
+  return `<div class="card tvbox"><div class="dayh"><b>Missä NHL näkyy Suomessa</b><small>kausi ${esc(tv.season||"")}</small></div><ul>${tv.items.map(([n,t])=>`<li><b>${esc(n)}</b><span>${esc(t)}</span></li>`).join("")}</ul><div class="tvfoot">${esc(tv.note||"")}${tv.more?` <a href="${esc(tv.more[1])}" target="_blank" rel="noopener">${esc(tv.more[0])} →</a>`:""}</div></div>`;
 }
 function bindSeg(el,key,fn){el.querySelectorAll(`.seg button[data-${key}]`).forEach(b=>b.onclick=()=>fn(b.dataset[key]));}
 

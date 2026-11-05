@@ -157,3 +157,5 @@ main>h1+p,main>p{max-width:70ch}
 .box p .ic,.ghero .gdate .ic{margin-right:5px;color:var(--mute)}
 .t td .mini{vertical-align:middle}
 .offtag{display:inline-block;margin:8px 0 0;font-size:12px;font-weight:600;color:#ffd27a;background:rgba(255,210,122,.12);border:1px solid rgba(255,210,122,.35);border-radius:999px;padding:3px 10px}
+.tvlist li{display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:14px}.tvlist li b{color:var(--ink)}.tvlist li span{color:#c7d3e0}
+@media (max-width:480px){.tvlist li{grid-template-columns:1fr;gap:2px}}

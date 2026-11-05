@@ -865,6 +865,7 @@ def collect():
         "finnSlugs": {f[0]: f[-1] for f in finns + fgk},
         "finnNames": sorted(fin_names),
         "finnOff": finn_off,
+        "tvInfo": CFG.get("tvInfo"),
         "history": hist[-120:],
         "sources": [{"name": "NHL.com (julkiset tulos- ja tilastotiedot)", "url": "https://www.nhl.com/"}]
                    + ([{"name": "MoneyPuck.com (edistyneet tilastot pelaajasivuilla)", "url": "https://moneypuck.com/"}] if MP.get("skaters") or MP.get("goalies") else []),
@@ -1285,7 +1286,7 @@ def build_site(data):
             + "</li>" for u in sorted(lst, key=lambda x: x["start"] or "")) + "</ul>"
     write("/otteluohjelma/", f"NHL-otteluohjelma – tulevat ottelut Suomen aikaa | {CFG['siteName']}",
           "NHL:n otteluohjelma seuraavalle viikolle Suomen ajassa. Näet myös, missä otteluissa suomalaiset pelaavat.",
-          f"<h1>NHL-otteluohjelma Suomen aikaa</h1><p class='mute'>Kellonajat Suomen aikaa. Otsikon päivä on NHL:n pelipäivä Pohjois-Amerikassa; ottelut pelataan Suomessa seuraavana yönä.</p>{orows or '<p>Ei tulevia otteluita tiedossa.</p>'}")
+          f"<h1>NHL-otteluohjelma Suomen aikaa</h1><p class='mute'>Kellonajat Suomen aikaa. Otsikon päivä on NHL:n pelipäivä Pohjois-Amerikassa; ottelut pelataan Suomessa seuraavana yönä.</p>{tv_html(data)}{orows or '<p>Ei tulevia otteluita tiedossa.</p>'}")
 
     # --- sitemap & robots
     today = now_utc().astimezone(HEL).date().isoformat()
@@ -1508,6 +1509,15 @@ def fmt_sv(v):
 
 def fmt_gaa(v):
     return f"{v:.2f}" if isinstance(v, (int, float)) else "–"
+
+
+def tv_html(data):
+    tv = data.get("tvInfo")
+    if not tv:
+        return ""
+    rows = "".join(f"<li><b>{esc(n)}</b><span>{esc(t)}</span></li>" for n, t in tv["items"])
+    more = f"<p class='small'><a href='{esc(tv['more'][1])}' rel='noopener'>{esc(tv['more'][0])} {ic('chev')}</a></p>" if tv.get("more") else ""
+    return f"<h2>Missä NHL näkyy Suomessa {esc(tv.get('season', ''))}</h2><ul class='tvlist'>{rows}</ul><p class='mute small'>{esc(tv.get('note', ''))}</p>{more}"
 
 
 def finn_by_team(data, *teams):

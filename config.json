@@ -42,5 +42,35 @@
       "pos": "H"
     }
   ],
-  "contactFormKey": "d2471d0f-02dc-43ec-a0ac-a18728053afa"
+  "contactFormKey": "d2471d0f-02dc-43ec-a0ac-a18728053afa",
+  "tvInfo": {
+    "season": "2026–27",
+    "items": [
+      [
+        "Viaplay",
+        "Suurin osa otteluista, noin 1 150 runkosarjaottelua (pääosin yksinoikeudella) sekä konferenssifinaalit ja Stanley Cupin finaali. Suoratoisto ja Viaplay Urheilu -kanavat, myös V sport / V premium -kanavapaketeissa."
+      ],
+      [
+        "Disney+ (ESPN)",
+        "160 runkosarjaottelua yksinoikeudella sekä 20 pudotuspeliottelua kahdelta ensimmäiseltä kierrokselta. Osa otteluista suomeksi selostettuna."
+      ],
+      [
+        "MTV Sub (ilmainen)",
+        "Yksi ottelu viikossa, yleensä sunnuntaisin. Myös MTV Katsomossa."
+      ],
+      [
+        "Star Channel (ilmainen)",
+        "Valikoituja Disney+:n otteluita, noin yksi viikossa (mm. Monday Night Hockey)."
+      ],
+      [
+        "Viaplay TV (ilmainen)",
+        "Yksittäisiä NHL-otteluita."
+      ]
+    ],
+    "note": "Kaikkia otteluita ei välttämättä näytetä Suomessa. Kanavat ja ohjelmisto voivat muuttua.",
+    "more": [
+      "NHLsuomi.com: NHL-lähetykset ja hinnat",
+      "https://www.nhlsuomi.com/nhl-viaplay-mtv-tv/"
+    ]
+  }
 }

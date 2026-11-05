@@ -129,18 +129,42 @@ button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
 .ytwrap{padding:0 14px 12px}.yt16{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
 .yt16 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.ytsrc{font-size:11.5px;color:var(--mute);margin-top:5px}
 h1.sub{font:inherit;font-size:13px;color:var(--mute);margin-top:4px;font-weight:400}
-.favbar{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:13px;color:var(--mute)}
-.favbar select{font:inherit;font-size:13.5px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:6px 8px;flex:1;min-width:0}
 .card.fav{border-color:#ffd27a;box-shadow:0 0 0 1px #ffd27a inset}
 tr.fav td{background:rgba(255,210,122,.09)}
 tr.hit td{background:rgba(240,40,46,.07)}
 .urow.fav{background:rgba(255,210,122,.07)}
 .star{font-size:11px;color:#ffd27a;margin-left:6px}
-.stars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.st{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center;min-width:0}
-.st .n{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:20px;color:#ffd27a;line-height:1}
-.st b{display:block;font-size:13px;margin-top:6px;line-height:1.2}
-.st small{display:block;color:var(--mute);font-size:11.5px;margin-top:3px}
+/* haku */
+.tools{display:flex;gap:8px;margin:0 0 14px;align-items:stretch;position:relative}
+.sbox{flex:1;min-width:0;position:static}.sbox .ic{position:relative}
+.sbox input{width:100%;font:inherit;font-size:15px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 38px;outline:none;-webkit-appearance:none;appearance:none}
+.sbox input:focus{border-color:var(--ice)}
+.sbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--mute);pointer-events:none}
+.sres{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:var(--panel2);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.55);overflow:hidden;display:none}
+.sres.on{display:block}
+.sr{display:flex;align-items:center;gap:10px;padding:10px 12px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);cursor:pointer}
+.sr:first-child{border-top:0}
+.sr:hover,.sr.sel{background:#1d2b3a}
+.sr .txt{min-width:0;flex:1;line-height:1.25}
+.sr .txt small{display:block;color:var(--mute);font-size:12px}
+.sr .go{color:var(--ice);font-size:12px;white-space:nowrap}
+.sr.none{color:var(--mute);cursor:default}
+.favsel{font:inherit;font-size:13px;width:auto;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:0 8px;max-width:128px}
+/* etusivun nostot */
+.fin-now{background:linear-gradient(135deg,#ffffff 0%,#e7eeff 100%);color:#0b2b66;border-radius:16px;margin-bottom:14px;overflow:hidden}
+.fin-now .hd{display:flex;align-items:center;gap:9px;padding:12px 14px 6px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:.4px}
+.fin-now .hd small{margin-left:auto;font-family:Inter,sans-serif;text-transform:none;letter-spacing:0;font-weight:500;font-size:12px;color:#4a64a0}
+.fin-now .r{display:flex;align-items:center;gap:9px;padding:8px 14px;border-top:1px solid #d6e0f5;font-size:14px}
+.fin-now .r a{color:#0b2b66;font-weight:600;text-decoration:none}
+.fin-now .r .pt{margin-left:auto;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:20px;color:var(--fi);white-space:nowrap}
+.fin-now .r .pt small{font-family:Inter,sans-serif;font-size:11.5px;font-weight:500;color:#4a64a0;margin-left:4px}
+.fin-now .r .vs{color:#4a64a0;font-size:12px}
+.fin-now .more{display:block;text-align:center;padding:10px;background:#dbe5fb;color:var(--fi);font-weight:700;font-size:13.5px;text-decoration:none}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.duo .card{margin-bottom:0}
+.more2{display:block;text-align:center;padding:10px;border-top:1px solid var(--line);color:var(--ice);font-weight:600;font-size:13.5px;text-decoration:none}
+.gamelink{display:block;text-decoration:none;color:inherit}
+@media (max-width:620px){.duo{grid-template-columns:1fr}}
 .pend{border-style:dashed}
 .pend .fin{color:#ffd27a}
 .pg{font-size:11.5px;color:#c7d3e0}
@@ -152,7 +176,7 @@ tr.hit td{background:rgba(240,40,46,.07)}
 .lg{display:flex;flex-wrap:wrap;gap:6px 12px;padding:0 14px 12px;font-size:12px;color:#c7d3e0}
 .lg i{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
 
-@media (max-width:420px){nav{gap:4px}nav a{font-size:14.5px;padding:6px 10px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
+@media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:14.5px;padding:6px 10px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
 </style>
 </head>
 <body>
@@ -171,7 +195,10 @@ tr.hit td{background:rgba(240,40,46,.07)}
     <a href="#porssi" data-v="porssi">Pistepörssi</a>
     <a href="#sarjataulukko" data-v="sarjataulukko">Sarjataulukko</a>
   </nav>
-  <div class="favbar"><span>⭐ Oma joukkue</span><select id="fav"></select></div>
+  <div class="tools">
+    <div class="sbox" role="search"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Hae pelaajaa tai joukkuetta" autocomplete="off" aria-label="Hae pelaajaa tai joukkuetta"></div><div class="sres" id="sres"></div></div>
+    <select id="fav" class="favsel" aria-label="Oma joukkue"></select>
+  </div>
   <div id="notice"></div>
   <section class="view on" id="v-tulokset">{{SSR}}</section>
   <section class="view" id="v-ohjelma"></section>
@@ -199,7 +226,7 @@ const TEAMS={
 const T=a=>TEAMS[a]||[a,a,"#445"];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const badge=a=>`<div class="badge" style="background:${T(a)[2]}" title="${esc(T(a)[0])}">${esc(a)}</div>`;
-const mini=a=>`<span class="mini" style="background:${T(a)[2]}" title="${esc(T(a)[0])}">${esc(a)}</span>`;
+const mini=a=>!a?`<span class="mini" style="background:#2a3646" title="Ei NHL-joukkuetta">–</span>`:`<span class="mini" style="background:${T(a)[2]}" title="${esc(T(a)[0])}">${esc(a)}</span>`;
 const num=v=>v==null?'<span class="na">–</span>':v;
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 const YT_ICON='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"/></svg>';
@@ -207,17 +234,6 @@ let FAV="";try{FAV=localStorage.getItem("nhlaamu-fav")||""}catch(e){}
 const isFav=(...t)=>FAV&&t.includes(FAV);
 let D=null, FINN=new Set(), FINN_LAST=new Map(), FINN_BY_TEAM={};
 
-function ytLink(g){
-  const [y,m,d]=D.gameDate.split("-");
-  const q=`NHL Highlights | ${T(g.away)[1]} vs. ${T(g.home)[1]} | ${MONTHS[+m-1]} ${d}, ${y}`;
-  return "https://www.youtube.com/results?search_query="+encodeURIComponent(q);
-}
-function playVid(btn){
-  const card=btn.closest(".card"); if(!card||card.querySelector(".ytwrap")) return;
-  const w=document.createElement("div"); w.className="ytwrap";
-  w.innerHTML=`<div class="yt16"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(btn.dataset.vid)}?autoplay=1&rel=0" title="Maalikooste – NHL / YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="ytsrc">Video: NHL / YouTube</div>`;
-  btn.closest(".hl").after(w);
-}
 function isFinn(name,team){
   if(!name) return false;
   if(FINN.has(name)) return true;
@@ -237,12 +253,42 @@ function nightLabel(){
 }
 
 /* ---------- Tulokset ---------- */
+const gameUrl=g=>`/ottelut/${D.gameDate}-${g.away.toLowerCase()}-${g.home.toLowerCase()}.html`;
+const hasVid=g=>g.videoId&&/^[A-Za-z0-9_-]{6,20}$/.test(g.videoId);
+function finNow(){
+  const rows=[];(D.games||[]).forEach(g=>(g.finStats||[]).forEach(r=>rows.push(r)));
+  let list=[];
+  if(rows.length){
+    const sk=rows.filter(r=>r.pos!=="MV"&&r.p>0).sort((a,b)=>b.p-a.p||b.g-a.g);
+    const gk=rows.filter(r=>r.pos==="MV");
+    list=sk.map(r=>({team:r.team,name:r.name,opp:r.opp,pt:`${r.g}+${r.a}`,sub:r.g?`${r.g} maali${r.g>1?"a":""}`:`${r.a} syöttö${r.a>1?"ä":""}`}))
+      .concat(gk.map(r=>({team:r.team,name:r.name,opp:r.opp,pt:r.saves!=null&&r.shots?(r.saves/r.shots).toFixed(3).replace(/^0/,""):"–",sub:`${r.saves??"–"}/${r.shots??"–"} torjuntaa`})));
+  }else{
+    const agg={};
+    for(const g of D.games) for(const x of g.goals) if(x.who&&(x.fin||isFinn(x.who,x.team))){agg[x.who]=agg[x.who]||{team:x.team,name:x.who,opp:x.team===g.home?g.away:g.home,n:0};agg[x.who].n++;}
+    list=Object.values(agg).map(n=>({team:n.team,name:n.name,opp:n.opp,pt:String(n.n),sub:n.n>1?"maalia":"maali"}));
+  }
+  const total=rows.filter(r=>r.pos!=="MV").reduce((a,r)=>a+r.p,0);
+  const head=`<div class="hd"><span class="flag"></span>Suomalaiset yöllä<small>${rows.length?`${rows.length} pelasi · ${total} pistettä`:""}</small></div>`;
+  const body=list.length?list.slice(0,7).map(r=>`<div class="r">${mini(r.team)}<span>${plink(r.name)} <span class="vs">vs ${esc(r.opp)}</span></span><span class="pt">${esc(r.pt)}<small>${esc(r.sub)}</small></span></div>`).join("")
+    :`<div class="r"><span class="vs">Ei suomalaisten pisteitä yöllä.</span></div>`;
+  return `<div class="fin-now">${head}${body}<a class="more" href="#suomalaiset">Kaikki yön suomalaistilastot →</a></div>`;
+}
+function statsDuo(){
+  const S=(D.skaters||[]).slice(0,5);
+  const F=(D.finns||[]).slice().sort((a,b)=>(b[6]??-1)-(a[6]??-1)||(b[4]??0)-(a[4]??0)).slice(0,5);
+  const r=(p,i,pts,link)=>`<tr><td><div class="nm-cell"><span class="rk">${i+1}</span>${mini(p[1])}<div class="txt">${link?plink(p[0]):esc(p[0])+fiBadge(p[0],p[1])}</div></div></td><td class="pts">${num(pts)}</td></tr>`;
+  return `<div class="duo">
+    <div class="card tbl"><h3>Pistepörssi</h3><table><tbody>${S.map((p,i)=>r(p,i,p[5],false)).join("")}</tbody></table><a class="more2" href="#porssi">Koko pistepörssi →</a></div>
+    <div class="card tbl"><h3>🇫🇮 Suomalaisten kärki</h3><table><tbody>${F.map((p,i)=>r(p,i,p[6],true)).join("")}</tbody></table><a class="more2" href="#suomalaiset">Kaikki suomalaiset →</a></div>
+  </div>`;
+}
 function renderResults(){
   const el=document.getElementById("v-tulokset");
-  if(!D.games.length&&!(D.pending||[]).length){el.innerHTML=`<h2>Yön tulokset</h2><div class="card empty">Yöllä ei pelattu NHL-otteluita.</div>`;return;}
+  if(!D.games.length&&!(D.pending||[]).length){el.innerHTML=`<h2>Yön tulokset</h2><div class="card empty">Yöllä ei pelattu NHL-otteluita.</div>${statsDuo()}`;return;}
   const pend=D.pending||[];
   let h=`<h2>Yön tulokset <small>${esc(nightLabel())} · ${D.games.length+pend.length} ottelua</small></h2>`;
-  if(D.stars&&D.stars.length) h+=`<div class="stars">${D.stars.slice(0,3).map((s,i)=>`<div class="st"><div class="n">${"★".repeat(i+1)}</div>${mini(s.team)}<b>${esc(s.name)}${fiBadge(s.name,s.team)}</b><small>${esc(s.line)}</small></div>`).join("")}</div>`;
+  if(D.games.length) h+=finNow();
   const games=D.games.slice().sort((a,b)=>(isFav(b.away,b.home)?1:0)-(isFav(a.away,a.home)?1:0));
   for(const g of pend){
     h+=`<article class="card pend ${isFav(g.away,g.home)?"fav":""}"><div class="score">
@@ -254,26 +300,30 @@ function renderResults(){
   for(const g of games){
     const aw=g.awayScore>g.homeScore;
     const fin=g.final?`Päättyi · ${esc(g.final)}`:"Päättyi";
-    const goals=g.goals.map(x=>`<div class="goal"><span class="pt">${esc(x.p==="JA"?"JA":x.p+". erä")}</span><span class="pt">${esc(x.t||"–")}</span><span><span class="ab">${esc(x.team)}</span> ${x.who?esc(x.who):'<span class="na">maalintekijä ei tiedossa</span>'}${(x.fin||isFinn(x.who,x.team))?'<span class="fi">FIN</span>':""}${x.tag?`<span class="tag">${esc(x.tag)}</span>`:""}${x.ast&&x.ast.length?` <span class="na">(${esc(x.ast.map(n=>n.split(" ").pop()).join(", "))})</span>`:""}</span></div>`).join("");
+    const goals=g.goals.map(x=>`<div class="goal"><span class="pt">${esc(x.p==="JA"?"JA":x.p+". erä")}</span><span class="pt">${esc(x.t||"–")}</span><span><span class="ab">${esc(x.team)}</span> ${x.who?((x.fin||isFinn(x.who,x.team))?plink(x.who)+'<span class="fi">FIN</span>':esc(x.who)):'<span class="na">maalintekijä ei tiedossa</span>'}${x.tag?`<span class="tag">${esc(x.tag)}</span>`:""}${x.ast&&x.ast.length?` <span class="na">(${esc(x.ast.map(n=>n.split(" ").pop()).join(", "))})</span>`:""}</span></div>`).join("");
+    const url=gameUrl(g);
     h+=`<article class="card ${isFav(g.away,g.home)?"fav":""}">
-      <div class="score">
+      <a class="gamelink" href="${esc(url)}"><div class="score">
         <div class="team">${badge(g.away)}<div class="tn"><b>${esc(T(g.away)[0])}</b><small>vieras</small></div></div>
         <div class="mid"><div class="nums"><span class="${aw?"":"l"}">${g.awayScore}</span>–<span class="${aw?"l":""}">${g.homeScore}</span></div><div class="fin ${g.final?"ot":""}">${fin}</div></div>
         <div class="team h">${badge(g.home)}<div class="tn"><b>${esc(T(g.home)[0])}</b><small>koti</small></div></div>
       </div>
-      ${g.note?`<div class="note">${esc(g.note)}</div>`:""}
-      <div class="hl">${g.videoId&&/^[A-Za-z0-9_-]{6,20}$/.test(g.videoId)?`<button class="btn" type="button" data-vid="${esc(g.videoId)}" onclick="playVid(this)">${YT_ICON}Maalikooste</button>`:`<a class="btn" href="${ytLink(g)}" target="_blank" rel="noopener">${YT_ICON}Maalikooste</a>`}<a class="btn alt" href="/ottelut/${esc(D.gameDate)}-${esc(g.away.toLowerCase())}-${esc(g.home.toLowerCase())}.html">Ottelusivu</a></div>
+      ${g.note?`<div class="note">${esc(g.note)}</div>`:""}</a>
+      <div class="hl"><a class="btn" href="${esc(url)}${hasVid(g)?"#kooste":""}">${hasVid(g)?YT_ICON+"Maalikooste ja ottelu":"Ottelusivu – maalit ja tilastot"}</a></div>
       <details><summary>Maalit ja maalivahdit</summary><div class="goals">${goals||'<span class="na">Maalitietoja ei saatavilla.</span>'}${g.goalies?`<div class="gk">🥅 ${esc(g.goalies)}</div>`:""}</div></details>
     </article>`;
   }
-  h+=`<div class="hl" style="padding:0"><a class="btn alt" href="https://www.youtube.com/@NHL/videos" target="_blank" rel="noopener">${YT_ICON}NHL:n YouTube-kanava – kaikki uusimmat videot</a></div><div class="legend" style="margin-top:8px">Maalikoosteet: NHL:n virallinen YouTube-kanava. Video ladataan YouTubesta vasta, kun painat Maalikooste-painiketta.</div>`;
+  h+=`<div class="legend" style="margin-top:4px">Maalikoosteet: NHL:n virallinen YouTube-kanava, katsottavissa ottelusivuilla. Video ladataan YouTubesta vasta, kun painat toistopainiketta.</div>`;
+  h+=`<h2 style="margin-top:18px">Tilastot</h2>`+statsDuo();
   el.innerHTML=h;
 }
 
 /* ---------- Tulevat ottelut ---------- */
+// "Oliver Kapanen" -> "O. Kapanen", "Jesperi Kotkaniemi" -> "J. Kotkaniemi"
+const shortName=n=>{const w=String(n||"").trim().split(/\s+/);return w.length<2?w[0]||"":w[0].split("-").map(x=>x[0]+".").join("-")+" "+w.slice(1).join(" ");};
 function finnChips(team){
   const list=FINN_BY_TEAM[team]||[];
-  return list.map(p=>`<span class="chip">${esc(p.split(" ").slice(-1)[0])}</span>`).join("");
+  return list.map(p=>{const sl=D.finnSlugs&&D.finnSlugs[p];const t=esc(shortName(p));return sl?`<a class="chip" href="/suomalaiset/${esc(sl)}.html" style="text-decoration:none">${t}</a>`:`<span class="chip">${t}</span>`;}).join("");
 }
 let progFilter="all";
 function renderUpcoming(){
@@ -281,9 +331,11 @@ function renderUpcoming(){
   const now=Date.now()-3*3600e3;
   let ups=D.upcoming.filter(u=>new Date(u.start).getTime()>now);
   if(progFilter==="fav") ups=ups.filter(u=>isFav(u.away,u.home));
+  const tf=progFilter.startsWith("t:")?progFilter.slice(2):"";
+  if(tf) ups=ups.filter(u=>u.away===tf||u.home===tf);
   if(progFilter==="fin") ups=ups.filter(u=>(FINN_BY_TEAM[u.away]||[]).length||(FINN_BY_TEAM[u.home]||[]).length);
   let h=`<h2>Tulevat ottelut <small>ajat Suomen aikaa</small></h2>
-    <div class="seg"><button data-f="all" class="${progFilter==="all"?"on":""}">Kaikki</button><button data-f="fin" class="${progFilter==="fin"?"on":""}">🇫🇮 Suomalaisten ottelut</button>${FAV?`<button data-f="fav" class="${progFilter==="fav"?"on":""}">⭐ ${esc(FAV)}</button>`:""}</div>`;
+    <div class="seg"><button data-f="all" class="${progFilter==="all"?"on":""}">Kaikki</button><button data-f="fin" class="${progFilter==="fin"?"on":""}">🇫🇮 Suomalaisten ottelut</button>${FAV?`<button data-f="fav" class="${progFilter==="fav"?"on":""}">⭐ ${esc(FAV)}</button>`:""}${tf&&tf!==FAV?`<button data-f="t:${esc(tf)}" class="on">${esc(T(tf)[0])}</button>`:""}</div>`;
   const PG=D.pregame||null;
   if(PG&&PG.notes&&PG.notes.length) h+=`<div class="alert"><b>Ennen illan otteluita</b> <span class="na">(${esc(fiDate(PG.updated,{day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"}))})</span><ul>${PG.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`;
   if(!ups.length){el.innerHTML=h+`<div class="card empty">Ei tulevia otteluita tiedossa.</div>`;bindSeg(el,"f",v=>{progFilter=v;renderUpcoming();});return;}
@@ -354,11 +406,12 @@ function renderFinns(){
   const gkRow=(p,i,showTeam)=>`<tr><td><div class="nm-cell">${showTeam?`<span class="rk">${i+1}</span>${mini(p[1])}`:""}<div class="txt">${plink(p[0])}<small>maalivahti</small></div></div></td><td>${p[2]}</td><td class="hide">${p[3]}-${p[4]}-${p[5]}</td><td>${esc(p[6])}</td><td class="pts">${esc(p[7])}</td></tr>`;
   const gkHead=`<thead><tr><th>Maalivahti</th><th>O</th><th class="hide">V-H-JA</th><th>TO%</th><th>PMK</th></tr></thead>`;
   if(fiView==="team"){
-    const order=[...teams].sort((a,b)=>(b===FAV)-(a===FAV)||T(a)[0].localeCompare(T(b)[0],"fi"));
+    const order=[...teams].sort((a,b)=>(!a)-(!b)||(b===FAV)-(a===FAV)||T(a)[0].localeCompare(T(b)[0],"fi"));
     for(const t of order){
       const ps=sk.filter(p=>p[1]===t).sort((a,b)=>(b[6]??-1)-(a[6]??-1));
       const gs=gk.filter(p=>p[1]===t);
-      h+=`<div class="card teamcard ${t===FAV?"fav":""}"><div class="th">${badge(t)}<b>${esc(T(t)[0])}</b><small>${ps.length+gs.length} suomalaista</small></div>`;
+      h+=t?`<div class="card teamcard ${t===FAV?"fav":""}"><div class="th">${badge(t)}<b>${esc(T(t)[0])}</b><small>${ps.length+gs.length} suomalaista</small></div>`
+          :`<div class="card teamcard"><div class="th"><b>Ilman NHL-joukkuetta</b><small>pelaajasivulla ura ja tilastot</small></div>`;
       if(ps.length) h+=`<table>${skHead}<tbody>${ps.map(p=>skRow(p,0,false)).join("")}</tbody></table>`;
       if(gs.length) h+=`<table>${gkHead}<tbody>${gs.map(p=>gkRow(p,0,false)).join("")}</tbody></table>`;
       h+=`</div>`;
@@ -461,11 +514,59 @@ function trendChart(){
   names.forEach((n,j)=>{svg+=`<path d="${path(H.map(x=>(x.players||{})[n]??null),maxP)}" fill="none" stroke="${cols[j]}" stroke-width="2" stroke-linejoin="round"/>`;});
   svg+=`<text x="${pl}" y="${Hh-6}" fill="#8a9bb0" font-size="10">${dl(H[0])}</text><text x="${W-pr}" y="${Hh-6}" fill="#8a9bb0" font-size="10" text-anchor="end">${dl(H[H.length-1])}</text></svg>`;
   const first=H[0].total,last=H[H.length-1].total;
-  return head+`<div class="chart">${svg}</div><div class="lg">${names.map((n,j)=>`<span><i style="background:${cols[j]}"></i>${esc(n.split(" ").pop())} ${H[H.length-1].players[n]}</span>`).join("")}<span class="na">Yhteensä ${last} p (+${last-first} jaksolla)</span></div></div>`;
+  return head+`<div class="chart">${svg}</div><div class="lg">${names.map((n,j)=>`<span><i style="background:${cols[j]}"></i>${esc(shortName(n))} ${H[H.length-1].players[n]}</span>`).join("")}<span class="na">Yhteensä ${last} p (+${last-first} jaksolla)</span></div></div>`;
+}
+/* ---------- Haku ---------- */
+const norm=x=>String(x||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+let SIDX=null;
+function buildIndex(){
+  const out=[],seen=new Set(),slug=D.finnSlugs||{};
+  const rank={};(D.standings||[]).forEach(dv=>dv.teams.slice().sort((x,y)=>y[5]-x[5]).forEach((t,i)=>rank[t[0]]={div:dv.name,i:i+1,pts:t[5],gp:t[1]}));
+  for(const p of D.finns||[]){seen.add(p[0]);out.push({w:3,name:p[0],team:p[1],fin:1,url:slug[p[0]]?`/suomalaiset/${slug[p[0]]}.html`:"#suomalaiset",
+    line:p[1]?`${T(p[1])[0]} · ${num(p[3])} ott. · ${num(p[4])}+${num(p[5])}=${num(p[6])}`:"Ei tällä hetkellä NHL-joukkueessa · ura ja tilastot"});}
+  for(const p of D.finnGoalies||[]){seen.add(p[0]);out.push({w:3,name:p[0],team:p[1],fin:1,url:slug[p[0]]?`/suomalaiset/${slug[p[0]]}.html`:"#suomalaiset",
+    line:`${T(p[1])[0]} · maalivahti · ${p[2]} ott. · TO% ${p[6]}`});}
+  for(const k of Object.keys(TEAMS)){const r=rank[k];out.push({w:2,name:T(k)[0],alt:k+" "+T(k)[1],team:k,teamHit:k,
+    line:r?`${r.div}: ${r.i}. sija · ${r.pts} p (${r.gp} ott.)`:"NHL-joukkue",go:"ottelut →"});}
+  for(const p of D.skaters||[]) if(!seen.has(p[0])){seen.add(p[0]);out.push({w:1,name:p[0],team:p[1],url:"#porssi",line:`${T(p[1])[0]} · ${p[2]} ott. · ${p[3]}+${p[4]}=${p[5]}`});}
+  for(const g of D.goalies||[]) if(!seen.has(g[0])){seen.add(g[0]);out.push({w:1,name:g[0],team:g[1],url:"#porssi",line:`${T(g[1])[0]} · maalivahti · TO% ${g[6]}`});}
+  out.forEach(o=>{o.n=norm(o.name+" "+(o.alt||""));});
+  return out;
+}
+function doSearch(q){
+  const box=document.getElementById("sres"); q=norm(q);
+  if(q.length<2){box.classList.remove("on");box.innerHTML="";return;}
+  SIDX=SIDX||buildIndex();
+  const words=q.split(/\s+/);
+  const hits=SIDX.map(o=>{
+    if(!words.every(w=>o.n.includes(w))) return null;
+    const pre=o.n.split(/\s+/).some(t=>t.startsWith(words[0]))?2:0;
+    return {o,sc:o.w*2+pre+(o.n.startsWith(q)?1:0)};
+  }).filter(Boolean).sort((a,b)=>b.sc-a.sc||a.o.name.localeCompare(b.o.name,"fi")).slice(0,8);
+  box.innerHTML=hits.length?hits.map(({o})=>`<a class="sr" ${o.teamHit?`href="#ohjelma" data-team="${esc(o.teamHit)}"`:`href="${esc(o.url)}"`}>${mini(o.team)}<span class="txt"><b>${esc(o.name)}</b>${o.fin?'<span class="fi">FIN</span>':""}<small>${esc(o.line)}</small></span><span class="go">${o.go||(o.fin?"pelaajasivu →":"pörssi →")}</span></a>`).join("")
+    :`<div class="sr none">Ei osumia haulle “${esc(q)}”. Kokeile sukunimeä, esim. Laine tai Aho.</div>`;
+  box.classList.add("on");
+  box.querySelectorAll("a.sr").forEach(a=>a.addEventListener("click",()=>{if(a.dataset.team){progFilter="t:"+a.dataset.team;renderUpcoming();}closeSearch();document.getElementById("q").blur();}));
+}
+function closeSearch(){const b=document.getElementById("sres");b.classList.remove("on");}
+function initSearch(){
+  const q=document.getElementById("q");
+  q.addEventListener("input",()=>doSearch(q.value));
+  q.addEventListener("focus",()=>doSearch(q.value));
+  q.addEventListener("keydown",e=>{
+    const items=[...document.querySelectorAll("#sres a.sr")];if(e.key==="Escape"){closeSearch();q.blur();return;}
+    let i=items.findIndex(x=>x.classList.contains("sel"));
+    if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();items.forEach(x=>x.classList.remove("sel"));i=e.key==="ArrowDown"?Math.min(items.length-1,i+1):Math.max(0,i-1);if(items[i])items[i].classList.add("sel");}
+    if(e.key==="Enter"){e.preventDefault();const t=items[i<0?0:i];if(t)t.click();}
+  });
+  document.addEventListener("click",e=>{if(!e.target.closest(".sbox"))closeSearch();});
+  const p=new URLSearchParams(location.search).get("q");
+  if(p){q.value=p;doSearch(p);}
+  if(location.hash==="#haku"){q.focus();}
 }
 function initFav(){
   const sel=document.getElementById("fav");
-  sel.innerHTML=`<option value="">Ei valittu</option>`+Object.keys(TEAMS).sort((a,b)=>T(a)[0].localeCompare(T(b)[0],"fi")).map(k=>`<option value="${k}" ${k===FAV?"selected":""}>${esc(T(k)[0])} (${k})</option>`).join("");
+  sel.innerHTML=`<option value="">⭐ Oma</option>`+Object.keys(TEAMS).sort((a,b)=>T(a)[0].localeCompare(T(b)[0],"fi")).map(k=>`<option value="${k}" ${k===FAV?"selected":""}>${esc(T(k)[0])} (${k})</option>`).join("");
   sel.onchange=()=>{FAV=sel.value;try{localStorage.setItem("nhlaamu-fav",FAV)}catch(e){} if(!FAV&&progFilter==="fav")progFilter="all"; renderAll();};
 }
 function renderAll(){renderResults(); renderUpcoming(); renderFinns(); renderLeaders(); renderStandings();}
@@ -475,7 +576,7 @@ function route(){
   VIEWS.forEach(x=>document.getElementById("v-"+x).classList.toggle("on",x===v));
   document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
 }
-window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0);});
+window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0);if(location.hash==="#haku")document.getElementById("q").focus();});
 
 async function init(){
   try{ const r=await fetch("data.json",{cache:"no-store"}); D=await r.json(); }
@@ -489,7 +590,7 @@ async function init(){
   }
   document.getElementById("upd").innerHTML="Päivitetty<br>"+esc(fiDate(D.updated,{day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"}));
   if(D.notice) document.getElementById("notice").innerHTML=`<div class="notice"><span class="flag"></span><div><b>${esc(D.notice.title)}</b><small>${esc(D.notice.text)}</small></div></div>`;
-  initFav(); renderAll();
+  initFav(); renderAll(); initSearch();
   document.getElementById("src").innerHTML="Tiedot:<ul>"+(D.sources||[]).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></li>`).join("")+"</ul>";
   route();
 }

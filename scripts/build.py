@@ -699,7 +699,8 @@ def page(title, desc, path, body, jsonld=None):
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
 <meta property="og:image" content="{base}/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
-<body><div class="wrap"><header><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a></header>
+<body><div class="wrap"><header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a>
+<form class="q" action="/" method="get" role="search"><input type="search" name="q" placeholder="Hae pelaajaa" aria-label="Hae pelaajaa tai joukkuetta"><button type="submit" aria-label="Hae">🔍</button></form></header>
 <nav class="crumbs"><a href="/">Tulokset</a> · <a href="/otteluohjelma/">Otteluohjelma</a> · <a href="/suomalaiset/">Suomalaiset</a> · <a href="/pisteporssi/">Pistepörssi</a> · <a href="/sarjataulukko/">Sarjataulukko</a> · <a href="/ottelut/">Arkisto</a></nav>
 <main>{body}</main>{footer()}</div></body></html>"""
 
@@ -728,10 +729,11 @@ def yt_url(gd, g):
 def video_block(g, gd):
     vid = g.get("videoId")
     if not vid or not re.fullmatch(r"[A-Za-z0-9_-]{6,20}", vid):
-        return ""
-    return (f'<div class="yt" data-id="{vid}"><button type="button" onclick="kaYT(this.parentNode)">▶ Katso maalikooste</button>'
-            f'<p class="mute">Video: NHL / YouTube. Video ladataan YouTubesta vasta painettaessa (YouTube voi tällöin asettaa evästeitä).</p></div>'
-            '<script>function kaYT(d){d.innerHTML=\'<iframe src="https://www.youtube-nocookie.com/embed/\'+d.dataset.id+\'?autoplay=1&rel=0" title="Maalikooste – NHL / YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe><p class="mute">Video: NHL / YouTube</p>\'}</script>')
+        return ('<section id="kooste" class="yt wait"><b>▶ Maalikooste tulossa</b>'
+                '<p class="mute">Kooste ilmestyy tälle sivulle automaattisesti, kun NHL julkaisee sen YouTubessa – yleensä muutaman tunnin kuluessa ottelun päättymisestä.</p></section>')
+    return (f'<section id="kooste" class="yt" data-id="{vid}"><button type="button" class="play" onclick="kaYT(this.parentNode)"><span>▶</span>Katso maalikooste</button>'
+            f'<p class="mute">Video: NHL / YouTube. Video ladataan YouTubesta vasta painettaessa (YouTube voi tällöin asettaa evästeitä).</p></section>'
+            '<script>function kaYT(d){d.innerHTML=\'<iframe src="https://www.youtube-nocookie.com/embed/\'+d.dataset.id+\'?autoplay=1&rel=0&playsinline=1" title="Maalikooste – NHL / YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="mute">Video: NHL / YouTube</p>\'}</script>')
 
 
 def fi_date(gd):
@@ -745,7 +747,30 @@ def score_txt(g):
     return s + (f" {g['final']}" if g.get("final") else "")
 
 
-def render_game_page(gd, g, slugs):
+def fin_table(g, slugs):
+    rows = g.get("finStats") or []
+    if not rows:
+        return ""
+    lk = lambda n: f'<a href="/suomalaiset/{slugs[n]}.html">{esc(n)}</a>' if n in slugs else esc(n)
+    sk = sorted([r for r in rows if r.get("pos") != "MV"], key=lambda r: (-r.get("p", 0), -r.get("g", 0)))
+    gk = [r for r in rows if r.get("pos") == "MV"]
+    out = "<h2>🇫🇮 Suomalaiset ottelussa</h2>"
+    if sk:
+        pm = lambda v: "–" if v is None else (f"+{v}" if v > 0 else str(v))
+        out += ("<div class='tw'><table class='t'><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th><th>L</th><th>Aika</th></tr>"
+                + "".join(f"<tr><td>{lk(r['name'])} <span class='mute'>{esc(r['team'])}</span></td><td>{r['g']}</td><td>{r['a']}</td><td><b>{r['p']}</b></td>"
+                          f"<td>{pm(r.get('pm'))}</td><td>{r.get('sog') if r.get('sog') is not None else '–'}</td><td>{esc(r.get('toi') or '')}</td></tr>" for r in sk)
+                + "</table></div>")
+    if gk:
+        dec = {"W": "voitto", "L": "tappio", "O": "JA-tappio"}
+        out += ("<div class='tw' style='margin-top:8px'><table class='t'><tr><th>Maalivahti</th><th>Torjunnat</th><th>TO%</th><th>Tulos</th></tr>"
+                + "".join(f"<tr><td>{lk(r['name'])} <span class='mute'>{esc(r['team'])}</span></td><td>{r.get('saves', '–')}/{r.get('shots', '–')}</td>"
+                          f"<td><b>{(('%.3f' % (r['saves'] / r['shots'])).lstrip('0')) if r.get('shots') and r.get('saves') is not None else '–'}</b></td><td>{esc(dec.get(r.get('dec'), ''))}</td></tr>" for r in gk)
+                + "</table></div>")
+    return out
+
+
+def render_game_page(gd, g, slugs, others=()):
     a, h = tname(g["away"]), tname(g["home"])
     title = f"{a} – {h} {score_txt(g)} ({fi_date(gd).split(' ', 1)[1]}) | {CFG['siteName']}"
     scorers = ", ".join(sorted({x['who'].split(' ')[-1] for x in g.get('goals', []) if x.get('who')}))
@@ -764,11 +789,12 @@ def render_game_page(gd, g, slugs):
 <p class="mute">{esc(fi_date(gd).capitalize())}{(' · ' + esc(g['venue'])) if g.get('venue') else ''}</p>
 {f'<p>{esc(g["note"])}</p>' if g.get('note') else ''}
 {video_block(g, gd)}
-<p class="btns"><a class="btn" href="{yt_url(gd, g)}" rel="noopener">▶ Maalikooste YouTubessa</a>{f' <a class="btn alt" href="{esc(g["recapUrl"])}" rel="noopener">Kooste NHL.comissa</a>' if g.get('recapUrl') else ''}</p>
+{fin_table(g, slugs)}
 <h2>Maalit</h2><ol class="goals">{''.join(rows) or '<li class="mute">Ei maalitietoja.</li>'}</ol>
 {f'<h2>Maalivahdit</h2><p>{esc(g["goalies"])}</p>' if g.get('goalies') else ''}
 {f'<h2>Ottelun tähdet</h2><ul>{stars}</ul>' if stars else ''}
-<p><a href="/ottelut/">← Kaikki ottelut</a></p></article>"""
+{('<h2>Saman yön muut ottelut</h2><ul class="others">' + ''.join(f"<li><a href='/ottelut/{game_slug(gd, o)}.html'>{esc(tname(o['away']))} – {esc(tname(o['home']))} <b>{esc(score_txt(o))}</b></a>{' <span class=mute>▶ kooste</span>' if o.get('videoId') else ''}</li>" for o in others) + '</ul>') if others else ''}
+<p class="btns"><a class="btn" href="/">Yön kaikki tulokset</a> <a class="btn alt" href="/#suomalaiset">Suomalaiset</a> <a class="btn alt" href="/ottelut/">Arkisto</a></p></article>"""
     jsonld = {"@context": "https://schema.org", "@type": "SportsEvent", "name": f"{a} – {h}", "sport": "Jääkiekko",
               "startDate": g.get("start") or gd, "eventStatus": "https://schema.org/EventScheduled",
               "awayTeam": {"@type": "SportsTeam", "name": a}, "homeTeam": {"@type": "SportsTeam", "name": h},
@@ -823,7 +849,7 @@ def build_site(data):
         glist = list((a.get("games") or {}).values())
         lis = []
         for g in glist:
-            title, desc_g, body, jl = render_game_page(d, g, slugs)
+            title, desc_g, body, jl = render_game_page(d, g, slugs, [o for o in {game_slug(d, x): x for x in glist}.values() if game_slug(d, o) != game_slug(d, g)])
             path = f"/ottelut/{game_slug(d, g)}.html"
             open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_g, path, body, jl))
             urls.append(path)
@@ -895,7 +921,7 @@ def build_site(data):
     for d, lst in sorted(days.items()):
         orows += f"<h2>{esc(fi_date(d).capitalize())}</h2><ul>" + "".join(
             f"<li><b>{esc(fi_time(u['start']))}</b> {esc(tname(u['away']))} – {esc(tname(u['home']))}{(' · ' + esc(u['venue'])) if u.get('venue') else ''}"
-            + (f" <span class='mute'>(🇫🇮 {esc(', '.join(n.split(' ')[-1] for n in finn_by_team(data, u['away'], u['home'])))})</span>" if finn_by_team(data, u['away'], u['home']) else "")
+            + (f" <span class='mute'>(🇫🇮 {esc(', '.join(short_name(n) for n in finn_by_team(data, u['away'], u['home'])))})</span>" if finn_by_team(data, u['away'], u['home']) else "")
             + "</li>" for u in sorted(lst, key=lambda x: x["start"] or "")) + "</ul>"
     write("/otteluohjelma/", f"NHL-otteluohjelma – tulevat ottelut Suomen aikaa | {CFG['siteName']}",
           "NHL:n otteluohjelma seuraavalle viikolle Suomen ajassa. Näet myös, missä otteluissa suomalaiset pelaavat.",
@@ -1070,6 +1096,11 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
         person,
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]}
     return title, desc_p, body, jl
+
+
+def short_name(n):
+    w = (n or "").split()
+    return n if len(w) < 2 else "-".join(x[:1] + "." for x in w[0].split("-")) + " " + " ".join(w[1:])
 
 
 def fi_short(iso):

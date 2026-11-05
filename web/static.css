@@ -15,6 +15,14 @@ table.t{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;ba
 .t th,.t td{padding:8px 10px;text-align:right;border-top:1px solid var(--line)}.t th:first-child,.t td:first-child{text-align:left}
 .t th{color:var(--mute);font-weight:500;font-size:12px;text-transform:uppercase}
 .foot{margin-top:40px;color:var(--mute);font-size:12.5px;border-top:1px solid var(--line);padding-top:14px}.foot a{color:var(--mute)}
-.yt{margin:14px 0}.yt button{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer}
+.yt{margin:16px 0;scroll-margin-top:12px}
+.yt .play{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;aspect-ratio:16/9;max-height:300px;background:radial-gradient(circle at 50% 45%,#3a1416,#120b0d 70%);color:#fff;border:1px solid #4a1d20;border-radius:14px;font:inherit;font-family:"Barlow Condensed",sans-serif;font-size:24px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;cursor:pointer}
+.yt .play span{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--accent);font-size:22px;box-shadow:0 0 28px rgba(240,40,46,.55)}
+.yt.wait{background:var(--panel);border:1px dashed var(--line);border-radius:14px;padding:14px}.yt.wait p{margin:.3em 0 0;font-size:13.5px}
+.others li{margin:6px 0}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+form.q{display:flex;flex:1;max-width:280px;min-width:170px}
+form.q input{flex:1;min-width:0;font:inherit;font-size:14.5px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-right:0;border-radius:12px 0 0 12px;padding:8px 12px;-webkit-appearance:none;appearance:none}
+form.q button{background:var(--panel);border:1px solid var(--line);border-radius:0 12px 12px 0;padding:0 12px;cursor:pointer;font-size:15px}
 .yt iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
 .tw{overflow-x:auto}.t th,.t td{white-space:nowrap}

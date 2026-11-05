@@ -56,5 +56,14 @@ jobs:
         with:
           path: _site
 
+      - name: Peru jumiin jääneet Pages-julkaisut
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for sha in $(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&per_page=8" --jq '.[].sha' | sort -u); do
+            [ "$sha" = "$GITHUB_SHA" ] && continue
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/deployments/${sha}/cancel" >/dev/null 2>&1 && echo "peruttu $sha" || true
+          done
+
       - id: deploy
         uses: actions/deploy-pages@v4

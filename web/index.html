@@ -139,7 +139,11 @@ tr.hit td{background:rgba(240,40,46,.07)}
 .sbox{flex:1;min-width:0;position:static}.sbox .ic{position:relative}
 .sbox input{width:100%;font:inherit;font-size:15px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 38px;outline:none;-webkit-appearance:none;appearance:none}
 .sbox input:focus{border-color:var(--ice)}
-.sbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--mute);pointer-events:none}
+.sbox svg.sic{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--mute);pointer-events:none}
+.icn{width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:5px;flex:0 0 auto}
+.flag.sm{width:20px;height:13px;margin-right:6px;vertical-align:-2px}
+.flag.sm:before{left:28%;width:18%}.flag.sm:after{top:41%;height:18%}
+nav a.fi-tab{display:inline-flex;align-items:center}
 .sres{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:var(--panel2);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.55);overflow:hidden;display:none}
 .sres.on{display:block}
 .sr{display:flex;align-items:center;gap:10px;padding:10px 12px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);cursor:pointer}
@@ -176,10 +180,32 @@ tr.hit td{background:rgba(240,40,46,.07)}
 .lg{display:flex;flex-wrap:wrap;gap:6px 12px;padding:0 14px 12px;font-size:12px;color:#c7d3e0}
 .lg i{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
 
+/* alaosa */
+.foot{margin-top:36px;border-top:1px solid var(--line);padding-top:22px;color:var(--mute);font-size:13px}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:20px}
+.fgrid h4{margin:0 0 8px;color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
+.fgrid a{display:block;color:var(--mute);padding:3px 0;text-decoration:none}
+.fgrid a:hover{color:var(--ink)}
+.fbrand p{margin:10px 0 0;max-width:260px}
+.brand.sm{font-size:22px}
+.foot .legal{margin:22px 0 0;font-size:11.5px;line-height:1.5;color:#6d7e93}
+@media (max-width:640px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+.rgrid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"fin" "main" "stats";gap:0}
+.rfin{grid-area:fin}.rmain{grid-area:main}.rstats{grid-area:stats}
+@media (min-width:1080px){
+  .wrap{max-width:1180px;padding:0 24px 60px}
+  .rgrid{grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"main fin" "main stats";grid-template-rows:auto 1fr;column-gap:22px}
+  .rside-sticky{position:sticky;top:64px}
+  .rstats .duo{grid-template-columns:1fr;margin-top:0}
+  .rstats h2{display:none}
+  .view:not(#v-tulokset){max-width:860px;margin:0 auto}
+  .view:not(#v-tulokset).on{display:block}
+}
 @media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:14.5px;padding:6px 10px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
 </style>
 </head>
 <body>
+{{ICONS}}
 <div class="wrap">
   <header>
     <div>
@@ -191,12 +217,12 @@ tr.hit td{background:rgba(240,40,46,.07)}
   <nav id="nav">
     <a href="#tulokset" data-v="tulokset">Tulokset</a>
     <a href="#ohjelma" data-v="ohjelma">Tulevat ottelut</a>
-    <a href="#suomalaiset" data-v="suomalaiset" class="fi-tab">🇫🇮 Suomalaiset</a>
+    <a href="#suomalaiset" data-v="suomalaiset" class="fi-tab"><span class="flag sm"></span>Suomalaiset</a>
     <a href="#porssi" data-v="porssi">Pistepörssi</a>
     <a href="#sarjataulukko" data-v="sarjataulukko">Sarjataulukko</a>
   </nav>
   <div class="tools">
-    <div class="sbox" role="search"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Hae pelaajaa tai joukkuetta" autocomplete="off" aria-label="Hae pelaajaa tai joukkuetta"></div><div class="sres" id="sres"></div></div>
+    <div class="sbox" role="search"><div class="ic"><svg class="sic" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Hae pelaajaa tai joukkuetta" autocomplete="off" aria-label="Hae pelaajaa tai joukkuetta"></div><div class="sres" id="sres"></div></div>
     <select id="fav" class="favsel" aria-label="Oma joukkue"></select>
   </div>
   <div id="notice"></div>
@@ -205,8 +231,7 @@ tr.hit td{background:rgba(240,40,46,.07)}
   <section class="view" id="v-suomalaiset"></section>
   <section class="view" id="v-porssi"></section>
   <section class="view" id="v-sarjataulukko"></section>
-  <div class="src" id="src"></div>
-  <div class="src">{{FOOTER}}</div>
+  {{FOOTER}}
 </div>
 <script>
 // [koko nimi, lempinimi (YouTube-otsikoissa), väri]
@@ -224,6 +249,7 @@ const TEAMS={
  WPG:["Winnipeg Jets","Jets","#041E42"],WSH:["Washington Capitals","Capitals","#C8102E"]
 };
 const T=a=>TEAMS[a]||[a,a,"#445"];
+const IC=n=>`<svg class="icn" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const badge=a=>`<div class="badge" style="background:${T(a)[2]}" title="${esc(T(a)[0])}">${esc(a)}</div>`;
 const mini=a=>!a?`<span class="mini" style="background:#2a3646" title="Ei NHL-joukkuetta">–</span>`:`<span class="mini" style="background:${T(a)[2]}" title="${esc(T(a)[0])}">${esc(a)}</span>`;
@@ -280,15 +306,16 @@ function statsDuo(){
   const r=(p,i,pts,link)=>`<tr><td><div class="nm-cell"><span class="rk">${i+1}</span>${mini(p[1])}<div class="txt">${link?plink(p[0]):esc(p[0])+fiBadge(p[0],p[1])}</div></div></td><td class="pts">${num(pts)}</td></tr>`;
   return `<div class="duo">
     <div class="card tbl"><h3>Pistepörssi</h3><table><tbody>${S.map((p,i)=>r(p,i,p[5],false)).join("")}</tbody></table><a class="more2" href="#porssi">Koko pistepörssi →</a></div>
-    <div class="card tbl"><h3>🇫🇮 Suomalaisten kärki</h3><table><tbody>${F.map((p,i)=>r(p,i,p[6],true)).join("")}</tbody></table><a class="more2" href="#suomalaiset">Kaikki suomalaiset →</a></div>
+    <div class="card tbl"><h3><span class="flag sm"></span>Suomalaisten kärki</h3><table><tbody>${F.map((p,i)=>r(p,i,p[6],true)).join("")}</tbody></table><a class="more2" href="#suomalaiset">Kaikki suomalaiset →</a></div>
   </div>`;
 }
 function renderResults(){
   const el=document.getElementById("v-tulokset");
   if(!D.games.length&&!(D.pending||[]).length){el.innerHTML=`<h2>Yön tulokset</h2><div class="card empty">Yöllä ei pelattu NHL-otteluita.</div>${statsDuo()}`;return;}
   const pend=D.pending||[];
-  let h=`<h2>Yön tulokset <small>${esc(nightLabel())} · ${D.games.length+pend.length} ottelua</small></h2>`;
-  if(D.games.length) h+=finNow();
+  const top=`<h2>Yön tulokset <small>${esc(nightLabel())} · ${D.games.length+pend.length} ottelua</small></h2>`;
+  const fin=D.games.length?finNow():"";
+  let h=`<div class="games2">`;
   const games=D.games.slice().sort((a,b)=>(isFav(b.away,b.home)?1:0)-(isFav(a.away,a.home)?1:0));
   for(const g of pend){
     h+=`<article class="card pend ${isFav(g.away,g.home)?"fav":""}"><div class="score">
@@ -310,12 +337,11 @@ function renderResults(){
       </div>
       ${g.note?`<div class="note">${esc(g.note)}</div>`:""}</a>
       <div class="hl"><a class="btn" href="${esc(url)}${hasVid(g)?"#kooste":""}">${hasVid(g)?YT_ICON+"Maalikooste ja ottelu":"Ottelusivu – maalit ja tilastot"}</a></div>
-      <details><summary>Maalit ja maalivahdit</summary><div class="goals">${goals||'<span class="na">Maalitietoja ei saatavilla.</span>'}${g.goalies?`<div class="gk">🥅 ${esc(g.goalies)}</div>`:""}</div></details>
+      <details><summary>Maalit ja maalivahdit</summary><div class="goals">${goals||'<span class="na">Maalitietoja ei saatavilla.</span>'}${g.goalies?`<div class="gk">${IC("goalie")}${esc(g.goalies)}</div>`:""}</div></details>
     </article>`;
   }
-  h+=`<div class="legend" style="margin-top:4px">Maalikoosteet: NHL:n virallinen YouTube-kanava, katsottavissa ottelusivuilla. Video ladataan YouTubesta vasta, kun painat toistopainiketta.</div>`;
-  h+=`<h2 style="margin-top:18px">Tilastot</h2>`+statsDuo();
-  el.innerHTML=h;
+  h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL:n virallinen YouTube-kanava, katsottavissa ottelusivuilla. Video ladataan YouTubesta vasta, kun painat toistopainiketta.</div>`;
+  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 
 /* ---------- Tulevat ottelut ---------- */
@@ -335,7 +361,7 @@ function renderUpcoming(){
   if(tf) ups=ups.filter(u=>u.away===tf||u.home===tf);
   if(progFilter==="fin") ups=ups.filter(u=>(FINN_BY_TEAM[u.away]||[]).length||(FINN_BY_TEAM[u.home]||[]).length);
   let h=`<h2>Tulevat ottelut <small>ajat Suomen aikaa</small></h2>
-    <div class="seg"><button data-f="all" class="${progFilter==="all"?"on":""}">Kaikki</button><button data-f="fin" class="${progFilter==="fin"?"on":""}">🇫🇮 Suomalaisten ottelut</button>${FAV?`<button data-f="fav" class="${progFilter==="fav"?"on":""}">⭐ ${esc(FAV)}</button>`:""}${tf&&tf!==FAV?`<button data-f="t:${esc(tf)}" class="on">${esc(T(tf)[0])}</button>`:""}</div>`;
+    <div class="seg"><button data-f="all" class="${progFilter==="all"?"on":""}">Kaikki</button><button data-f="fin" class="${progFilter==="fin"?"on":""}"><span class="flag sm"></span>Suomalaisten ottelut</button>${FAV?`<button data-f="fav" class="${progFilter==="fav"?"on":""}">${IC("star")}${esc(FAV)}</button>`:""}${tf&&tf!==FAV?`<button data-f="t:${esc(tf)}" class="on">${esc(T(tf)[0])}</button>`:""}</div>`;
   const PG=D.pregame||null;
   if(PG&&PG.notes&&PG.notes.length) h+=`<div class="alert"><b>Ennen illan otteluita</b> <span class="na">(${esc(fiDate(PG.updated,{day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"}))})</span><ul>${PG.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>`;
   if(!ups.length){el.innerHTML=h+`<div class="card empty">Ei tulevia otteluita tiedossa.</div>`;bindSeg(el,"f",v=>{progFilter=v;renderUpcoming();});return;}
@@ -351,8 +377,8 @@ function renderUpcoming(){
         <div class="mu">
           <div class="side">${badge(u.away)}<span class="nm">${esc(T(u.away)[0])}</span><em>vieras</em></div>
           <div class="side">${badge(u.home)}<span class="nm">${esc(T(u.home)[0])}</span><em>koti</em></div>
-          ${u.venue?`<div class="venue">📍 ${esc(u.venue)}</div>`:""}
-          ${gkInfo.length?`<div class="pg">🥅 ${gkInfo.map(x=>`<b>${esc(x.team)}</b> ${esc(x.name)}${fiBadge(x.name,x.team)} <span class="na">(${esc(x.status)})</span>`).join(" · ")}</div>`:""}
+          ${u.venue?`<div class="venue">${IC("pin")}${esc(u.venue)}</div>`:""}
+          ${gkInfo.length?`<div class="pg">${IC("goalie")}${gkInfo.map(x=>`<b>${esc(x.team)}</b> ${esc(x.name)}${fiBadge(x.name,x.team)} <span class="na">(${esc(x.status)})</span>`).join(" · ")}</div>`:""}
           ${(FINN_BY_TEAM[u.away]||[]).length||(FINN_BY_TEAM[u.home]||[]).length?`<div class="chips">${finnChips(u.away)}${finnChips(u.home)}</div>`:""}
         </div></div>`;
     }
@@ -566,7 +592,7 @@ function initSearch(){
 }
 function initFav(){
   const sel=document.getElementById("fav");
-  sel.innerHTML=`<option value="">⭐ Oma</option>`+Object.keys(TEAMS).sort((a,b)=>T(a)[0].localeCompare(T(b)[0],"fi")).map(k=>`<option value="${k}" ${k===FAV?"selected":""}>${esc(T(k)[0])} (${k})</option>`).join("");
+  sel.innerHTML=`<option value="">Joukkue</option>`+Object.keys(TEAMS).sort((a,b)=>T(a)[0].localeCompare(T(b)[0],"fi")).map(k=>`<option value="${k}" ${k===FAV?"selected":""}>${esc(T(k)[0])} (${k})</option>`).join("");
   sel.onchange=()=>{FAV=sel.value;try{localStorage.setItem("nhlaamu-fav",FAV)}catch(e){} if(!FAV&&progFilter==="fav")progFilter="all"; renderAll();};
 }
 function renderAll(){renderResults(); renderUpcoming(); renderFinns(); renderLeaders(); renderStandings();}
@@ -591,7 +617,6 @@ async function init(){
   document.getElementById("upd").innerHTML="Päivitetty<br>"+esc(fiDate(D.updated,{day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"}));
   if(D.notice) document.getElementById("notice").innerHTML=`<div class="notice"><span class="flag"></span><div><b>${esc(D.notice.title)}</b><small>${esc(D.notice.text)}</small></div></div>`;
   initFav(); renderAll(); initSearch();
-  document.getElementById("src").innerHTML="Tiedot:<ul>"+(D.sources||[]).map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></li>`).join("")+"</ul>";
   route();
 }
 init();

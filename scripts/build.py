@@ -50,6 +50,61 @@ TEAMS = {
     "TOR": ("Toronto Maple Leafs", "Maple Leafs"), "UTA": ("Utah Mammoth", "Mammoth"), "VAN": ("Vancouver Canucks", "Canucks"),
     "VGK": ("Vegas Golden Knights", "Golden Knights"), "WPG": ("Winnipeg Jets", "Jets"), "WSH": ("Washington Capitals", "Capitals"),
 }
+COLORS = {"ANA": "#F47A38", "BOS": "#B8860B", "BUF": "#003087", "CAR": "#CE1126", "CBJ": "#002654", "CGY": "#C8102E", "CHI": "#CF0A2C",
+          "COL": "#6F263D", "DAL": "#006847", "DET": "#CE1126", "EDM": "#FF4C00", "FLA": "#C8102E", "LAK": "#3a3a3a", "MIN": "#154734",
+          "MTL": "#AF1E2D", "NJD": "#CE1126", "NSH": "#B8860B", "NYI": "#00539B", "NYR": "#0038A8", "OTT": "#C52032", "PHI": "#F74902",
+          "PIT": "#9c7c0c", "SEA": "#00837a", "SJS": "#006D75", "STL": "#002F87", "TBL": "#002868", "TOR": "#00205B", "UTA": "#4a8fc4",
+          "VAN": "#00205B", "VGK": "#8a7a4f", "WPG": "#041E42", "WSH": "#C8102E"}
+# Yhtenäinen kuvakesarja (24x24, viiva = currentColor)
+ICONS = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
+         '<symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></g></symbol>'
+         '<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3.2l2.6 5.5 6 .8-4.4 4.1 1.1 5.9L12 16.6l-5.3 2.9 1.1-5.9L3.4 9.5l6-.8z"/></symbol>'
+         '<symbol id="i-goalie" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 19V8l3-3h12l3 3v11"/><path d="M3 19h18M7 19v-7h10v7M7 12l-3-3M17 12l3-3"/></g></symbol>'
+         '<symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6.5-6.2-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>'
+         '<symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>'
+         '<symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>'
+         '<symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></symbol>'
+         '</svg>')
+
+
+def ic(name, cls="ic"):
+    return f'<svg class="{cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
+
+
+FLAG = '<span class="flag" aria-hidden="true"></span>'
+
+
+def tbadge(a, cls="badge"):
+    if not a:
+        return f'<span class="{cls}" style="background:#2a3646" title="Ei NHL-joukkuetta">–</span>'
+    return f'<span class="{cls}" style="background:{COLORS.get(a, "#445")}" title="{esc(TEAMS.get(a, (a,))[0])}">{esc(a)}</span>'
+
+
+NAV = [("/", "Tulokset"), ("/otteluohjelma/", "Ohjelma"), ("/suomalaiset/", "Suomalaiset"), ("/pisteporssi/", "Pistepörssi"),
+       ("/sarjataulukko/", "Sarjataulukko"), ("/ottelut/", "Arkisto")]
+
+
+def site_header(path=""):
+    def on(h):
+        return h == path or (h != "/" and path.startswith(h)) or (h == "/ottelut/" and path.startswith("/ottelut/"))
+    nav = "".join(f'<a href="{h}"{" class=on" if on(h) else ""}>{FLAG if h == "/suomalaiset/" else ""}{t}</a>' for h, t in NAV)
+    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a>'
+            f'<form class="q" action="/" method="get" role="search">{ic("search")}<input type="search" name="q" placeholder="Hae pelaajaa tai joukkuetta" aria-label="Hae pelaajaa tai joukkuetta"></form></header>'
+            f'<nav class="pills" aria-label="Päävalikko">{nav}</nav>')
+
+
+def boxify(html):
+    """Jakaa artikkelin <h2>-otsikoiden kohdalta korttiosioiksi."""
+    m = re.match(r"(?s)^\s*<article>(.*)</article>\s*$", html)
+    inner = m.group(1) if m else html
+    parts = re.split(r"(?=<h2[ >])", inner)
+    out = parts[0]
+    parts = [re.sub(r"(?s)(?<!<div class='tw'>)(<table class='t'>.*?</table>)", r"<div class='tw'>\1</div>", x) for x in parts]
+    for prt in parts[1:]:
+        out += f'<section class="box">{prt}</section>'
+    return f"<article>{out}</article>" if m else out
+
+
 ALIAS = {"LA": "LAK", "TB": "TBL", "NJ": "NJD", "SJ": "SJS", "UTAH": "UTA"}
 CONF = {"Eastern": "Itä", "Western": "Länsi", "E": "Itä", "W": "Länsi"}
 DIV_ORDER = ["Atlantic", "Metropolitan", "Central", "Pacific"]
@@ -816,16 +871,21 @@ def page(title, desc, path, body, jsonld=None):
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
 <meta property="og:image" content="{base}/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
-<body><div class="wrap"><header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="34" height="34"><span>PUNA<b>LAMPPU</b></span></a>
-<form class="q" action="/" method="get" role="search"><input type="search" name="q" placeholder="Hae pelaajaa" aria-label="Hae pelaajaa tai joukkuetta"><button type="submit" aria-label="Hae">🔍</button></form></header>
-<nav class="crumbs"><a href="/">Tulokset</a> · <a href="/otteluohjelma/">Otteluohjelma</a> · <a href="/suomalaiset/">Suomalaiset</a> · <a href="/pisteporssi/">Pistepörssi</a> · <a href="/sarjataulukko/">Sarjataulukko</a> · <a href="/ottelut/">Arkisto</a></nav>
-<main>{body}</main>{footer()}</div></body></html>"""
+<body><div class="wrap">{site_header(path)}
+<main>{boxify(body)}</main>{footer()}</div></body></html>"""
 
 
 def footer():
-    return (f'<footer class="foot"><p>{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
-            'tai sen joukkueisiin. NHL ja joukkueiden nimet ovat omistajiensa tavaramerkkejä. Tulos- ja tilastotiedot: NHL.com.</p>'
-            '<p><a href="/tietoa.html">Tietoa sivustosta</a> · <a href="/yhteys.html">Ota yhteyttä</a> · <a href="/tietosuoja.html">Tietosuoja</a></p></footer>')
+    return ('<footer class="foot"><div class="fgrid">'
+            '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>PUNA<b>LAMPPU</b></span></a>'
+            '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
+            '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/ottelut/">Otteluarkisto</a></div>'
+            '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a></div>'
+            '<div><h4>Sivusto</h4><a href="/tietoa.html">Tietoa sivustosta</a><a href="/yhteys.html">Ota yhteyttä</a><a href="/tietosuoja.html">Tietosuoja</a></div>'
+            '</div>'
+            f'<p class="legal">{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
+            'tai sen joukkueisiin. NHL ja joukkueiden nimet ovat omistajiensa tavaramerkkejä. Tulos- ja tilastotiedot: NHL.com. '
+            'Edistyneet tilastot: MoneyPuck.com. Maalikoosteet: NHL / YouTube.</p></footer>')
 
 
 def tname(a):
@@ -846,9 +906,9 @@ def yt_url(gd, g):
 def video_block(g, gd):
     vid = g.get("videoId")
     if not vid or not re.fullmatch(r"[A-Za-z0-9_-]{6,20}", vid):
-        return ('<section id="kooste" class="yt wait"><b>▶ Maalikooste tulossa</b>'
+        return (f'<section id="kooste" class="yt wait"><b>{ic("clock")}Maalikooste tulossa</b>'
                 '<p class="mute">Kooste ilmestyy tälle sivulle automaattisesti, kun NHL julkaisee sen YouTubessa – yleensä muutaman tunnin kuluessa ottelun päättymisestä.</p></section>')
-    return (f'<section id="kooste" class="yt" data-id="{vid}"><button type="button" class="play" onclick="kaYT(this.parentNode)"><span>▶</span>Katso maalikooste</button>'
+    return (f'<section id="kooste" class="yt" data-id="{vid}"><button type="button" class="play" onclick="kaYT(this.parentNode)"><span>{ic("play")}</span>Katso maalikooste</button>'
             f'<p class="mute">Video: NHL / YouTube. Video ladataan YouTubesta vasta painettaessa (YouTube voi tällöin asettaa evästeitä).</p></section>'
             '<script>function kaYT(d){d.innerHTML=\'<iframe src="https://www.youtube-nocookie.com/embed/\'+d.dataset.id+\'?autoplay=1&rel=0&playsinline=1" title="Maalikooste – NHL / YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="mute">Video: NHL / YouTube</p>\'}</script>')
 
@@ -871,7 +931,7 @@ def fin_table(g, slugs):
     lk = lambda n: f'<a href="/suomalaiset/{slugs[n]}.html">{esc(n)}</a>' if n in slugs else esc(n)
     sk = sorted([r for r in rows if r.get("pos") != "MV"], key=lambda r: (-r.get("p", 0), -r.get("g", 0)))
     gk = [r for r in rows if r.get("pos") == "MV"]
-    out = "<h2>🇫🇮 Suomalaiset ottelussa</h2>"
+    out = f"<h2>{FLAG}Suomalaiset ottelussa</h2>"
     if sk:
         pm = lambda v: "–" if v is None else (f"+{v}" if v > 0 else str(v))
         out += ("<div class='tw'><table class='t'><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th><th>L</th><th>Aika</th></tr>"
@@ -900,18 +960,22 @@ def render_game_page(gd, g, slugs, others=()):
         ast = f' <span class="mute">({esc(", ".join(x.get("ast") or []))})</span>' if x.get("ast") else ""
         tag = f' <span class="tag">{esc(x["tag"])}</span>' if x.get("tag") else ""
         per = "JA" if x["p"] == "JA" else f"{x['p']}. erä"
-        rows.append(f"<li><span class='mute'>{per} {esc(x['t'])}</span> <b>{esc(x['team'])}</b> {who}{tag}{ast}</li>")
-    stars = "".join(f"<li>{'★' * (s.get('star') or 1)} {esc(s['name'])} ({esc(s['team'])}) – {esc(star_line(s))}</li>" for s in g.get("threeStars", []))
-    body = f"""<article><h1>{esc(a)} – {esc(h)} <span class="sc">{esc(score_txt(g))}</span></h1>
-<p class="mute">{esc(fi_date(gd).capitalize())}{(' · ' + esc(g['venue'])) if g.get('venue') else ''}</p>
-{f'<p>{esc(g["note"])}</p>' if g.get('note') else ''}
+        rows.append(f"<li class='grow'><span class='gt'>{per}<br>{esc(x['t'])}</span>{tbadge(x['team'], 'mini')}<span>{who}{tag}{ast}</span></li>")
+    stars = "".join(f"<li class='grow'><span class='gt'>{s.get('star') or 1}. tähti</span>{tbadge(s['team'], 'mini')}<span>{esc(s['name'])} <span class='mute'>– {esc(star_line(s))}</span></span></li>" for s in g.get("threeStars", []))
+    aw = (g.get("awayScore") or 0) > (g.get("homeScore") or 0)
+    fin = "Päättyi" + (f" · {g['final']}" if g.get("final") else "")
+    body = f"""<article><header class="ghero"><p class="gdate">{esc(fi_date(gd).capitalize())}{(' · ' + ic('pin') + esc(g['venue'])) if g.get('venue') else ''}</p>
+<div class="score"><div class="team">{tbadge(g['away'], 'badge lg')}<b>{esc(a)}</b><small>vieras</small></div>
+<div class="mid"><div class="nums"><span class="{'' if aw else 'l'}">{g.get('awayScore')}</span>–<span class="{'l' if aw else ''}">{g.get('homeScore')}</span></div><div class="fin">{esc(fin)}</div></div>
+<div class="team">{tbadge(g['home'], 'badge lg')}<b>{esc(h)}</b><small>koti</small></div></div>
+<h1>{esc(a)} – {esc(h)} {esc(score_txt(g))}</h1>{f'<p class="gnote">{esc(g["note"])}</p>' if g.get('note') else ''}</header>
 {video_block(g, gd)}
 {fin_table(g, slugs)}
-<h2>Maalit</h2><ol class="goals">{''.join(rows) or '<li class="mute">Ei maalitietoja.</li>'}</ol>
-{f'<h2>Maalivahdit</h2><p>{esc(g["goalies"])}</p>' if g.get('goalies') else ''}
-{f'<h2>Ottelun tähdet</h2><ul>{stars}</ul>' if stars else ''}
-{('<h2>Saman yön muut ottelut</h2><ul class="others">' + ''.join(f"<li><a href='/ottelut/{game_slug(gd, o)}.html'>{esc(tname(o['away']))} – {esc(tname(o['home']))} <b>{esc(score_txt(o))}</b></a>{' <span class=mute>▶ kooste</span>' if o.get('videoId') else ''}</li>" for o in others) + '</ul>') if others else ''}
-<p class="btns"><a class="btn" href="/">Yön kaikki tulokset</a> <a class="btn alt" href="/#suomalaiset">Suomalaiset</a> <a class="btn alt" href="/ottelut/">Arkisto</a></p></article>"""
+<h2>Maalit</h2><ol class="rows">{''.join(rows) or '<li class="mute">Ei maalitietoja.</li>'}</ol>
+{f'<h2>Maalivahdit</h2><p>{ic("goalie")}{esc(g["goalies"])}</p>' if g.get('goalies') else ''}
+{f'<h2>Ottelun tähdet</h2><ul class="rows">{stars}</ul>' if stars else ''}
+{('<h2>Saman yön muut ottelut</h2><ul class="rows">' + ''.join(f"<li><a class='mrow' href='/ottelut/{game_slug(gd, o)}.html'>{tbadge(o['away'], 'mini')}<span>{esc(tname(o['away']))} – {esc(tname(o['home']))}</span>{tbadge(o['home'], 'mini')}<b>{esc(score_txt(o))}</b>{ic('play', 'ic vid') if o.get('videoId') else ''}{ic('chev')}</a></li>" for o in others) + '</ul>') if others else ''}
+</article>"""
     jsonld = {"@context": "https://schema.org", "@type": "SportsEvent", "name": f"{a} – {h}", "sport": "Jääkiekko",
               "startDate": g.get("start") or gd, "eventStatus": "https://schema.org/EventScheduled",
               "awayTeam": {"@type": "SportsTeam", "name": a}, "homeTeam": {"@type": "SportsTeam", "name": h},
@@ -938,7 +1002,7 @@ def build_site(data):
     idx = open(os.path.join(WEB, "index.html"), encoding="utf-8").read()
     idx = (idx.replace("{{SITE}}", esc(CFG["siteName"])).replace("{{TAGLINE}}", esc(CFG["tagline"]))
               .replace("{{DESC}}", esc(desc[:300])).replace("{{CANONICAL}}", base + "/").replace("{{SSR}}", ssr)
-              .replace("{{FOOTER}}", footer()))
+              .replace("{{FOOTER}}", footer()).replace("{{ICONS}}", ICONS))
     idx = idx.replace("{{JSONLD}}", json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": CFG["siteName"],
                                                  "url": base + "/", "inLanguage": "fi"}, ensure_ascii=False))
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(idx)
@@ -952,7 +1016,8 @@ def build_site(data):
             s = (s.replace("{{SITE}}", esc(CFG["siteName"])).replace("{{BASE}}", base)
                   .replace("{{FORMKEY}}", esc(CFG.get("contactFormKey") or ""))
                   .replace("{{OWNER}}", esc(CFG.get("ownerName") or "Punalampun ylläpitäjä"))
-                  .replace("{{FOOTER}}", footer()))
+                  .replace("{{FOOTER}}", footer()).replace("{{HEADER}}", site_header("/" + fn)))
+            s = re.sub(r"(?s)<main>(.*?)</main>", lambda m: "<main>" + boxify(m.group(1)) + "</main>", s)
             open(p, "w", encoding="utf-8").write(s)
 
     # --- ottelusivut arkistosta
@@ -970,7 +1035,7 @@ def build_site(data):
             path = f"/ottelut/{game_slug(d, g)}.html"
             open(os.path.join(OUT, path.lstrip("/")), "w", encoding="utf-8").write(page(title, desc_g, path, body, jl))
             urls.append(path)
-            lis.append(f"<li><a href='{path}'>{esc(tname(g['away']))} – {esc(tname(g['home']))} {esc(score_txt(g))}</a></li>")
+            lis.append(f"<li><a class='mrow' href='{path}'>{tbadge(g['away'], 'mini')}<span>{esc(tname(g['away']))} – {esc(tname(g['home']))}</span>{tbadge(g['home'], 'mini')}<b>{esc(score_txt(g))}</b>{ic('chev')}</a></li>")
         if lis:
             days.append(f"<h2>{esc(fi_date(d).capitalize())}</h2><ul>{''.join(lis)}</ul>")
     open(os.path.join(OUT, "ottelut", "index.html"), "w", encoding="utf-8").write(
@@ -997,7 +1062,7 @@ def build_site(data):
         f"Suomalaiset NHL:ssä {season_label(gd)} – pisteet ja tilastot | {CFG['siteName']}",
         f"Kaikki suomalaiset NHL-pelaajat kaudella {season_label(gd)}: pisteet, maalit ja maalivahtitilastot päivittäin.",
         "/suomalaiset/",
-        f"<h1>Suomalaiset NHL:ssä {season_label(gd)}</h1><table class='t'><tr><th>Pelaaja</th><th>Joukkue</th><th>O</th><th>M</th><th>S</th><th>P</th></tr>{''.join(rows)}</table>"
+        f"<h1>Suomalaiset NHL:ssä {season_label(gd)}</h1><h2>Kenttäpelaajat</h2><div class='tw'><table class='t'><tr><th>Pelaaja</th><th>Joukkue</th><th>O</th><th>M</th><th>S</th><th>P</th></tr>{''.join(rows)}</table></div>"
         + "<h2>Maalivahdit</h2><ul>" + "".join(f"<li><a href='/suomalaiset/{slugs[f[0]]}.html'>{esc(f[0])}</a> ({esc(f[1])}) {f[2]} ott., TO% {esc(f[6])}</li>" for f in data["finnGoalies"]) + "</ul>"))
 
     # --- hakusanojen mukaiset koostesivut
@@ -1012,7 +1077,7 @@ def build_site(data):
         nm = esc(p[0])
         if p[0] in slugs:
             nm = f"<a href='/suomalaiset/{slugs[p[0]]}.html'>{nm}</a> <span class='fi'>FIN</span>"
-        return f"<tr><td>{i}. {nm}</td><td>{esc(p[1])}</td><td>{p[2]}</td><td>{p[3]}</td><td>{p[4]}</td><td><b>{p[5]}</b></td></tr>"
+        return f"<tr><td>{i}. {nm}</td><td>{tbadge(p[1], 'mini')}</td><td>{p[2]}</td><td>{p[3]}</td><td>{p[4]}</td><td><b>{p[5]}</b></td></tr>"
     head = "<tr><th>Pelaaja</th><th>Joukkue</th><th>O</th><th>M</th><th>S</th><th>P</th></tr>"
     sk = data["skaters"]
     by_g = sorted(sk, key=lambda x: (-x[3], -x[5]))[:20]
@@ -1020,8 +1085,8 @@ def build_site(data):
     write("/pisteporssi/", f"NHL-pistepörssi {sl} – pisteet, maalit ja syötöt | {CFG['siteName']}",
           f"NHL:n pistepörssi kaudella {sl} päivittäin päivitettynä. Kärjessä: {top3}. Myös maalipörssi, syöttöpörssi ja suomalaiset.",
           f"<h1>NHL-pistepörssi {sl}</h1><p class='mute'>Päivitetty {esc(data['updated'][:10])}. Suomalaisten oma pörssi: <a href='/suomalaiset/'>suomalaiset NHL:ssä</a>.</p>"
-          f"<table class='t'>{head}{''.join(plrow(i + 1, p) for i, p in enumerate(sk[:50]))}</table>"
-          f"<h2>Maalipörssi</h2><table class='t'>{head}{''.join(plrow(i + 1, p) for i, p in enumerate(by_g))}</table>")
+          f"<h2>Pistepörssi – top 50</h2><div class='tw'><table class='t'>{head}{''.join(plrow(i + 1, p) for i, p in enumerate(sk[:50]))}</table></div>"
+          f"<h2>Maalipörssi</h2><div class='tw'><table class='t'>{head}{''.join(plrow(i + 1, p) for i, p in enumerate(by_g))}</table></div>")
     srows = ""
     for dv in data["standings"]:
         tl = sorted(dv["teams"], key=lambda t: (-t[5], t[1]))
@@ -1038,7 +1103,7 @@ def build_site(data):
     for d, lst in sorted(days.items()):
         orows += f"<h2>{esc(fi_date(d).capitalize())}</h2><ul>" + "".join(
             f"<li><b>{esc(fi_time(u['start']))}</b> {esc(tname(u['away']))} – {esc(tname(u['home']))}{(' · ' + esc(u['venue'])) if u.get('venue') else ''}"
-            + (f" <span class='mute'>(🇫🇮 {esc(', '.join(short_name(n) for n in finn_by_team(data, u['away'], u['home'])))})</span>" if finn_by_team(data, u['away'], u['home']) else "")
+            + (f" <span class='fins'>{FLAG}{esc(', '.join(short_name(n) for n in finn_by_team(data, u['away'], u['home'])))}</span>" if finn_by_team(data, u['away'], u['home']) else "")
             + "</li>" for u in sorted(lst, key=lambda x: x["start"] or "")) + "</ul>"
     write("/otteluohjelma/", f"NHL-otteluohjelma – tulevat ottelut Suomen aikaa | {CFG['siteName']}",
           "NHL:n otteluohjelma seuraavalle viikolle Suomen ajassa. Näet myös, missä otteluissa suomalaiset pelaavat.",
@@ -1073,7 +1138,7 @@ def recent_goals(name, limit=5):
     for d, g, x in _GOALS_CACHE:
         if x.get("who") == name:
             opp = g["home"] if x["team"] == g["away"] else g["away"]
-            out.append(f"<li>{esc(fi_date(d))}: vs {esc(tname(opp))} – <a href='/ottelut/{game_slug(d, g)}.html'>ottelu</a></li>")
+            out.append(f"<li><a class='mrow' href='/ottelut/{game_slug(d, g)}.html'><span class='gt'>{esc(fi_short(d))}</span><span>Maali vs {esc(tname(opp))}</span>{tbadge(opp, 'mini')}{ic('chev')}</a></li>")
         if len(out) >= limit:
             break
     return "".join(out)
@@ -1184,19 +1249,43 @@ def render_player(name, t, pos, f, is_goalie, data, gd, slugs):
         nxt_html = (f"<h2>Seuraava ottelu</h2><p>{esc(team_full)} – {esc(tname(opp))}: {['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'][st_.weekday()]} {st_.day}.{st_.month}. klo {st_:%H.%M} Suomen aikaa"
                     + (f" ({esc(nxt['venue'])})" if nxt.get("venue") else "") + ". <a href='/otteluohjelma/'>Koko otteluohjelma</a></p>")
     mates = [n for n in finn_by_team(data, t) if n != name] if t else []
-    mates_html = ("<p>Muut suomalaiset joukkueessa: " + ", ".join(f"<a href='/suomalaiset/{slugs[n]}.html'>{esc(n)}</a>" for n in mates if n in slugs) + ".</p>") if mates else ""
+    mates_html = ("<ul class='rows'>" + "".join(f"<li><a class='mrow' href='/suomalaiset/{slugs[n]}.html'>{tbadge(t, 'mini')}<span>{esc(n)}</span>{ic('chev')}</a></li>" for n in mates if n in slugs) + "</ul>") if mates else ""
     recent = recent_goals(name)
     # usein kysytyt
     faq = [(f"Missä joukkueessa {name} pelaa?", f"{name} pelaa NHL:ssä {team_full} -joukkueessa." if team_full else f"{name} ei ole tällä hetkellä NHL-kokoonpanossa.")]
     faq.append((f"Paljonko {name} on tehnyt pisteitä kaudella {sl}?" if not is_goalie else f"Millaiset tilastot {name} on tehnyt kaudella {sl}?", season_line))
     faq_html = "<h2>Usein kysyttyä</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faq)
-    body = (f"<article><h1>{esc(name)}</h1><p class='mute'>{esc(team_full or 'NHL')} · {posn}</p>"
-            f"<p>{lead} {esc(born)} {esc(season_line)}</p>"
-            + (f"<p class='mute'>{esc(', '.join(phys).capitalize())}. {draft}</p>" if phys or draft else "")
+    if is_goalie:
+        tiles = [("Ottelut", f[2]), ("V–H–JA", f"{f[3]}–{f[4]}–{f[5]}"), ("TO%", f[6]), ("PMK", f[7])]
+    else:
+        tiles = [("Ottelut", f[3]), ("Maalit", f[4]), ("Syötöt", f[5]), ("Pisteet", f[6])]
+    facts = []
+    if age:
+        facts.append(("Ikä", f"{age} v"))
+    if pr.get("birthDate"):
+        try:
+            bd = dt.date.fromisoformat(pr["birthDate"])
+            facts.append(("Syntynyt", f"{bd.day}.{bd.month}.{bd.year}" + (f", {L(pr.get('birthCity'))}" if L(pr.get("birthCity")) else "")))
+        except ValueError:
+            pass
+    if pr.get("heightInCentimeters"):
+        facts.append(("Pituus", f"{pr['heightInCentimeters']} cm"))
+    if pr.get("weightInKilograms"):
+        facts.append(("Paino", f"{pr['weightInKilograms']} kg"))
+    if pr.get("shootsCatches"):
+        facts.append(("Kiinniottokäsi" if is_goalie else "Kätisyys", {"L": "vasen", "R": "oikea"}.get(pr["shootsCatches"], pr["shootsCatches"])))
+    if dd.get("year"):
+        facts.append(("NHL-varaus", f"{dd.get('year')}, {dd.get('round')}. kierros ({dd.get('overallPick')}.), {team(dd.get('teamAbbrev')) or ''}"))
+    numtxt = f" · #{pr['sweaterNumber']}" if pr.get("sweaterNumber") else ""
+    hero = (f"<header class='phero' style='--tc:{COLORS.get(t, '#2a3646')}'>{tbadge(t, 'badge lg')}<div><h1>{esc(name)}</h1>"
+            f"<p class='sub'>{FLAG}{esc(team_full or 'Ei NHL-joukkuetta')} · {posn}{numtxt}</p></div></header>"
+            "<div class='tiles'>" + "".join(f"<div class='tile'><b>{v if v not in (None, '') else '–'}</b><small>{k}</small></div>" for k, v in tiles) + "</div>")
+    facts_html = ("<dl class='facts'>" + "".join(f"<div><dt>{k}</dt><dd>{esc(v)}</dd></div>" for k, v in facts) + "</dl>") if facts else ""
+    body = (f"<article>{hero}<p class='lead'>{lead} {esc(born)} {esc(season_line)}</p>{facts_html}"
             + f"<h2>Kausi {sl}</h2><div class='tw'>{stat_tbl}</div>{mp_block(name, FINN_PID.get(name), is_goalie, data)}{l5html}"
-            + (f"<h2>Viimeisimmät maalit</h2><ul>{recent}</ul>" if recent else "")
-            + nxt_html + career + mates_html + faq_html
-            + "<p><a href='/suomalaiset/'>← Kaikki suomalaiset NHL:ssä</a></p></article>")
+            + (f"<h2>Viimeisimmät maalit</h2><ul class='rows'>{recent}</ul>" if recent else "")
+            + nxt_html + career + (f"<h2>Joukkuetoverit</h2>{mates_html}" if mates_html else "") + faq_html
+            + "</article>")
     title = f"{name} – tilastot, pisteet ja ottelut {sl} | {CFG['siteName']}" if not is_goalie else f"{name} – maalivahtitilastot ja ottelut {sl} | {CFG['siteName']}"
     base = CFG["baseUrl"].rstrip("/")
     person = {"@type": "Person", "name": name, "nationality": {"@type": "Country", "name": "Suomi"}, "jobTitle": f"jääkiekon {posn}",

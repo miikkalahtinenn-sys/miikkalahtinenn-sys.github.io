@@ -581,7 +581,8 @@ def resolve_free_games(hel_today):
     items = CFG.get("freeGames") or []
     path = os.path.join(DATA, "freetv.json")
     cache = load_json(path, {})
-    if cache.get("date") != hel_today.isoformat():
+    sig = json.dumps(items, sort_keys=True)
+    if cache.get("date") != hel_today.isoformat() or cache.get("sig") != sig:
         sched, weeks = {}, set()
         for it in items:
             d = dt.date.fromisoformat(it["date"])
@@ -596,7 +597,7 @@ def resolve_free_games(hel_today):
                 for g in day.get("games") or []:
                     a, h = team(g["awayTeam"].get("abbrev")), team(g["homeTeam"].get("abbrev"))
                     sched[f"{min(a, h)}-{max(a, h)}-{day.get('date')}"] = {"away": a, "home": h, "start": g.get("startTimeUTC"), "et": day.get("date")}
-        cache = {"date": hel_today.isoformat(), "sched": sched}
+        cache = {"date": hel_today.isoformat(), "sig": sig, "sched": sched}
         save_json(path, cache)
     sched = cache.get("sched") or {}
     arch = {}

@@ -1,4 +1,4 @@
-# Kiekkotulokset
+# Punalamppu
 
 Suomenkielinen NHL-sivusto: yön tulokset, maalit, maalikoostelinkit, tulevat ottelut, sarjataulukko, pistepörssi ja kaikki suomalaiset.
 Sivusto päivittyy itsestään GitHub Actionsilla: otteluiden aikaan (n. klo 0–9 Suomen aikaa) 10 minuutin välein, muulloin kerran tunnissa.

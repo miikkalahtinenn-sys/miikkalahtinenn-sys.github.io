@@ -16,6 +16,7 @@ on:
 permissions:
   contents: write
   pages: write
+  deployments: read
   id-token: write
 
 concurrency:

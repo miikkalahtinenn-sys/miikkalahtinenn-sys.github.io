@@ -1,5 +1,5 @@
 {
- "date": "2026-11-06",
+ "date": "2026-11-07",
  "sig": "[{\"ch\": \"Star Channel\", \"date\": \"2026-10-03\", \"teams\": [\"CAR\", \"WSH\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-10-04\", \"teams\": [\"DET\", \"WPG\"]}, {\"ch\": \"Star Channel\", \"date\": \"2026-10-10\", \"teams\": [\"SJS\", \"EDM\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-10-11\", \"teams\": [\"SEA\", \"WSH\"]}, {\"ch\": \"Star Channel\", \"date\": \"2026-10-12\", \"teams\": [\"BUF\", \"FLA\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-10-17\", \"teams\": [\"VAN\", \"TBL\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-10-25\", \"teams\": [\"CHI\", \"FLA\"]}, {\"ch\": \"Star Channel\", \"date\": \"2026-10-26\", \"teams\": [\"DAL\", \"NYI\"]}, {\"ch\": \"Star Channel\", \"date\": \"2026-10-31\", \"teams\": [\"BOS\", \"CHI\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-11-01\", \"teams\": [\"CAR\", \"WPG\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-11-08\", \"teams\": [\"BOS\", \"FLA\"]}, {\"ch\": \"Viaplay TV\", \"date\": \"2026-11-08\", \"teams\": [\"CHI\", \"CAR\"]}, {\"ch\": \"Viaplay TV\", \"date\": \"2026-11-12\", \"teams\": [\"SEA\", \"CAR\"]}, {\"ch\": \"Viaplay TV\", \"date\": \"2026-11-14\", \"teams\": [\"CAR\", \"SEA\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-11-22\", \"teams\": [\"NYR\", \"CAR\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-11-29\", \"teams\": [\"CHI\", \"MIN\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-12-06\", \"teams\": [\"PIT\", \"SJS\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-12-13\", \"teams\": [\"CAR\", \"BOS\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-12-20\", \"teams\": [\"BOS\", \"PHI\"]}, {\"ch\": \"MTV Sub\", \"date\": \"2026-12-27\", \"teams\": [\"CHI\", \"PHI\"]}]",
  "sched": {
   "FLA-WSH-2026-11-07": {
@@ -491,7 +491,7 @@
   "COL-UTA-2026-11-18": {
    "away": "COL",
    "home": "UTA",
-   "start": "2026-11-19T02:00:00Z",
+   "start": "2026-11-19T03:00:00Z",
    "et": "2026-11-18"
   },
   "LAK-TOR-2026-11-19": {

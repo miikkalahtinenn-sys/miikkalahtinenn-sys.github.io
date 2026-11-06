@@ -30,20 +30,20 @@
   "season": 20262027,
   "regularSeason": {
    "subSeason": {
-    "gamesPlayed": 11,
-    "goalsAgainstAvg": 3.305595,
-    "losses": 5,
+    "gamesPlayed": 12,
+    "goalsAgainstAvg": 3.557867,
+    "losses": 6,
     "otLosses": 1,
-    "savePctg": 0.897436,
+    "savePctg": 0.888563,
     "shutouts": 0,
     "wins": 2
    },
    "career": {
-    "gamesPlayed": 45,
-    "goalsAgainstAvg": 3.070087,
-    "losses": 19,
+    "gamesPlayed": 46,
+    "goalsAgainstAvg": 3.140874,
+    "losses": 20,
     "otLosses": 4,
-    "savePctg": 0.888589,
+    "savePctg": 0.886165,
     "shutouts": 3,
     "wins": 18
    }
@@ -52,22 +52,37 @@
  "careerTotals": {
   "regularSeason": {
    "assists": 0,
-   "gamesPlayed": 45,
-   "gamesStarted": 41,
+   "gamesPlayed": 46,
+   "gamesStarted": 42,
    "goals": 0,
-   "goalsAgainst": 124,
-   "goalsAgainstAvg": 3.070087,
-   "losses": 19,
+   "goalsAgainst": 130,
+   "goalsAgainstAvg": 3.140874,
+   "losses": 20,
    "otLosses": 4,
    "pim": 0,
-   "savePctg": 0.888589,
-   "shotsAgainst": 1113,
+   "savePctg": 0.886165,
+   "shotsAgainst": 1142,
    "shutouts": 3,
-   "timeOnIce": "2423:23",
+   "timeOnIce": "2483:23",
    "wins": 18
   }
  },
  "last5Games": [
+  {
+   "decision": "L",
+   "gameDate": "2026-11-05",
+   "gameId": 2026020259,
+   "gameTypeId": 2,
+   "gamesStarted": 1,
+   "goalsAgainst": 6,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "WPG",
+   "penaltyMins": 0,
+   "savePctg": 0.793103,
+   "shotsAgainst": 29,
+   "teamAbbrev": "VAN",
+   "toi": "60:00"
+  },
   {
    "decision": "L",
    "gameDate": "2026-10-31",
@@ -127,21 +142,6 @@
    "shotsAgainst": 34,
    "teamAbbrev": "VAN",
    "toi": "57:06"
-  },
-  {
-   "decision": "L",
-   "gameDate": "2026-10-20",
-   "gameId": 2026020150,
-   "gameTypeId": 2,
-   "gamesStarted": 1,
-   "goalsAgainst": 5,
-   "homeRoadFlag": "H",
-   "opponentAbbrev": "CAR",
-   "penaltyMins": 0,
-   "savePctg": 0.883721,
-   "shotsAgainst": 43,
-   "teamAbbrev": "VAN",
-   "toi": "59:11"
   }
  ],
  "isActive": true,
@@ -243,19 +243,19 @@
   {
    "assists": 0,
    "gameTypeId": 2,
-   "gamesPlayed": 11,
-   "gamesStarted": 9,
+   "gamesPlayed": 12,
+   "gamesStarted": 10,
    "goals": 0,
-   "goalsAgainst": 32,
-   "goalsAgainstAvg": 3.305595,
+   "goalsAgainst": 38,
+   "goalsAgainstAvg": 3.557867,
    "leagueAbbrev": "NHL",
-   "losses": 5,
+   "losses": 6,
    "otLosses": 1,
    "pim": 0,
-   "savePctg": 0.897436,
+   "savePctg": 0.888563,
    "season": 20262027,
    "sequence": 1,
-   "shotsAgainst": 312,
+   "shotsAgainst": 341,
    "shutouts": 0,
    "teamCommonName": {
     "default": "Canucks"
@@ -268,9 +268,9 @@
     "default": "Vancouver",
     "fr": "de Vancouver"
    },
-   "timeOnIce": "580:50",
+   "timeOnIce": "640:50",
    "wins": 2
   }
  ],
- "_fetched": "2026-11-06"
+ "_fetched": "2026-11-07"
 }

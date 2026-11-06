@@ -38,7 +38,7 @@
    "subSeason": {
     "assists": 4,
     "gameWinningGoals": 1,
-    "gamesPlayed": 13,
+    "gamesPlayed": 14,
     "goals": 2,
     "otGoals": 0,
     "pim": 4,
@@ -54,7 +54,7 @@
    "career": {
     "assists": 372,
     "gameWinningGoals": 24,
-    "gamesPlayed": 840,
+    "gamesPlayed": 841,
     "goals": 186,
     "otGoals": 2,
     "pim": 148,
@@ -75,7 +75,7 @@
    "avgToi": "16:52",
    "faceoffWinningPctg": 0.4454,
    "gameWinningGoals": 24,
-   "gamesPlayed": 840,
+   "gamesPlayed": 841,
    "goals": 186,
    "otGoals": 2,
    "pim": 148,
@@ -108,6 +108,24 @@
   }
  },
  "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-05",
+   "gameId": 2026020253,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "R",
+   "opponentAbbrev": "TBL",
+   "pim": 0,
+   "plusMinus": 0,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 19,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "CHI",
+   "toi": "13:20"
+  },
   {
    "assists": 0,
    "gameDate": "2026-11-04",
@@ -179,24 +197,6 @@
    "shots": 1,
    "teamAbbrev": "CHI",
    "toi": "13:44"
-  },
-  {
-   "assists": 0,
-   "gameDate": "2026-10-25",
-   "gameId": 2026020180,
-   "gameTypeId": 2,
-   "goals": 0,
-   "homeRoadFlag": "H",
-   "opponentAbbrev": "FLA",
-   "pim": 0,
-   "plusMinus": 0,
-   "points": 0,
-   "powerPlayGoals": 0,
-   "shifts": 18,
-   "shorthandedGoals": 0,
-   "shots": 0,
-   "teamAbbrev": "CHI",
-   "toi": "18:57"
   }
  ],
  "isActive": true,
@@ -896,11 +896,11 @@
   },
   {
    "assists": 4,
-   "avgToi": "14:43",
+   "avgToi": "14:37",
    "faceoffWinningPctg": 0.0,
    "gameTypeId": 2,
    "gameWinningGoals": 1,
-   "gamesPlayed": 13,
+   "gamesPlayed": 14,
    "goals": 2,
    "leagueAbbrev": "NHL",
    "otGoals": 0,
@@ -928,5 +928,5 @@
    }
   }
  ],
- "_fetched": "2026-11-06"
+ "_fetched": "2026-11-07"
 }

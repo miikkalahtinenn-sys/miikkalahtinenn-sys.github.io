@@ -32,11 +32,11 @@
    "subSeason": {
     "assists": 3,
     "gameWinningGoals": 1,
-    "gamesPlayed": 13,
+    "gamesPlayed": 14,
     "goals": 2,
     "otGoals": 1,
     "pim": 8,
-    "plusMinus": 2,
+    "plusMinus": 1,
     "points": 5,
     "powerPlayGoals": 0,
     "powerPlayPoints": 0,
@@ -48,11 +48,11 @@
    "career": {
     "assists": 15,
     "gameWinningGoals": 1,
-    "gamesPlayed": 60,
+    "gamesPlayed": 61,
     "goals": 4,
     "otGoals": 1,
     "pim": 22,
-    "plusMinus": -8,
+    "plusMinus": -9,
     "points": 19,
     "powerPlayGoals": 1,
     "powerPlayPoints": 7,
@@ -66,14 +66,14 @@
  "careerTotals": {
   "regularSeason": {
    "assists": 15,
-   "avgToi": "13:48",
+   "avgToi": "13:44",
    "faceoffWinningPctg": 0.8332999999999999,
    "gameWinningGoals": 1,
-   "gamesPlayed": 60,
+   "gamesPlayed": 61,
    "goals": 4,
    "otGoals": 1,
    "pim": 22,
-   "plusMinus": -8,
+   "plusMinus": -9,
    "points": 19,
    "powerPlayGoals": 1,
    "powerPlayPoints": 7,
@@ -84,6 +84,24 @@
   }
  },
  "last5Games": [
+  {
+   "assists": 0,
+   "gameDate": "2026-11-05",
+   "gameId": 2026020257,
+   "gameTypeId": 2,
+   "goals": 0,
+   "homeRoadFlag": "H",
+   "opponentAbbrev": "BOS",
+   "pim": 0,
+   "plusMinus": -1,
+   "points": 0,
+   "powerPlayGoals": 0,
+   "shifts": 13,
+   "shorthandedGoals": 0,
+   "shots": 0,
+   "teamAbbrev": "PIT",
+   "toi": "8:57"
+  },
   {
    "assists": 0,
    "gameDate": "2026-11-03",
@@ -155,24 +173,6 @@
    "shots": 3,
    "teamAbbrev": "PIT",
    "toi": "16:28"
-  },
-  {
-   "assists": 1,
-   "gameDate": "2026-10-22",
-   "gameId": 2026020158,
-   "gameTypeId": 2,
-   "goals": 0,
-   "homeRoadFlag": "H",
-   "opponentAbbrev": "FLA",
-   "pim": 2,
-   "plusMinus": 2,
-   "points": 1,
-   "powerPlayGoals": 0,
-   "shifts": 18,
-   "shorthandedGoals": 0,
-   "shots": 0,
-   "teamAbbrev": "PIT",
-   "toi": "13:26"
   }
  ],
  "isActive": true,
@@ -245,16 +245,16 @@
   },
   {
    "assists": 3,
-   "avgToi": "14:22",
+   "avgToi": "13:58",
    "faceoffWinningPctg": 0.666667,
    "gameTypeId": 2,
    "gameWinningGoals": 1,
-   "gamesPlayed": 13,
+   "gamesPlayed": 14,
    "goals": 2,
    "leagueAbbrev": "NHL",
    "otGoals": 1,
    "pim": 8,
-   "plusMinus": 2,
+   "plusMinus": 1,
    "points": 5,
    "powerPlayGoals": 0,
    "powerPlayPoints": 0,
@@ -277,5 +277,5 @@
    }
   }
  ],
- "_fetched": "2026-11-06"
+ "_fetched": "2026-11-07"
 }

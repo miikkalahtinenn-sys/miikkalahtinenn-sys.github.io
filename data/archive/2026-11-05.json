@@ -1730,6 +1730,250 @@
      }
     ]
    }
+  },
+  "2026020260": {
+   "id": 2026020260,
+   "away": "ANA",
+   "home": "EDM",
+   "awayScore": 5,
+   "homeScore": 4,
+   "start": "2026-11-06T01:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "09:26",
+     "team": "ANA",
+     "who": "Cutter Gauthier",
+     "tag": "YV",
+     "ast": [
+      "Jackson LaCombe",
+      "Leo Carlsson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "19:41",
+     "team": "EDM",
+     "who": "Evan Bouchard",
+     "tag": "YV",
+     "ast": [
+      "Connor McDavid",
+      "Ryan Nugent-Hopkins"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "02:34",
+     "team": "EDM",
+     "who": "Connor McDavid",
+     "tag": "AV",
+     "ast": [
+      "Leon Draisaitl",
+      "Mattias Ekholm"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "03:37",
+     "team": "ANA",
+     "who": "Pavel Mintyukov",
+     "tag": "",
+     "ast": [
+      "Beckett Sennecke",
+      "Drew Helleson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "06:15",
+     "team": "ANA",
+     "who": "Pavel Mintyukov",
+     "tag": "",
+     "ast": [
+      "Judd Caulfield",
+      "Mikael Granlund"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "19:22",
+     "team": "ANA",
+     "who": "Beckett Sennecke",
+     "tag": "",
+     "ast": [
+      "Tristan Luneau",
+      "Pavel Mintyukov"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "01:42",
+     "team": "ANA",
+     "who": "Beckett Sennecke",
+     "tag": "YV",
+     "ast": [
+      "Leo Carlsson",
+      "Cutter Gauthier"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "16:24",
+     "team": "EDM",
+     "who": "Kasperi Kapanen",
+     "tag": "YV",
+     "ast": [
+      "Ryan Nugent-Hopkins",
+      "Connor McDavid"
+     ],
+     "fin": true
+    },
+    {
+     "p": "3",
+     "t": "19:15",
+     "team": "EDM",
+     "who": "Leon Draisaitl",
+     "tag": "",
+     "ast": [
+      "Connor McDavid",
+      "Evan Bouchard"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Laurent Brossoit (ANA) 23 torjuntaa · Matt Tomkins (EDM) 16 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Pavel Mintyukov",
+     "team": "ANA",
+     "pos": "D",
+     "goals": 2,
+     "assists": 1,
+     "points": 3,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Connor McDavid",
+     "team": "EDM",
+     "pos": "C",
+     "goals": 1,
+     "assists": 3,
+     "points": 4,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Beckett Sennecke",
+     "team": "ANA",
+     "pos": "R",
+     "goals": 2,
+     "assists": 1,
+     "points": 3,
+     "svp": null
+    }
+   ],
+   "venue": "Rogers Place",
+   "finStats": [
+    {
+     "name": "Mikael Granlund",
+     "team": "ANA",
+     "opp": "EDM",
+     "pos": "H",
+     "g": 0,
+     "a": 1,
+     "p": 1,
+     "pm": 1,
+     "sog": 1,
+     "toi": "21:04"
+    },
+    {
+     "name": "Kasperi Kapanen",
+     "team": "EDM",
+     "opp": "ANA",
+     "pos": "H",
+     "g": 1,
+     "a": 0,
+     "p": 1,
+     "pm": 0,
+     "sog": 3,
+     "toi": "20:00"
+    }
+   ],
+   "note": "Suomalaiset: Granlund 0+1, Kapanen 1+0",
+   "recapUrl": "https://www.nhl.com/video/ana-at-edm-recap-6407998522112",
+   "videoId": "",
+   "details": {
+    "goalies": "Laurent Brossoit (ANA) 23 torjuntaa · Matt Tomkins (EDM) 16 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Pavel Mintyukov",
+      "team": "ANA",
+      "pos": "D",
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Connor McDavid",
+      "team": "EDM",
+      "pos": "C",
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Beckett Sennecke",
+      "team": "ANA",
+      "pos": "R",
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "svp": null
+     }
+    ],
+    "venue": "Rogers Place",
+    "finStats": [
+     {
+      "name": "Mikael Granlund",
+      "team": "ANA",
+      "opp": "EDM",
+      "pos": "H",
+      "g": 0,
+      "a": 1,
+      "p": 1,
+      "pm": 1,
+      "sog": 1,
+      "toi": "21:04"
+     },
+     {
+      "name": "Kasperi Kapanen",
+      "team": "EDM",
+      "opp": "ANA",
+      "pos": "H",
+      "g": 1,
+      "a": 0,
+      "p": 1,
+      "pm": 0,
+      "sog": 3,
+      "toi": "20:00"
+     }
+    ]
+   }
   }
  }
 }

@@ -214,6 +214,8 @@ nav a.fi-tab{display:inline-flex;align-items:center}
   .view:not(#v-tulokset).on{display:block}
 }
 @media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:13.5px;padding:7px 11px}.brand{font-size:24px}h2{font-size:24px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
+.recapc{padding:14px 16px;margin-bottom:14px}.recapc h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px}
+.recapc p{margin:0 0 9px;font-size:14px;line-height:1.6;color:#d8e2ec}.recapc .more{font-size:13px;font-weight:600}
 </style>
 </head>
 <body>
@@ -361,7 +363,8 @@ function renderResults(){
     </article>`;
   }
   h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL.com, katsottavissa ottelusivuilla. Video ladataan NHL:n palvelusta vasta, kun painat toistopainiketta.</div>`;
-  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
+  const rec=D.recap?`<section class="card recapc"><h3><span class="flag sm"></span>Suomalaisten yö</h3>${D.recap}<a class="more" href="/tulokset/${esc(D.gameDate)}/">Kaikki yön tulokset ja suomalaisten tehot →</a></section>`:"";
+  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${rec}${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 
 /* ---------- Tulevat ottelut ---------- */

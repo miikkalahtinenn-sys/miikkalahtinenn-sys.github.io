@@ -72,6 +72,18 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
 
+      - name: Julkaise aamukatsaus Blueskyyn (jos tunnukset asetettu)
+        continue-on-error: true
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          python scripts/bsky.py
+          if ! git diff --quiet -- data/bsky.json 2>/dev/null || [ -n "$(git status --porcelain data/bsky.json)" ]; then
+            git add data/bsky.json
+            git commit -m "Bluesky-julkaisu $(date -u +%Y-%m-%d)" && (git pull --rebase --autostash || true) && git push || true
+          fi
+
       - name: Ilmoita hakukoneille (IndexNow, kerran päivässä)
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '17 8-21 * * *')
         continue-on-error: true

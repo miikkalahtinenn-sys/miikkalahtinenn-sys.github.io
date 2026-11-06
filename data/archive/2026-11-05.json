@@ -49,7 +49,7 @@
      "p": "3",
      "t": "13:52",
      "team": "NYR",
-     "who": "Pavel Dorofeyev",
+     "who": "Pavel Dorofejev",
      "tag": "YV",
      "ast": [
       "Mika Zibanejad",
@@ -411,7 +411,7 @@
      "p": "1",
      "t": "06:51",
      "team": "VAN",
-     "who": "Liam Ohgren",
+     "who": "Liam Öhgren",
      "tag": "",
      "ast": [
       "Marco Rossi",
@@ -427,7 +427,7 @@
      "tag": "",
      "ast": [
       "Cole Perfetti",
-      "Dylan DeMelo"
+      "Dylan Demelo"
      ],
      "fin": false
     },
@@ -463,7 +463,7 @@
      "tag": "",
      "ast": [
       "Mark Scheifele",
-      "Dylan DeMelo"
+      "Dylan Demelo"
      ],
      "fin": false
     },
@@ -544,7 +544,7 @@
      "tag": "YV",
      "ast": [
       "Nick Schmaltz",
-      "Mikhail Sergachev"
+      "Mihail Sergatšov"
      ],
      "fin": false
     },
@@ -882,7 +882,7 @@
      "p": "1",
      "t": "18:22",
      "team": "TBL",
-     "who": "Ilya Mikheyev",
+     "who": "Ilja Mihejev",
      "tag": "",
      "ast": [
       "Erik Cernak",
@@ -906,7 +906,7 @@
      "p": "3",
      "t": "05:08",
      "team": "TBL",
-     "who": "Ilya Mikheyev",
+     "who": "Ilja Mihejev",
      "tag": "",
      "ast": [
       "Erik Cernak",
@@ -1308,7 +1308,7 @@
      "p": "2",
      "t": "06:44",
      "team": "CAR",
-     "who": "Andrei Svechnikov",
+     "who": "Andrei Svetšnikov",
      "tag": "",
      "ast": [
       "Sebastian Aho",
@@ -1335,7 +1335,7 @@
      "who": "William Carrier",
      "tag": "",
      "ast": [
-      "Andrei Svechnikov",
+      "Andrei Svetšnikov",
       "Sebastian Aho"
      ],
      "fin": false
@@ -1780,7 +1780,7 @@
      "p": "2",
      "t": "03:37",
      "team": "ANA",
-     "who": "Pavel Mintyukov",
+     "who": "Pavel Mintjukov",
      "tag": "",
      "ast": [
       "Beckett Sennecke",
@@ -1792,7 +1792,7 @@
      "p": "2",
      "t": "06:15",
      "team": "ANA",
-     "who": "Pavel Mintyukov",
+     "who": "Pavel Mintjukov",
      "tag": "",
      "ast": [
       "Judd Caulfield",
@@ -1808,7 +1808,7 @@
      "tag": "",
      "ast": [
       "Tristan Luneau",
-      "Pavel Mintyukov"
+      "Pavel Mintjukov"
      ],
      "fin": false
     },

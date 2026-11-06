@@ -71,3 +71,21 @@ jobs:
 
       - id: deploy
         uses: actions/deploy-pages@v4
+
+      - name: Ilmoita hakukoneille (IndexNow, kerran päivässä)
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '17 8-21 * * *')
+        continue-on-error: true
+        run: |
+          H=$(date -u +%H)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$H" != "08" ]; then exit 0; fi
+          python3 - <<'PY'
+          import json, re, urllib.request
+          urls = re.findall(r"<loc>([^<]+)</loc>", open("_site/sitemap.xml", encoding="utf-8").read())
+          body = json.dumps({"host": "punalamppu.com", "key": "0fb8e0f8d03566e609802e230c9cc404", "keyLocation": "https://punalamppu.com/0fb8e0f8d03566e609802e230c9cc404.txt", "urlList": urls[:10000]}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow:", r.status, len(urls), "osoitetta")
+          except Exception as e:
+              print("IndexNow epäonnistui:", e)
+          PY

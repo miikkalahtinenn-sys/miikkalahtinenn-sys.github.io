@@ -119,7 +119,7 @@
     }
    ],
    "note": "",
-   "recapUrl": "",
+   "recapUrl": "https://www.nhl.com/video/phi-at-nyr-recap-6407995191112",
    "videoId": "",
    "details": {
     "goalies": "Joseph Woll (PHI) 24 torjuntaa · Dylan Garand (NYR) 23 torjuntaa",
@@ -322,7 +322,7 @@
     }
    ],
    "note": "",
-   "recapUrl": "",
+   "recapUrl": "https://www.nhl.com/video/bos-at-pit-recap-6407996761112",
    "videoId": "",
    "details": {
     "goalies": "Michael DiPietro (BOS) 16 torjuntaa · Arturs Silovs (PIT) 18 torjuntaa",
@@ -495,7 +495,7 @@
     }
    ],
    "note": "",
-   "recapUrl": "",
+   "recapUrl": "https://www.nhl.com/video/van-at-wpg-recap-6407998453112",
    "videoId": "",
    "details": {
     "goalies": "",
@@ -511,6 +511,1222 @@
       "shots": 29,
       "dec": "",
       "toi": "60:00"
+     }
+    ]
+   }
+  },
+  "2026020251": {
+   "id": 2026020251,
+   "away": "UTA",
+   "home": "MTL",
+   "awayScore": 4,
+   "homeScore": 5,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "JA",
+   "goals": [
+    {
+     "p": "1",
+     "t": "01:42",
+     "team": "UTA",
+     "who": "Logan Cooley",
+     "tag": "",
+     "ast": [
+      "Nate Schmidt",
+      "Vincent Trocheck"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "09:24",
+     "team": "UTA",
+     "who": "Logan Cooley",
+     "tag": "YV",
+     "ast": [
+      "Nick Schmaltz",
+      "Mikhail Sergachev"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "15:25",
+     "team": "MTL",
+     "who": "Nick Suzuki",
+     "tag": "",
+     "ast": [
+      "Juraj Slafkovský",
+      "Noah Dobson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "17:10",
+     "team": "MTL",
+     "who": "Arber Xhekaj",
+     "tag": "",
+     "ast": [
+      "Kirby Dach",
+      "Alex Newhook"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "11:05",
+     "team": "UTA",
+     "who": "Logan Cooley",
+     "tag": "YV",
+     "ast": [
+      "Nick Schmaltz",
+      "Clayton Keller"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "01:09",
+     "team": "MTL",
+     "who": "Kirby Dach",
+     "tag": "YV",
+     "ast": [
+      "Nick Suzuki",
+      "Lane Hutson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "07:14",
+     "team": "UTA",
+     "who": "Nick Schmaltz",
+     "tag": "YV",
+     "ast": [
+      "Logan Cooley",
+      "Dylan Guenther"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "14:54",
+     "team": "MTL",
+     "who": "Adam Engstrom",
+     "tag": "",
+     "ast": [
+      "Jake Evans",
+      "Noah Dobson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "JA",
+     "t": "00:30",
+     "team": "MTL",
+     "who": "Cole Caufield",
+     "tag": "",
+     "ast": [
+      "Lane Hutson",
+      "Nick Suzuki"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Sebastian Cossa (UTA) 30 torjuntaa · Jakub Dobes (MTL) 16 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Nick Suzuki",
+     "team": "MTL",
+     "pos": "C",
+     "goals": 1,
+     "assists": 2,
+     "points": 3,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Cole Caufield",
+     "team": "MTL",
+     "pos": "R",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Logan Cooley",
+     "team": "UTA",
+     "pos": "C",
+     "goals": 3,
+     "assists": 1,
+     "points": 4,
+     "svp": null
+    }
+   ],
+   "venue": "Centre Bell",
+   "finStats": [
+    {
+     "name": "Oliver Kapanen",
+     "team": "MTL",
+     "opp": "UTA",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 1,
+     "sog": 1,
+     "toi": "08:59"
+    }
+   ],
+   "note": "Logan Cooley hattutemppu",
+   "recapUrl": "https://www.nhl.com/video/uta-at-mtl-recap-6407996710112",
+   "videoId": "",
+   "details": {
+    "goalies": "Sebastian Cossa (UTA) 30 torjuntaa · Jakub Dobes (MTL) 16 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Nick Suzuki",
+      "team": "MTL",
+      "pos": "C",
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Cole Caufield",
+      "team": "MTL",
+      "pos": "R",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Logan Cooley",
+      "team": "UTA",
+      "pos": "C",
+      "goals": 3,
+      "assists": 1,
+      "points": 4,
+      "svp": null
+     }
+    ],
+    "venue": "Centre Bell",
+    "finStats": [
+     {
+      "name": "Oliver Kapanen",
+      "team": "MTL",
+      "opp": "UTA",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 1,
+      "sog": 1,
+      "toi": "08:59"
+     }
+    ]
+   }
+  },
+  "2026020252": {
+   "id": 2026020252,
+   "away": "VGK",
+   "home": "DET",
+   "awayScore": 2,
+   "homeScore": 1,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "3",
+     "t": "02:02",
+     "team": "DET",
+     "who": "Anton Johansson",
+     "tag": "",
+     "ast": [
+      "Carter Mazur",
+      "Sheldon Dries"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "04:20",
+     "team": "VGK",
+     "who": "Braeden Bowman",
+     "tag": "",
+     "ast": [
+      "Tomas Hertl",
+      "Victor Olofsson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "18:18",
+     "team": "VGK",
+     "who": "Trevor Connelly",
+     "tag": "",
+     "ast": [
+      "Jack Eichel",
+      "Rasmus Andersson"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Carter Hart (VGK) 25 torjuntaa · Daniil Tarasov (DET) 32 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Trevor Connelly",
+     "team": "VGK",
+     "pos": "L",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Braeden Bowman",
+     "team": "VGK",
+     "pos": "R",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Anton Johansson",
+     "team": "DET",
+     "pos": "D",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    }
+   ],
+   "venue": "Little Caesars Arena",
+   "finStats": [],
+   "note": "",
+   "recapUrl": "https://www.nhl.com/video/vgk-at-det-recap-6407996291112",
+   "videoId": "",
+   "details": {
+    "goalies": "Carter Hart (VGK) 25 torjuntaa · Daniil Tarasov (DET) 32 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Trevor Connelly",
+      "team": "VGK",
+      "pos": "L",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Braeden Bowman",
+      "team": "VGK",
+      "pos": "R",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Anton Johansson",
+      "team": "DET",
+      "pos": "D",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     }
+    ],
+    "venue": "Little Caesars Arena",
+    "finStats": []
+   }
+  },
+  "2026020253": {
+   "id": 2026020253,
+   "away": "CHI",
+   "home": "TBL",
+   "awayScore": 1,
+   "homeScore": 4,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "04:12",
+     "team": "TBL",
+     "who": "Victor Hedman",
+     "tag": "YV",
+     "ast": [
+      "Anthony Cirelli",
+      "Brandon Hagel"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "18:22",
+     "team": "TBL",
+     "who": "Ilya Mikheyev",
+     "tag": "",
+     "ast": [
+      "Erik Cernak",
+      "Pontus Holmberg"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "02:38",
+     "team": "TBL",
+     "who": "Ryan McDonagh",
+     "tag": "",
+     "ast": [
+      "Jake Guentzel",
+      "Brayden Point"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "05:08",
+     "team": "TBL",
+     "who": "Ilya Mikheyev",
+     "tag": "",
+     "ast": [
+      "Erik Cernak",
+      "Zemgus Girgensons"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "19:10",
+     "team": "CHI",
+     "who": "Roman Kantserov",
+     "tag": "",
+     "ast": [
+      "Sam Rinzel",
+      "Ethan Del Mastro"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Arvid Soderblom (CHI) 31 torjuntaa · Andrei Vasilevskiy (TBL) 25 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Ilya Mikheyev",
+     "team": "TBL",
+     "pos": "R",
+     "goals": 2,
+     "assists": 0,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Erik Cernak",
+     "team": "TBL",
+     "pos": "D",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Ryan McDonagh",
+     "team": "TBL",
+     "pos": "D",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    }
+   ],
+   "venue": "Benchmark International Arena",
+   "finStats": [
+    {
+     "name": "Teuvo Teräväinen",
+     "team": "CHI",
+     "opp": "TBL",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 0,
+     "toi": "13:20"
+    }
+   ],
+   "note": "",
+   "recapUrl": "https://www.nhl.com/video/chi-at-tbl-recap-6407997968112",
+   "videoId": "",
+   "details": {
+    "goalies": "Arvid Soderblom (CHI) 31 torjuntaa · Andrei Vasilevskiy (TBL) 25 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Ilya Mikheyev",
+      "team": "TBL",
+      "pos": "R",
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Erik Cernak",
+      "team": "TBL",
+      "pos": "D",
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Ryan McDonagh",
+      "team": "TBL",
+      "pos": "D",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     }
+    ],
+    "venue": "Benchmark International Arena",
+    "finStats": [
+     {
+      "name": "Teuvo Teräväinen",
+      "team": "CHI",
+      "opp": "TBL",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 0,
+      "toi": "13:20"
+     }
+    ]
+   }
+  },
+  "2026020254": {
+   "id": 2026020254,
+   "away": "STL",
+   "home": "NJD",
+   "awayScore": 4,
+   "homeScore": 5,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "JA",
+   "goals": [
+    {
+     "p": "1",
+     "t": "07:34",
+     "team": "NJD",
+     "who": "Luke Hughes",
+     "tag": "",
+     "ast": [
+      "Brett Pesce",
+      "Jack Hughes"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "12:02",
+     "team": "NJD",
+     "who": "Anthony Mantha",
+     "tag": "",
+     "ast": [
+      "Jack Hughes",
+      "Jesper Bratt"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "16:04",
+     "team": "STL",
+     "who": "Robert Thomas",
+     "tag": "YV",
+     "ast": [
+      "Mason McTavish",
+      "Philip Broberg"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "18:00",
+     "team": "NJD",
+     "who": "Jesper Boqvist",
+     "tag": "",
+     "ast": [
+      "Luke Hughes",
+      "Anthony Mantha"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "18:19",
+     "team": "NJD",
+     "who": "Anthony Mantha",
+     "tag": "",
+     "ast": [
+      "Evan Rodrigues",
+      "Brett Pesce"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "11:46",
+     "team": "STL",
+     "who": "Mason McTavish",
+     "tag": "",
+     "ast": [
+      "Justin Barron",
+      "Colton Parayko"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "14:36",
+     "team": "STL",
+     "who": "Philip Broberg",
+     "tag": "",
+     "ast": [
+      "Jake Neighbours",
+      "Adam Jiricek"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "14:54",
+     "team": "STL",
+     "who": "Dalibor Dvorsky",
+     "tag": "",
+     "ast": [
+      "Connor McMichael"
+     ],
+     "fin": false
+    },
+    {
+     "p": "JA",
+     "t": "01:26",
+     "team": "NJD",
+     "who": "Jesper Bratt",
+     "tag": "",
+     "ast": [
+      "Dougie Hamilton"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Jordan Binnington (STL) 31 torjuntaa · Connor Hellebuyck (NJD) 28 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Anthony Mantha",
+     "team": "NJD",
+     "pos": "R",
+     "goals": 2,
+     "assists": 1,
+     "points": 3,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Luke Hughes",
+     "team": "NJD",
+     "pos": "D",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Jesper Bratt",
+     "team": "NJD",
+     "pos": "L",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "Prudential Center",
+   "finStats": [
+    {
+     "name": "Aleksanteri Kaskimäki",
+     "team": "STL",
+     "opp": "NJD",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 1,
+     "toi": "14:26"
+    }
+   ],
+   "note": "",
+   "recapUrl": "https://www.nhl.com/video/stl-at-njd-recap-6407997192112",
+   "videoId": "",
+   "details": {
+    "goalies": "Jordan Binnington (STL) 31 torjuntaa · Connor Hellebuyck (NJD) 28 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Anthony Mantha",
+      "team": "NJD",
+      "pos": "R",
+      "goals": 2,
+      "assists": 1,
+      "points": 3,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Luke Hughes",
+      "team": "NJD",
+      "pos": "D",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Jesper Bratt",
+      "team": "NJD",
+      "pos": "L",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "Prudential Center",
+    "finStats": [
+     {
+      "name": "Aleksanteri Kaskimäki",
+      "team": "STL",
+      "opp": "NJD",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 1,
+      "toi": "14:26"
+     }
+    ]
+   }
+  },
+  "2026020255": {
+   "id": 2026020255,
+   "away": "CAR",
+   "home": "NYI",
+   "awayScore": 5,
+   "homeScore": 3,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "00:57",
+     "team": "CAR",
+     "who": "Logan Stankoven",
+     "tag": "",
+     "ast": [
+      "Jackson Blake",
+      "K'Andre Miller"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "03:20",
+     "team": "CAR",
+     "who": "Jesperi Kotkaniemi",
+     "tag": "",
+     "ast": [
+      "Jordan Martinook",
+      "Jalen Chatfield"
+     ],
+     "fin": true
+    },
+    {
+     "p": "2",
+     "t": "03:40",
+     "team": "NYI",
+     "who": "Mitchell Chaffee",
+     "tag": "",
+     "ast": [
+      "Matthew Schaefer",
+      "Casey Cizikas"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "05:44",
+     "team": "NYI",
+     "who": "Brayden Schenn",
+     "tag": "",
+     "ast": [
+      "Victor Eklund",
+      "Matthew Kessel"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "06:44",
+     "team": "CAR",
+     "who": "Andrei Svechnikov",
+     "tag": "",
+     "ast": [
+      "Sebastian Aho",
+      "William Carrier"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "17:13",
+     "team": "NYI",
+     "who": "Victor Eklund",
+     "tag": "",
+     "ast": [
+      "Brayden Schenn",
+      "Emil Heineman"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "14:52",
+     "team": "CAR",
+     "who": "William Carrier",
+     "tag": "",
+     "ast": [
+      "Andrei Svechnikov",
+      "Sebastian Aho"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "19:09",
+     "team": "CAR",
+     "who": "Jalen Chatfield",
+     "tag": "TM",
+     "ast": [],
+     "fin": false
+    }
+   ],
+   "goalies": "Brandon Bussi (CAR) 24 torjuntaa · Semyon Varlamov (NYI) 34 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "William Carrier",
+     "team": "CAR",
+     "pos": "L",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Andrei Svechnikov",
+     "team": "CAR",
+     "pos": "R",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Brayden Schenn",
+     "team": "NYI",
+     "pos": "C",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "UBS Arena",
+   "finStats": [
+    {
+     "name": "Sebastian Aho",
+     "team": "CAR",
+     "opp": "NYI",
+     "pos": "H",
+     "g": 0,
+     "a": 2,
+     "p": 2,
+     "pm": 3,
+     "sog": 4,
+     "toi": "22:09"
+    },
+    {
+     "name": "Jesperi Kotkaniemi",
+     "team": "CAR",
+     "opp": "NYI",
+     "pos": "H",
+     "g": 1,
+     "a": 0,
+     "p": 1,
+     "pm": 0,
+     "sog": 3,
+     "toi": "08:53"
+    },
+    {
+     "name": "Juuso Välimäki",
+     "team": "CAR",
+     "opp": "NYI",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 0,
+     "toi": "12:44"
+    }
+   ],
+   "note": "Suomalaiset: Kotkaniemi 1+0, Aho 0+2",
+   "recapUrl": "https://www.nhl.com/video/car-at-nyi-recap-6407998336112",
+   "videoId": "",
+   "details": {
+    "goalies": "Brandon Bussi (CAR) 24 torjuntaa · Semyon Varlamov (NYI) 34 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "William Carrier",
+      "team": "CAR",
+      "pos": "L",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Andrei Svechnikov",
+      "team": "CAR",
+      "pos": "R",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Brayden Schenn",
+      "team": "NYI",
+      "pos": "C",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "UBS Arena",
+    "finStats": [
+     {
+      "name": "Sebastian Aho",
+      "team": "CAR",
+      "opp": "NYI",
+      "pos": "H",
+      "g": 0,
+      "a": 2,
+      "p": 2,
+      "pm": 3,
+      "sog": 4,
+      "toi": "22:09"
+     },
+     {
+      "name": "Jesperi Kotkaniemi",
+      "team": "CAR",
+      "opp": "NYI",
+      "pos": "H",
+      "g": 1,
+      "a": 0,
+      "p": 1,
+      "pm": 0,
+      "sog": 3,
+      "toi": "08:53"
+     },
+     {
+      "name": "Juuso Välimäki",
+      "team": "CAR",
+      "opp": "NYI",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 0,
+      "toi": "12:44"
+     }
+    ]
+   }
+  },
+  "2026020258": {
+   "id": 2026020258,
+   "away": "DAL",
+   "home": "CBJ",
+   "awayScore": 1,
+   "homeScore": 2,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "VL",
+   "goals": [
+    {
+     "p": "3",
+     "t": "06:27",
+     "team": "DAL",
+     "who": "Mikko Rantanen",
+     "tag": "",
+     "ast": [
+      "Wyatt Johnston"
+     ],
+     "fin": true
+    },
+    {
+     "p": "3",
+     "t": "16:46",
+     "team": "CBJ",
+     "who": "Zach Werenski",
+     "tag": "",
+     "ast": [
+      "Kent Johnson",
+      "Matthew Knies"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Casey DeSmith (DAL) 29 torjuntaa · Cam Talbot (CBJ) 27 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Cam Talbot",
+     "team": "CBJ",
+     "pos": "G",
+     "goals": null,
+     "assists": null,
+     "points": null,
+     "svp": 0.964
+    },
+    {
+     "star": 2,
+     "name": "Casey DeSmith",
+     "team": "DAL",
+     "pos": "G",
+     "goals": null,
+     "assists": null,
+     "points": null,
+     "svp": 0.967
+    },
+    {
+     "star": 3,
+     "name": "Zach Werenski",
+     "team": "CBJ",
+     "pos": "D",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    }
+   ],
+   "venue": "Nationwide Arena",
+   "finStats": [
+    {
+     "name": "Joel Kiviranta",
+     "team": "DAL",
+     "opp": "CBJ",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 0,
+     "toi": "12:28"
+    },
+    {
+     "name": "Roope Hintz",
+     "team": "DAL",
+     "opp": "CBJ",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 0,
+     "toi": "17:49"
+    },
+    {
+     "name": "Arttu Hyry",
+     "team": "DAL",
+     "opp": "CBJ",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 3,
+     "toi": "16:43"
+    },
+    {
+     "name": "Mikko Rantanen",
+     "team": "DAL",
+     "opp": "CBJ",
+     "pos": "H",
+     "g": 1,
+     "a": 0,
+     "p": 1,
+     "pm": 1,
+     "sog": 1,
+     "toi": "19:13"
+    },
+    {
+     "name": "Esa Lindell",
+     "team": "DAL",
+     "opp": "CBJ",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 5,
+     "toi": "26:05"
+    }
+   ],
+   "note": "Suomalaiset: Rantanen 1+0",
+   "recapUrl": "https://www.nhl.com/video/dal-at-cbj-recap-6407997311112",
+   "videoId": "",
+   "details": {
+    "goalies": "Casey DeSmith (DAL) 29 torjuntaa · Cam Talbot (CBJ) 27 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Cam Talbot",
+      "team": "CBJ",
+      "pos": "G",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "svp": 0.964
+     },
+     {
+      "star": 2,
+      "name": "Casey DeSmith",
+      "team": "DAL",
+      "pos": "G",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "svp": 0.967
+     },
+     {
+      "star": 3,
+      "name": "Zach Werenski",
+      "team": "CBJ",
+      "pos": "D",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     }
+    ],
+    "venue": "Nationwide Arena",
+    "finStats": [
+     {
+      "name": "Joel Kiviranta",
+      "team": "DAL",
+      "opp": "CBJ",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 0,
+      "toi": "12:28"
+     },
+     {
+      "name": "Roope Hintz",
+      "team": "DAL",
+      "opp": "CBJ",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 0,
+      "toi": "17:49"
+     },
+     {
+      "name": "Arttu Hyry",
+      "team": "DAL",
+      "opp": "CBJ",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 3,
+      "toi": "16:43"
+     },
+     {
+      "name": "Mikko Rantanen",
+      "team": "DAL",
+      "opp": "CBJ",
+      "pos": "H",
+      "g": 1,
+      "a": 0,
+      "p": 1,
+      "pm": 1,
+      "sog": 1,
+      "toi": "19:13"
+     },
+     {
+      "name": "Esa Lindell",
+      "team": "DAL",
+      "opp": "CBJ",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 5,
+      "toi": "26:05"
      }
     ]
    }

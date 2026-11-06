@@ -168,8 +168,11 @@ def main():
             print("Some: julkaistaan vain aamulla")
             return
     url = BASE + rec["url"]
+    only = {x.strip() for x in (os.environ.get("SOCIAL_ONLY") or "").split(",") if x.strip()}
     changed = False
     for name, fn in (("bsky", lambda: post_bsky(rec, url)), ("telegram", lambda: post_telegram(rec, url)), ("threads", lambda: post_threads(rec, url, st))):
+        if only and name not in only:
+            continue
         if st.get(name) == rec["gameDate"] and not force:
             continue
         try:

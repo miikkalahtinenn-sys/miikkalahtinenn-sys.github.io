@@ -14,6 +14,10 @@ on:
         description: "Julkaise aamukatsaus someen heti (testi)"
         type: boolean
         default: false
+      social_only:
+        description: "Vain nämä palvelut (esim. telegram tai bsky,threads); tyhjä = kaikki"
+        type: string
+        default: ""
   push:
     branches: [main]
     paths-ignore: ["data/**"]
@@ -86,6 +90,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
           SOCIAL_FORCE: ${{ inputs.bsky_force }}
+          SOCIAL_ONLY: ${{ inputs.social_only }}
         run: |
           python scripts/social.py
           if [ -n "$(git status --porcelain data/social.json data/threads.enc)" ]; then

@@ -2021,7 +2021,7 @@ def build_recap(d, gl, data, latest):
             short.append(f"{short_name(f['name'])} nollapeli")
         else:
             s = (f"Maalilla {nm(f['name'])} torjui {sv} laukausta {sa}:stä (TO% {pct})"
-                 + (f", ja {esc(tname(f['team']))} {res}" if f.get("dec") == "W" else f". {esc(tname(f['team']))} {res}" if f.get("dec") else "")
+                 + ((", ja " if win else ", mutta ") + f"{esc(tname(f['team']))} {res}")
                  + f" ({esc(tname(opp))}).")
             short.append(f"{short_name(f['name'])} {sv}/{sa}")
         lines.append(s)

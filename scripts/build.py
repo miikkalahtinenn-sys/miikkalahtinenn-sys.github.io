@@ -1090,7 +1090,7 @@ def footer():
             '</div>'
             f'<p class="legal">{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
             'tai sen joukkueisiin. NHL ja joukkueiden nimet ovat omistajiensa tavaramerkkejä. Tulos- ja tilastotiedot: NHL.com. '
-            'Edistyneet tilastot: MoneyPuck.com. Maalikoosteet: NHL / YouTube.</p></footer>')
+            'Edistyneet tilastot: MoneyPuck.com. Maalikoosteet: NHL.com.</p></footer>')
 
 
 def tname(a):
@@ -1108,11 +1108,28 @@ def yt_url(gd, g):
     return "https://www.youtube.com/results?search_query=" + urllib.parse.quote(q)
 
 
+NHL_PLAYER = "https://players.brightcove.net/6415718365001/D3UCGynRWU_default/index.html?videoId="  # NHL.comin oma upotuslinkki ("Embed Video")
+
+
+def nhl_vid(g):
+    m = re.search(r"(\d{10,})/?$", g.get("recapUrl") or "")
+    return m.group(1) if m else ""
+
+
+def has_video(g):
+    return bool(nhl_vid(g) or (g.get("videoId") and re.fullmatch(r"[A-Za-z0-9_-]{6,20}", g["videoId"])))
+
+
 def video_block(g, gd):
     vid = g.get("videoId")
+    nv = nhl_vid(g)
+    if nv:
+        return (f'<section id="kooste" class="yt" data-id="{nv}"><button type="button" class="play" onclick="kaNHL(this.parentNode)"><span>{ic("play")}</span>Katso maalikooste</button>'
+                f'<p class="mute">Video: NHL.com (NHL:n virallinen upotussoitin). Video ladataan NHL:n palvelusta vasta painettaessa.</p></section>'
+                '<script>function kaNHL(d){d.innerHTML=\'<iframe src="' + NHL_PLAYER + '\'+d.dataset.id+\'&autoplay=true" title="Maalikooste – NHL.com" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="mute">Video: NHL.com</p>\'}</script>')
     if not vid or not re.fullmatch(r"[A-Za-z0-9_-]{6,20}", vid):
         return (f'<section id="kooste" class="yt wait"><b>{ic("clock")}Maalikooste tulossa</b>'
-                '<p class="mute">Kooste ilmestyy tälle sivulle automaattisesti, kun NHL julkaisee sen YouTubessa – yleensä muutaman tunnin kuluessa ottelun päättymisestä.</p></section>')
+                '<p class="mute">Kooste ilmestyy tälle sivulle automaattisesti, kun NHL julkaisee sen – yleensä noin tunnin kuluessa ottelun päättymisestä.</p></section>')
     return (f'<section id="kooste" class="yt" data-id="{vid}"><button type="button" class="play" onclick="kaYT(this.parentNode)"><span>{ic("play")}</span>Katso maalikooste</button>'
             f'<p class="mute">Video: NHL / YouTube. Video ladataan YouTubesta vasta painettaessa (YouTube voi tällöin asettaa evästeitä).</p></section>'
             '<script>function kaYT(d){d.innerHTML=\'<iframe src="https://www.youtube-nocookie.com/embed/\'+d.dataset.id+\'?autoplay=1&rel=0&playsinline=1" title="Maalikooste – NHL / YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="mute">Video: NHL / YouTube</p>\'}</script>')
@@ -1179,7 +1196,7 @@ def render_game_page(gd, g, slugs, others=()):
 <h2>Maalit</h2><ol class="rows">{''.join(rows) or '<li class="mute">Ei maalitietoja.</li>'}</ol>
 {f'<h2>Maalivahdit</h2><p>{ic("goalie")}{esc(g["goalies"])}</p>' if g.get('goalies') else ''}
 {f'<h2>Ottelun tähdet</h2><ul class="rows">{stars}</ul>' if stars else ''}
-{('<h2>Saman yön muut ottelut</h2><ul class="rows">' + ''.join(f"<li><a class='mrow' href='/ottelut/{game_slug(gd, o)}.html'>{tbadge(o['away'], 'mini')}<span>{esc(tname(o['away']))} – {esc(tname(o['home']))}</span>{tbadge(o['home'], 'mini')}<b>{esc(score_txt(o))}</b>{ic('play', 'ic vid') if o.get('videoId') else ''}{ic('chev')}</a></li>" for o in others) + '</ul>') if others else ''}
+{('<h2>Saman yön muut ottelut</h2><ul class="rows">' + ''.join(f"<li><a class='mrow' href='/ottelut/{game_slug(gd, o)}.html'>{tbadge(o['away'], 'mini')}<span>{esc(tname(o['away']))} – {esc(tname(o['home']))}</span>{tbadge(o['home'], 'mini')}<b>{esc(score_txt(o))}</b>{ic('play', 'ic vid') if has_video(o) else ''}{ic('chev')}</a></li>" for o in others) + '</ul>') if others else ''}
 </article>"""
     jsonld = {"@context": "https://schema.org", "@type": "SportsEvent", "name": f"{a} – {h}", "sport": "Jääkiekko",
               "startDate": g.get("start") or gd, "eventStatus": "https://schema.org/EventScheduled",

@@ -285,7 +285,7 @@ function nightLabel(){
 
 /* ---------- Tulokset ---------- */
 const gameUrl=g=>`/ottelut/${D.gameDate}-${g.away.toLowerCase()}-${g.home.toLowerCase()}.html`;
-const hasVid=g=>g.videoId&&/^[A-Za-z0-9_-]{6,20}$/.test(g.videoId);
+const hasVid=g=>!!((g.videoId&&/^[A-Za-z0-9_-]{6,20}$/.test(g.videoId))||/\d{10,}\/?$/.test(g.recapUrl||""));
 function finNow(){
   const rows=[];(D.games||[]).forEach(g=>(g.finStats||[]).forEach(r=>rows.push(r)));
   let list=[];
@@ -341,11 +341,11 @@ function renderResults(){
         <div class="team h">${badge(g.home)}<div class="tn"><b>${esc(T(g.home)[0])}</b><small>koti</small></div></div>
       </div>
       ${g.note?`<div class="note">${esc(g.note)}</div>`:""}</a>
-      <div class="hl"><a class="btn" href="${esc(url)}${hasVid(g)?"#kooste":""}">${hasVid(g)?YT_ICON+"Maalikooste ja ottelu":"Ottelusivu – maalit ja tilastot"}</a></div>
+      <div class="hl"><a class="btn" href="${esc(url)}${hasVid(g)?"#kooste":""}">${hasVid(g)?IC("play")+"Maalikooste ja ottelu":"Ottelusivu – maalit ja tilastot"}</a></div>
       <details><summary>Maalit ja maalivahdit</summary><div class="goals">${goals||'<span class="na">Maalitietoja ei saatavilla.</span>'}${g.goalies?`<div class="gk">${IC("goalie")}${esc(g.goalies)}</div>`:""}</div></details>
     </article>`;
   }
-  h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL:n virallinen YouTube-kanava, katsottavissa ottelusivuilla. Video ladataan YouTubesta vasta, kun painat toistopainiketta.</div>`;
+  h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL.com, katsottavissa ottelusivuilla. Video ladataan NHL:n palvelusta vasta, kun painat toistopainiketta.</div>`;
   el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 

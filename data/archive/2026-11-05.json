@@ -1,0 +1,519 @@
+{
+ "gameDate": "2026-11-05",
+ "games": {
+  "2026020256": {
+   "id": 2026020256,
+   "away": "PHI",
+   "home": "NYR",
+   "awayScore": 2,
+   "homeScore": 3,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "04:39",
+     "team": "NYR",
+     "who": "Gabe Perreault",
+     "tag": "",
+     "ast": [
+      "J.T. Miller",
+      "Marcus Pettersson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "10:10",
+     "team": "PHI",
+     "who": "Simon Benoit",
+     "tag": "",
+     "ast": [
+      "Tyson Foerster"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "12:09",
+     "team": "PHI",
+     "who": "Noel Acciari",
+     "tag": "",
+     "ast": [
+      "Denver Barkey",
+      "Jamie Drysdale"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "13:52",
+     "team": "NYR",
+     "who": "Pavel Dorofeyev",
+     "tag": "YV",
+     "ast": [
+      "Mika Zibanejad",
+      "Adam Fox"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "15:21",
+     "team": "NYR",
+     "who": "Tye Kartye",
+     "tag": "",
+     "ast": [
+      "Adam Fox",
+      "Oliver Bjorkstrand"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Joseph Woll (PHI) 24 torjuntaa · Dylan Garand (NYR) 23 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Tye Kartye",
+     "team": "NYR",
+     "pos": "L",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Pavel Dorofeyev",
+     "team": "NYR",
+     "pos": "R",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Adam Fox",
+     "team": "NYR",
+     "pos": "D",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "Madison Square Garden",
+   "finStats": [
+    {
+     "name": "Eeli Tolvanen",
+     "team": "NYR",
+     "opp": "PHI",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 1,
+     "toi": "11:13"
+    }
+   ],
+   "note": "",
+   "recapUrl": "",
+   "videoId": "",
+   "details": {
+    "goalies": "Joseph Woll (PHI) 24 torjuntaa · Dylan Garand (NYR) 23 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Tye Kartye",
+      "team": "NYR",
+      "pos": "L",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Pavel Dorofeyev",
+      "team": "NYR",
+      "pos": "R",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Adam Fox",
+      "team": "NYR",
+      "pos": "D",
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "Madison Square Garden",
+    "finStats": [
+     {
+      "name": "Eeli Tolvanen",
+      "team": "NYR",
+      "opp": "PHI",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 1,
+      "toi": "11:13"
+     }
+    ]
+   }
+  },
+  "2026020257": {
+   "id": 2026020257,
+   "away": "BOS",
+   "home": "PIT",
+   "awayScore": 6,
+   "homeScore": 2,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "09:04",
+     "team": "PIT",
+     "who": "Justin Brazeau",
+     "tag": "",
+     "ast": [
+      "Hendrix Lapierre",
+      "Kaedan Korczak"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "12:07",
+     "team": "BOS",
+     "who": "Pavel Zacha",
+     "tag": "",
+     "ast": [
+      "David Pastrnak",
+      "JJ Peterka"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "15:04",
+     "team": "BOS",
+     "who": "Mark Kastelic",
+     "tag": "",
+     "ast": [
+      "Frederic Brunet",
+      "Tanner Jeannot"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "18:57",
+     "team": "BOS",
+     "who": "Elias Lindholm",
+     "tag": "",
+     "ast": [],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "07:57",
+     "team": "PIT",
+     "who": "Nick Robertson",
+     "tag": "",
+     "ast": [
+      "Kaedan Korczak",
+      "Blake Lizotte"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "14:24",
+     "team": "BOS",
+     "who": "Pavel Zacha",
+     "tag": "",
+     "ast": [
+      "JJ Peterka",
+      "David Pastrnak"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "16:57",
+     "team": "BOS",
+     "who": "Morgan Geekie",
+     "tag": "",
+     "ast": [
+      "Hampus Lindholm"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "08:39",
+     "team": "BOS",
+     "who": "Fraser Minten",
+     "tag": "",
+     "ast": [
+      "Morgan Geekie"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Michael DiPietro (BOS) 16 torjuntaa · Arturs Silovs (PIT) 18 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Pavel Zacha",
+     "team": "BOS",
+     "pos": "C",
+     "goals": 2,
+     "assists": 0,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Morgan Geekie",
+     "team": "BOS",
+     "pos": "C",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "David Pastrnak",
+     "team": "BOS",
+     "pos": "R",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "PPG Paints Arena",
+   "finStats": [
+    {
+     "name": "Ville Koivunen",
+     "team": "PIT",
+     "opp": "BOS",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": -1,
+     "sog": 0,
+     "toi": "08:57"
+    }
+   ],
+   "note": "",
+   "recapUrl": "",
+   "videoId": "",
+   "details": {
+    "goalies": "Michael DiPietro (BOS) 16 torjuntaa · Arturs Silovs (PIT) 18 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Pavel Zacha",
+      "team": "BOS",
+      "pos": "C",
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Morgan Geekie",
+      "team": "BOS",
+      "pos": "C",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "David Pastrnak",
+      "team": "BOS",
+      "pos": "R",
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "PPG Paints Arena",
+    "finStats": [
+     {
+      "name": "Ville Koivunen",
+      "team": "PIT",
+      "opp": "BOS",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": -1,
+      "sog": 0,
+      "toi": "08:57"
+     }
+    ]
+   }
+  },
+  "2026020259": {
+   "id": 2026020259,
+   "away": "VAN",
+   "home": "WPG",
+   "awayScore": 2,
+   "homeScore": 6,
+   "start": "2026-11-06T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "03:49",
+     "team": "WPG",
+     "who": "Alex Iafallo",
+     "tag": "YV",
+     "ast": [
+      "Haydn Fleury",
+      "Dawson Mercer"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "04:03",
+     "team": "WPG",
+     "who": "Cole Koepke",
+     "tag": "",
+     "ast": [
+      "Morgan Barron"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "06:51",
+     "team": "VAN",
+     "who": "Liam Ohgren",
+     "tag": "",
+     "ast": [
+      "Marco Rossi",
+      "Jonathan Lekkerimäki"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "14:04",
+     "team": "WPG",
+     "who": "Dawson Mercer",
+     "tag": "",
+     "ast": [
+      "Cole Perfetti",
+      "Dylan DeMelo"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "06:52",
+     "team": "WPG",
+     "who": "Neal Pionk",
+     "tag": "",
+     "ast": [
+      "Kyle Connor",
+      "Gabriel Vilardi"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "11:36",
+     "team": "WPG",
+     "who": "Mark Scheifele",
+     "tag": "",
+     "ast": [
+      "Kyle Connor",
+      "Viggo Björck"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "11:32",
+     "team": "WPG",
+     "who": "Mario Ferraro",
+     "tag": "",
+     "ast": [
+      "Mark Scheifele",
+      "Dylan DeMelo"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "15:09",
+     "team": "VAN",
+     "who": "Brock Boeser",
+     "tag": "",
+     "ast": [
+      "Jacob Quillan"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "",
+   "threeStars": [],
+   "venue": "Canada Life Centre",
+   "finStats": [
+    {
+     "name": "Leevi Meriläinen",
+     "team": "VAN",
+     "opp": "WPG",
+     "pos": "MV",
+     "saves": 23,
+     "shots": 29,
+     "dec": "",
+     "toi": "60:00"
+    }
+   ],
+   "note": "",
+   "recapUrl": "",
+   "videoId": "",
+   "details": {
+    "goalies": "",
+    "threeStars": [],
+    "venue": "Canada Life Centre",
+    "finStats": [
+     {
+      "name": "Leevi Meriläinen",
+      "team": "VAN",
+      "opp": "WPG",
+      "pos": "MV",
+      "saves": 23,
+      "shots": 29,
+      "dec": "",
+      "toi": "60:00"
+     }
+    ]
+   }
+  }
+ }
+}

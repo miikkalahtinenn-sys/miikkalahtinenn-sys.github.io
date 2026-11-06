@@ -1170,7 +1170,7 @@ def footer():
             f'<p class="legal">{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
             'tai sen joukkueisiin. NHL ja joukkueiden nimet ovat omistajiensa tavaramerkkejä. Tulos- ja tilastotiedot: NHL.com. '
             'Edistyneet tilastot: MoneyPuck.com. Maalikoosteet: NHL.com. '
-            'Sivusto käyttää tekoälyä: sivusto ja sen automaattiset koosteet on tehty tekoälyn avulla. <a href="/tietoa.html#tekoaly">Lue lisää</a>.</p></footer>')
+            'Sivusto käyttää tekoälyä: sivusto ja sen automaattiset koosteet on tehty tekoälyn avulla, ja ylläpitäjä tarkastaa sisällön aina sitä muutettaessa. <a href="/tietoa.html#tekoaly">Lue lisää</a>.</p></footer>')
 
 
 def tname(a):
@@ -1728,7 +1728,7 @@ def build_day_pages(data, arch_days, urls):
             kdesc = (alead or desc)[:300]
             kbody = (f"<p class='kdate'>Suomalaiset yön NHL-kierroksella {nice} · Julkaistu {esc(fi_date(pubd))}</p>"
                      f"<h1>{esc(htitle)}</h1>"
-                     f"<p class='byline'>Punalamppu · Tekoälyn avulla tuotettu automaattinen kooste NHL:n tilastoista</p>"
+                     f"<p class='byline'>Punalamppu · Automaattinen kooste NHL:n tilastoista · tekoälyn avulla tehty, ihmisen tarkastamat tekstipohjat</p>"
                      f"<nav class='daynav'>{kprev}<a href='/koosteet/'>Kaikki koosteet</a>{knext}</nav>"
                      f"<div class='art'>{abody or rec_html}</div>"
                      f"<h2>Yön tulokset</h2><ul class='rows'>{res_list}</ul>"
@@ -2335,7 +2335,8 @@ def build_article(d, gl, data, latest):
                              + "</ul><p class='small'><a href='/otteluohjelma/'>Koko otteluohjelma</a> · <a href='/nhl-tv/'>Missä ottelut näkyvät</a></p>")
     parts.append("<h2>Lähteet ja tekotapa</h2><p class='small'>Kooste perustuu NHL:n virallisiin ottelutilastoihin (NHL.com). "
                  "Kooste on tuotettu automaattisesti tekoälyn avulla laaditulla ohjelmalla, joka kirjoittaa tekstin suoraan tilastoista. "
-                 "Ihminen ei tarkista koostetta ennen julkaisua. Tekstissä ei ole arvioita eikä lainauksia. "
+                 "Ylläpitäjä tarkastaa koosteiden tekstipohjat, säännöt ja sanavalinnat aina, kun niitä muutetaan. "
+                 "Yksittäiset aamun koosteet julkaistaan automaattisesti ilman erillistä tarkastusta. Tekstissä ei ole arvioita eikä lainauksia. "
                  "<a href='/tietoa.html#tekoaly'>Näin Punalamppu käyttää tekoälyä</a>. "
                  "Tiedot päivittyvät, jos NHL korjaa tilastojaan. Huomasitko virheen? <a href='/yhteys.html'>Ilmoita siitä meille</a>, niin korjaamme sen.</p>")
     return head, lead, "".join(parts)

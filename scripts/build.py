@@ -895,7 +895,7 @@ def collect():
     notice = None
     for n in CFG.get("notices") or []:
         if n.get("from", "0000") <= hel_today.isoformat() <= n.get("to", "9999"):
-            notice = {"title": n["title"], "text": n["text"]}
+            notice = {"title": n["title"], "text": n["text"], "url": n.get("url", "")}
 
     try:
         free_tv = resolve_free_games(hel_today)
@@ -1085,7 +1085,7 @@ def footer():
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/ottelut/">Otteluarkisto</a></div>'
             '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a></div>'
-            '<div><h4>Katso NHL:ää</h4><a href="/nhl-tv/">NHL tv-lähetykset</a><a href="/nhl-tv/#ilmaisottelut">Ilmaisottelut</a></div>'
+            '<div><h4>Katso NHL:ää</h4><a href="/nhl-tv/">NHL tv-lähetykset</a><a href="/nhl-tv/#ilmaisottelut">Ilmaisottelut</a><a href="/nhl-helsinki-2026/">NHL Helsinki 2026</a></div>'
             '<div><h4>Sivusto</h4><a href="/tietoa.html">Tietoa sivustosta</a><a href="/yhteys.html">Ota yhteyttä</a><a href="/tietosuoja.html">Tietosuoja</a></div>'
             '</div>'
             f'<p class="legal">{esc(CFG["siteName"])} on itsenäinen harrastussivusto, jolla ei ole yhteyttä National Hockey Leagueen (NHL) '
@@ -1406,6 +1406,67 @@ def build_site(data):
         f"Missä NHL näkyy Suomessa kaudella {tv.get('season', '')}? Viaplay, Disney+ (ESPN), MTV Sub ja Star Channel. Katso myös tulevat NHL-ilmaisottelut kellonaikoineen.",
         "/nhl-tv/", body_tv, tv_jl))
     urls.append("/nhl-tv/")
+
+    # --- NHL Helsinki 2026 (Global Series Finland)
+    gs = [e for e in free if e["date"] in ("2026-11-12", "2026-11-14") and {e["away"], e["home"]} == {"CAR", "SEA"}]
+    if gs:
+        sk_by = {f[0]: f for f in data["finns"]}
+        gk_by = {f[0]: f for f in data["finnGoalies"]}
+        def finlist(t):
+            out = []
+            for n in finn_by_team(data, t):
+                f = sk_by.get(n) or gk_by.get(n)
+                line = (f"{f[3]} ott., {f[4]}+{f[5]}={f[6]}" if n in sk_by else f"maalivahti, {f[2]} ott., TO% {f[6]}") if f else ""
+                link = f"<a href='/suomalaiset/{slugs[n]}.html'>{esc(n)}</a>" if n in slugs else esc(n)
+                out.append(f"<li><div class='mrow'>{tbadge(t, 'mini')}<span>{link}</span><span class='mute'>{esc(line)}</span></div></li>")
+            return "".join(out)
+        def gsrow(i, e):
+            when = "to 12.11. klo 19.00" if e["date"] == "2026-11-12" else "la 14.11. klo 20.00"
+            if e.get("start"):
+                st_ = dt.datetime.fromisoformat(e["start"].replace("Z", "+00:00")).astimezone(HEL)
+                when = f"{['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'][st_.weekday()]} {st_.day}.{st_.month}. klo {st_:%H.%M}"
+            res = f"<b class='fsc'>{esc(e['score'])}</b>" if e.get("score") else ""
+            inner = (f"<div class='ftop'><span class='gt'>Ottelu {i} · {esc(when)}</span><span class='chan'>Viaplay TV (ilmainen)</span></div>"
+                     f"<div class='fmid'><span class='tm'>{tbadge(e['away'], 'mini')}{esc(tname(e['away']))}</span><span class='mute'>–</span>"
+                     f"<span class='tm'>{tbadge(e['home'], 'mini')}{esc(tname(e['home']))}</span>{res}</div>"
+                     + ("<div class='fins2'>Tulos, maalit ja maalikooste ottelusivulla →</div>" if e.get("slug") else ""))
+            return f"<li class='frow'><a href='/ottelut/{e['slug']}.html'>{inner}</a></li>" if e.get("slug") else f"<li class='frow'>{inner}</li>"
+        faq_h = [
+            ("Milloin NHL pelaa Helsingissä 2026?", "NHL Global Series Finland pelataan Helsingin Veikkaus Arenalla torstaina 12.11.2026 klo 19.00 ja lauantaina 14.11.2026 klo 20.00 Suomen aikaa. Vastakkain ovat Carolina Hurricanes ja Seattle Kraken."),
+            ("Missä Helsingin NHL-ottelut näkyvät tv:ssä?", "Molemmat ottelut näkyvät suorina ja ilmaiseksi Viaplay TV -kanavalla (kanavapaikka 21) studiolähetyksen kera sekä Viaplayssa."),
+            ("Ketkä suomalaiset pelaavat Helsingin NHL-otteluissa?", "Carolinan riveissä pelaavat " + ", ".join(finn_by_team(data, "CAR")) + " ja Seattlen riveissä " + ", ".join(finn_by_team(data, "SEA")) + " (kokoonpanotilanne päivittyy automaattisesti)."),
+            ("Mistä saa liput NHL Helsinki -otteluihin?", "Liput myydään Ticketmasterissa (ticketmaster.fi)."),
+            ("Onko NHL pelannut Helsingissä aiemmin?", "On. Veikkaus Arena (entinen Hartwall Arena) on isännöinyt aiemmin seitsemää NHL:n runkosarjaottelua, viimeksi vuonna 2018, kun Florida Panthers ja Winnipeg Jets pelasivat kaksi ottelua. Suomessa NHL on pelannut myös Tampereella vuosina 2022 ja 2025."),
+        ]
+        body_h = ("<h1>NHL Helsinki 2026 – Global Series Finland</h1>"
+                  "<p class='lead'>Carolina Hurricanes ja Seattle Kraken pelaavat kaksi NHL:n runkosarjaottelua Helsingin Veikkaus Arenalla 12. ja 14. marraskuuta 2026. "
+                  "Kokosimme tälle sivulle otteluajat, tv-lähetykset, suomalaispelaajat ja otteluiden jälkeen tulokset ja maalikoosteet.</p>"
+                  f"<h2>Ottelut</h2><ul class='rows'>{''.join(gsrow(i + 1, e) for i, e in enumerate(sorted(gs, key=lambda e: e['date'])))}</ul>"
+                  "<p class='mute small'>Kellonajat Suomen aikaa. Paikka: Veikkaus Arena, Areenankuja 1, Helsinki.</p>"
+                  "<h2>Tv-lähetykset</h2><p>Molemmat ottelut näkyvät <b>ilmaiseksi Viaplay TV -kanavalla</b> (kanavapaikka 21) studiolähetyksen kera sekä Viaplayssa. "
+                  "<a href='/nhl-tv/'>Katso kaikki NHL:n tv-lähetykset ja ilmaisottelut</a>.</p>"
+                  f"<h2>Suomalaiset Carolina Hurricanesissa</h2><ul class='rows'>{finlist('CAR') or '<li>Ei suomalaisia kokoonpanossa.</li>'}</ul>"
+                  f"<h2>Suomalaiset Seattle Krakenissa</h2><ul class='rows'>{finlist('SEA') or '<li>Ei suomalaisia kokoonpanossa.</li>'}</ul>"
+                  "<p class='mute small'>Kauden tilastot ja kokoonpanot päivittyvät automaattisesti NHL:n tiedoista.</p>"
+                  "<h2>Liput</h2><p>Liput myydään Ticketmasterissa: <a href='https://www.ticketmaster.fi/artist/1197393?venueId=425' rel='noopener'>ticketmaster.fi</a>.</p>"
+                  "<h2>Usein kysyttyä</h2>" + "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faq_h)
+                  + "<h2>Lähteet</h2><p class='small'><a href='https://www.nhl.com/news/carolina-seattle-to-play-in-2026-global-series-finland' rel='noopener'>NHL.com</a> · "
+                  "<a href='https://www.nhl.com/fi/news/nhl-global-series-huipentaa-helsingin-kiekkoviikon' rel='noopener'>NHL.com/fi</a></p>")
+        ev = []
+        for e in sorted(gs, key=lambda e: e["date"]):
+            ev.append({"@type": "SportsEvent", "name": f"{tname(e['away'])} – {tname(e['home'])} (NHL Global Series Finland)",
+                       "startDate": e.get("start") or (e["date"] + ("T19:00:00+02:00" if e["date"].endswith("12") else "T20:00:00+02:00")),
+                       "location": {"@type": "Place", "name": "Veikkaus Arena", "address": "Areenankuja 1, 00240 Helsinki"},
+                       "awayTeam": {"@type": "SportsTeam", "name": tname(e["away"])}, "homeTeam": {"@type": "SportsTeam", "name": tname(e["home"])},
+                       "eventStatus": "https://schema.org/EventScheduled"})
+        jl_h = {"@context": "https://schema.org", "@graph": ev + [{"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_h]}]}
+        os.makedirs(os.path.join(OUT, "nhl-helsinki-2026"), exist_ok=True)
+        open(os.path.join(OUT, "nhl-helsinki-2026", "index.html"), "w", encoding="utf-8").write(page(
+            f"NHL Helsinki 2026 – ottelut, ajat, tv ja suomalaiset | {CFG['siteName']}",
+            "NHL Global Series Helsinki 12.11. ja 14.11.2026: Carolina Hurricanes – Seattle Kraken Veikkaus Arenalla. Otteluajat, ilmainen tv-lähetys, suomalaiset ja tulokset.",
+            "/nhl-helsinki-2026/", body_h, jl_h))
+        urls.append("/nhl-helsinki-2026/")
 
     write("/otteluohjelma/", f"NHL-otteluohjelma – tulevat ottelut Suomen aikaa | {CFG['siteName']}",
           "NHL:n otteluohjelma seuraavalle viikolle Suomen ajassa. Näet myös, missä otteluissa suomalaiset pelaavat.",

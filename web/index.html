@@ -645,7 +645,7 @@ async function init(){
     if(!OFF.has(p[0])) (FINN_BY_TEAM[p[1]]=FINN_BY_TEAM[p[1]]||[]).push(p[0]);
   }
   document.getElementById("upd").innerHTML="Päivitetty<br>"+esc(fiDate(D.updated,{day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"}));
-  if(D.notice) document.getElementById("notice").innerHTML=`<div class="notice"><span class="flag"></span><div><b>${esc(D.notice.title)}</b><small>${esc(D.notice.text)}</small></div></div>`;
+  if(D.notice) document.getElementById("notice").innerHTML=(D.notice.url?`<a class="notice" href="${esc(D.notice.url)}" style="text-decoration:none;color:inherit">`:`<div class="notice">`)+`<span class="flag"></span><div><b>${esc(D.notice.title)}</b><small>${esc(D.notice.text)}</small></div>`+(D.notice.url?`</a>`:`</div>`);
   initFav(); renderAll(); initSearch();
   route();
 }

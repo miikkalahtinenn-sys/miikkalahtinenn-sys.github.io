@@ -1974,6 +1974,196 @@
      }
     ]
    }
+  },
+  "2026020261": {
+   "id": 2026020261,
+   "away": "NSH",
+   "home": "COL",
+   "awayScore": 3,
+   "homeScore": 2,
+   "start": "2026-11-06T02:30:00Z",
+   "final": "JA",
+   "goals": [
+    {
+     "p": "1",
+     "t": "04:01",
+     "team": "NSH",
+     "who": "Ross Colton",
+     "tag": "",
+     "ast": [
+      "Ryan O'Reilly"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "09:11",
+     "team": "COL",
+     "who": "Jaden Schwartz",
+     "tag": "",
+     "ast": [
+      "Martin Necas",
+      "Brock Nelson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "14:34",
+     "team": "NSH",
+     "who": "Vitali Pinchuk",
+     "tag": "",
+     "ast": [
+      "Reid Schaefer"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "05:08",
+     "team": "COL",
+     "who": "Parker Kelly",
+     "tag": "",
+     "ast": [
+      "Logan O'Connor",
+      "Noah Juulsen"
+     ],
+     "fin": false
+    },
+    {
+     "p": "JA",
+     "t": "02:18",
+     "team": "NSH",
+     "who": "Steven Stamkos",
+     "tag": "YV",
+     "ast": [
+      "Roman Josi",
+      "Ryan O'Reilly"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Justus Annunen (NSH) 30 torjuntaa · Mackenzie Blackwood (COL) 22 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Steven Stamkos",
+     "team": "NSH",
+     "pos": "C",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Justus Annunen",
+     "team": "NSH",
+     "pos": "G",
+     "goals": null,
+     "assists": null,
+     "points": null,
+     "svp": 0.938
+    },
+    {
+     "star": 3,
+     "name": "Parker Kelly",
+     "team": "COL",
+     "pos": "C",
+     "goals": 1,
+     "assists": 0,
+     "points": 1,
+     "svp": null
+    }
+   ],
+   "venue": "Ball Arena",
+   "finStats": [
+    {
+     "name": "Justus Annunen",
+     "team": "NSH",
+     "opp": "COL",
+     "pos": "MV",
+     "saves": 30,
+     "shots": 32,
+     "dec": "W",
+     "toi": "62:18"
+    },
+    {
+     "name": "Artturi Lehkonen",
+     "team": "COL",
+     "opp": "NSH",
+     "pos": "H",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 0,
+     "sog": 2,
+     "toi": "18:31"
+    }
+   ],
+   "note": "",
+   "recapUrl": "",
+   "videoId": "",
+   "details": {
+    "goalies": "Justus Annunen (NSH) 30 torjuntaa · Mackenzie Blackwood (COL) 22 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Steven Stamkos",
+      "team": "NSH",
+      "pos": "C",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Justus Annunen",
+      "team": "NSH",
+      "pos": "G",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "svp": 0.938
+     },
+     {
+      "star": 3,
+      "name": "Parker Kelly",
+      "team": "COL",
+      "pos": "C",
+      "goals": 1,
+      "assists": 0,
+      "points": 1,
+      "svp": null
+     }
+    ],
+    "venue": "Ball Arena",
+    "finStats": [
+     {
+      "name": "Justus Annunen",
+      "team": "NSH",
+      "opp": "COL",
+      "pos": "MV",
+      "saves": 30,
+      "shots": 32,
+      "dec": "W",
+      "toi": "62:18"
+     },
+     {
+      "name": "Artturi Lehkonen",
+      "team": "COL",
+      "opp": "NSH",
+      "pos": "H",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 0,
+      "sog": 2,
+      "toi": "18:31"
+     }
+    ]
+   }
   }
  }
 }

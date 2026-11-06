@@ -8,7 +8,12 @@ on:
     - cron: "*/10 0-7 * * *"
     # Muulloin kerran tunnissa (otteluohjelma, tilastot):
     - cron: "17 8-21 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      bsky_force:
+        description: "Julkaise Bluesky-katsaus heti (testi)"
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths-ignore: ["data/**"]
@@ -77,6 +82,7 @@ jobs:
         env:
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          BSKY_FORCE: ${{ inputs.bsky_force }}
         run: |
           python scripts/bsky.py
           if ! git diff --quiet -- data/bsky.json 2>/dev/null || [ -n "$(git status --porcelain data/bsky.json)" ]; then

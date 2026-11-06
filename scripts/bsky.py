@@ -34,13 +34,14 @@ def main():
     rec = json.load(open(os.path.join(ROOT, "_site", "recap.json"), encoding="utf-8"))
     st = json.load(open(STATE)) if os.path.exists(STATE) else {}
     now = dt.datetime.now(ZoneInfo("Europe/Helsinki"))
-    if st.get("last") == rec["gameDate"]:
+    force = os.environ.get("BSKY_FORCE") == "true"
+    if st.get("last") == rec["gameDate"] and not force:
         print("Bluesky: jo julkaistu", rec["gameDate"])
         return
     if not rec.get("games") or rec.get("pending") or not rec.get("text"):
         print("Bluesky: yön ottelut eivät ole vielä valmiita")
         return
-    if not (6 <= now.hour < 13):
+    if not (6 <= now.hour < 13) and not force:
         print("Bluesky: julkaistaan vain aamulla")
         return
     url = BASE + rec["url"]

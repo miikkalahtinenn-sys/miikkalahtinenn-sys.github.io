@@ -9,6 +9,7 @@ import datetime as dt
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from zoneinfo import ZoneInfo
 
@@ -28,6 +29,10 @@ def call(method, body, token=None):
 
 def main():
     handle, pw = os.environ.get("BSKY_HANDLE"), os.environ.get("BSKY_APP_PASSWORD")
+    handle = (handle or "").strip().lstrip("@").strip()
+    pw = (pw or "").strip()
+    if handle and "." not in handle and "@" not in handle:
+        handle += ".bsky.social"
     if not handle or not pw:
         print("Bluesky: salaisuuksia ei ole asetettu, ohitetaan")
         return
@@ -58,7 +63,11 @@ def main():
     full += " " + tag
     ts = len(full.encode("utf-8")) - len(tag.encode("utf-8"))
     facets.append({"index": {"byteStart": ts, "byteEnd": ts + len(tag.encode("utf-8"))}, "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": "NHL"}]})
-    s = call("com.atproto.server.createSession", {"identifier": handle, "password": pw})
+    try:
+        s = call("com.atproto.server.createSession", {"identifier": handle, "password": pw})
+    except urllib.error.HTTPError as e:
+        print(f"Bluesky: kirjautuminen epäonnistui ({e.code}). Tunnuksen muoto: {handle[:3]}…{handle[-12:]} ({len(handle)} merkkiä), salasanan pituus {len(pw)} merkkiä (sovellussalasana on 19).")
+        return
     record = {"$type": "app.bsky.feed.post", "text": full, "facets": facets, "langs": ["fi"],
               "createdAt": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"),
               "embed": {"$type": "app.bsky.embed.external", "external": {"uri": url, "title": f"NHL-tulokset ja suomalaiset – Punalamppu",

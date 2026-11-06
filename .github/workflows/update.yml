@@ -50,8 +50,8 @@ jobs:
           git add data
           if ! git diff --cached --quiet; then
             git commit -m "Päivitä data $(date -u +%Y-%m-%dT%H:%MZ)"
-            git pull --rebase --autostash || true
-            git push
+            git pull --rebase --autostash || git rebase --abort || true
+            git push || echo "data-push ohitettiin (päällekkäinen ajo), tallennetaan seuraavalla kerralla"
           fi
 
       - uses: actions/configure-pages@v5

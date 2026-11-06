@@ -1120,7 +1120,7 @@ def page(title, desc, path, body, jsonld=None, og=None):
 <meta property="og:image" content="{base}{og or '/og.png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
 <body><div class="wrap">{site_header(path)}
-<main>{boxify(body)}</main>{footer()}</div><script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{{}}))</script></body></html>"""
+<main>{boxify(body)}</main>{footer()}</div><script data-goatcounter="https://punalamppu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{{}}))</script></body></html>"""
 
 
 def footer():

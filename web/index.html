@@ -7,7 +7,7 @@
 <meta name="description" content="{{DESC}}">
 <link rel="canonical" href="{{CANONICAL}}">
 <meta property="og:title" content="{{SITE}} – NHL-tulokset suomeksi"><meta property="og:description" content="{{DESC}}"><meta property="og:type" content="website"><meta property="og:url" content="{{CANONICAL}}"><meta property="og:locale" content="fi_FI">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0B1118">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><link rel="alternate" type="application/rss+xml" title="Punalamppu – suomalaiset yön NHL-kierroksella" href="/rss.xml"><meta name="theme-color" content="#0B1118">
 <meta property="og:image" content="{{CANONICAL}}og.png"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{JSONLD}}</script>
 <link rel="stylesheet" href="/fonts.css">
@@ -214,8 +214,16 @@ nav a.fi-tab{display:inline-flex;align-items:center}
   .view:not(#v-tulokset).on{display:block}
 }
 @media (max-width:420px){.favsel{max-width:96px}nav{gap:4px}nav a{font-size:13.5px;padding:7px 11px}.brand{font-size:24px}h2{font-size:24px}.nums{font-size:30px}.badge{width:36px;height:36px;font-size:13px}.tn b{font-size:13.5px}th.hide,td.hide{display:none}.score{padding:12px 10px 8px}}
-.recapc{padding:14px 16px;margin-bottom:14px}.recapc h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px}
-.recapc p{margin:0 0 9px;font-size:14px;line-height:1.6;color:#d8e2ec}.recapc .more{font-size:13px;font-weight:600}
+.recapc{padding:14px 16px;margin:14px 0}.recapc h3{margin:0 0 8px;font-size:15px}
+.recapc .more{display:block;margin-top:10px;font-size:13px;font-weight:600}
+.rintro{margin:0 0 8px;color:var(--mute);font-size:13.5px}
+.rlist,.rnotes{list-style:none;margin:0;padding:0}
+.rlist li{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.45}
+.rlist li:first-child{border-top:0}.rlist .mini{margin-top:1px}
+.rlist a{color:var(--ink)}
+.rzero{margin:8px 0 0;font-size:13px;color:var(--mute)}.rzero span{font-weight:600}
+.rnotes{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+.rnotes li{display:flex;gap:8px;padding:4px 0;font-size:13.5px;line-height:1.45;color:#d8e2ec}
 </style>
 </head>
 <body>
@@ -363,8 +371,8 @@ function renderResults(){
     </article>`;
   }
   h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL.com, katsottavissa ottelusivuilla. Video ladataan NHL:n palvelusta vasta, kun painat toistopainiketta.</div>`;
-  const rec=D.recap?`<section class="card recapc"><h3><span class="flag sm"></span>Suomalaisten yö</h3>${D.recap}<a class="more" href="/tulokset/${esc(D.gameDate)}/">Kaikki yön tulokset ja suomalaisten tehot →</a></section>`:"";
-  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${rec}${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
+  const rec=D.recap?`<section class="card recapc"><h3>Suomalaiset yön NHL-kierroksella</h3>${D.recap}<a class="more" href="/tulokset/${esc(D.gameDate)}/">Yön tulokset ja tehot →</a></section>`:"";
+  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}${rec}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 
 /* ---------- Tulevat ottelut ---------- */

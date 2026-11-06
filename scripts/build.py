@@ -1119,7 +1119,7 @@ def page(title, desc, path, body, jsonld=None, og=None):
 <link rel="canonical" href="{base}{path}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
 <meta property="og:image" content="{base}{og or '/og.png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><link rel="alternate" type="application/rss+xml" title="Punalamppu – suomalaiset yön NHL-kierroksella" href="/rss.xml"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
 <body><div class="wrap">{site_header(path)}
 <main>{boxify(body)}</main>{footer()}</div><script data-goatcounter="https://punalamppu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{{}}))</script></body></html>"""
 
@@ -1129,7 +1129,7 @@ def footer():
             '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>PUNALAMPPU</span></a>'
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/tulokset/">Tulokset päivittäin</a><a href="/joukkueet/">Joukkueet</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/pudotuspelit/">Pudotuspelitodennäköisyydet</a><a href="/ottelut/">Otteluarkisto</a></div>'
-            '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a><a href="/virstanpylvaat/">Virstanpylväät</a><a href="/kaikkien-aikojen-suomalaiset/">Kaikkien aikojen suomalaiset</a><a href="/kalenteri/suomalaiset.ics">Kalenteri (.ics)</a></div>'
+            '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a><a href="/virstanpylvaat/">Virstanpylväät</a><a href="/kaikkien-aikojen-suomalaiset/">Kaikkien aikojen suomalaiset</a><a href="/kalenteri/suomalaiset.ics">Kalenteri (.ics)</a><a href="/rss.xml">RSS-syöte</a></div>'
             '<div><h4>Katso NHL:ää</h4><a href="/nhl-tv/">NHL tv-lähetykset</a><a href="/nhl-tv/#ilmaisottelut">Ilmaisottelut</a><a href="/nhl-helsinki-2026/">NHL Helsinki 2026</a></div>'
             '<div><h4>Sivusto</h4><a href="/tietoa.html">Tietoa sivustosta</a><a href="/yhteys.html">Ota yhteyttä</a><a href="/tietosuoja.html">Tietosuoja</a></div>'
             '</div>'
@@ -1280,7 +1280,7 @@ def build_site(data):
         log("pudotuspelisimulaatio epäonnistui", e)
     for f in data["finns"] + data["finnGoalies"]:
         MILE_HTML[f[0]] = mile_html_for(f[0])
-    rh, rt = build_recap(data["gameDate"], data["games"], data, True) if data["games"] else ("", "")
+    rh, rt, rp = build_recap(data["gameDate"], data["games"], data, True) if data["games"] else ("", "", [])
     data["recap"] = rh
     data["odds"] = {a: round(v["p"], 3) for a, v in ODDS.items()}
     if os.path.exists(OUT):
@@ -1305,7 +1305,7 @@ def build_site(data):
                                                  "url": base + "/", "inLanguage": "fi"}, ensure_ascii=False))
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(idx)
     save_json(os.path.join(OUT, "data.json"), data, pretty=False)
-    save_json(os.path.join(OUT, "recap.json"), {"gameDate": data["gameDate"], "text": rt, "games": len(data["games"]),
+    save_json(os.path.join(OUT, "recap.json"), {"gameDate": data["gameDate"], "text": rt, "lines": rp, "games": len(data["games"]),
                                                 "pending": len(data["pending"]), "url": f"/tulokset/{data['gameDate']}/"})
 
     # --- tieto- ja tietosuojasivut
@@ -1554,6 +1554,9 @@ def build_site(data):
     build_alltime_pages(data, urls)
     build_odds_page(data, urls)
 
+    # --- RSS-syöte aamukatsauksista
+    build_rss()
+
     # --- sitemap & robots
     today = now_utc().astimezone(HEL).date().isoformat()
     sm = "".join(f"<url><loc>{base}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls)
@@ -1611,6 +1614,28 @@ def scorers_line(g, slugs):
     return ", ".join(parts)
 
 
+FEED = []
+
+
+def build_rss():
+    base = CFG["baseUrl"].rstrip("/")
+    items = []
+    for e in sorted(FEED, key=lambda x: x["date"], reverse=True)[:30]:
+        x = dt.date.fromisoformat(e["date"])
+        pub = dt.datetime(x.year, x.month, x.day, 9, 0, tzinfo=HEL) + dt.timedelta(days=1)
+        link = f"{base}/tulokset/{e['date']}/"
+        body = ("<p>" + "</p><p>".join(html.escape(t) for t in e["plain"]) + "</p>") if e["plain"] else f"<p>{html.escape(e['desc'])}</p>"
+        body += f'<p><a href="{link}">Kaikki tulokset, tehot ja maalikoosteet</a></p>'
+        items.append(f"<item><title>Suomalaiset yön NHL-kierroksella {e['nice']}</title><link>{link}</link><guid isPermaLink=\"true\">{link}</guid>"
+                     f"<pubDate>{pub.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate><description>{html.escape(body)}</description></item>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+           f"<title>Punalamppu – suomalaiset yön NHL-kierroksella</title><link>{base}/</link>"
+           f'<atom:link href="{base}/rss.xml" rel="self" type="application/rss+xml"/>'
+           "<description>Joka aamu: suomalaisten tehot yön NHL-otteluista, tulokset ja maalikoosteet.</description><language>fi</language>"
+           + "".join(items) + "</channel></rss>")
+    open(os.path.join(OUT, "rss.xml"), "w", encoding="utf-8").write(xml)
+
+
 def build_day_pages(data, arch_days, urls):
     slugs = data["finnSlugs"]
     ds = sorted(d for d, gl in arch_days.items() if gl)
@@ -1644,13 +1669,14 @@ def build_day_pages(data, arch_days, urls):
         best = "; ".join(f"{short_name(f['name'])} {f.get('g', 0)}+{f.get('a', 0)}" for f in fin_pts[:3])
         desc = (f"NHL-tulokset {nice}: " + ", ".join(f"{g['away']}–{g['home']} {g.get('awayScore')}–{g.get('homeScore')}" for g in gl[:5])
                 + (f". Suomalaiset: {best}." if best else "."))[:300]
-        rec_html, _ = build_recap(d, gl, data, d == data["gameDate"])
+        rec_html, _, rec_plain = build_recap(d, gl, data, d == data["gameDate"])
         body = (f"<h1>NHL-tulokset {esc(fi_date(d))}</h1>"
                 f"<p class='lead'>{len(gl)} ottelua. Kellonajat Suomen aikaa. Avaa ottelu nähdäksesi maalit, ottelun tähdet ja maalikoosteen.</p>"
                 f"<nav class='daynav'>{prev_}<a href='/tulokset/'>Kaikki päivät</a>{next_}</nav>"
-                + (f"<h2>{FLAG}Suomalaisten yö</h2><div class='recap'>{rec_html}</div>" if rec_html else "")
-                + f"<h2>Tulokset</h2><ul class='rows'>{''.join(cards)}</ul>"
-                + (f"<h2>Suomalaisten tehot</h2><table class='t'><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th></tr>{''.join(r for _, r in sorted(finrows, key=lambda x: -x[0]))}</table>" if finrows else ""))
+                + (f"<h2>{FLAG}Suomalaisten tehot</h2><table class='t'><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th></tr>{''.join(r for _, r in sorted(finrows, key=lambda x: -x[0]))}</table>" if finrows else "")
+                + (f"<h2>Suomalaiset yön NHL-kierroksella</h2><div class='recap'>{rec_html}</div>" if rec_html else "")
+                + f"<h2>Tulokset</h2><ul class='rows'>{''.join(cards)}</ul>")
+        FEED.append({"date": d, "nice": nice, "html": rec_html, "plain": rec_plain, "desc": desc})
         ev = [{"@type": "SportsEvent", "name": f"{tname(g['away'])} – {tname(g['home'])}", "startDate": g.get("start") or d,
                "url": CFG["baseUrl"].rstrip("/") + f"/ottelut/{game_slug(d, g)}.html",
                "awayTeam": {"@type": "SportsTeam", "name": tname(g["away"])}, "homeTeam": {"@type": "SportsTeam", "name": tname(g["home"])},
@@ -1880,7 +1906,7 @@ def compute_milestones(data, hel_today):
             step = _steps(s, v)
             key = f"{name}|{s}"
             prev = last.get(key)
-            if prev is not None and v > prev:
+            if prev is not None and prev < v <= prev + 8:  # isompi hyppy = tietovirhe tai seurasiirto, ei virstanpylväs
                 for m in range(prev // step * step + step, v // step * step + step, step):
                     if prev < m <= v:
                         reached.append({"date": hel_today.isoformat(), "name": name, "team": t, "stat": s, "value": m})
@@ -1913,26 +1939,46 @@ DONE_FI = {"gamesPlayed": "pelasi {v}. NHL-runkosarjaottelunsa", "points": "ylsi
            "wins": "ylsi {v} NHL-voittoon", "shutouts": "ylsi {v} nollapeliin NHL:ssä"}
 
 
+NUM_NOM = {1: "yksi", 2: "kaksi", 3: "kolme", 4: "neljä", 5: "viisi", 6: "kuusi", 7: "seitsemän", 8: "kahdeksan", 9: "yhdeksän", 10: "kymmenen"}
+NUM_GEN = {1: "yhden", 2: "kahden", 3: "kolmen", 4: "neljän", 5: "viiden", 6: "kuuden", 7: "seitsemän", 8: "kahdeksan", 9: "yhdeksän", 10: "kymmenen"}
+
+
+def nw(n):
+    return NUM_NOM.get(n, str(n))
+
+
+def nwg(n):
+    return NUM_GEN.get(n, str(n))
+
+
 def mile_txt(m, done=False):
     w = STAT_FI[m["stat"]]
     if done:
         return f"{m['name']} " + DONE_FI[m["stat"]].format(v=m["value"])
     if m["stat"] == "gamesPlayed":
-        return f"{m['name']} pelaa {m['value']}. NHL-ottelunsa {m['need']} ottelun päästä" if m["need"] > 1 else f"{m['name']} pelaa seuraavaksi {m['value']}. NHL-ottelunsa"
-    amount = f"yhden {w[1]}" if m["need"] == 1 else f"{m['need']} {w[0]}"
+        return (f"{m['name']} pelaa {m['value']}. NHL-ottelunsa {nwg(m['need'])} ottelun päästä" if m["need"] > 1
+                else f"{m['name']} pelaa seuraavaksi {m['value']}. NHL-ottelunsa")
+    amount = f"yhden {w[1]}" if m["need"] == 1 else f"{nw(m['need'])} {w[0]}"
     return f"{m['name']} tarvitsee {amount} {m['value']} {w[1]} rajaan"
 
 
 def mile_short(m):
     w = STAT_FI[m["stat"]]
     if m["stat"] == "gamesPlayed":
-        return f"{m['value']}. NHL-ottelu {m['need']} ottelun päästä" if m["need"] > 1 else f"{m['value']}. NHL-ottelu seuraavaksi"
-    return f"{m['value']} {w[0]}: puuttuu {m['need']}"
+        return f"{m['value']}. NHL-ottelu {nwg(m['need'])} ottelun päästä" if m["need"] > 1 else f"{m['value']}. NHL-ottelu seuraavaksi"
+    return f"{m['value']} {w[0]}: puuttuu {nw(m['need'])}"
 
 
-# ---------------------------------------------------------------- aamukatsaus
-NUM_FI = {1: "yhden", 2: "kaksi", 3: "kolme", 4: "neljä", 5: "viisi"}
-NUM_FI_N = {1: "yksi", 2: "kaksi", 3: "kolme", 4: "neljä", 5: "viisi", 6: "kuusi"}
+# joukkueen nimi lyhyessä tekstissä (paikkakunta; New Yorkin joukkueet lempinimellä)
+PLACE = {"NYR": "Rangers", "NYI": "Islanders", "LAK": "Los Angeles", "TBL": "Tampa Bay", "NJD": "New Jersey", "SJS": "San Jose", "STL": "St. Louis",
+         "VGK": "Vegas", "UTA": "Utah", "MTL": "Montréal", "CBJ": "Columbus"}
+
+
+def place(a):
+    if a in PLACE:
+        return PLACE[a]
+    full, nick = TEAMS.get(a, (a, a))
+    return full[: -len(nick)].strip() if full.endswith(nick) and full != nick else full
 
 
 def team_result(g, t):
@@ -1954,103 +2000,93 @@ def gwg_scorer(g):
     return wg[lose]["who"] if len(wg) > lose else None
 
 
+def _act(gg, aa):
+    pp = gg + aa
+    if gg >= 3:
+        s = "teki hattutempun"
+    elif gg == 2:
+        s = "teki kaksi maalia"
+    elif gg == 1:
+        s = "teki maalin"
+    else:
+        return "antoi syötön" if aa == 1 else f"antoi {nw(aa)} syöttöä"
+    if pp >= 4 or (pp == 3 and gg < 3):
+        return f"keräsi {nw(pp)} pistettä ({gg}+{aa})"
+    return s + (" ja syötön" if aa == 1 else f" ja {nw(aa)} syöttöä" if aa > 1 else "")
+
+
 def build_recap(d, gl, data, latest):
-    """Palauttaa (html, lyhyt teksti) – sääntöpohjainen katsaus suomalaisten yöstä."""
+    """Palauttaa (html, lyhyt teksti, rivit) – lyhyin lausein, yksi rivi pelaajaa kohden."""
     slugs = data["finnSlugs"]
-    def nm(n):
-        return f"<a href='/suomalaiset/{slugs[n]}.html'>{esc(n)}</a>" if n in slugs else esc(n)
-    rows = []
-    for g in gl:
-        for f in g.get("finStats") or []:
-            rows.append((g, f))
     if not gl:
-        return "", ""
-    sk = [(g, f) for g, f in rows if f.get("pos") != "MV"]
+        return "", "", []
+    def nm(n):
+        return f"<a href='/suomalaiset/{slugs[n]}.html'><b>{esc(n)}</b></a>" if n in slugs else f"<b>{esc(n)}</b>"
+    rows = [(g, f) for g in gl for f in g.get("finStats") or []]
+    sk = sorted([(g, f) for g, f in rows if f.get("pos") != "MV"], key=lambda x: (-(x[1].get("p") or 0), -(x[1].get("g") or 0), x[1]["name"]))
     gk = [(g, f) for g, f in rows if f.get("pos") == "MV"]
-    sk.sort(key=lambda x: (-(x[1].get("p") or 0), -(x[1].get("g") or 0), x[1]["name"]))
-    paras = []
-    n_fin = len(rows)
-    intro = f"NHL-yönä pelattiin {len(gl)} ottelua" + (f", ja suomalaisia pelasi {n_fin}." if n_fin else ", mutta suomalaisia ei nähty kaukalossa.")
-    paras.append(esc(intro))
-    lines = []
-    short = []
-    used = 0
-    seen_g = set()
+    items, plain, short = [], [], []
+    seen = set()
     for g, f in sk:
-        gg, aa, pp = f.get("g") or 0, f.get("a") or 0, f.get("p") or 0
-        if not pp:
+        gg, aa = f.get("g") or 0, f.get("a") or 0
+        if not gg + aa:
             continue
-        if gg >= 3:
-            act = "teki hattutempun" + (f" ja lisäsi {NUM_FI_N.get(aa, aa)} syöttöä" if aa > 1 else " ja syötön" if aa == 1 else "")
-        elif gg == 2:
-            act = "teki kaksi maalia" + (f" ja antoi {NUM_FI_N.get(aa, aa)} syöttöä" if aa > 1 else " ja syötön" if aa == 1 else "")
-        elif gg == 1:
-            act = "teki maalin" + (f" ja antoi {NUM_FI_N.get(aa, aa)} syöttöä" if aa > 1 else " ja syötön" if aa == 1 else "")
-        else:
-            act = f"antoi {NUM_FI_N.get(aa, aa)} syöttöä" if aa > 1 else "antoi syötön"
-        if pp >= 3 and gg < 3:
-            act = f"keräsi {NUM_FI_N.get(pp, pp)} tehopistettä ({gg}+{aa})"
-        win, res = team_result(g, f["team"])
-        opp = g["home"] if g["away"] == f["team"] else g["away"]
-        decisive = gg and gwg_scorer(g) == f["name"]
-        ot_win = decisive and g.get("final") == "JA"
-        s = f"{nm(f['name'])} {act}"
-        same = (g["id"], f["team"]) in seen_g
-        seen_g.add((g["id"], f["team"]))
-        if same and not decisive:
-            s += " samassa ottelussa."
-        elif ot_win:
-            s += f" ja ratkaisi ottelun jatkoajalla, kun {esc(tname(f['team']))} {res} ({esc(tname(opp))})."
-        elif decisive:
-            s += f". Hänen maalinsa jäi voittomaaliksi, kun {esc(tname(f['team']))} {res} ({esc(tname(opp))})."
-        else:
-            s += (", ja " if win else ", mutta ") + f"{esc(tname(f['team']))} {res} ({esc(tname(opp))})."
-        lines.append(s)
+        t = f["team"]
+        win, res = team_result(g, t)
+        dec = gg and gwg_scorer(g) == f["name"]
+        same = (g["id"], t) in seen
+        sent = [f"{_act(gg, aa).capitalize()}{' samassa ottelussa' if same and not dec else ''}."]
+        if dec:
+            sent.append("Maali ratkaisi ottelun jatkoajalla." if g.get("final") == "JA" else "Maali jäi voittomaaliksi.")
+        if (g["id"], t) not in seen:
+            sent.append(f"{place(t)} {res}.")
+        seen.add((g["id"], t))
+        txt = " ".join(sent)
+        items.append(f"<li>{tbadge(t, 'mini')}<span>{nm(f['name'])} {esc(txt[0].lower() + txt[1:])}</span></li>")
+        plain.append(f"{f['name']} {txt[0].lower() + txt[1:]}")
         short.append(f"{short_name(f['name'])} {gg}+{aa}")
-        used += 1
     for g, f in gk:
         sv, sa = f.get("saves"), f.get("shots")
         if sv is None or not sa:
             continue
-        pct = f"{sv / sa:.3f}".lstrip("0")
-        ga = sa - sv
-        win, res = team_result(g, f["team"])
-        opp = g["home"] if g["away"] == f["team"] else g["away"]
-        if ga == 0 and f.get("dec") == "W":
-            s = f"{nm(f['name'])} pelasi nollapelin ja torjui kaikki {sa} laukausta, kun {esc(tname(f['team']))} {res} ({esc(tname(opp))})."
+        t = f["team"]
+        win, res = team_result(g, t)
+        if sa == sv and win:
+            txt = f"pelasi nollapelin ({sv} torjuntaa). {place(t)} {res}."
             short.append(f"{short_name(f['name'])} nollapeli")
         else:
-            s = (f"Maalilla {nm(f['name'])} torjui {sv} laukausta {sa}:stä (TO% {pct})"
-                 + ((", ja " if win else ", mutta ") + f"{esc(tname(f['team']))} {res}")
-                 + f" ({esc(tname(opp))}).")
+            txt = f"torjui {sv}/{sa} ({f'{sv / sa:.3f}'.lstrip('0')}). {place(t)} {res}."
             short.append(f"{short_name(f['name'])} {sv}/{sa}")
-        lines.append(s)
-    if lines:
-        paras.append(" ".join(lines[:3]))
-        if len(lines) > 3:
-            paras.append(" ".join(lines[3:]))
+        items.append(f"<li>{tbadge(t, 'mini')}<span>{nm(f['name'])} {esc(txt)}</span></li>")
+        plain.append(f"{f['name']} {txt}")
     zero = [f["name"] for g, f in sk if not f.get("p")]
+    html_ = f"<p class='rintro'>Yöllä pelattiin {esc(nw(len(gl)) if len(gl) <= 10 else len(gl))} ottelua. Suomalaisia pelasi {esc(nw(len(rows)) if len(rows) <= 10 else len(rows))}.</p>"
+    if items:
+        html_ += f"<ul class='rlist'>{''.join(items)}</ul>"
     if zero:
-        paras.append("Pisteittä jäivät " + ", ".join(nm(n) for n in zero[:-1]) + (" ja " if len(zero) > 1 else "") + nm(zero[-1]) + ".")
+        html_ += "<p class='rzero'><span>Ilman pisteitä:</span> " + ", ".join(esc(short_name(n)) for n in zero) + ".</p>"
     if latest:
+        extra = []
+        nxt_d = (dt.date.fromisoformat(d) + dt.timedelta(days=1)).isoformat()
+        for m in MILES.get("reached") or []:
+            if m["date"] in (d, nxt_d):
+                extra.append(("🎉", mile_txt(m, True) + "."))
+        for m in MILES.get("moves") or []:
+            if m["date"] in (d, nxt_d):
+                extra.append(("📈", f"{m['name']} nousi suomalaisten kaikkien aikojen pistepörssissä sijalle {m['rank']}."))
+        for m in (MILES.get("upcoming") or [])[:2]:
+            extra.append(("⏳", mile_txt(m) + "."))
         top = data["finns"][:3]
         if top:
-            paras.append(esc(f"Suomalaisten pistepörssiä johtaa {top[0][0]} ({tname(top[0][1])}) {top[0][6]} pisteellä") +
-                         (esc(f". Seuraavina ovat {top[1][0]} {top[1][6]} ja {top[2][0]} {top[2][6]} pistettä.") if len(top) > 2 else "."))
-        done = [m for m in MILES.get("reached") or [] if m["date"] in (d, (dt.date.fromisoformat(d) + dt.timedelta(days=1)).isoformat())]
-        mv = [m for m in MILES.get("moves") or [] if m["date"] in (d, (dt.date.fromisoformat(d) + dt.timedelta(days=1)).isoformat())]
-        extra = [esc(mile_txt(m, True)) + "." for m in done]
-        extra += [esc(f"{m['name']} nousi suomalaisten kaikkien aikojen NHL-pistepörssissä sijalle {m['rank']}" + (f" ohi pelaajan {m['passed'][-1]}" if m.get("passed") else "")) + "." for m in mv]
+            extra.append(("🏆", "Suomalaisten pistepörssi: " + ", ".join(f"{short_name(p[0])} {p[6]}" for p in top) + "."))
         if extra:
-            paras.append("<b>Virstanpylväs:</b> " + " ".join(extra))
-            short.append("🎉 " + "; ".join(mile_txt(m, True) for m in done[:1]))
-        up = (MILES.get("upcoming") or [])[:2]
-        if up:
-            paras.append("<b>Lähellä:</b> " + "; ".join(esc(mile_txt(m)) for m in up) + ". <a href='/virstanpylvaat/'>Kaikki virstanpylväät</a>")
-    html_ = "".join(f"<p>{p}</p>" for p in paras)
+            html_ += "<ul class='rnotes'>" + "".join(f"<li><span>{e}</span>{esc(t)}</li>" for e, t in extra) + "</ul>"
+        for e, t in extra:
+            if e == "🎉":
+                short.append("🎉 " + t.rstrip("."))
     x = dt.date.fromisoformat(d)
-    txt = f"Suomalaiset NHL-yönä {x.day}.{x.month}. 🇫🇮\n" + (", ".join(short) if short else "Ei suomalaisten tehopisteitä.")
-    return html_, txt
+    txt = f"Suomalaiset yön NHL-kierroksella {x.day}.{x.month}. 🇫🇮\n" + (", ".join(short) if short else "Ei suomalaisten tehopisteitä.")
+    return html_, txt, plain
 
 
 # ---------------------------------------------------------------- kalenterit (.ics)

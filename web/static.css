@@ -184,7 +184,13 @@ tr.me td{background:color-mix(in srgb,var(--fi) 18%,transparent);font-weight:600
 @media (max-width:560px){.gt.wide{min-width:96px}.tgrid{grid-template-columns:repeat(2,1fr)}}
 
 /* katsaus, kalenteri, todennäköisyydet */
-.recap p{margin:0 0 10px;line-height:1.6}.recap p:last-child{margin-bottom:0}
+.rintro{margin:0 0 8px;color:var(--mute);font-size:13.5px}
+.rlist,.rnotes{list-style:none;margin:0;padding:0}
+.rlist li{display:flex;gap:9px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line);line-height:1.45}
+.rlist li:first-child{border-top:0}.rlist .mini{margin-top:1px}.rlist a{color:var(--ink)}
+.rzero{margin:8px 0 0;font-size:13.5px;color:var(--mute)}.rzero span{font-weight:600}
+.rnotes{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+.rnotes li{display:flex;gap:8px;padding:4px 0;font-size:14px;line-height:1.45}
 .calbox{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
 .calbox>.ic{width:26px;height:26px;color:var(--ice)}
 .calbox>div{flex:1;min-width:180px}.calbox b{display:block}.calbox span{color:var(--mute);font-size:13px}

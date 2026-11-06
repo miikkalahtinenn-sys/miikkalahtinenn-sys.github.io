@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       bsky_force:
-        description: "Julkaise Bluesky-katsaus heti (testi)"
+        description: "Julkaise aamukatsaus someen heti (testi)"
         type: boolean
         default: false
   push:
@@ -77,17 +77,20 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
 
-      - name: Julkaise aamukatsaus Blueskyyn (jos tunnukset asetettu)
+      - name: Julkaise aamukatsaus someen (Bluesky, Telegram, Threads)
         continue-on-error: true
         env:
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
-          BSKY_FORCE: ${{ inputs.bsky_force }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          SOCIAL_FORCE: ${{ inputs.bsky_force }}
         run: |
-          python scripts/bsky.py
-          if ! git diff --quiet -- data/bsky.json 2>/dev/null || [ -n "$(git status --porcelain data/bsky.json)" ]; then
-            git add data/bsky.json
-            git commit -m "Bluesky-julkaisu $(date -u +%Y-%m-%d)" && (git pull --rebase --autostash || true) && git push || true
+          python scripts/social.py
+          if [ -n "$(git status --porcelain data/social.json data/threads.enc)" ]; then
+            git add data/social.json data/threads.enc 2>/dev/null || git add data/social.json
+            git commit -m "Some-julkaisu $(date -u +%Y-%m-%d)" && (git pull --rebase --autostash || git rebase --abort || true) && git push || true
           fi
 
       - name: Ilmoita hakukoneille (IndexNow, kerran päivässä)

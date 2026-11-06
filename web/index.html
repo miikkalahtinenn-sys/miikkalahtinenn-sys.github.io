@@ -224,6 +224,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
 .rzero{margin:8px 0 0;font-size:13px;color:var(--mute)}.rzero span{font-weight:600}
 .rnotes{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
 .rnotes li{display:flex;gap:8px;padding:4px 0;font-size:13.5px;line-height:1.45;color:#d8e2ec}
+.fin-now .more.kooste{border-top:1px solid var(--line);font-weight:700}
 </style>
 </head>
 <body>
@@ -240,6 +241,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
     <a href="#tulokset" data-v="tulokset">Tulokset</a>
     <a href="#ohjelma" data-v="ohjelma">Tulevat ottelut</a>
     <a href="#suomalaiset" data-v="suomalaiset" class="fi-tab"><span class="flag sm"></span>Suomalaiset</a>
+    <a href="/koosteet/">Koosteet</a>
     <a href="/nhl-tv/">TV-lähetykset</a>
     <a href="#porssi" data-v="porssi">Pistepörssi</a>
     <a href="#sarjataulukko" data-v="sarjataulukko">Sarjataulukko</a>
@@ -328,7 +330,8 @@ function finNow(){
   const head=`<div class="hd"><span class="flag"></span>Suomalaiset yöllä<small>${rows.length?`${rows.length} pelasi · ${total} pistettä`:""}</small></div>`;
   const body=list.length?list.slice(0,7).map(r=>`<div class="r">${mini(r.team)}<span>${plink(r.name)} <span class="vs">vs ${esc(r.opp)}</span></span><span class="pt">${esc(r.pt)}<small>${esc(r.sub)}</small></span></div>`).join("")
     :`<div class="r"><span class="vs">Ei suomalaisten pisteitä yöllä.</span></div>`;
-  return `<div class="fin-now">${head}${body}<a class="more" href="#suomalaiset">Kaikki yön suomalaistilastot →</a></div>`;
+  const kooste=D.recap?`<a class="more kooste" href="/koosteet/${esc(D.gameDate)}/">Lue yön suomalaiskooste →</a>`:"";
+  return `<div class="fin-now">${head}${body}${kooste}<a class="more" href="#suomalaiset">Kaikki yön suomalaistilastot →</a></div>`;
 }
 function statsDuo(){
   const S=(D.skaters||[]).slice(0,5);
@@ -371,8 +374,7 @@ function renderResults(){
     </article>`;
   }
   h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL.com, katsottavissa ottelusivuilla. Video ladataan NHL:n palvelusta vasta, kun painat toistopainiketta.</div>`;
-  const rec=D.recap?`<section class="card recapc"><h3>Suomalaiset yön NHL-kierroksella</h3>${D.recap}<a class="more" href="/tulokset/${esc(D.gameDate)}/">Yön tulokset ja tehot →</a></section>`:"";
-  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}${rec}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
+  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 
 /* ---------- Tulevat ottelut ---------- */

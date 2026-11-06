@@ -81,7 +81,7 @@ def tbadge(a, cls="badge"):
     return f'<span class="{cls}" style="background:{COLORS.get(a, "#445")}" title="{esc(TEAMS.get(a, (a,))[0])}">{esc(a)}</span>'
 
 
-NAV = [("/", "Tulokset"), ("/otteluohjelma/", "Ohjelma"), ("/suomalaiset/", "Suomalaiset"), ("/nhl-tv/", "TV-lähetykset"),
+NAV = [("/", "Tulokset"), ("/otteluohjelma/", "Ohjelma"), ("/suomalaiset/", "Suomalaiset"), ("/koosteet/", "Koosteet"), ("/nhl-tv/", "TV-lähetykset"),
        ("/pisteporssi/", "Pistepörssi"), ("/sarjataulukko/", "Sarjataulukko"), ("/joukkueet/", "Joukkueet"), ("/tulokset/", "Arkisto")]
 
 
@@ -1129,7 +1129,7 @@ def footer():
             '<div class="fbrand"><a class="brand sm" href="/"><img src="/logo-mark.svg" alt="" width="26" height="26"><span>PUNALAMPPU</span></a>'
             '<p>Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi. Päivittyy automaattisesti joka yö ja aamu.</p></div>'
             '<div><h4>NHL</h4><a href="/">Yön tulokset</a><a href="/tulokset/">Tulokset päivittäin</a><a href="/joukkueet/">Joukkueet</a><a href="/otteluohjelma/">Otteluohjelma</a><a href="/sarjataulukko/">Sarjataulukko</a><a href="/pisteporssi/">Pistepörssi</a><a href="/pudotuspelit/">Pudotuspelitodennäköisyydet</a><a href="/ottelut/">Otteluarkisto</a></div>'
-            '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/#suomalaiset">Yön suomalaistilastot</a><a href="/virstanpylvaat/">Virstanpylväät</a><a href="/kaikkien-aikojen-suomalaiset/">Kaikkien aikojen suomalaiset</a><a href="/kalenteri/suomalaiset.ics">Kalenteri (.ics)</a><a href="/rss.xml">RSS-syöte</a></div>'
+            '<div><h4>Suomalaiset</h4><a href="/suomalaiset/">Kaikki suomalaiset</a><a href="/koosteet/">Päivittäiset koosteet</a><a href="/#suomalaiset">Yön suomalaistilastot</a><a href="/virstanpylvaat/">Virstanpylväät</a><a href="/kaikkien-aikojen-suomalaiset/">Kaikkien aikojen suomalaiset</a><a href="/kalenteri/suomalaiset.ics">Kalenteri (.ics)</a><a href="/rss.xml">RSS-syöte</a></div>'
             '<div><h4>Katso NHL:ää</h4><a href="/nhl-tv/">NHL tv-lähetykset</a><a href="/nhl-tv/#ilmaisottelut">Ilmaisottelut</a><a href="/nhl-helsinki-2026/">NHL Helsinki 2026</a></div>'
             '<div><h4>Sivusto</h4><a href="/tietoa.html">Tietoa sivustosta</a><a href="/yhteys.html">Ota yhteyttä</a><a href="/tietosuoja.html">Tietosuoja</a></div>'
             '</div>'
@@ -1306,7 +1306,7 @@ def build_site(data):
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(idx)
     save_json(os.path.join(OUT, "data.json"), data, pretty=False)
     save_json(os.path.join(OUT, "recap.json"), {"gameDate": data["gameDate"], "text": rt, "lines": rp, "games": len(data["games"]),
-                                                "pending": len(data["pending"]), "url": f"/tulokset/{data['gameDate']}/"})
+                                                "pending": len(data["pending"]), "url": f"/koosteet/{data['gameDate']}/"})
 
     # --- tieto- ja tietosuojasivut
     for fn in ("tietoa.html", "tietosuoja.html", "404.html", "yhteys.html"):
@@ -1615,6 +1615,7 @@ def scorers_line(g, slugs):
 
 
 FEED = []
+KOOSTEET = []
 
 
 def build_rss():
@@ -1623,9 +1624,9 @@ def build_rss():
     for e in sorted(FEED, key=lambda x: x["date"], reverse=True)[:30]:
         x = dt.date.fromisoformat(e["date"])
         pub = dt.datetime(x.year, x.month, x.day, 9, 0, tzinfo=HEL) + dt.timedelta(days=1)
-        link = f"{base}/tulokset/{e['date']}/"
+        link = f"{base}/koosteet/{e['date']}/"
         body = ("<p>" + "</p><p>".join(html.escape(t) for t in e["plain"]) + "</p>") if e["plain"] else f"<p>{html.escape(e['desc'])}</p>"
-        body += f'<p><a href="{link}">Kaikki tulokset, tehot ja maalikoosteet</a></p>'
+        body += f'<p><a href="{base}/tulokset/{e["date"]}/">Kaikki tulokset, tehot ja maalikoosteet</a></p>'
         items.append(f"<item><title>Suomalaiset yön NHL-kierroksella {e['nice']}</title><link>{link}</link><guid isPermaLink=\"true\">{link}</guid>"
                      f"<pubDate>{pub.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate><description>{html.escape(body)}</description></item>")
     xml = ('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
@@ -1674,9 +1675,30 @@ def build_day_pages(data, arch_days, urls):
                 f"<p class='lead'>{len(gl)} ottelua. Kellonajat Suomen aikaa. Avaa ottelu nähdäksesi maalit, ottelun tähdet ja maalikoosteen.</p>"
                 f"<nav class='daynav'>{prev_}<a href='/tulokset/'>Kaikki päivät</a>{next_}</nav>"
                 + (f"<h2>{FLAG}Suomalaisten tehot</h2><table class='t'><tr><th>Pelaaja</th><th>M</th><th>S</th><th>P</th><th>+/-</th></tr>{''.join(r for _, r in sorted(finrows, key=lambda x: -x[0]))}</table>" if finrows else "")
-                + (f"<h2>Suomalaiset yön NHL-kierroksella</h2><div class='recap'>{rec_html}</div>" if rec_html else "")
+                + (f"<p class='kref'><a href='/koosteet/{d}/'>Lue yön suomalaiskooste →</a></p>" if rec_html else "")
                 + f"<h2>Tulokset</h2><ul class='rows'>{''.join(cards)}</ul>")
         FEED.append({"date": d, "nice": nice, "html": rec_html, "plain": rec_plain, "desc": desc})
+        if rec_html:
+            kdesc = (" ".join(rec_plain[:3]) or desc)[:300]
+            res_list = "".join(f"<li><a class='mrow' href='/ottelut/{game_slug(d, g)}.html'>{tbadge(g['away'], 'mini')}<span>{esc(tname(g['away']))} – {esc(tname(g['home']))}</span>{tbadge(g['home'], 'mini')}<b>{esc(score_txt(g))}</b>{ic('chev')}</a></li>" for g in gl)
+            kprev = f"<a href='/koosteet/{ds[i - 1]}/'>‹ {esc(fi_dshort(ds[i - 1]))}</a>" if i > 0 else "<span></span>"
+            knext = f"<a href='/koosteet/{ds[i + 1]}/'>{esc(fi_dshort(ds[i + 1]))} ›</a>" if i + 1 < len(ds) else "<span></span>"
+            pubd = (dt.date.fromisoformat(d) + dt.timedelta(days=1)).isoformat()
+            kbody = (f"<p class='kdate'>Julkaistu {esc(fi_date(pubd))} · NHL-kierros {esc(fi_dshort(d))}</p>"
+                     f"<h1>Suomalaiset yön NHL-kierroksella {nice}</h1>"
+                     f"<nav class='daynav'>{kprev}<a href='/koosteet/'>Kaikki koosteet</a>{knext}</nav>"
+                     f"<section class='box recap'>{rec_html}</section>"
+                     f"<h2>Yön tulokset</h2><ul class='rows'>{res_list}</ul>"
+                     f"<p class='small'><a href='/tulokset/{d}/'>Suomalaisten tehotaulukko ja kaikki yön ottelut {ic('chev')}</a></p>")
+            kjl = {"@context": "https://schema.org", "@graph": [
+                {"@type": "NewsArticle", "headline": f"Suomalaiset yön NHL-kierroksella {nice}", "datePublished": f"{pubd}T07:00:00+02:00",
+                 "dateModified": now_utc().isoformat(timespec="minutes"), "inLanguage": "fi", "description": kdesc,
+                 "author": {"@type": "Organization", "name": CFG["siteName"], "url": CFG["baseUrl"]},
+                 "publisher": {"@type": "Organization", "name": CFG["siteName"], "logo": {"@type": "ImageObject", "url": CFG["baseUrl"].rstrip("/") + "/icon-512.png"}},
+                 "mainEntityOfPage": CFG["baseUrl"].rstrip("/") + f"/koosteet/{d}/", "image": CFG["baseUrl"].rstrip("/") + "/og.png"},
+                crumbs([("Punalamppu", "/"), ("Koosteet", "/koosteet/"), (nice, f"/koosteet/{d}/")])]}
+            write_page(f"/koosteet/{d}/", f"Suomalaiset yön NHL-kierroksella {nice} | {CFG['siteName']}", kdesc, kbody, kjl, urls=urls)
+            KOOSTEET.append((d, nice, rec_plain[0] if rec_plain else ""))
         ev = [{"@type": "SportsEvent", "name": f"{tname(g['away'])} – {tname(g['home'])}", "startDate": g.get("start") or d,
                "url": CFG["baseUrl"].rstrip("/") + f"/ottelut/{game_slug(d, g)}.html",
                "awayTeam": {"@type": "SportsTeam", "name": tname(g["away"])}, "homeTeam": {"@type": "SportsTeam", "name": tname(g["home"])},
@@ -1684,6 +1706,14 @@ def build_day_pages(data, arch_days, urls):
         jl = {"@context": "https://schema.org", "@graph": [crumbs([("Punalamppu", "/"), ("NHL-tulokset", "/tulokset/"), (nice, f"/tulokset/{d}/")])] + ev}
         write_page(f"/tulokset/{d}/", f"NHL-tulokset {nice} – maalit, suomalaiset ja koosteet | {CFG['siteName']}", desc, body, jl, urls=urls)
         links.append((d, len(gl), best))
+    klist = "".join(f"<li><a class='krow' href='/koosteet/{d}/'><span class='gt'>{esc(fi_dshort(d))}</span><b>Suomalaiset yön NHL-kierroksella {esc(n)}</b>"
+                    f"<span class='mute'>{esc(first)}</span></a></li>" for d, n, first in reversed(KOOSTEET))
+    write_page("/koosteet/", f"Suomalaiset NHL:ssä – päivittäiset koosteet | {CFG['siteName']}",
+               "Joka aamu uusi kooste: miten suomalaisilla meni yön NHL-otteluissa. Maalit, syötöt, torjunnat ja virstanpylväät suomeksi.",
+               "<h1>Koosteet</h1><p class='lead'>Joka aamu uusi kooste siitä, miten suomalaisilla meni yön NHL-otteluissa. "
+               "Koosteet voi tilata myös <a href='/rss.xml'>RSS-syötteenä</a> tai <a href='https://t.me/punalamppu' rel='noopener'>Telegramissa</a>.</p>"
+               f"<h2>Uusimmat koosteet</h2><ul class='rows'>{klist or '<li>Ei vielä koosteita.</li>'}</ul>",
+               {"@context": "https://schema.org", "@graph": [crumbs([("Punalamppu", "/"), ("Koosteet", "/koosteet/")])]}, urls=urls)
     rows = "".join(f"<li><a class='mrow' href='/tulokset/{d}/'><span>{esc(fi_date(d).capitalize())}</span><span class='mute'>{n} ottelua{(' · ' + esc(b)) if b else ''}</span>{ic('chev')}</a></li>" for d, n, b in reversed(links))
     write_page("/tulokset/", f"NHL-tulokset päivittäin – kaikki pelipäivät | {CFG['siteName']}",
                "NHL-tulokset pelipäivittäin suomeksi: kaikki ottelut, maalintekijät, suomalaisten tehot ja maalikoosteet.",

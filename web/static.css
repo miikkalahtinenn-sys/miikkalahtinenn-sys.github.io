@@ -199,3 +199,6 @@ tr.me td{background:color-mix(in srgb,var(--fi) 18%,transparent);font-weight:600
 .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#1f6f4a,#2ea56b)}
 .bar b{position:relative;display:block;padding:0 8px;line-height:22px;font-size:12.5px;font-variant-numeric:tabular-nums}
 h1{overflow-wrap:break-word}
+.kref{margin:4px 0 0}.kref a{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.kdate{margin:0 0 6px;color:var(--mute);font-size:13px}
+.krow{display:flex;flex-direction:column;gap:2px;padding:10px 0;color:var(--ink)}.krow:hover{text-decoration:none}.krow b{font-size:15px}.krow .mute{font-size:13px}

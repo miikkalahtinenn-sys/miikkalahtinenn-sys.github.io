@@ -54,12 +54,12 @@ def post_bsky(rec, url):
     text = rec["text"]
     tail = "\nKaikki tulokset ja maalikoosteet: "
     link = url.replace("https://", "")
-    if len(text) + len(tail) + len(link) > 278:
-        text = text[: 278 - len(tail) - len(link) - 1].rsplit(",", 1)[0] + "…"
+    if len(text) + len(tail) + len(link) > 270:
+        text = text[: 270 - len(tail) - len(link) - 1].rsplit(",", 1)[0] + "…"
     full = text + tail + link
     start = len((text + tail).encode())
     facets = [{"index": {"byteStart": start, "byteEnd": start + len(link.encode())}, "features": [{"$type": "app.bsky.richtext.facet#link", "uri": url}]}]
-    for tag in ("NHL", "jääkiekko"):
+    for tag in ("NHL", "NHLfi", "jääkiekko"):
         full += f" #{tag}"
         end = len(full.encode())
         facets.append({"index": {"byteStart": end - len(("#" + tag).encode()), "byteEnd": end}, "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": tag}]})

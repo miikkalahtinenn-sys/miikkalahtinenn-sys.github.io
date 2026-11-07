@@ -89,7 +89,7 @@ def site_header(path=""):
     def on(h):
         return h == path or (h != "/" and path.startswith(h)) or (h == "/ottelut/" and path.startswith("/ottelut/"))
     nav = "".join(f'<a href="{h}"{" class=on" if on(h) else ""}>{FLAG if h == "/suomalaiset/" else ""}{t}</a>' for h, t in NAV)
-    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="36" height="36"><span>PUNALAMPPU</span></a>'
+    return (ICONS + '<header class="top"><a class="brand" href="/" aria-label="Punalamppu – etusivu"><img src="/logo-mark.svg" alt="" width="42" height="42"><span>PUNALAMPPU</span></a>'
             f'<form class="q" action="/" method="get" role="search">{ic("search")}<input type="search" name="q" placeholder="Hae pelaajaa tai joukkuetta" aria-label="Hae pelaajaa tai joukkuetta"></form></header>'
             f'<nav class="pills" aria-label="Päävalikko">{nav}</nav>')
 
@@ -1058,8 +1058,11 @@ def _logo(im, x, y, sz):
 
 def _brand(d, x, y, sz=64):
     _logo(d._image, x, y, sz)
-    f = _font("fraunces-latin-700-normal", int(sz * .62))
-    d.text((x + sz * 1.2, y + sz / 2 + sz * .03), "PUNALAMPPU", font=f, fill=INK, anchor="lm")
+    f = _font("inter-latin-700-normal", int(sz * .5))
+    xx = x + sz * 1.15
+    for ch in "PUNALAMPPU":  # väljä kirjainväli kuten sivuston logossa
+        d.text((xx, y + sz / 2), ch, font=f, fill=INK, anchor="lm")
+        xx += d.textlength(ch, font=f) + sz * .07
 
 
 def _fit(d, text, name, size, maxw):
@@ -1084,8 +1087,13 @@ def og_default(path):
     im.paste(glow, (0, 0), mask)
     d = ImageDraw.Draw(im)
     _logo(im, W // 2 - 140 * S2, 90 * S2, 280 * S2)
-    f = _font("fraunces-latin-700-normal", 104 * S2)
-    d.text((W // 2, 450 * S2), "PUNALAMPPU", font=f, fill=INK, anchor="mm")
+    f = _font("inter-latin-700-normal", 84 * S2)
+    sp = 14 * S2
+    tw = sum(d.textlength(ch, font=f) for ch in "PUNALAMPPU") + sp * 9
+    xx = W // 2 - tw / 2
+    for ch in "PUNALAMPPU":
+        d.text((xx, 450 * S2), ch, font=f, fill=INK, anchor="lm")
+        xx += d.textlength(ch, font=f) + sp
     d.text((W // 2, 555 * S2), "Yön NHL-tulokset, maalikoosteet ja suomalaiset suomeksi", font=_font("inter-latin-500-normal", 30 * S2), fill=MUTE, anchor="mm")
     _save(im, path)
 

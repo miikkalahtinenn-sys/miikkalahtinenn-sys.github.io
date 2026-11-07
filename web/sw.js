@@ -1,6 +1,6 @@
 // Punalamppu – service worker: sivut ja data aina verkosta ensin (tuoreet tulokset),
 // välimuisti vain varalle kun yhteys puuttuu. Fontit ja kuvat välimuistista.
-const V = "pl-v1";
+const V = "pl-v2";
 const CORE = ["/", "/static.css", "/fonts.css", "/logo-mark.svg", "/favicon.svg"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(V).then(c => c.addAll(CORE)).catch(() => {})); self.skipWaiting(); });
 self.addEventListener("activate", e => {

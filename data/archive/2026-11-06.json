@@ -1,0 +1,176 @@
+{
+ "gameDate": "2026-11-06",
+ "games": {
+  "2026020262": {
+   "id": 2026020262,
+   "away": "CBJ",
+   "home": "BUF",
+   "awayScore": 2,
+   "homeScore": 5,
+   "start": "2026-11-07T00:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "06:50",
+     "team": "BUF",
+     "who": "Jack Quinn",
+     "tag": "",
+     "ast": [
+      "Owen Power",
+      "C. Timmins"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "16:00",
+     "team": "CBJ",
+     "who": "Kent Johnson",
+     "tag": "",
+     "ast": [
+      "Sean Monahan",
+      "Denton Mateychuk"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "18:10",
+     "team": "BUF",
+     "who": "Josh Norris",
+     "tag": "",
+     "ast": [
+      "Owen Power"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "04:30",
+     "team": "BUF",
+     "who": "Rasmus Dahlin",
+     "tag": "",
+     "ast": [
+      "Peyton Krebs",
+      "Owen Power"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "09:46",
+     "team": "BUF",
+     "who": "Josh Norris",
+     "tag": "",
+     "ast": [
+      "Zach Benson",
+      "Tage Thompson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "10:53",
+     "team": "BUF",
+     "who": "Josh Doan",
+     "tag": "",
+     "ast": [
+      "Noah Ostlund",
+      "Jack Quinn"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "18:21",
+     "team": "CBJ",
+     "who": "Zach Werenski",
+     "tag": "YV",
+     "ast": [
+      "Matthew Knies",
+      "Kent Johnson"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Jet Greaves (CBJ) 32 torjuntaa · Ukko-Pekka Luukkonen (BUF) 24 torjuntaa",
+   "threeStars": [
+    {
+     "star": 2,
+     "name": "Ukko-Pekka Luukkonen",
+     "team": "BUF",
+     "pos": "G",
+     "goals": null,
+     "assists": null,
+     "points": null,
+     "svp": 0.923
+    },
+    {
+     "star": 3,
+     "name": "Josh Norris",
+     "team": "BUF",
+     "pos": "C",
+     "goals": 2,
+     "assists": 0,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "KeyBank Center",
+   "finStats": [
+    {
+     "name": "Ukko-Pekka Luukkonen",
+     "team": "BUF",
+     "opp": "CBJ",
+     "pos": "MV",
+     "saves": 24,
+     "shots": 26,
+     "dec": "W",
+     "toi": "60:00"
+    }
+   ],
+   "note": "",
+   "recapUrl": "https://www.nhl.com/video/cbj-at-buf-recap-6408049269112",
+   "videoId": "",
+   "details": {
+    "goalies": "Jet Greaves (CBJ) 32 torjuntaa · Ukko-Pekka Luukkonen (BUF) 24 torjuntaa",
+    "threeStars": [
+     {
+      "star": 2,
+      "name": "Ukko-Pekka Luukkonen",
+      "team": "BUF",
+      "pos": "G",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "svp": 0.923
+     },
+     {
+      "star": 3,
+      "name": "Josh Norris",
+      "team": "BUF",
+      "pos": "C",
+      "goals": 2,
+      "assists": 0,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "KeyBank Center",
+    "finStats": [
+     {
+      "name": "Ukko-Pekka Luukkonen",
+      "team": "BUF",
+      "opp": "CBJ",
+      "pos": "MV",
+      "saves": 24,
+      "shots": 26,
+      "dec": "W",
+      "toi": "60:00"
+     }
+    ]
+   }
+  }
+ }
+}

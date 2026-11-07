@@ -2702,17 +2702,24 @@ def preview_article(data, D, now, arch_days=None):
             others.append((t, u, ch))
     when = lambda t: f"klo {t:%H.%M}".replace("klo 0", "klo ")
     dd = f"{D.day}.{D.month}."
-    if faceoffs:
-        u = faceoffs[0]
-        title = f"Suomalaiset vastakkain: {tname(u['away'])} – {tname(u['home'])} | NHL tänä yönä {dd}"
+    def best(names):
+        return sorted(names, key=lambda n: -(sk[n][6] if n in sk else 0))[0]
+    fo = []
+    for t, u, fa, fh, ch, extra in fin_games:
+        if fa and fh:
+            fo.append((100 if ch else 0) + len(fa) + len(fh), u, fa, fh, ch)
+    if fo:
+        fo.sort(key=lambda x: -x[0])
+        _, u, fa, fh, ch = fo[0]
+        title = f"NHL tänä yönä {dd}: {best(fa)} ja {best(fh)} vastakkain" + (f" – ilmaiseksi {ch}" if ch else "")
     elif frees:
         t, u, ch = frees[0]
-        title = f"NHL tänä yönä {dd}: {tname(u['away'])} – {tname(u['home'])} ilmaiseksi {ch}-kanavalla"
+        title = f"NHL tänä yönä {dd}: {tname(u['away'])} – {tname(u['home'])} ilmaiseksi ({ch})"
     else:
-        title = f"NHL tänä yönä {dd}: suomalaisten ottelut ja ilmaiset lähetykset" if not fin_games else f"NHL tänä yönä {dd}: suomalaisia {nwi(len(fin_games))} ottelussa"
+        title = f"NHL tänä yönä {dd}: suomalaiset ja ottelut" if not fin_games else f"NHL tänä yönä {dd}: suomalaisia {nwi(len(fin_games))} ottelussa"
     lead = (f"NHL:ssä pelataan tänä yönä {nw(len(games)) if len(games) <= 10 else len(games)} ottelua. "
             + (f"Suomalaisia on joukkueiden kokoonpanoissa {nwi(len(fin_games))} ottelussa. " if fin_games else "Yhdessäkään illan ottelussa ei ole suomalaisia kokoonpanoissa. ")
-            + (f"Ilmaiseksi näkyy {len(frees)} ottelu." if len(frees) == 1 else f"Ilmaiseksi näkyy {len(frees)} ottelua." if frees else ""))
+            + ("Ilmaiseksi näkyy yksi ottelu." if len(frees) == 1 else f"Ilmaiseksi näkyy {nw(len(frees))} ottelua." if frees else ""))
     body = [f"<p class='ingressi'>{esc(lead.strip())}</p>"]
     if fin_games:
         body.append("<h2>Suomalaisten ottelut</h2>")

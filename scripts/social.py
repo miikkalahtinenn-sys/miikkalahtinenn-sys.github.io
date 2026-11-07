@@ -54,14 +54,15 @@ def post_bsky(rec, url):
     text = rec["text"]
     tail = "\nKaikki tulokset ja maalikoosteet: "
     link = url.replace("https://", "")
-    if len(text) + len(tail) + len(link) > 290:
-        text = text[: 290 - len(tail) - len(link) - 1].rsplit(",", 1)[0] + "…"
+    if len(text) + len(tail) + len(link) > 278:
+        text = text[: 278 - len(tail) - len(link) - 1].rsplit(",", 1)[0] + "…"
     full = text + tail + link
     start = len((text + tail).encode())
     facets = [{"index": {"byteStart": start, "byteEnd": start + len(link.encode())}, "features": [{"$type": "app.bsky.richtext.facet#link", "uri": url}]}]
-    full += " #NHL"
-    ts = len(full.encode()) - 4
-    facets.append({"index": {"byteStart": ts, "byteEnd": ts + 4}, "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": "NHL"}]})
+    for tag in ("NHL", "jääkiekko"):
+        full += f" #{tag}"
+        end = len(full.encode())
+        facets.append({"index": {"byteStart": end - len(("#" + tag).encode()), "byteEnd": end}, "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": tag}]})
     try:
         s = http(f"{pds}/com.atproto.server.createSession", {"identifier": handle, "password": pw})
     except urllib.error.HTTPError as e:

@@ -1161,7 +1161,7 @@ def page(title, desc, path, body, jsonld=None, og=None):
 <link rel="canonical" href="{base}{path}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website"><meta property="og:url" content="{base}{path}"><meta property="og:locale" content="fi_FI">
 <meta property="og:image" content="{base}{og or '/og.png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml"><link rel="icon" href="/favicon-48.png?v=2" sizes="48x48" type="image/png"><link rel="icon" href="/favicon-96.png?v=2" sizes="96x96" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2"><link rel="manifest" href="/manifest.webmanifest"><link rel="alternate" type="application/rss+xml" title="Punalamppu – suomalaiset yön NHL-kierroksella" href="/rss.xml"><meta name="theme-color" content="#0B1118"><link rel="stylesheet" href="/static.css">{ld}</head>
+<link rel="icon" href="/favicon.ico?v=2" sizes="any"><link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml"><link rel="icon" href="/favicon-48.png?v=2" sizes="48x48" type="image/png"><link rel="icon" href="/favicon-96.png?v=2" sizes="96x96" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2"><link rel="manifest" href="/manifest.webmanifest"><link rel="alternate" type="application/rss+xml" title="Punalamppu – suomalaiset yön NHL-kierroksella" href="/rss.xml"><meta name="theme-color" content="#0B1118"><meta name="robots" content="max-image-preview:large"><link rel="stylesheet" href="/static.css">{ld}</head>
 <body><div class="wrap">{site_header(path)}
 <main>{boxify(body)}</main>{footer()}</div><script data-goatcounter="https://punalamppu.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script><script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{{}}))</script></body></html>"""
 
@@ -1609,7 +1609,19 @@ def build_site(data):
     sm = "".join(f"<url><loc>{base}{u}</loc><lastmod>{today}</lastmod></url>" for u in urls)
     open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8").write(
         f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>')
-    open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+    # Google News -sivukartta: viimeisen kahden vuorokauden koosteet
+    cut = (now_utc().astimezone(HEL).date() - dt.timedelta(days=2)).isoformat()
+    news = []
+    for d, nice, h, ld in KOOSTEET:
+        pubd = (dt.date.fromisoformat(d) + dt.timedelta(days=1)).isoformat()
+        if pubd >= cut:
+            news.append(f"<url><loc>{base}/koosteet/{d}/</loc><news:news><news:publication><news:name>Punalamppu</news:name>"
+                        f"<news:language>fi</news:language></news:publication><news:publication_date>{pubd}T07:00:00+02:00</news:publication_date>"
+                        f"<news:title>{html.escape(h)}</news:title></news:news></url>")
+    open(os.path.join(OUT, "news-sitemap.xml"), "w", encoding="utf-8").write(
+        '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">' + "".join(news) + "</urlset>")
+    open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\nSitemap: {base}/news-sitemap.xml\n")
     domain = re.sub(r"^https?://", "", base).split("/")[0]
     if not domain.endswith("github.io"):
         open(os.path.join(OUT, "CNAME"), "w").write(domain + "\n")

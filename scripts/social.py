@@ -75,6 +75,34 @@ def post_bsky(rec, url):
     return r.get("uri")
 
 
+def bsky_avatar():
+    """Päivittää Bluesky-profiilin kuvan tiedostosta assets/avatar.png (vain käsin käynnistettäessä)."""
+    handle = (os.environ.get("BSKY_HANDLE") or "").strip().lstrip("@").strip()
+    pw = (os.environ.get("BSKY_APP_PASSWORD") or "").strip()
+    if not handle or not pw:
+        print("bsky-avatar: tunnuksia ei asetettu")
+        return
+    if "." not in handle:
+        handle += ".bsky.social"
+    pds = "https://bsky.social/xrpc"
+    s = http(f"{pds}/com.atproto.server.createSession", {"identifier": handle, "password": pw})
+    auth = {"Authorization": f"Bearer {s['accessJwt']}"}
+    img = open(os.path.join(ROOT, "assets", "avatar.png"), "rb").read()
+    req = urllib.request.Request(f"{pds}/com.atproto.repo.uploadBlob", data=img, headers=dict(auth, **{"Content-Type": "image/png"}))
+    with urllib.request.urlopen(req, timeout=60) as r:
+        blob = json.loads(r.read().decode())["blob"]
+    try:
+        cur = http(f"{pds}/com.atproto.repo.getRecord?" + urllib.parse.urlencode({"repo": s["did"], "collection": "app.bsky.actor.profile", "rkey": "self"}), headers=auth)
+        rec = cur.get("value") or {}
+    except urllib.error.HTTPError:
+        rec = {}
+    rec["$type"] = "app.bsky.actor.profile"
+    rec["avatar"] = blob
+    rec.setdefault("displayName", "Punalamppu")
+    http(f"{pds}/com.atproto.repo.putRecord", {"repo": s["did"], "collection": "app.bsky.actor.profile", "rkey": "self", "record": rec}, auth)
+    print("bsky-avatar: profiilikuva päivitetty")
+
+
 # ---------------------------------------------------------------- Telegram
 def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -191,6 +219,11 @@ def main():
 
 
 if __name__ == "__main__":
+    if os.environ.get("BSKY_AVATAR") == "true":
+        try:
+            bsky_avatar()
+        except Exception as e:
+            print("bsky-avatar epäonnistui:", e)
     try:
         main()
     except Exception as e:

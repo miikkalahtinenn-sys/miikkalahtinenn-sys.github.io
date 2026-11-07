@@ -14,6 +14,10 @@ on:
         description: "Julkaise aamukatsaus someen heti (testi)"
         type: boolean
         default: false
+      bsky_avatar:
+        description: "Päivitä Bluesky-profiilikuva (assets/avatar.png)"
+        type: boolean
+        default: false
       social_only:
         description: "Vain nämä palvelut (esim. telegram tai bsky,threads); tyhjä = kaikki"
         type: string
@@ -91,6 +95,7 @@ jobs:
           THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
           SOCIAL_FORCE: ${{ inputs.bsky_force }}
           SOCIAL_ONLY: ${{ inputs.social_only }}
+          BSKY_AVATAR: ${{ inputs.bsky_avatar }}
         run: |
           python scripts/social.py
           if [ -n "$(git status --porcelain data/social.json data/threads.enc)" ]; then

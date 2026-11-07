@@ -422,9 +422,11 @@ def fetch_roster_finns(today):
     path = os.path.join(DATA, "rosters.json")
     cache = load_json(path, {})
     if cache.get("date") != today.isoformat() or not cache.get("players") or "allIds" not in cache or "fiNames" not in cache:
-        players, all_ids = [], []
+        players, all_ids, failed = [], [], 0
         for abbr in TEAMS:
             d = get(f"{API}/roster/{abbr}/current") or {}
+            if not d:
+                failed += 1
             for grp, pos in (("forwards", "H"), ("defensemen", "P"), ("goalies", "MV")):
                 for p in d.get(grp) or []:
                     if p.get("id"):
@@ -433,7 +435,7 @@ def fetch_roster_finns(today):
                     if (p.get("birthCountry") or "").upper() != "FIN":
                         continue
                     players.append({"id": p.get("id"), "name": fixname(full_name(p)), "team": abbr, "pos": pos})
-        if players:
+        if players and not failed:
             cache = {"date": today.isoformat(), "players": players, "allIds": sorted(set(all_ids)), "fiNames": dict(sorted(FI_NAMES.items()))}
             save_json(path, cache)
     ROSTER_IDS.clear()

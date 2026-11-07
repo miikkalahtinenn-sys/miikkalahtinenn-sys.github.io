@@ -18,7 +18,7 @@
      "tag": "",
      "ast": [
       "Owen Power",
-      "C. Timmins"
+      "Conor Timmins"
      ],
      "fin": false
     },
@@ -168,6 +168,400 @@
       "shots": 26,
       "dec": "W",
       "toi": "60:00"
+     }
+    ]
+   }
+  },
+  "2026020263": {
+   "id": 2026020263,
+   "away": "SJS",
+   "home": "MIN",
+   "awayScore": 1,
+   "homeScore": 4,
+   "start": "2026-11-07T01:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "07:55",
+     "team": "MIN",
+     "who": "Kirill Kaprizov",
+     "tag": "YV",
+     "ast": [
+      "Quinn Hughes",
+      "Matt Boldy"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "12:11",
+     "team": "SJS",
+     "who": "Macklin Celebrini",
+     "tag": "",
+     "ast": [
+      "Dmitri Orlov",
+      "Will Smith"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "14:15",
+     "team": "MIN",
+     "who": "Maxim Shabanov",
+     "tag": "YV",
+     "ast": [
+      "Kirill Kaprizov",
+      "Quinn Hughes"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "06:54",
+     "team": "MIN",
+     "who": "Quinn Hughes",
+     "tag": "",
+     "ast": [
+      "Kirill Kaprizov",
+      "Jonas Brodin"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "13:58",
+     "team": "MIN",
+     "who": "Zach Bogosian",
+     "tag": "",
+     "ast": [
+      "Joel Eriksson Ek",
+      "Kirill Kaprizov"
+     ],
+     "fin": false
+    }
+   ],
+   "goalies": "Yaroslav Askarov (SJS) 25 torjuntaa · Jesper Wallstedt (MIN) 23 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Quinn Hughes",
+     "team": "MIN",
+     "pos": "D",
+     "goals": 1,
+     "assists": 2,
+     "points": 3,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Kirill Kaprizov",
+     "team": "MIN",
+     "pos": "L",
+     "goals": 1,
+     "assists": 3,
+     "points": 4,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Jesper Wallstedt",
+     "team": "MIN",
+     "pos": "G",
+     "goals": null,
+     "assists": null,
+     "points": null,
+     "svp": 0.958
+    }
+   ],
+   "venue": "Grand Casino Arena",
+   "finStats": [
+    {
+     "name": "Olli Määttä",
+     "team": "MIN",
+     "opp": "SJS",
+     "pos": "P",
+     "g": 0,
+     "a": 0,
+     "p": 0,
+     "pm": 1,
+     "sog": 0,
+     "toi": "18:20"
+    }
+   ],
+   "note": "",
+   "recapUrl": "https://www.nhl.com/video/sjs-at-min-recap-6408050423112",
+   "videoId": "",
+   "details": {
+    "goalies": "Yaroslav Askarov (SJS) 25 torjuntaa · Jesper Wallstedt (MIN) 23 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Quinn Hughes",
+      "team": "MIN",
+      "pos": "D",
+      "goals": 1,
+      "assists": 2,
+      "points": 3,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Kirill Kaprizov",
+      "team": "MIN",
+      "pos": "L",
+      "goals": 1,
+      "assists": 3,
+      "points": 4,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Jesper Wallstedt",
+      "team": "MIN",
+      "pos": "G",
+      "goals": null,
+      "assists": null,
+      "points": null,
+      "svp": 0.958
+     }
+    ],
+    "venue": "Grand Casino Arena",
+    "finStats": [
+     {
+      "name": "Olli Määttä",
+      "team": "MIN",
+      "opp": "SJS",
+      "pos": "P",
+      "g": 0,
+      "a": 0,
+      "p": 0,
+      "pm": 1,
+      "sog": 0,
+      "toi": "18:20"
+     }
+    ]
+   }
+  },
+  "2026020264": {
+   "id": 2026020264,
+   "away": "ANA",
+   "home": "CGY",
+   "awayScore": 5,
+   "homeScore": 3,
+   "start": "2026-11-07T01:00:00Z",
+   "final": "",
+   "goals": [
+    {
+     "p": "1",
+     "t": "02:23",
+     "team": "CGY",
+     "who": "William Stromgren",
+     "tag": "",
+     "ast": [
+      "Zayne Parekh",
+      "Yan Kuznetsov"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "02:50",
+     "team": "ANA",
+     "who": "Jeff Malottt",
+     "tag": "",
+     "ast": [],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "16:29",
+     "team": "CGY",
+     "who": "Joel Hanley",
+     "tag": "",
+     "ast": [
+      "Morgan Frost",
+      "Simon Nemec"
+     ],
+     "fin": false
+    },
+    {
+     "p": "1",
+     "t": "19:02",
+     "team": "CGY",
+     "who": "Joel Farabee",
+     "tag": "YV",
+     "ast": [
+      "Zayne Parekh",
+      "Morgan Frost"
+     ],
+     "fin": false
+    },
+    {
+     "p": "2",
+     "t": "12:02",
+     "team": "ANA",
+     "who": "Tristan Luneau",
+     "tag": "",
+     "ast": [
+      "Jackson LaCombe",
+      "Leo Carlsson"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "00:55",
+     "team": "ANA",
+     "who": "Leo Carlsson",
+     "tag": "YV",
+     "ast": [
+      "Beckett Sennecke",
+      "Mikael Granlund"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "18:26",
+     "team": "ANA",
+     "who": "Cutter Gauthier",
+     "tag": "",
+     "ast": [
+      "Mikael Granlund",
+      "Beckett Sennecke"
+     ],
+     "fin": false
+    },
+    {
+     "p": "3",
+     "t": "19:46",
+     "team": "ANA",
+     "who": "Nikita Nesterenko",
+     "tag": "TM",
+     "ast": [],
+     "fin": false
+    }
+   ],
+   "goalies": "Lukas Dostal (ANA) 8 torjuntaa · Ville Husso (ANA) 10 torjuntaa · Dustin Wolf (CGY) 24 torjuntaa",
+   "threeStars": [
+    {
+     "star": 1,
+     "name": "Beckett Sennecke",
+     "team": "ANA",
+     "pos": "R",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 2,
+     "name": "Leo Carlsson",
+     "team": "ANA",
+     "pos": "C",
+     "goals": 1,
+     "assists": 1,
+     "points": 2,
+     "svp": null
+    },
+    {
+     "star": 3,
+     "name": "Zayne Parekh",
+     "team": "CGY",
+     "pos": "D",
+     "goals": 0,
+     "assists": 2,
+     "points": 2,
+     "svp": null
+    }
+   ],
+   "venue": "Scotiabank Saddledome",
+   "finStats": [
+    {
+     "name": "Mikael Granlund",
+     "team": "ANA",
+     "opp": "CGY",
+     "pos": "H",
+     "g": 0,
+     "a": 2,
+     "p": 2,
+     "pm": 2,
+     "sog": 1,
+     "toi": "23:07"
+    },
+    {
+     "name": "Ville Husso",
+     "team": "ANA",
+     "opp": "CGY",
+     "pos": "MV",
+     "saves": 10,
+     "shots": 10,
+     "dec": "W",
+     "toi": "39:40"
+    }
+   ],
+   "note": "Suomalaiset: Granlund 0+2",
+   "recapUrl": "https://www.nhl.com/video/ana-at-cgy-recap-6408050315112",
+   "videoId": "",
+   "details": {
+    "goalies": "Lukas Dostal (ANA) 8 torjuntaa · Ville Husso (ANA) 10 torjuntaa · Dustin Wolf (CGY) 24 torjuntaa",
+    "threeStars": [
+     {
+      "star": 1,
+      "name": "Beckett Sennecke",
+      "team": "ANA",
+      "pos": "R",
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 2,
+      "name": "Leo Carlsson",
+      "team": "ANA",
+      "pos": "C",
+      "goals": 1,
+      "assists": 1,
+      "points": 2,
+      "svp": null
+     },
+     {
+      "star": 3,
+      "name": "Zayne Parekh",
+      "team": "CGY",
+      "pos": "D",
+      "goals": 0,
+      "assists": 2,
+      "points": 2,
+      "svp": null
+     }
+    ],
+    "venue": "Scotiabank Saddledome",
+    "finStats": [
+     {
+      "name": "Mikael Granlund",
+      "team": "ANA",
+      "opp": "CGY",
+      "pos": "H",
+      "g": 0,
+      "a": 2,
+      "p": 2,
+      "pm": 2,
+      "sog": 1,
+      "toi": "23:07"
+     },
+     {
+      "name": "Ville Husso",
+      "team": "ANA",
+      "opp": "CGY",
+      "pos": "MV",
+      "saves": 10,
+      "shots": 10,
+      "dec": "W",
+      "toi": "39:40"
      }
     ]
    }

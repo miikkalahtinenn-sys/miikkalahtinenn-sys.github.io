@@ -225,6 +225,10 @@ nav a.fi-tab{display:inline-flex;align-items:center}
 .rnotes{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
 .rnotes li{display:flex;gap:8px;padding:4px 0;font-size:13.5px;line-height:1.45;color:#d8e2ec}
 .fin-now .more.kooste{border-top:1px solid var(--line);font-weight:700}
+.newsc{padding:14px 16px;margin-top:14px}.newsc h3{margin:0 0 6px;font-size:15px}.newsc ul{list-style:none;margin:0;padding:0}
+.newsc li a{display:block;padding:8px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4}
+.newsc li:first-child a{border-top:0}.newsc li a:hover span{text-decoration:underline}.newsc small{display:block;color:var(--mute);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
+.newsc .more{display:block;margin-top:8px;font-size:13px;font-weight:600}
 </style>
 </head>
 <body>
@@ -241,7 +245,7 @@ nav a.fi-tab{display:inline-flex;align-items:center}
     <a href="#tulokset" data-v="tulokset">Tulokset</a>
     <a href="#ohjelma" data-v="ohjelma">Tulevat ottelut</a>
     <a href="#suomalaiset" data-v="suomalaiset" class="fi-tab"><span class="flag sm"></span>Suomalaiset</a>
-    <a href="/koosteet/">Koosteet</a>
+    <a href="/uutiset/">Uutiset</a>
     <a href="/nhl-tv/">TV-lähetykset</a>
     <a href="#porssi" data-v="porssi">Pistepörssi</a>
     <a href="#sarjataulukko" data-v="sarjataulukko">Sarjataulukko</a>
@@ -342,6 +346,10 @@ function statsDuo(){
     <div class="card tbl"><h3><span class="flag sm"></span>Suomalaisten kärki</h3><table><tbody>${F.map((p,i)=>r(p,i,p[6],true)).join("")}</tbody></table><a class="more2" href="#suomalaiset">Kaikki suomalaiset →</a></div>
   </div>`;
 }
+function newsBox(){
+  const n=D.news||[];if(!n.length)return"";
+  return `<section class="card newsc"><h3>Tuoreimmat uutiset</h3><ul>${n.map(x=>`<li><a href="${esc(x.u)}"><small>${esc(x.k)}</small><span>${esc(x.t)}</span></a></li>`).join("")}</ul><a class="more" href="/uutiset/">Kaikki uutiset →</a></section>`;
+}
 function renderResults(){
   const el=document.getElementById("v-tulokset");
   if(!D.games.length&&!(D.pending||[]).length){el.innerHTML=`<h2>Yön tulokset</h2><div class="card empty">Yöllä ei pelattu NHL-otteluita.</div>${statsDuo()}`;return;}
@@ -374,7 +382,7 @@ function renderResults(){
     </article>`;
   }
   h+=`</div><div class="legend" style="margin-top:10px">Maalikoosteet: NHL.com, katsottavissa ottelusivuilla. Video ladataan NHL:n palvelusta vasta, kun painat toistopainiketta.</div>`;
-  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
+  el.innerHTML=top+`<div class="rgrid"><div class="rfin">${fin}${newsBox()}</div><div class="rmain">${h}</div><div class="rstats"><h2 style="margin-top:18px">Tilastot</h2>${statsDuo()}</div></div>`;
 }
 
 /* ---------- Tulevat ottelut ---------- */

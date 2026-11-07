@@ -2781,6 +2781,18 @@ def roster_articles(st, data, D):
     now_map = {str(p["id"]): {"team": p["team"], "name": p["name"]} for p in cur["players"]}
     prev = st.get("roster_prev")
     out = []
+    if FIXTURES:
+        return []
+    # turvatarkistukset: jos haku on epäonnistunut osittain tai muutoksia on epäuskottavan paljon, ei uutisoida
+    if prev and len(now_map) < 0.85 * len(prev):
+        log("kokoonpanot: liian vähän pelaajia, ei uutisoida", len(now_map), len(prev))
+        return []
+    changed = [pid for pid in now_map if pid not in prev or prev[pid]["team"] != now_map[pid]["team"]] + [pid for pid in prev if pid not in now_map] if prev else []
+    if len(changed) > 5:
+        log("kokoonpanot: epäuskottavan monta muutosta, ei uutisoida", len(changed))
+        st["roster_prev"] = now_map
+        st["roster_date"] = D.isoformat()
+        return []
     if prev and st.get("roster_date") != D.isoformat():
         slugs = data["finnSlugs"]
         def link(n):
